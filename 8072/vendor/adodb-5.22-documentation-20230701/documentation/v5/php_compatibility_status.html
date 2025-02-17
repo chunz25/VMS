@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <!--
+keywords - php,adodb,php7,upgrade,custom,package
+--><!--
+description - ADOdb can be run successfully with PHP 7
+--><meta name="generator" content="DokuWiki">
+<meta name="theme-color" content="#008800">
+<meta name="robots" content="index,follow">
+<meta name="keywords" content="php,adodb,php7,upgrade,custom,package">
+<meta name="description" content="ADOdb can be run successfully with PHP 7">
+<link rel="search" type="application/opensearchdescription+xml" href="../lib/exe/opensearch.html" title="ADOdb">
+<link rel="start" href="php_compatibility_status.html">
+<link rel="contents" href="php_compatibility_status.html" title="Sitemap">
+<link rel="manifest" href="../lib/exe/manifest.html">
+<link rel="alternate" type="application/rss+xml" title="Recent Changes">
+<link rel="alternate" type="application/rss+xml" title="Current namespace">
+<link rel="alternate" type="text/html" title="Plain HTML" href="php_compatibility_status.html">
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="php_compatibility_status.html">
+<link rel="canonical" href="https://adodb.org/dokuwiki/doku.php?id=v5:php_compatibility_status">
+<link rel="stylesheet" href="../lib/exe/css.php.t.dokuwiki.css">
+<!--[if gte IE 9]><!-->
+<script>/*<![CDATA[*/var NS='v5';var JSINFO = {"plugins":{"edittable":{"default columnwidth":""}},"move_renameokay":false,"id":"v5:php_compatibility_status","namespace":"v5","ACT":"show","useHeadingNavigation":1,"useHeadingContent":1};
+/*!]]>*/</script>
+<script src="../lib/exe/jquery.php.t.dokuwiki.js" defer>/*<![CDATA[*/
+/*!]]>*/</script>
+<script src="../lib/exe/js.php.t.dokuwiki.js" defer>/*<![CDATA[*/
+/*!]]>*/</script>
+<!--<![endif]-->
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="shortcut icon" href="../lib/tpl/dokuwiki/images/favicon.ico">
+<link rel="apple-touch-icon" href="../lib/tpl/dokuwiki/images/apple-touch-icon.png">
+    <title>v5:php_compatibility_status</title></head>
+
+<body>
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_dokuwiki    showSidebar hasSidebar">
+
+        
+<!-- ********** HEADER ********** -->
+<header id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1 class="logo"><a href="..//index.html" accesskey="h" title="Home [h]"><img src="../logo.png" width="176" height="62" alt=""> <span>ADOdb</span></a></h1>
+                    <p class="claim">Database Abstraction Layer for PHP</p>
+            </div>
+
+    
+
+    <!-- BREADCRUMBS -->
+            
+    
+    <hr class="a11y">
+<div style="text-align:right"><a href="https://adodb.org">ADOdb Web Site</a></div></div></header><!-- /header -->
+
+        <div class="wrapper group">
+
+                            <!-- ********** ASIDE ********** -->
+                <nav id="dokuwiki__aside" aria-label="Sidebar"><div class="pad aside include group">
+                    <h3 class="toggle">Sidebar</h3>
+                    <div class="content"><div class="group">
+                                                                        
+<p>
+<strong>Resources</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="../v5/reference/reference_index.html" class="wikilink1" title="v5:reference:reference_index" data-wiki-id="v5:reference:reference_index">Reference Manual</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../v5/userguide/userguide_index.html" class="wikilink1" title="v5:userguide:userguide_index" data-wiki-id="v5:userguide:userguide_index">User Guide &amp; Tutorials</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../v5/dictionary/dictionary_index.html" class="wikilink1" title="v5:dictionary:dictionary_index" data-wiki-id="v5:dictionary:dictionary_index">The Data Dictionary</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../v5/axmls/axmls_index.html" class="wikilink1" title="v5:axmls:axmls_index" data-wiki-id="v5:axmls:axmls_index">ADOdb-xmlschema</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../v5/activerecord/activerecord_index.html" class="wikilink1" title="v5:activerecord:activerecord_index" data-wiki-id="v5:activerecord:activerecord_index">ADOdb Active Record</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../v5/performance/performance_index.html" class="wikilink1" title="v5:performance:performance_index" data-wiki-id="v5:performance:performance_index">Performance Monitoring</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../v5/datetime/datetime_index.html" class="wikilink1" title="v5:datetime:datetime_index" data-wiki-id="v5:datetime:datetime_index">Date/Time Library</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../v5/session/session_index.html" class="wikilink1" title="v5:session:session_index" data-wiki-id="v5:session:session_index">Session Management Library</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../v5/proxy/proxy_index.html" class="wikilink1" title="v5:proxy:proxy_index" data-wiki-id="v5:proxy:proxy_index">ADOdb Proxy Server</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../v5/addons/addons_index.html" class="wikilink1" title="v5:addons:addons_index" data-wiki-id="v5:addons:addons_index">Unsupported Addons</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../project/standards.html" class="wikilink1" title="project:standards" data-wiki-id="project:standards">Coding Standards</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../v5/php_compatibility_status.html" class="wikilink1" title="v5:php_compatibility_status" data-wiki-id="v5:php_compatibility_status">PHP Compatibility Status</a></div>
+</li>
+</ul>
+
+<p>
+<strong><a href="../v5/database/supported.html" class="wikilink1" title="v5:database:supported" data-wiki-id="v5:database:supported">Supported Databases</a></strong>
+</p>
+<ol>
+<li class="level1"><div class="li"> Full support    <ul><li><a href="../v5/database/ibm_db2.html" class="wikilink1" title="v5:database:ibm_db2">IBM DB2</a></li><li><a href="../v5/database/microsoft_sql_server.html" class="wikilink1" title="v5:database:microsoft_sql_server">Microsoft SQL Server</a></li><li><a href="../v5/database/mysql.html" class="wikilink1" title="v5:database:mysql">MySQL</a></li><li><a href="../v5/database/oracle.html" class="wikilink1" title="v5:database:oracle">Oracle</a></li><li><a href="../v5/database/postgresql.html" class="wikilink1" title="v5:database:postgresql">PostgreSQL</a></li><li><a href="../v5/database/sqlite.html" class="wikilink1" title="v5:database:sqlite">SQLite Database</a></li></ul></div>
+</li>
+<li class="level1"><div class="li"> Partial support <ul><li><a href="../v5/database/firebird.html" class="wikilink1" title="v5:database:firebird">Firebird &amp; Interbase</a></li><li><a href="../v5/database/ldap.html" class="wikilink1" title="v5:database:ldap">LDAP</a></li><li><a href="../v5/database/access.html" class="wikilink1" title="v5:database:access">Microsoft Access</a></li><li><a href="../v5/database/odbc.html" class="wikilink1" title="v5:database:odbc">ODBC</a></li><li><a href="../v5/database/pdo.html" class="wikilink1" title="v5:database:pdo">PDO</a></li><li><a href="../v5/database/pdo_new.html" class="wikilink1" title="v5:database:pdo_new">PDO (new)</a></li></ul></div>
+</li>
+<li class="level1"><div class="li"> <a href="../v5/database/unsupported.html" class="wikilink1" title="v5:database:unsupported" data-wiki-id="v5:database:unsupported">Obsolete/Unsupported Drivers</a></div>
+</li>
+</ol>
+                                            </div></div>
+                </div></nav><!-- /aside -->
+            
+            <!-- ********** CONTENT ********** -->
+            <main id="dokuwiki__content"><div class="pad group">
+                
+                <div class="pageId"><span>v5:php_compatibility_status</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc" class="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#support_matrix_by_php_version">Support Matrix by PHP version</a></div></li>
+<li class="level1"><div class="li"><a href="#legacy_adodb_versions_support">Legacy ADOdb Versions Support</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#upgrading_from_earlier_releases">Upgrading From Earlier Releases</a></div></li>
+<li class="level2"><div class="li"><a href="#moving_from_custom_releases">Moving From Custom Releases</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="#package_testing_status">Package Testing Status</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="php_compatibility_status">PHP Compatibility Status</h1>
+<div class="level1">
+
+<p>
+Should you discover any PHP compatibility issue in ADOdb, 
+kindly <a href="https://github.com/ADOdb/ADOdb/issues/new?assignees=&amp;labels=triage&amp;template=bug_report.md&amp;title=" class="urlextern" target="_blank" title="https://github.com/ADOdb/ADOdb/issues/new?assignees=&amp;labels=triage&amp;template=bug_report.md&amp;title=" rel="ugc nofollow noopener">report it in our tracker</a>.
+</p>
+
+<p>
+Corrections are published as Hotfix releases<sup><a href="#fn__1" id="fnt__1" class="fn_top">1)</a></sup>, so please make that sure the problem you're facing still exists in the most recent version, including unreleased fixes in the <em>hotfix/x.xx</em> branch, before submitting a new issue. 
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="support_matrix_by_php_version">Support Matrix by PHP version</h2>
+<div class="level2">
+<div class="table sectionedit3"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 leftalign"> PHP version    </th><th class="col1 leftalign"> ADOdb minimum  </th><th class="col2 leftalign"> End support           </th><th class="col3 leftalign"> Known issues                                           </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 leftalign"> 8.2            </td><td class="col1 leftalign"> 5.22.6         </td><td class="col2 leftalign">                       </td><td class="col3 leftalign"> <a href="https://github.com/ADOdb/ADOdb/labels/PHP8.2" class="urlextern" target="_blank" title="https://github.com/ADOdb/ADOdb/labels/PHP8.2" rel="ugc nofollow noopener">list</a>  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"> 8.1            </td><td class="col1 leftalign"> 5.22.4         </td><td class="col2 leftalign">                       </td><td class="col3 leftalign"> <a href="https://github.com/ADOdb/ADOdb/labels/PHP8.1" class="urlextern" target="_blank" title="https://github.com/ADOdb/ADOdb/labels/PHP8.1" rel="ugc nofollow noopener">list</a>  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign"> 8.0            </td><td class="col1 leftalign"> 5.20.20        </td><td class="col2 leftalign">                       </td><td class="col3 leftalign"> <a href="https://github.com/ADOdb/ADOdb/labels/PHP8" class="urlextern" target="_blank" title="https://github.com/ADOdb/ADOdb/labels/PHP8" rel="ugc nofollow noopener">list</a>    </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 leftalign"> 7.4            </td><td class="col1 leftalign"> 5.20.12        </td><td class="col2 leftalign">                       </td><td class="col3 leftalign" rowspan="2"> <a href="https://github.com/ADOdb/ADOdb/labels/PHP7" class="urlextern" target="_blank" title="https://github.com/ADOdb/ADOdb/labels/PHP7" rel="ugc nofollow noopener">list</a>    </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 leftalign"> 7.0 - 7.3      </td><td class="col1 leftalign"> 5.20.12        </td><td class="col2 leftalign"> 5.23.0<sup><a href="#fn__2" id="fnt__2" class="fn_top">2)</a></sup>  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 leftalign"> 5.5 - 5.6      </td><td class="col1 leftalign"> 5.x            </td><td class="col2 leftalign"> 5.22.0                </td><td class="col3 leftalign">                                                        </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 leftalign"> 5.4 and older  </td><td class="col1 leftalign"> 5.x            </td><td class="col2 leftalign"> 5.21.0                </td><td class="col3 leftalign">                                                        </td>
+	</tr>
+</table></div>
+
+<p>
+<em>ADOdb minimum</em> indicates the earliest ADOdb release with support for the given PHP version. You are always advised to use the latest hotfix release, as there may be unknown or unresolved issues with the specified version; make sure to check the known issues list.
+</p>
+
+<p>
+<em>End support</em> specifies the ADOdb release where support for the given PHP version was dropped.
+</p>
+
+</div>
+
+<h2 class="sectionedit4" id="legacy_adodb_versions_support">Legacy ADOdb Versions Support</h2>
+<div class="level2">
+
+<p>
+Please note that there are no plans to fix PHP compatibility issues in ADOdb Legacy versions (5.21 and older).
+</p>
+
+</div>
+
+<h3 class="sectionedit5" id="upgrading_from_earlier_releases">Upgrading From Earlier Releases</h3>
+<div class="level3">
+
+<p>
+Users have reported that upgrading from releases 5.00 (released in 2007) and higher have been reasonably easy, but that earlier versions may require substantial adjustments, due to design considerations in ADOdb version 4. 
+</p>
+
+<p>
+If you need guidance, use any of the <a href="../index.html" class="wikilink1" title="index" data-wiki-id="index">support methods</a> listed on the main page.
+</p>
+
+</div>
+
+<h3 class="sectionedit6" id="moving_from_custom_releases">Moving From Custom Releases</h3>
+<div class="level3">
+
+<p>
+In order to migrate their products from custom older versions of ADOdb back to the core product and take advantage of the active development of the product, as well as compatibility with PHP 7 and later, a number of users have submitted their custom functionality to be integrated into core. If you are in the same situation, contact us about having your feature added.
+</p>
+
+</div>
+
+<h2 class="sectionedit7" id="package_testing_status">Package Testing Status</h2>
+<div class="level2">
+
+<p>
+Heavy use drivers are the <em>tier 1</em> drivers, plus their PDO variants: 
+</p>
+<div class="table"><table class="ul"><tr><td class="page"><ul><li><a href="../v5/database/ibm_db2.html" class="wikilink1" title="v5:database:ibm_db2">IBM DB2</a></li></ul></td></tr><tr><td class="page"><ul><li><a href="../v5/database/microsoft_sql_server.html" class="wikilink1" title="v5:database:microsoft_sql_server">Microsoft SQL Server</a></li></ul></td></tr><tr><td class="page"><ul><li><a href="../v5/database/mysql.html" class="wikilink1" title="v5:database:mysql">MySQL</a></li></ul></td></tr><tr><td class="page"><ul><li><a href="../v5/database/oracle.html" class="wikilink1" title="v5:database:oracle">Oracle</a></li></ul></td></tr><tr><td class="page"><ul><li><a href="../v5/database/postgresql.html" class="wikilink1" title="v5:database:postgresql">PostgreSQL</a></li></ul></td></tr><tr><td class="page"><ul><li><a href="../v5/database/sqlite.html" class="wikilink1" title="v5:database:sqlite">SQLite Database</a></li></ul></td></tr></table></div><div class="table sectionedit8"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0">Package</th><th class="col1">Status</th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0">Core database Methods</td><td class="col1">Testing complete on heavy use drivers, others are as reported</td>
+	</tr>
+	<tr class="row2">
+		<td class="col0">Data Dictionary</td><td class="col1">Testing complete on heavy use drivers, others are as reported</td>
+	</tr>
+	<tr class="row3">
+		<td class="col0">AXMLS</td><td class="col1">Testing in progress on heavy use drivers</td>
+	</tr>
+	<tr class="row4">
+		<td class="col0">Date/Time Library</td><td class="col1">Not Yet Tested</td>
+	</tr>
+	<tr class="row5">
+		<td class="col0">Performance Monitoring</td><td class="col1">Testing complete on supported drivers, IBM DB2 currently not supported</td>
+	</tr>
+	<tr class="row6">
+		<td class="col0">ADOdb Active Record</td><td class="col1">Testing complete on heavy use drivers, others are as reported</td>
+	</tr>
+	<tr class="row7">
+		<td class="col0">Session Management</td><td class="col1">Testing complete, PDO now supported</td>
+	</tr>
+</table></div>
+
+</div>
+<div class="footnotes">
+<div class="fn"><sup><a href="#fnt__1" id="fn__1" class="fn_bot">1)</a></sup> 
+<div class="content">Drop-in replacements to earlier versions of the same release number</div></div>
+<div class="fn"><sup><a href="#fnt__2" id="fn__2" class="fn_bot">2)</a></sup> 
+<div class="content">unreleased</div></div>
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>v5/php_compatibility_status.txt</bdi> &middot; Last modified: 2023/06/12 14:55 by <bdi>dregad</bdi></div>
+
+                
+                <hr class="a11y">
+            </div></main><!-- /content -->
+
+            <!-- PAGE ACTIONS -->
+            <nav id="dokuwiki__pagetools" aria-labelledby="dokuwiki__pagetools__heading">
+                <h3 class="a11y" id="dokuwiki__pagetools__heading">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li class="source"><a href="php_compatibility_status.html" title="Show pagesource [v]" rel="nofollow" accesskey="v"><span>Show pagesource</span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24"><path d="M13 9h5.5L13 3.5V9M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4c0-1.11.89-2 2-2m.12 13.5l3.74 3.74 1.42-1.41-2.33-2.33 2.33-2.33-1.42-1.41-3.74 3.74m11.16 0l-3.74-3.74-1.42 1.41 2.33 2.33-2.33 2.33 1.42 1.41 3.74-3.74z"></path></svg></a></li><li class="revs"><a href="php_compatibility_status.html" title="Old revisions [o]" rel="nofollow" accesskey="o"><span>Old revisions</span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24"><path d="M11 7v5.11l4.71 2.79.79-1.28-4-2.37V7m0-5C8.97 2 5.91 3.92 4.27 6.77L2 4.5V11h6.5L5.75 8.25C6.96 5.73 9.5 4 12.5 4a7.5 7.5 0 0 1 7.5 7.5 7.5 7.5 0 0 1-7.5 7.5c-3.27 0-6.03-2.09-7.06-5h-2.1c1.1 4.03 4.77 7 9.16 7 5.24 0 9.5-4.25 9.5-9.5A9.5 9.5 0 0 0 12.5 2z"></path></svg></a></li><li class="backlink"><a href="php_compatibility_status.html" title="Backlinks" rel="nofollow"><span>Backlinks</span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24"><path d="M10.59 13.41c.41.39.41 1.03 0 1.42-.39.39-1.03.39-1.42 0a5.003 5.003 0 0 1 0-7.07l3.54-3.54a5.003 5.003 0 0 1 7.07 0 5.003 5.003 0 0 1 0 7.07l-1.49 1.49c.01-.82-.12-1.64-.4-2.42l.47-.48a2.982 2.982 0 0 0 0-4.24 2.982 2.982 0 0 0-4.24 0l-3.53 3.53a2.982 2.982 0 0 0 0 4.24m2.82-4.24c.39-.39 1.03-.39 1.42 0a5.003 5.003 0 0 1 0 7.07l-3.54 3.54a5.003 5.003 0 0 1-7.07 0 5.003 5.003 0 0 1 0-7.07l1.49-1.49c-.01.82.12 1.64.4 2.43l-.47.47a2.982 2.982 0 0 0 0 4.24 2.982 2.982 0 0 0 4.24 0l3.53-3.53a2.982 2.982 0 0 0 0-4.24.973.973 0 0 1 0-1.42z"></path></svg></a></li><li class="siteexport_addpage"><a href="php_compatibility_status.html" title="Export Page to HTML/PDF" rel="nofollow"><span>Export Page to HTML/PDF</span><svg width="61px" height="51px" viewbox="0 0 61 51" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs></defs><path d="M26.1891503,39.0065635 L26.0876578,38.9773206 L60.6523866,1.23972885 L60.4321374,2.11844376 L60.476442,2.07071678 L60.4265202,2.14085429 L49.5024876,45.7237994 L32.8255882,40.9187101 L26,50.508302 L26,39.2103249 L26.1891503,39.0065635 Z M60.9727675,0.862917243 L22.2676619,38.2155059 L-0.00245042233,30.2214566 L60.9727675,0.862917243 Z" id="Paper-Plane"></path></svg></a></li><li class="top"><a href="#dokuwiki__top" title="Back to top [t]" rel="nofollow" accesskey="t"><span>Back to top</span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path></svg></a></li>                    </ul>
+                </div>
+            </nav>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<footer id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="https://creativecommons.org/licenses/by-sa/4.0/deed.en" rel="license" class="urlextern" target="_blank">CC Attribution-Share Alike 4.0 International</a></bdi></div>
+    <div class="buttons">
+        <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.en" rel="license" target="_blank"><img src="../lib/images/license/button/cc-by-sa.png" alt="CC Attribution-Share Alike 4.0 International"></a>        <a href="https://www.dokuwiki.org/donate" title="Donate" target="_blank"><img src="../lib/tpl/dokuwiki/images/button-donate.gif" width="80" height="15" alt="Donate"></a>
+        <a href="https://php.net" title="Powered by PHP" target="_blank"><img src="../lib/tpl/dokuwiki/images/button-php.gif" width="80" height="15" alt="Powered by PHP"></a>
+        <a href="../check/referer" title="Valid HTML5" target="_blank"><img src="../lib/tpl/dokuwiki/images/button-html5.png" width="80" height="15" alt="Valid HTML5"></a>
+        <a href="../css-validator/check/referer.profile.css3?profile=css3" title="Valid CSS" target="_blank"><img src="../lib/tpl/dokuwiki/images/button-css.png" width="80" height="15" alt="Valid CSS"></a>
+        <a href="https://dokuwiki.org/" title="Driven by DokuWiki" target="_blank"><img src="../lib/tpl/dokuwiki/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki"></a>
+    </div>
+
+    </div></footer><!-- /footer -->
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../lib/exe/taskrunner.1688205704.gif?1688205704" width="2" height="1" alt=""></div>
+    <div id="screen__mode" class="no"></div></body>
+</html>

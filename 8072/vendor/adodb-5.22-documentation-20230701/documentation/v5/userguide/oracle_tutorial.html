@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki">
+<meta name="theme-color" content="#008800">
+<meta name="robots" content="index,follow">
+<meta name="keywords" content="v5,userguide,oracle_tutorial">
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.html" title="ADOdb">
+<link rel="start" href="oracle_tutorial.html">
+<link rel="contents" href="oracle_tutorial.html" title="Sitemap">
+<link rel="manifest" href="../../lib/exe/manifest.html">
+<link rel="alternate" type="application/rss+xml" title="Recent Changes">
+<link rel="alternate" type="application/rss+xml" title="Current namespace">
+<link rel="alternate" type="text/html" title="Plain HTML" href="oracle_tutorial.html">
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="oracle_tutorial.html">
+<link rel="canonical" href="https://adodb.org/dokuwiki/doku.php?id=v5:userguide:oracle_tutorial">
+<link rel="stylesheet" href="../../lib/exe/css.php.t.dokuwiki.css">
+<!--[if gte IE 9]><!-->
+<script>/*<![CDATA[*/var NS='v5:userguide';var JSINFO = {"plugins":{"edittable":{"default columnwidth":""}},"move_renameokay":false,"id":"v5:userguide:oracle_tutorial","namespace":"v5:userguide","ACT":"show","useHeadingNavigation":1,"useHeadingContent":1};
+/*!]]>*/</script>
+<script src="../../lib/exe/jquery.php.t.dokuwiki.js" defer>/*<![CDATA[*/
+/*!]]>*/</script>
+<script src="../../lib/exe/js.php.t.dokuwiki.js" defer>/*<![CDATA[*/
+/*!]]>*/</script>
+<!--<![endif]-->
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="shortcut icon" href="../../lib/tpl/dokuwiki/images/favicon.ico">
+<link rel="apple-touch-icon" href="../../lib/tpl/dokuwiki/images/apple-touch-icon.png">
+    <title>v5:userguide:oracle_tutorial</title></head>
+
+<body>
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_dokuwiki    showSidebar hasSidebar">
+
+        
+<!-- ********** HEADER ********** -->
+<header id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1 class="logo"><a href="../..//index.html" accesskey="h" title="Home [h]"><img src="../../logo.png" width="176" height="62" alt=""> <span>ADOdb</span></a></h1>
+                    <p class="claim">Database Abstraction Layer for PHP</p>
+            </div>
+
+    
+
+    <!-- BREADCRUMBS -->
+            
+    
+    <hr class="a11y">
+<div style="text-align:right"><a href="https://adodb.org">ADOdb Web Site</a></div></div></header><!-- /header -->
+
+        <div class="wrapper group">
+
+                            <!-- ********** ASIDE ********** -->
+                <nav id="dokuwiki__aside" aria-label="Sidebar"><div class="pad aside include group">
+                    <h3 class="toggle">Sidebar</h3>
+                    <div class="content"><div class="group">
+                                                                        
+<p>
+<strong>Resources</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="../../v5/reference/reference_index.html" class="wikilink1" title="v5:reference:reference_index" data-wiki-id="v5:reference:reference_index">Reference Manual</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../../v5/userguide/userguide_index.html" class="wikilink1" title="v5:userguide:userguide_index" data-wiki-id="v5:userguide:userguide_index">User Guide &amp; Tutorials</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../../v5/dictionary/dictionary_index.html" class="wikilink1" title="v5:dictionary:dictionary_index" data-wiki-id="v5:dictionary:dictionary_index">The Data Dictionary</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../../v5/axmls/axmls_index.html" class="wikilink1" title="v5:axmls:axmls_index" data-wiki-id="v5:axmls:axmls_index">ADOdb-xmlschema</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../../v5/activerecord/activerecord_index.html" class="wikilink1" title="v5:activerecord:activerecord_index" data-wiki-id="v5:activerecord:activerecord_index">ADOdb Active Record</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../../v5/performance/performance_index.html" class="wikilink1" title="v5:performance:performance_index" data-wiki-id="v5:performance:performance_index">Performance Monitoring</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../../v5/datetime/datetime_index.html" class="wikilink1" title="v5:datetime:datetime_index" data-wiki-id="v5:datetime:datetime_index">Date/Time Library</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../../v5/session/session_index.html" class="wikilink1" title="v5:session:session_index" data-wiki-id="v5:session:session_index">Session Management Library</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../../v5/proxy/proxy_index.html" class="wikilink1" title="v5:proxy:proxy_index" data-wiki-id="v5:proxy:proxy_index">ADOdb Proxy Server</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../../v5/addons/addons_index.html" class="wikilink1" title="v5:addons:addons_index" data-wiki-id="v5:addons:addons_index">Unsupported Addons</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../../project/standards.html" class="wikilink1" title="project:standards" data-wiki-id="project:standards">Coding Standards</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../../v5/php_compatibility_status.html" class="wikilink1" title="v5:php_compatibility_status" data-wiki-id="v5:php_compatibility_status">PHP Compatibility Status</a></div>
+</li>
+</ul>
+
+<p>
+<strong><a href="../../v5/database/supported.html" class="wikilink1" title="v5:database:supported" data-wiki-id="v5:database:supported">Supported Databases</a></strong>
+</p>
+<ol>
+<li class="level1"><div class="li"> Full support    <ul><li><a href="../../v5/database/ibm_db2.html" class="wikilink1" title="v5:database:ibm_db2">IBM DB2</a></li><li><a href="../../v5/database/microsoft_sql_server.html" class="wikilink1" title="v5:database:microsoft_sql_server">Microsoft SQL Server</a></li><li><a href="../../v5/database/mysql.html" class="wikilink1" title="v5:database:mysql">MySQL</a></li><li><a href="../../v5/database/oracle.html" class="wikilink1" title="v5:database:oracle">Oracle</a></li><li><a href="../../v5/database/postgresql.html" class="wikilink1" title="v5:database:postgresql">PostgreSQL</a></li><li><a href="../../v5/database/sqlite.html" class="wikilink1" title="v5:database:sqlite">SQLite Database</a></li></ul></div>
+</li>
+<li class="level1"><div class="li"> Partial support <ul><li><a href="../../v5/database/firebird.html" class="wikilink1" title="v5:database:firebird">Firebird &amp; Interbase</a></li><li><a href="../../v5/database/ldap.html" class="wikilink1" title="v5:database:ldap">LDAP</a></li><li><a href="../../v5/database/access.html" class="wikilink1" title="v5:database:access">Microsoft Access</a></li><li><a href="../../v5/database/odbc.html" class="wikilink1" title="v5:database:odbc">ODBC</a></li><li><a href="../../v5/database/pdo.html" class="wikilink1" title="v5:database:pdo">PDO</a></li><li><a href="../../v5/database/pdo_new.html" class="wikilink1" title="v5:database:pdo_new">PDO (new)</a></li></ul></div>
+</li>
+<li class="level1"><div class="li"> <a href="../../v5/database/unsupported.html" class="wikilink1" title="v5:database:unsupported" data-wiki-id="v5:database:unsupported">Obsolete/Unsupported Drivers</a></div>
+</li>
+</ol>
+                                            </div></div>
+                </div></nav><!-- /aside -->
+            
+            <!-- ********** CONTENT ********** -->
+            <main id="dokuwiki__content"><div class="pad group">
+                
+                <div class="pageId"><span>v5:userguide:oracle_tutorial</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc" class="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#description">Description</a></div></li>
+<li class="level1"><div class="li"><a href="#introduction">Introduction</a></div></li>
+<li class="level1"><div class="li"><a href="#oracle_extension">Oracle extension</a></div></li>
+<li class="level1"><div class="li"><a href="#oci8_extension">Oci8 extension</a></div></li>
+<li class="level1"><div class="li"><a href="#adodb_example">ADOdb Example</a></div></li>
+<li class="level1"><div class="li"><a href="#adodb_query_semantics">ADOdb Query Semantics</a></div></li>
+<li class="level1"><div class="li"><a href="#prepare">Prepare</a></div></li>
+<li class="level1"><div class="li"><a href="#working_with_lobs">Working With LOBs</a></div></li>
+<li class="level1"><div class="li"><a href="#ref_cursors">REF CURSORs</a></div></li>
+<li class="level1"><div class="li"><a href="#in_and_out_parameters">In and Out Parameters</a></div></li>
+<li class="level1"><div class="li"><a href="#bind_parameters_and_lobs">Bind Parameters and LOBs</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#reusing_bind_parameters_with_cursor_sharing_force">Reusing Bind Parameters with CURSOR_SHARING=FORCE</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="#more_speedup_tips">More speedup tips</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#dates_and_datetime_in_adodb">Dates and Datetime in ADOdb</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="#database_portability_layer">Database Portability Layer</a></div></li>
+<li class="level1"><div class="li"><a href="#connecting_to_oracle">Connecting to Oracle</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#should_you_use_persistent_connections">Should You Use Persistent Connections</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="#error_checking">Error Checking</a></div></li>
+<li class="level1"><div class="li"><a href="#handling_large_recordsets">Handling Large Recordsets</a></div></li>
+<li class="level1"><div class="li"><a href="#resources">Resources</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+<div class="wrap_todo plugin_wrap">
+<p>
+This needs fixing
+</p>
+</div>
+<h1 class="sectionedit3" id="adodb_oracle">ADOdb &amp; Oracle</h1>
+<div class="level1">
+<div class="wrap_right wrap_box plugin_wrap">
+<h5 id="author_credit">Author Credit</h5>
+
+<p>
+&copy; 2004-2014 John Lim
+</p>
+</div>
+</div>
+
+<h2 class="sectionedit6" id="description">Description</h2>
+<div class="level2">
+
+<p>
+Using ADOdb with PHP and Oracle: an advanced tutorial
+</p>
+
+</div>
+
+<h2 class="sectionedit7" id="introduction">Introduction</h2>
+<div class="level2">
+
+<p>
+Oracle is the most popular commercial database used with PHP. There are many ways of accessing Oracle databases in PHP. These include:
+</p>
+<ul>
+<li class="level1"><div class="li"> The oracle extension</div>
+</li>
+<li class="level1"><div class="li"> The oci8 extension</div>
+</li>
+<li class="level1"><div class="li"> PEAR DB library</div>
+</li>
+<li class="level1"><div class="li"> ADOdb library</div>
+</li>
+</ul>
+
+<p>
+The wide range of choices is confusing to someone just starting with Oracle and PHP. I will briefly summarize the differences, and show you the advantages of using ADOdb.
+</p>
+
+<p>
+First we have the C extensions which provide low-level access to Oracle functionality. These C extensions are precompiled into PHP, or linked in dynamically when the web server starts up. Just in case you need it, here's a guide to installing Oracle and PHP on Linux.
+</p>
+
+</div>
+
+<h2 class="sectionedit8" id="oracle_extension">Oracle extension</h2>
+<div class="level2">
+
+<p>
+Designed for Oracle 7 or earlier. This is obsolete.
+</p>
+
+</div>
+
+<h2 class="sectionedit9" id="oci8_extension">Oci8 extension</h2>
+<div class="level2">
+
+<p>
+Despite it's name, which implies it is only for Oracle 8i, this is the standard method for accessing databases running Oracle 8i, 9i or 10g (and later).
+</p>
+
+<p>
+Here is an example of using the oci8 extension to query the emp table of the scott schema with bind parameters:
+</p>
+<pre class="code php"><span class="re0">$conn</span> <span class="sy0">=</span> OCILogon<span class="br0">(</span><span class="st0">"scott"</span><span class="sy0">,</span><span class="st0">"tiger"</span><span class="sy0">,</span> <span class="re0">$tnsName</span><span class="br0">)</span><span class="sy0">;</span>
+&nbsp;
+<span class="re0">$stmt</span> <span class="sy0">=</span> OCIParse<span class="br0">(</span><span class="re0">$conn</span><span class="sy0">,</span><span class="st0">"select * from emp where empno &gt; :emp order by empno"</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$emp</span> <span class="sy0">=</span> <span class="nu0">7900</span><span class="sy0">;</span>
+OCIBindByName<span class="br0">(</span><span class="re0">$stmt</span><span class="sy0">,</span> <span class="st_h">':emp'</span><span class="sy0">,</span> <span class="re0">$emp</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$ok</span> <span class="sy0">=</span> OCIExecute<span class="br0">(</span><span class="re0">$stmt</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="kw1">while</span> <span class="br0">(</span>OCIFetchInto<span class="br0">(</span><span class="re0">$stmt</span><span class="sy0">,</span><span class="re0">$arr</span><span class="br0">)</span><span class="br0">)</span> <span class="br0">{</span>
+	<a target="_blank" href="http://www.php.net/print_r"><span class="kw3">print_r</span></a><span class="br0">(</span><span class="re0">$arr</span><span class="br0">)</span><span class="sy0">;</span>
+	<span class="kw1">echo</span> <span class="st0">"&lt;hr&gt;"</span><span class="sy0">;</span>
+<span class="br0">}</span></pre>
+
+<p>
+This generates the following output:
+</p>
+<pre class="code">Array ( [0] =&gt; 7902 [1] =&gt; FORD [2] =&gt; ANALYST [3] =&gt; 7566 [4] =&gt; 03/DEC/81 [5] =&gt; 3000 [7] =&gt; 20 )
+Array ( [0] =&gt; 7934 [1] =&gt; MILLER [2] =&gt; CLERK [3] =&gt; 7782 [4] =&gt; 23/JAN/82 [5] =&gt; 1300 [7] =&gt; 10 )</pre>
+
+<p>
+We also have many higher level PHP libraries that allow you to simplify the above code. The most popular are PEAR DB and ADOdb. Here are some of the differences between these libraries:
+</p>
+<div class="table sectionedit10"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0">Feature</th><th class="col1">PEAR DB 1.6</th><th class="col2">ADOdb</th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0">General Style</td><td class="col1">Simple, easy to use. Lacks Oracle specific functionality.</td><td class="col2">Has multi-tier design. Simple high-level design for beginners, and also lower-level advanced Oracle functionality.</td>
+	</tr>
+	<tr class="row2">
+		<td class="col0">Support for Prepare</td><td class="col1">Yes, but only on one statement, as the last prepare overwrites previous prepares.</td><td class="col2">Yes (multiple simultaneous prepare's allowed)</td>
+	</tr>
+	<tr class="row3">
+		<td class="col0">Support for LOBs</td><td class="col1">No</td><td class="col2">Yes, using update semantics</td>
+	</tr>
+	<tr class="row4">
+		<td class="col0">Support for REF Cursors</td><td class="col1">No</td><td class="col2">Yes</td>
+	</tr>
+	<tr class="row5">
+		<td class="col0">Support for IN Parameters</td><td class="col1">Yes</td><td class="col2">Yes</td>
+	</tr>
+	<tr class="row6">
+		<td class="col0">Support for OUT Parameters</td><td class="col1">No</td><td class="col2">Yes</td>
+	</tr>
+	<tr class="row7">
+		<td class="col0">Schema creation using XML</td><td class="col1">No</td><td class="col2">Yes, including ability to define tablespaces and constraints</td>
+	</tr>
+	<tr class="row8">
+		<td class="col0">Provides database portability features</td><td class="col1">No</td><td class="col2">Yes, has some ability to abstract features that differ between databases such as dates, bind parameters, and data types.</td>
+	</tr>
+	<tr class="row9">
+		<td class="col0">Performance monitoring and tracing</td><td class="col1">No</td><td class="col2">Yes. SQL can be traced and linked to web page it was executed on. Explain plan support included.</td>
+	</tr>
+	<tr class="row10">
+		<td class="col0">Recordset caching for frequently used queries</td><td class="col1">No</td><td class="col2">Yes. Provides great speedups for SQL involving complex where, group-by and order-by clauses.</td>
+	</tr>
+	<tr class="row11">
+		<td class="col0">Speed</td><td class="col1">Medium speed.</td><td class="col2">Very high speed. Fastest database abstraction library available for PHP. Benchmarks are available.</td>
+	</tr>
+	<tr class="row12">
+		<td class="col0">High Speed Extension available</td><td class="col1 rightalign">	No</td><td class="col2">Yes. You can install the optional ADOdb extension, which reimplements the most frequently used parts of ADOdb as fast C code. Note that the source code version of ADOdb runs just fine without this extension, and only makes use of the extension if detected.</td>
+	</tr>
+</table></div>
+
+<p>
+PEAR DB is good enough for simple web apps. But if you need more power, you can see ADOdb offers more sophisticated functionality. The rest of this article will concentrate on using ADOdb with Oracle. You can find out more about connecting to Oracle later in this guide.
+</p>
+
+</div>
+
+<h2 class="sectionedit11" id="adodb_example">ADOdb Example</h2>
+<div class="level2">
+
+<p>
+In ADOdb, the above oci8 example querying the emp table could be written as:
+</p>
+<pre class="code php"><span class="kw1">include</span> <span class="st0">"/path/to/adodb.inc.php"</span><span class="sy0">;</span>
+&nbsp;
+<span class="re0">$db</span> <span class="sy0">=</span> NewADOConnection<span class="br0">(</span><span class="st0">"oci8"</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">Connect</span><span class="br0">(</span><span class="re0">$tnsName</span><span class="sy0">,</span> <span class="st0">"scott"</span><span class="sy0">,</span> <span class="st0">"tiger"</span><span class="br0">)</span><span class="sy0">;</span>
+&nbsp;
+<span class="re0">$rs</span> <span class="sy0">=</span> <span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">Execute</span><span class="br0">(</span><span class="st0">"select * from emp where empno&gt;:emp order by empno"</span><span class="sy0">,</span>
+                    <a target="_blank" href="http://www.php.net/array"><span class="kw3">array</span></a><span class="br0">(</span><span class="st_h">'emp'</span> <span class="sy0">=&gt;</span> <span class="nu0">7900</span><span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="kw1">while</span> <span class="br0">(</span><span class="re0">$arr</span> <span class="sy0">=</span> <span class="re0">$rs</span><span class="sy0">-&gt;</span><span class="me1">FetchRow</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a target="_blank" href="http://www.php.net/print_r"><span class="kw3">print_r</span></a><span class="br0">(</span><span class="re0">$arr</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="kw1">echo</span> <span class="st0">"&lt;hr&gt;"</span><span class="sy0">;</span>
+<span class="br0">}</span></pre>
+
+<p>
+The Execute( ) function returns a recordset object, and you can retrieve the rows returned using $recordset&rarr;FetchRow( ).
+</p>
+
+<p>
+If we ignore the initial connection preamble, we can see the ADOdb version is much easier and simpler:
+</p>
+<pre class="code php">Oci8	ADOdb
+<span class="re0">$stmt</span> <span class="sy0">=</span> OCIParse<span class="br0">(</span><span class="re0">$conn</span><span class="sy0">,</span>
+       <span class="st0">"select * from emp where empno &gt; :emp"</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$emp</span> <span class="sy0">=</span> <span class="nu0">7900</span><span class="sy0">;</span>
+OCIBindByName<span class="br0">(</span><span class="re0">$stmt</span><span class="sy0">,</span> <span class="st_h">':emp'</span><span class="sy0">,</span> <span class="re0">$emp</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$ok</span> <span class="sy0">=</span> OCIExecute<span class="br0">(</span><span class="re0">$stmt</span><span class="br0">)</span><span class="sy0">;</span>
+&nbsp;
+<span class="kw1">while</span> <span class="br0">(</span>OCIFetchInto<span class="br0">(</span><span class="re0">$stmt</span><span class="sy0">,</span><span class="re0">$arr</span><span class="br0">)</span><span class="br0">)</span> <span class="br0">{</span>
+	<a target="_blank" href="http://www.php.net/print_r"><span class="kw3">print_r</span></a><span class="br0">(</span><span class="re0">$arr</span><span class="br0">)</span><span class="sy0">;</span>
+	<span class="kw1">echo</span> <span class="st0">"&lt;hr&gt;"</span><span class="sy0">;</span>
+<span class="br0">}</span> 
+<span class="re0">$recordset</span> <span class="sy0">=</span> <span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">Execute</span><span class="br0">(</span><span class="st0">"select * from emp where empno&gt;:emp"</span><span class="sy0">,</span>
+                           <a target="_blank" href="http://www.php.net/array"><span class="kw3">array</span></a><span class="br0">(</span><span class="st_h">'emp'</span> <span class="sy0">=&gt;</span> <span class="nu0">7900</span><span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span>
+&nbsp;
+<span class="kw1">while</span> <span class="br0">(</span><span class="re0">$arr</span> <span class="sy0">=</span> <span class="re0">$recordset</span><span class="sy0">-&gt;</span><span class="me1">FetchRow</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span> <span class="br0">{</span>
+	<a target="_blank" href="http://www.php.net/print_r"><span class="kw3">print_r</span></a><span class="br0">(</span><span class="re0">$arr</span><span class="br0">)</span><span class="sy0">;</span>
+	<span class="kw1">echo</span> <span class="st0">"&lt;hr&gt;"</span><span class="sy0">;</span>
+<span class="br0">}</span></pre>
+
+</div>
+
+<h2 class="sectionedit12" id="adodb_query_semantics">ADOdb Query Semantics</h2>
+<div class="level2">
+
+<p>
+You can also query the database using the standard Microsoft ADO MoveNext( ) metaphor. The data array for the current row is stored in the fields property of the recordset object, $rs. MoveNext( ) offers the highest performance among all the techniques for iterating through a recordset:
+</p>
+<pre class="code php"><span class="re0">$rs</span> <span class="sy0">=</span> <span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">Execute</span><span class="br0">(</span><span class="st0">"select * from emp where empno&gt;:emp"</span><span class="sy0">,</span> <a target="_blank" href="http://www.php.net/array"><span class="kw3">array</span></a><span class="br0">(</span><span class="st_h">'emp'</span> <span class="sy0">=&gt;</span> <span class="nu0">7900</span><span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="kw1">while</span> <span class="br0">(</span><span class="sy0">!</span><span class="re0">$rs</span><span class="sy0">-&gt;</span><span class="me1">EOF</span><span class="br0">)</span> <span class="br0">{</span>
+	<a target="_blank" href="http://www.php.net/print_r"><span class="kw3">print_r</span></a><span class="br0">(</span><span class="re0">$rs</span><span class="sy0">-&gt;</span><span class="me1">fields</span><span class="br0">)</span><span class="sy0">;</span>
+	<span class="re0">$rs</span><span class="sy0">-&gt;</span><span class="me1">MoveNext</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="br0">}</span></pre>
+
+<p>
+And if you are interested in having the data returned in a 2-dimensional array, you can use:
+</p>
+<pre class="code">$arr = $db-&gt;GetArray("select * from emp where empno&gt;:emp", array('emp' =&gt; 7900));</pre>
+
+<p>
+Now to obtain only the first row as an array:
+</p>
+<pre class="code">$arr = $db-&gt;GetRow("select * from emp where empno=:emp", array('emp' =&gt; 7900));</pre>
+
+<p>
+Or to retrieve only the first field of the first row:
+</p>
+<pre class="code">$arr = $db-&gt;GetOne("select ename from emp where empno=:emp", array('emp' =&gt; 7900));</pre>
+
+<p>
+For easy pagination support, we provide the SelectLimit function. The following will perform a select query, limiting it to 100 rows, starting from row 201 (row 1 being the 1st row):
+</p>
+<pre class="code">$offset = 200; $limitrows = 100;
+$rs = $db-&gt;SelectLimit('select * from table', $limitrows, $offset);</pre>
+
+<p>
+The $offset parameter is optional.
+</p>
+
+</div>
+
+<h2 class="sectionedit13" id="prepare">Prepare</h2>
+<div class="level2">
+
+<p>
+Using Prepare() For Frequently Used Statements
+</p>
+
+<p>
+Prepare() is for compiling frequently used SQL statement for reuse. For example, suppose we have a large array which needs to be inserted into an Oracle database. The following will result in a massive speedup in query execution (at least 20-40%), as the SQL statement only needs to be compiled once:
+</p>
+<pre class="code php"><span class="re0">$stmt</span> <span class="sy0">=</span> <span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">Prepare</span><span class="br0">(</span><span class="st_h">'insert into table (field1, field2) values (:f1, :f2)'</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="kw1">foreach</span> <span class="br0">(</span><span class="re0">$arrayToInsert</span> <span class="kw1">as</span> <span class="re0">$key</span> <span class="sy0">=&gt;</span> <span class="re0">$value</span><span class="br0">)</span> <span class="br0">{</span>
+	<span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">Execute</span><span class="br0">(</span><span class="re0">$stmt</span><span class="sy0">,</span> <a target="_blank" href="http://www.php.net/array"><span class="kw3">array</span></a><span class="br0">(</span><span class="st_h">'f1'</span> <span class="sy0">=&gt;</span> <span class="re0">$key</span><span class="sy0">,</span> <span class="st_h">'f2'</span> <span class="sy0">=&gt;</span> <span class="re0">$val</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="br0">}</span></pre>
+
+</div>
+
+<h2 class="sectionedit14" id="working_with_lobs">Working With LOBs</h2>
+<div class="level2">
+
+<p>
+Oracle treats data which is more than 4000 bytes in length specially. These are called Large Objects, or LOBs for short. Binary LOBs are BLOBs, and character LOBs are CLOBs. In most Oracle libraries, you need to do a lot of work to process LOBs, probably because Oracle designed it to work in systems with little memory. ADOdb tries to make things easy by assuming the LOB can fit into main memory.
+</p>
+
+<p>
+ADOdb will transparently handle LOBs in select statements. The LOBs are automatically converted to PHP variables without any special coding.
+</p>
+
+<p>
+For updating records with LOBs, the functions UpdateBlob( ) and UpdateClob( ) are provided. Here's a BLOB example. The parameters should be self-explanatory:
+</p>
+<pre class="code php"><span class="re0">$ok</span> <span class="sy0">=</span> <span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">Execute</span><span class="br0">(</span><span class="st0">"insert into aTable (id, name, ablob)
+                                values (aSequence.nextVal, 'Name', null)"</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="kw1">if</span> <span class="br0">(</span><span class="sy0">!</span><span class="re0">$ok</span><span class="br0">)</span> <span class="kw1">return</span> LogError<span class="br0">(</span><span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">ErrorMsg</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="co2"># params: $tableName, $blobFieldName, $blobValue, $whereClause
+</span><span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">UpdateBlob</span><span class="br0">(</span><span class="st_h">'aTable'</span><span class="sy0">,</span> <span class="st_h">'ablob'</span><span class="sy0">,</span> <span class="re0">$blobValue</span><span class="sy0">,</span> <span class="st_h">'id=aSequence.currVal'</span><span class="br0">)</span><span class="sy0">;</span></pre>
+
+<p>
+and the analogous CLOB example:
+</p>
+<pre class="code php"><span class="re0">$ok</span> <span class="sy0">=</span> <span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">Execute</span><span class="br0">(</span><span class="st0">"insert into aTable (id, name, aclob)
+                                values (aSequence.nextVal, 'Name', null)"</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="kw1">if</span> <span class="br0">(</span><span class="sy0">!</span><span class="re0">$ok</span><span class="br0">)</span> <span class="kw1">return</span> LogError<span class="br0">(</span><span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">ErrorMsg</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">UpdateClob</span><span class="br0">(</span><span class="st_h">'aTable'</span><span class="sy0">,</span> <span class="st_h">'aclob'</span><span class="sy0">,</span> <span class="re0">$clobValue</span><span class="sy0">,</span> <span class="st_h">'id=aSequence.currVal'</span><span class="br0">)</span><span class="sy0">;</span></pre>
+
+<p>
+Note that LogError( ) is a user-defined function, and not part of ADOdb.
+</p>
+
+<p>
+Inserting LOBs is more complicated. Assuming in the following example that the photo field is a BLOB, and we want to store $blob_data into this field, and the primary key is the id field):
+</p>
+<pre class="code php"><span class="re0">$sql</span> <span class="sy0">=</span> <span class="st0">"INSERT INTO photos ( ID, photo) "</span><span class="sy0">.</span>
+	<span class="st0">"VALUES ( :id, empty_blob() )"</span><span class="sy0">.</span>
+	<span class="st0">" RETURNING photo INTO :xx"</span><span class="sy0">;</span>
+&nbsp;
+<span class="re0">$stmt</span> <span class="sy0">=</span> <span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">PrepareSP</span><span class="br0">(</span><span class="re0">$sql</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">InParameter</span><span class="br0">(</span><span class="re0">$stmt</span><span class="sy0">,</span> <span class="re0">$id</span><span class="sy0">,</span> <span class="st_h">'id'</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$blob</span> <span class="sy0">=</span> <span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">InParameter</span><span class="br0">(</span><span class="re0">$stmt</span><span class="sy0">,</span> <span class="re0">$blob_data</span><span class="sy0">,</span> <span class="st_h">'xx'</span><span class="sy0">,-</span><span class="nu0">1</span><span class="sy0">,</span> OCI_B_BLOB<span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">StartTrans</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$ok</span> <span class="sy0">=</span> <span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">Execute</span><span class="br0">(</span><span class="re0">$stmt</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">CompleteTrans</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span></pre>
+
+</div>
+
+<h2 class="sectionedit15" id="ref_cursors">REF CURSORs</h2>
+<div class="level2">
+
+<p>
+Oracle recordsets can be passed around as variables called REF Cursors. For example, in PL/SQL, we could define a function open_tab that returns a REF CURSOR in the first parameter:
+</p>
+<pre class="code">TYPE TabType IS REF CURSOR RETURN TAB%ROWTYPE;
+PROCEDURE open_tab (tabcursor IN OUT TabType,tablenames IN VARCHAR) IS
+BEGIN
+  OPEN tabcursor FOR SELECT * FROM TAB WHERE tname LIKE tablenames;
+END open_tab;</pre>
+
+<p>
+In ADOdb, we could access this REF Cursor using the ExecuteCursor() function. The following will find all table names that begin with 'A' in the current schema:
+</p>
+<pre class="code php"><span class="re0">$rs</span> <span class="sy0">=</span> <span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">ExecuteCursor</span><span class="br0">(</span><span class="st0">"BEGIN open_tab(:refc,'A%'); END;"</span><span class="sy0">,</span><span class="st_h">'refc'</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="kw1">while</span> <span class="br0">(</span><span class="re0">$arr</span> <span class="sy0">=</span> <span class="re0">$rs</span><span class="sy0">-&gt;</span><span class="me1">FetchRow</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span> 
+    <a target="_blank" href="http://www.php.net/print_r"><span class="kw3">print_r</span></a><span class="br0">(</span><span class="re0">$arr</span><span class="br0">)</span><span class="sy0">;</span></pre>
+
+<p>
+The first parameter is the PL/SQL statement, and the second parameter is the name of the REF Cursor.
+</p>
+
+</div>
+
+<h2 class="sectionedit16" id="in_and_out_parameters">In and Out Parameters</h2>
+<div class="level2">
+
+<p>
+The following PL/SQL stored procedure requires an input variable, and returns a result into an output variable:
+</p>
+<pre class="code">PROCEDURE data_out(input IN VARCHAR, output OUT VARCHAR) IS
+BEGIN
+  output := 'I love '||input;
+END;</pre>
+
+<p>
+The following ADOdb code allows you to call the stored procedure:
+</p>
+<pre class="code php"><span class="re0">$stmt</span> <span class="sy0">=</span> <span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">PrepareSP</span><span class="br0">(</span><span class="st0">"BEGIN adodb.data_out(:a1, :a2); END;"</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$input</span> <span class="sy0">=</span> <span class="st_h">'Sophia Loren'</span><span class="sy0">;</span>
+<span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">InParameter</span><span class="br0">(</span><span class="re0">$stmt</span><span class="sy0">,</span><span class="re0">$input</span><span class="sy0">,</span><span class="st_h">'a1'</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">OutParameter</span><span class="br0">(</span><span class="re0">$stmt</span><span class="sy0">,</span><span class="re0">$output</span><span class="sy0">,</span><span class="st_h">'a2'</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$ok</span> <span class="sy0">=</span> <span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">Execute</span><span class="br0">(</span><span class="re0">$stmt</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="kw1">if</span> <span class="br0">(</span><span class="re0">$ok</span><span class="br0">)</span> <span class="kw1">echo</span> <span class="br0">(</span><span class="re0">$output</span> <span class="sy0">==</span> <span class="st_h">'I love Sophia Loren'</span><span class="br0">)</span> ? <span class="st_h">'OK'</span> <span class="sy0">:</span> <span class="st_h">'Failed'</span><span class="sy0">;</span></pre>
+
+<p>
+<a href="../../v5/reference/preparesp.html" class="wikilink2" title="v5:reference:preparesp" rel="nofollow" data-wiki-id="v5:reference:preparesp">preparesp</a> is a special function that knows about bind parameters.
+</p>
+
+<p>
+Bind Parameters and REF CURSORs
+</p>
+
+<p>
+We could also rewrite the REF CURSOR example to use InParameter:
+</p>
+<pre class="code php"><span class="re0">$stmt</span> <span class="sy0">=</span> <span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">PrepareSP</span><span class="br0">(</span><span class="st0">"BEGIN adodb.open_tab(:refc,:tabname); END;"</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$input</span> <span class="sy0">=</span> <span class="st_h">'A%'</span><span class="sy0">;</span>
+<span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">InParameter</span><span class="br0">(</span><span class="re0">$stmt</span><span class="sy0">,</span><span class="re0">$input</span><span class="sy0">,</span><span class="st_h">'tabname'</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$rs</span> <span class="sy0">=</span> <span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">ExecuteCursor</span><span class="br0">(</span><span class="re0">$stmt</span><span class="sy0">,</span><span class="st_h">'refc'</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="kw1">while</span> <span class="br0">(</span><span class="re0">$arr</span> <span class="sy0">=</span> <span class="re0">$rs</span><span class="sy0">-&gt;</span><span class="me1">FetchRow</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span> <a target="_blank" href="http://www.php.net/print_r"><span class="kw3">print_r</span></a><span class="br0">(</span><span class="re0">$arr</span><span class="br0">)</span><span class="sy0">;</span></pre>
+
+</div>
+
+<h2 class="sectionedit17" id="bind_parameters_and_lobs">Bind Parameters and LOBs</h2>
+<div class="level2">
+
+<p>
+You can also operate on LOBs. In this example, we have IN and OUT parameters using CLOBs.
+</p>
+<pre class="code php"><span class="re0">$text</span> <span class="sy0">=</span> <span class="st_h">'test test test'</span><span class="sy0">;</span>
+<span class="re0">$sql</span> <span class="sy0">=</span> <span class="st0">"declare rs clob; begin :rs := lobinout(:sa0); end;"</span><span class="sy0">;</span>
+<span class="re0">$stmt</span> <span class="sy0">=</span> <span class="re0">$conn</span> <span class="sy0">-&gt;</span> <span class="me1">PrepareSP</span><span class="br0">(</span><span class="re0">$sql</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$conn</span> <span class="sy0">-&gt;</span> <span class="me1">InParameter</span><span class="br0">(</span><span class="re0">$stmt</span><span class="sy0">,</span><span class="re0">$text</span><span class="sy0">,</span><span class="st_h">'sa0'</span><span class="sy0">,</span> <span class="sy0">-</span><span class="nu0">1</span><span class="sy0">,</span> OCI_B_CLOB<span class="br0">)</span><span class="sy0">;</span> <span class="co2"># -1 means variable length
+</span><span class="re0">$rs</span> <span class="sy0">=</span> <span class="st_h">''</span><span class="sy0">;</span>
+<span class="re0">$conn</span> <span class="sy0">-&gt;</span> <span class="me1">OutParameter</span><span class="br0">(</span><span class="re0">$stmt</span><span class="sy0">,</span><span class="re0">$rs</span><span class="sy0">,</span><span class="st_h">'rs'</span><span class="sy0">,</span> <span class="sy0">-</span><span class="nu0">1</span><span class="sy0">,</span> OCI_B_CLOB<span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$conn</span> <span class="sy0">-&gt;</span> <span class="me1">Execute</span><span class="br0">(</span><span class="re0">$stmt</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="kw1">echo</span> <span class="st0">"return = "</span><span class="sy0">.</span><span class="re0">$rs</span><span class="sy0">.</span><span class="st0">"&lt;br&gt;"</span><span class="sy0">;</span></pre>
+
+<p>
+Similarly, you can use the constant OCI_B_BLOB to indicate that you are using BLOBs.
+</p>
+
+</div>
+
+<h3 class="sectionedit18" id="reusing_bind_parameters_with_cursor_sharing_force">Reusing Bind Parameters with CURSOR_SHARING=FORCE</h3>
+<div class="level3">
+
+<p>
+Many web programmers do not care to use bind parameters, and prefer to enter the SQL directly. So instead of:
+</p>
+<pre class="code">$arr = $db-&gt;GetArray("select * from emp where empno&gt;:emp", array('emp' =&gt; 7900));</pre>
+
+<p>
+They prefer entering the values inside the SQL:
+</p>
+<pre class="code">$arr = $db-&gt;GetArray("select * from emp where empno&gt;7900");</pre>
+
+<p>
+This reduces Oracle performance because Oracle will reuse compiled SQL which is identical to previously compiled SQL. The above example with the values inside the SQL is unlikely to be reused. As an optimization, from Oracle 8.1 onwards, you can set the following session parameter after you login:
+</p>
+<pre class="code">ALTER SESSION SET CURSOR_SHARING=FORCE</pre>
+
+<p>
+This will force Oracle to convert all such variables (eg. the 7900 value) into constant bind parameters, improving SQL reuse.
+</p>
+
+</div>
+
+<h2 class="sectionedit19" id="more_speedup_tips">More speedup tips</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit20" id="dates_and_datetime_in_adodb">Dates and Datetime in ADOdb</h3>
+<div class="level3">
+
+<p>
+There are two things you need to know about dates in ADOdb.
+</p>
+
+<p>
+First, to ensure cross-database compability, ADOdb assumes that dates are returned in ISO format (YYYY-MM-DD H24:MI:SS).
+</p>
+
+<p>
+Secondly, since Oracle treats dates and datetime as the same data type, we decided not to display the time in the default date format. So on login, ADOdb will set the NLS_DATE_FORMAT to 'YYYY-MM-DD'. If you prefer to show the date and time by default, do this:
+</p>
+<pre class="code php"><span class="re0">$db</span> <span class="sy0">=</span> NewADOConnection<span class="br0">(</span><span class="st_h">'oci8'</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">NLS_DATE_FORMAT</span> <span class="sy0">=</span>  <span class="st_h">'RRRR-MM-DD HH24:MI:SS'</span><span class="sy0">;</span>
+<span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">Connect</span><span class="br0">(</span><span class="re0">$tns</span><span class="sy0">,</span> <span class="re0">$user</span><span class="sy0">,</span> <span class="re0">$pwd</span><span class="br0">)</span><span class="sy0">;</span></pre>
+
+<p>
+Or execute:
+</p>
+<pre class="code php"><span class="re0">$sql</span> <span class="sy0">=</span> <span class="st0">"ALTER SESSION SET NLS_DATE_FORMAT = 'RRRR-MM-DD HH24:MI:SS'"</span><span class="sy0">;</span>
+<span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">Execute</span><span class="br0">(</span><span class="re0">$sql</span><span class="br0">)</span><span class="sy0">;</span></pre>
+
+<p>
+If you are not concerned about date portability and do not use ADOdb's portability layer, you can use your preferred date format instead.
+</p>
+
+</div>
+
+<h2 class="sectionedit21" id="database_portability_layer">Database Portability Layer</h2>
+<div class="level2">
+
+<p>
+ADOdb provides the following functions for portably generating SQL functions as strings to be merged into your SQL statements:
+</p>
+<div class="table sectionedit22"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0">Function</th><th class="col1">Description</th><td class="col2"></td><td class="col3"></td>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0">DBDate($date)</td><td class="col1">Pass in a UNIX timestamp or ISO date and it will convert it to a date string formatted for INSERT/UPDATE</td><td class="col2"></td><td class="col3"></td>
+	</tr>
+	<tr class="row2">
+		<td class="col0">DBTimeStamp($date)</td><td class="col1">Pass in a UNIX timestamp or ISO date and it will convert it to a timestamp string formatted for INSERT/UPDATE</td><td class="col2"></td><td class="col3"></td>
+	</tr>
+	<tr class="row3">
+		<td class="col0">SQLDate($date, $fmt)</td><td class="col1">Portably generate a date formatted using $fmt mask, for use in SELECT statements.</td><td class="col2"></td><td class="col3"></td>
+	</tr>
+	<tr class="row4">
+		<td class="col0">OffsetDate($date, $ndays)</td><td class="col1">Portably generate a $date offset by $ndays.</td><td class="col2"></td><td class="col3"></td>
+	</tr>
+	<tr class="row5">
+		<td class="col0">Concat($s1, $s2, &hellip;)</td><td class="col1" colspan="2">Portably concatenate strings. Alternatively, for mssql use mssqlpo driver, which allows ``</td><td class="col3">`` operator.</td>
+	</tr>
+	<tr class="row6">
+		<td class="col0">IfNull($fld, $replaceNull)</td><td class="col1">Returns a string that is the equivalent of MySQL IFNULL or Oracle NVL.</td><td class="col2"></td><td class="col3"></td>
+	</tr>
+	<tr class="row7">
+		<td class="col0">Param($name)</td><td class="col1">Generates bind placeholders, using ? or named conventions as appropriate.</td><td class="col2"></td><td class="col3"></td>
+	</tr>
+	<tr class="row8">
+		<td class="col0">$db&rarr;sysDate</td><td class="col1">Property that holds the SQL function that returns today's date</td><td class="col2"></td><td class="col3"></td>
+	</tr>
+	<tr class="row9">
+		<td class="col0">$db&rarr;sysTimeStamp</td><td class="col1">Property that holds the SQL function that returns the current timestamp (date+time).</td><td class="col2"></td><td class="col3"></td>
+	</tr>
+	<tr class="row10">
+		<td class="col0">$db&rarr;concat_operator</td><td class="col1">Property that holds the concatenation operator</td><td class="col2"></td><td class="col3"></td>
+	</tr>
+	<tr class="row11">
+		<td class="col0">$db&rarr;length</td><td class="col1">Property that holds the name of the SQL strlen function.</td><td class="col2"></td><td class="col3"></td>
+	</tr>
+	<tr class="row12">
+		<td class="col0">$db&rarr;upperCase</td><td class="col1">Property that holds the name of the SQL strtoupper function.</td><td class="col2"></td><td class="col3"></td>
+	</tr>
+	<tr class="row13">
+		<td class="col0">$db&rarr;random</td><td class="col1">Property that holds the SQL to generate a random number between 0.00 and 1.00.</td><td class="col2"></td><td class="col3"></td>
+	</tr>
+	<tr class="row14">
+		<td class="col0">$db&rarr;substr</td><td class="col1">Property that holds the name of the SQL substring function.</td><td class="col2"></td><td class="col3"></td>
+	</tr>
+</table></div>
+
+<p>
+ADOdb also provides multiple oracle oci8 drivers for different scenarios:
+</p>
+
+<p>
+Driver Name	Description
+oci805	Specifically for Oracle 8.0.5. This driver has a slower SelectLimit( ).
+oci8	The default high performance driver. The keys of associative arrays returned in a recordset are upper-case.
+oci8po	The portable Oracle driver. Slightly slower than oci8. This driver uses ? instead of :bindvar for binding variables, which is the standard for other databases. Also the keys of associative arrays are in lower-case like other databases.
+</p>
+
+<p>
+Here's an example of calling the oci8po driver. Note that the bind variables use question-mark:
+</p>
+<pre class="code php"><span class="re0">$db</span> <span class="sy0">=</span> NewADOConnection<span class="br0">(</span><span class="st_h">'oci8po'</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">Connect</span><span class="br0">(</span><span class="re0">$tns</span><span class="sy0">,</span> <span class="re0">$user</span><span class="sy0">,</span> <span class="re0">$pwd</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">Execute</span><span class="br0">(</span><span class="st0">"insert into atable (f1, f2) values (?,?)"</span><span class="sy0">,</span> <a target="_blank" href="http://www.php.net/array"><span class="kw3">array</span></a><span class="br0">(</span><span class="nu0">12</span><span class="sy0">,</span> <span class="st_h">'abc'</span><span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span></pre>
+
+</div>
+
+<h2 class="sectionedit23" id="connecting_to_oracle">Connecting to Oracle</h2>
+<div class="level2">
+
+<p>
+Before you can use ADOdb, you need to have the Oracle client installed and setup the oci8 extension. This extension comes pre-compiled for Windows (but you still need to enable it in the php.ini file). For information on compiling the oci8 extension for PHP and Apache on Unix, there is an excellent guide at oracle.com.
+</p>
+
+</div>
+
+<h3 class="sectionedit24" id="should_you_use_persistent_connections">Should You Use Persistent Connections</h3>
+<div class="level3">
+
+<p>
+One question that is frequently asked is should you use persistent connections to Oracle. Persistent connections allow PHP to recycle existing connections, reusing them after the previous web pages have completed. Non-persistent connections close automatically after the web page has completed. Persistent connections are faster because the cost of reconnecting is expensive, but there is additional resource overhead. As an alternative, Oracle allows you to pool and reuse server processes; this is called Shared Server (also known as MTS).
+</p>
+
+<p>
+The author's benchmarks suggest that using non-persistent connections and the Shared Server configuration offer the best performance. If Shared Server is not an option, only then consider using persistent connections.
+</p>
+
+</div>
+
+<h2 class="sectionedit25" id="error_checking">Error Checking</h2>
+<div class="level2">
+
+<p>
+The examples in this article are easy to read but a bit simplistic because we ignore error-handling. Execute( ) and Connect( ) will return false on error. So a more realistic way to call Connect( ) and Execute( ) is:
+</p>
+<pre class="code php"><span class="kw2">function</span> InvokeErrorHandler<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+<span class="kw2">global</span> <span class="re0">$db</span><span class="sy0">;</span> <span class="co2">## assume global
+</span>    MyLogFunction<span class="br0">(</span><span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">ErrorNo</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">,</span> <span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">ErrorMsg</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="br0">}</span>
+<span class="kw1">if</span> <span class="br0">(</span><span class="sy0">!</span><span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">Connect</span><span class="br0">(</span><span class="re0">$tns</span><span class="sy0">,</span> <span class="re0">$usr</span><span class="sy0">,</span> <span class="re0">$pwd</span><span class="br0">)</span><span class="br0">)</span> InvokeErrorHandler<span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+&nbsp;
+<span class="re0">$rs</span> <span class="sy0">=</span> <span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">Execute</span><span class="br0">(</span><span class="st0">"select * from emp where empno&gt;:emp order by empno"</span><span class="sy0">,</span>
+                    <a target="_blank" href="http://www.php.net/array"><span class="kw3">array</span></a><span class="br0">(</span><span class="st_h">'emp'</span> <span class="sy0">=&gt;</span> <span class="nu0">7900</span><span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="kw1">if</span> <span class="br0">(</span><span class="sy0">!</span><span class="re0">$rs</span><span class="br0">)</span> <span class="kw1">return</span> InvokeErrorHandler<span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="kw1">while</span> <span class="br0">(</span><span class="re0">$arr</span> <span class="sy0">=</span> <span class="re0">$rs</span><span class="sy0">-&gt;</span><span class="me1">FetchRow</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span> <span class="br0">{</span>
+    <a target="_blank" href="http://www.php.net/print_r"><span class="kw3">print_r</span></a><span class="br0">(</span><span class="re0">$arr</span><span class="br0">)</span><span class="sy0">;</span>
+	<span class="kw1">echo</span> <span class="st0">"&lt;hr&gt;"</span><span class="sy0">;</span>
+<span class="br0">}</span></pre>
+
+<p>
+You can retrieve the error message and error number of the last SQL statement executed from ErrorMsg( ) and ErrorNo( ). You can also define a custom error handler function. ADOdb also supports throwing exceptions in PHP5.
+</p>
+
+</div>
+
+<h2 class="sectionedit26" id="handling_large_recordsets">Handling Large Recordsets</h2>
+<div class="level2">
+
+<p>
+The oci8 driver does not support counting the number of records returned in a SELECT statement, so the function RecordCount() is emulated when the global variable $ADODB_COUNTRECS is set to true, which is the default. We emulate this by buffering all the records. This can take up large amounts of memory for big recordsets. Set $ADODB_COUNTRECS to false for the best performance.
+This variable is checked every time a query is executed, so you can selectively choose which recordsets to count.
+</p>
+
+</div>
+
+<h2 class="sectionedit27" id="resources">Resources</h2>
+<div class="level2">
+
+<p>
+Oracle's Hitchhiker Guide to PHP
+OTN article on Optimizing PHP and Oracle by this author.
+Oracle has an excellent <abbr title="Frequently Asked Questions">FAQ</abbr> on PHP
+PHP oci8 manual pages
+ADOdb forums.
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>v5/userguide/oracle_tutorial.txt</bdi> &middot; Last modified: 2019/12/29 21:36 by <bdi>mnewnham</bdi></div>
+
+                
+                <hr class="a11y">
+            </div></main><!-- /content -->
+
+            <!-- PAGE ACTIONS -->
+            <nav id="dokuwiki__pagetools" aria-labelledby="dokuwiki__pagetools__heading">
+                <h3 class="a11y" id="dokuwiki__pagetools__heading">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li class="source"><a href="oracle_tutorial.html" title="Show pagesource [v]" rel="nofollow" accesskey="v"><span>Show pagesource</span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24"><path d="M13 9h5.5L13 3.5V9M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4c0-1.11.89-2 2-2m.12 13.5l3.74 3.74 1.42-1.41-2.33-2.33 2.33-2.33-1.42-1.41-3.74 3.74m11.16 0l-3.74-3.74-1.42 1.41 2.33 2.33-2.33 2.33 1.42 1.41 3.74-3.74z"></path></svg></a></li><li class="revs"><a href="oracle_tutorial.html" title="Old revisions [o]" rel="nofollow" accesskey="o"><span>Old revisions</span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24"><path d="M11 7v5.11l4.71 2.79.79-1.28-4-2.37V7m0-5C8.97 2 5.91 3.92 4.27 6.77L2 4.5V11h6.5L5.75 8.25C6.96 5.73 9.5 4 12.5 4a7.5 7.5 0 0 1 7.5 7.5 7.5 7.5 0 0 1-7.5 7.5c-3.27 0-6.03-2.09-7.06-5h-2.1c1.1 4.03 4.77 7 9.16 7 5.24 0 9.5-4.25 9.5-9.5A9.5 9.5 0 0 0 12.5 2z"></path></svg></a></li><li class="backlink"><a href="oracle_tutorial.html" title="Backlinks" rel="nofollow"><span>Backlinks</span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24"><path d="M10.59 13.41c.41.39.41 1.03 0 1.42-.39.39-1.03.39-1.42 0a5.003 5.003 0 0 1 0-7.07l3.54-3.54a5.003 5.003 0 0 1 7.07 0 5.003 5.003 0 0 1 0 7.07l-1.49 1.49c.01-.82-.12-1.64-.4-2.42l.47-.48a2.982 2.982 0 0 0 0-4.24 2.982 2.982 0 0 0-4.24 0l-3.53 3.53a2.982 2.982 0 0 0 0 4.24m2.82-4.24c.39-.39 1.03-.39 1.42 0a5.003 5.003 0 0 1 0 7.07l-3.54 3.54a5.003 5.003 0 0 1-7.07 0 5.003 5.003 0 0 1 0-7.07l1.49-1.49c-.01.82.12 1.64.4 2.43l-.47.47a2.982 2.982 0 0 0 0 4.24 2.982 2.982 0 0 0 4.24 0l3.53-3.53a2.982 2.982 0 0 0 0-4.24.973.973 0 0 1 0-1.42z"></path></svg></a></li><li class="siteexport_addpage"><a href="oracle_tutorial.html" title="Export Page to HTML/PDF" rel="nofollow"><span>Export Page to HTML/PDF</span><svg width="61px" height="51px" viewbox="0 0 61 51" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs></defs><path d="M26.1891503,39.0065635 L26.0876578,38.9773206 L60.6523866,1.23972885 L60.4321374,2.11844376 L60.476442,2.07071678 L60.4265202,2.14085429 L49.5024876,45.7237994 L32.8255882,40.9187101 L26,50.508302 L26,39.2103249 L26.1891503,39.0065635 Z M60.9727675,0.862917243 L22.2676619,38.2155059 L-0.00245042233,30.2214566 L60.9727675,0.862917243 Z" id="Paper-Plane"></path></svg></a></li><li class="top"><a href="#dokuwiki__top" title="Back to top [t]" rel="nofollow" accesskey="t"><span>Back to top</span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path></svg></a></li>                    </ul>
+                </div>
+            </nav>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<footer id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="https://creativecommons.org/licenses/by-sa/4.0/deed.en" rel="license" class="urlextern" target="_blank">CC Attribution-Share Alike 4.0 International</a></bdi></div>
+    <div class="buttons">
+        <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.en" rel="license" target="_blank"><img src="../../lib/images/license/button/cc-by-sa.png" alt="CC Attribution-Share Alike 4.0 International"></a>        <a href="https://www.dokuwiki.org/donate" title="Donate" target="_blank"><img src="../../lib/tpl/dokuwiki/images/button-donate.gif" width="80" height="15" alt="Donate"></a>
+        <a href="https://php.net" title="Powered by PHP" target="_blank"><img src="../../lib/tpl/dokuwiki/images/button-php.gif" width="80" height="15" alt="Powered by PHP"></a>
+        <a href="../../check/referer" title="Valid HTML5" target="_blank"><img src="../../lib/tpl/dokuwiki/images/button-html5.png" width="80" height="15" alt="Valid HTML5"></a>
+        <a href="../../css-validator/check/referer.profile.css3?profile=css3" title="Valid CSS" target="_blank"><img src="../../lib/tpl/dokuwiki/images/button-css.png" width="80" height="15" alt="Valid CSS"></a>
+        <a href="https://dokuwiki.org/" title="Driven by DokuWiki" target="_blank"><img src="../../lib/tpl/dokuwiki/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki"></a>
+    </div>
+
+    </div></footer><!-- /footer -->
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/taskrunner.1688205703.gif?1688205703" width="2" height="1" alt=""></div>
+    <div id="screen__mode" class="no"></div></body>
+</html>

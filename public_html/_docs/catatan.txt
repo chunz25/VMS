@@ -1,0 +1,48 @@
+1. PO history hilang cetak PO untuk Supplier V 
+2. PO ada proses confirm dengan mengisi estimasi quantity kirim..
+3. List PO bisa download dalam bentuk excel
+
+
+
+
+
+supplier :
+
+Purchase Order
+	Purchase Order New
+	History Purchase Order
+Invoicing Process
+	Goods receive
+	Settlement Invoice
+	Invoice Receipt
+	Payment
+
+Buyer :
+
+Purchase Order
+	New Purchase Order
+	History Purchase Order
+Invoicing Process
+	Settlement Invoice
+	Payment
+
+GR :
+
+Purchase Order
+	Purchase Order New
+	History Purchase Order
+Invoicing Process
+	Settlement QTY
+	
+
+Finance
+	Purchase Order New
+	history Purchase Order
+Invoicing Process
+	Settlement Qty
+	Settlement Price
+	Payment
+
+	
+	
+

@@ -1,0 +1,14 @@
+CREATE TABLE "log_cronjob1" (
+	"id_cronjob" INTEGER NOT NULL,
+	"cronjob_code" VARCHAR(20) NULL,
+	"cronjob_name" VARCHAR(100) NULL,
+	"start_date" DATETIME NULL,
+	"finish_date" DATETIME NULL,
+	"duration" INTEGER NULL,
+	"status" VARCHAR(50) NULL,
+	"created_by" VARCHAR(50) NULL,
+	"description1" VARCHAR(255) NULL,
+	"filename" VARCHAR(255) NULL,
+	PRIMARY KEY ("id_cronjob")
+)
+;

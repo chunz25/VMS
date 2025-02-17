@@ -1,0 +1,84 @@
+ReadConfigParam
+RESTToJSONFile
+JSONFileParse
+JSONFileToDb
+
+jumat :
+
+- getInvoice
+- getPayment
+- saveReceipt Supplier
+- getReceiptSupplier
+- open file image/pdf --> PO , RN , Invoice Supplier , Receipt Invoice , Surat Jalan 
+
+- bahas flow untuk grooseries
+
+--
+
+file config :
+
+- format json
+
+pilihan output :
+
+- show monitor
+- save to file
+- both
+
+simple execute :
+
+
+pilihan input sql :
+
+- file
+- inline
+
+
+sql to json
+sql to csv
+sql to xlsx
+sql to html( tabel)
+sql to txt
+sql to xml
+
+
+sql to email
+sql to whatsapp
+--
+
+db to db
+
+json to db
+csv to db
+
+
+
+parameterized application :
+
+1. kategori
+2. subcategori
+3. detail
+
+Database dibagi 6 :
+
+1. master		      --> mst		
+2. transaction		  --> trx
+3. report / history	  --> rpt
+5. archieve			  --> arc
+4. log 				  --> log
+5. gateway			  --> gtw
+
+
+beberapa proses ( update, insert, delete )
+1. reserve --> active next day
+2. now
+3. need approve/confirm
+
+tgl dan user ditiap tabel dan tabel tertentu :
+1. insert_date
+2. insert_user
+3. update_date
+4. update_user
+5. active_date
+6. non_active_date
+6. last_change_password

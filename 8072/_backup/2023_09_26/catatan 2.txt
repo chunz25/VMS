@@ -1,0 +1,136 @@
+- dashboard belum keluar angka
+- file tampil pdf/image ( PO, RN , INVOICE, FAKTUR PAJAK, SURAT JALAN )
+- lupa password
+- reset password dari admin
+- ubah alur dari confirm SAP
+
+note :
+
+1. File PO pdf
+2. File RN pdf
+3. apakah vendor dibedakan category/ department nya ?
+4. apakah buyer/ merchandize dibedakan per category/ departmenennya
+5. apakah GR bisa parsial
+6. apakah bisa juga ditagihkan per parsial bagaimana faktur pajaknya
+7. bisakah per tanggal transaksi / update ?
+8. Apakah bisa menggunakan currency lebih dari satu.. ( IDR, dollar )
+
+address web :
+
+http://vms.electronic-city.biz
+
+
+USER ADMIN 
+
+username : admin
+password : sukses@2023
+
+
+USER SUPPLIER  ( login menggunakan kode_supplier, bisa lihat di admin )
+
+username : 300565
+password : sukses@2023
+
+
+USER finance :
+
+username : fin1
+password : sukses@2023
+
+
+USER GR :
+
+username : gr1
+password : sukses@2023
+
+
+USER Buyer :
+
+username : buyer1
+password : sukses@2023
+
+14 agustus 2023 : ==================
+-----------------------------------------
+
+- buat view insert Receipt Supplier VMS di join dengan Receipt Supplier SAP, ambil yang belum
+
+- buat view insert product 
+- buat view insert category_product 
+
+- buat view insert invoice from SAP
+- buat procedure insert invoice from SAP ( jangan lupa update po dan gr jika sudah masuk sini )
+
+- buat view insert payment
+- buat view insert payment_item
+- buat procedure insert payment ( jangan lupa update po dan gr jika sudah masuk sini )
+
+- buat view insert debit_note
+- buat view insert debit_note_item
+- buat procedure insert debit_note ( jangan lupa update po dan gr jika sudah masuk sini )
+
+- buat view insert goods_return
+- buat view insert goods_return_item
+- buat procedure insert goods_return
+
+
+
+=========================================================================================
+
+
+task :
+
+all process first ( init ) :
+
+A. get data from SAP insert to vms_gateway
+
+1. get vendor
+2. get store
+3. get product
+4. get category
+5. get po
+6. get gr
+
+B. vms_gateway to vms_db
+
+1. int_01_insert_vendor
+2. int_02_insert_store
+3. int_03_insert_product
+4. int_04_insert_category
+5. int_05_insert_po
+6. int_06_insert_gr  
+
+all process every day
+1. get
+
+
+
+========================================
+
+user :
+
+1. tgl_insert
+2. tgl_update
+3. tgl_aktif
+4. tgl_non_aktif
+5. user_insert
+6. user_update
+7. user_aktif
+8. user_non_aktif
+
+=======================================
+
+- REST SERVER dengan golang,
+- REST SERVER dengan node JS
+- REST SERVER dengan PYTHON
+- REST CLIENT dengan golang
+- REST CLIENT dengan nodeJS
+- REST CLIENT dengan PYTHON
+
+proses di integrasi/interface,
+komponen-komponen :
+1. mulai proses tanggal jam ...
+2. selesai proses tanggal jam
+3. nama file
+4. error log
+5. status : berhasil / gagal / gagal sebagian
+6. 

@@ -1,0 +1,86 @@
+email notif :
+
+1. request cancel PO
+2. confirm PO
+3. dispute quantity
+4. dispute price
+5. 
+6. report dispute qty
+7. report dispute price
+8. 
+
+
+admin :
+1. request reset password
+2. database status
+3. report daily operasional
+	- sum po
+	- sum gr
+	- sum dispute qty
+	- sum dispute prc
+	- sum Purchase return
+	- sum Debit Note / KK
+	- sum Payment Information
+	- sum user login
+	- sum PO expired
+	
+
+-- PO akan pindah ke menu History PO jika :
+1. GRN untuk no PO tersebut sudah ada di SAP ( jika ada partial receiving maka cek lagi nilai / quantity nya )
+2. PO sudah expired
+3. sudah ada Receipt supplier ( RS ) / Invoice Receipt di SAP nya
+4. PO request cancel di approve
+5. sudah ada payment untuk no PO tsb
+
+-- Settlement QTY dan Settlement PRC akan pindah ke Receipt Supplier / Paid jika :
+1. sudah diproses di VMS ( sesuai dengan alur )
+2. sudah ada RS / Invoice Receipt di SAP
+3. sudah ada di Payment
+
+
+1	VMS baru mengakomodir PO Merchendise ( Own Product ) V
+2	vendor bisa mengirimkan konfirmasi barang , harga dan quantity ke VMS tentang PO yang di terbitkan 
+3	ketika vendor merequest untuk cancel PO , maka di tambah kan opsi pilihan salah pada QTY atau salah pada harga 
+4	jika vendor merequest cancle PO karena QTY salah akan mengirim notif ke email user SNDP seperti notif SBO
+5	jika vendor merequest cancle PO karena harga salah akan mengirim notif ke email user Produk seperti notif SBO by departemen
+6	jika user mengapprove request cancel PO maka user harus membuat PO baru
+7	jika user merject request cancel PO dari Vendor maka user bisa mengabaikan notif cancel PO
+8	menambahkan expired PO pada web servis PO untuk status PO expired dan untuk rejection request cancel PO
+9	Print PO pada TAB HISTORY PO bisa di matikan agar vendor tidak bisa print PO yang sudah expired V
+10	list PO di download dalam bentuk Excel
+11	pada settelment QTY di tambahkan pilihan "Cancel karena Article"
+12	settelment QTY di berikan kepada user logistic berdasarkan store dan DC ketika PO di buat
+13	ketika settelment quantity , nilai qtuantitiy revisi tidak boleh lebih dari nilai quantity di PO
+14	menambahkan nama article pada quantity settelment
+15	settelment Price di berikan kepada user produk berdasarkan departemen ketika PO di buat
+16	perubahan logic pada pengambilan amount pada saat receipt supplier (diambil ketika konfirm settlement price)
+17	testing multiple RN untuk 1 RS di VMS
+18	jika ada settelment price masuk ke price variant yang akan di proses di SAP
+
+1.	Pembuatan PO tidak diperlukan email lagi , akan otomatis ada di web setelah release, jika ingin print PO PDF proses nya sama seperti biasa
+2.	Yang ada di WEB hanya PO On Order, sisanya masuk ke History
+4.	RN yang sudah posted akan masuk web 5 menit setelah posted, (jika mau lebih bisa, tinggal koordinasi aja)
+5.	RN akan di cek oleh supplier berdasarkan user masing2 supplier, jika ada revisi akan di notif ke masing2 Site yang menerbitkan RN, dan akan terbitkan RN lagi jika sudah di confirm OK
+6.	Untuk saat ini hanya ada mengecekkan by QTY, untuk by Article akan segera di develop
+8.	Penagihan hanya bisa 1 Faktur Pajak, 1 Inv Penagihan 1 Sura Jalan 1 PO dan 1 RN dan harus sesuai secara amount 
+11.	Akan ada sosialisasi program kepada supplier jadwal akan di berikan IT
+12.	Prod akan memberikan contact data adm supplier
+13.	Conntact supplier di kirim -> helmi.anwar@electronic-city.co.id
+14.	Note di PO : harap cek Harga sebelum barang di kirim
+
+
+VMS (Vendor Management System)
+1.	Pembuatan PO tidak diperlukan email lagi , akan otomatis ada di web setelah release, jika ingin print PO PDF proses nya sama seperti biasa
+2.	Yang ada di WEB hanya PO On Order, sisanya masuk ke History
+3.	Jika ada req Cancel PO dari supplier karena harga akan di notif ke email Prod, jika menganai Qty akan di email ke SnDP
+4.	RN yang sudah posted akan masuk web 5 menit setelah posted, (jika mau lebih bisa, tinggal koordinasi aja)
+5.	RN akan di cek oleh supplier berdasarkan user masing2 supplier, jika ada revisi akan di notif ke masing2 Site yang menerbitkan RN, dan akan terbitkan RN lagi jika sudah di confirm OK
+6.	Untuk saat ini hanya ada mengecekkan by QTY, untuk by Article akan segera di develop
+7.	Saat penagihan dan ada perbedaan harga maka supplier aka nisi harga yang benar di web, dan norif akan masuk ke email prod setelah itu di ACC/tdk di ACC untuk proses selanjutnya
+8.	Penagihan hanya bisa 1 Faktur Pajak, 1 Inv Penagihan 1 Sura Jalan 1 PO dan 1 RN dan harus sesuai secara amount 
+9.	Jika ada selisih akan di proses secara manual (by SAP)
+10.	SnDP req untuk menambahkan 1 kolom confirmasi barang yang akan di kirim supplier (Qty) dan juga minta untuk tombol print di PO History agar di matikan
+11.	Akan ada sosialisasi program kepada supplier jadwal akan di berikan IT
+12.	Prod akan memberikan contact data adm supplier 
+13.	Conntact supplier di kirim -> helmi.anwar@electronic-city.co.id
+14.	Note di PO : harap cek Harga sebelum barang di kirim

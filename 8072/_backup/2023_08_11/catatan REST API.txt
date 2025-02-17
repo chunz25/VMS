@@ -1,0 +1,155 @@
+json Good Receipt
+
+http://devecc.electronic-city.co.id:8000/sap/ws/vms/gr?sap-client=130
+{
+    "goods_receive_no" : "5000000140",
+    "year" : "2023",
+    "supplier_code" : "",
+    "posting_date" : "20230301",
+    "purchase_order_no" : ""
+}
+
+json PO
+
+http://devecc.electronic-city.co.id:8000/sap/ws/vms/po?sap-client=130
+POST
+{
+    "purchase_order_no" : "8500111140",
+    "supplier_code" : "I0322",
+    "document_date" : "20230526"
+}
+
+
+master vendor
+
+GET 
+http://devecc.electronic-city.co.id:8000/sap/ws/zmst/mstvndr?sap-client=130
+
+POST
+{
+    "supplier_code" : "",
+    "company_code" : "EC01"
+}
+
+User : defa
+pass : 123123123
+
+
+
+exec :
+
+D:/xampp824/php/php.exe -f "d:/aplikasiWeb/8072/getPO.php" 3
+D:/xampp824/php/php.exe -f "d:/aplikasiWeb/8072/getVendor.php"
+D:/xampp824/php/php.exe -f "d:/aplikasiWeb/8072/getGR.php" 3
+
+php -f "/home/vms/8072/getVendor.php"
+php -f "/home/vms/8072/getPO.php" 3
+php -f "/home/vms/8072/getGR.php" 3
+
+
+Master Category
+http://devecc.electronic-city.co.id:8000/sap/ws/zmst/mstcategory?sap-client=130
+
+POST
+{
+"category":"PD1010201"
+}
+
+Master Article
+http://devecc.electronic-city.co.id:8000/sap/ws/zmst/mstarticle?sap-client=130
+
+POST
+{
+"product_code":"SJ-160"
+}
+
+Master Store
+http://devecc.electronic-city.co.id:8000/sap/ws/zmst/mststore?sap-client=130
+
+POST
+{
+"site":""
+}
+
+invoice
+http://devecc.electronic-city.co.id:8000/sap/ws/vms/invoice?sap-client=130
+{
+    "invoice_no" : "",
+    "year" : "2023",
+    "document_date" : "2023-05-23",
+    "supplier_code" : ""
+}
+
+payment
+http://devecc.electronic-city.co.id:8000/sap/ws/vms/payment?sap-client=130	
+{
+    "invoice_no" : "",
+    "year" : "2023",
+    "document_date" : "",
+    "supplier_code" : ""
+}
+
+savers
+http://devecc.electronic-city.co.id:8000/sap/ws/vms/savers?sap-client=130
+{
+    "header" : {
+        "bukrs" : "EC01",
+        "prctr" : "EC01400001",
+        "lifnr" : "300661",
+        "zterm" : "",
+        "rcdat" : "2023-07-21",
+        "matwr" : "10000",
+        "waerk" : "IDR",
+        "aenam" : "USER01"
+        },
+    
+    "item" : [
+        {
+            "itmno" : "1",
+            "sgtxt" : "TEST ITEM1",
+            "trnty" : "2001",
+            "netwr" : "10000",
+            "mwskz" : "P1",
+            "taxwr" : "1",
+            "xblnr" : "1000",
+            "bktxt" : "1234567890",
+            "fktdt" : "2023-07-24",
+            "waerk" : "IDR"
+        }
+    ],
+    "detail" : [
+        {
+            "itmno" :  "1",
+            "detno" :  "1",
+            "rnnum" :  "",
+            "ebeln" :  "8500111142",
+            "dnnum" :  "2400015647",
+            "coniv" :  "",
+            "congi" :  "",
+            "mwskz" :  "",
+            "sapdocno" :  "5000000132",
+            "sapdocitem" :  "1",
+            "sapdocyear" :  "2023"
+        }
+    ]
+}
+
+viewrs
+http://devecc.electronic-city.co.id:8000/sap/ws/vms/viewrs?sap-client=130
+{
+    "zuonr" : "RS1000000000903219",
+    "date" : ""
+}
+
+
+untuk simulasi ===================================================================
+
+clear all data :
+
+php -f "/home/vms/8072/clearAllData.php"
+
+process get data :
+
+/home/vms/8072/cron1.sh
+
+====================================================================================

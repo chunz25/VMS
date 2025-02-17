@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki">
+<meta name="theme-color" content="#008800">
+<meta name="robots" content="index,follow">
+<meta name="keywords" content="v5,userguide,mysql_tutorial">
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.html" title="ADOdb">
+<link rel="start" href="mysql_tutorial.html">
+<link rel="contents" href="mysql_tutorial.html" title="Sitemap">
+<link rel="manifest" href="../../lib/exe/manifest.html">
+<link rel="alternate" type="application/rss+xml" title="Recent Changes">
+<link rel="alternate" type="application/rss+xml" title="Current namespace">
+<link rel="alternate" type="text/html" title="Plain HTML" href="mysql_tutorial.html">
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="mysql_tutorial.html">
+<link rel="canonical" href="https://adodb.org/dokuwiki/doku.php?id=v5:userguide:mysql_tutorial">
+<link rel="stylesheet" href="../../lib/exe/css.php.t.dokuwiki.css">
+<!--[if gte IE 9]><!-->
+<script>/*<![CDATA[*/var NS='v5:userguide';var JSINFO = {"plugins":{"edittable":{"default columnwidth":""}},"move_renameokay":false,"id":"v5:userguide:mysql_tutorial","namespace":"v5:userguide","ACT":"show","useHeadingNavigation":1,"useHeadingContent":1};
+/*!]]>*/</script>
+<script src="../../lib/exe/jquery.php.t.dokuwiki.js" defer>/*<![CDATA[*/
+/*!]]>*/</script>
+<script src="../../lib/exe/js.php.t.dokuwiki.js" defer>/*<![CDATA[*/
+/*!]]>*/</script>
+<!--<![endif]-->
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="shortcut icon" href="../../lib/tpl/dokuwiki/images/favicon.ico">
+<link rel="apple-touch-icon" href="../../lib/tpl/dokuwiki/images/apple-touch-icon.png">
+    <title>v5:userguide:mysql_tutorial</title></head>
+
+<body>
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_dokuwiki    showSidebar hasSidebar">
+
+        
+<!-- ********** HEADER ********** -->
+<header id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1 class="logo"><a href="../..//index.html" accesskey="h" title="Home [h]"><img src="../../logo.png" width="176" height="62" alt=""> <span>ADOdb</span></a></h1>
+                    <p class="claim">Database Abstraction Layer for PHP</p>
+            </div>
+
+    
+
+    <!-- BREADCRUMBS -->
+            
+    
+    <hr class="a11y">
+<div style="text-align:right"><a href="https://adodb.org">ADOdb Web Site</a></div></div></header><!-- /header -->
+
+        <div class="wrapper group">
+
+                            <!-- ********** ASIDE ********** -->
+                <nav id="dokuwiki__aside" aria-label="Sidebar"><div class="pad aside include group">
+                    <h3 class="toggle">Sidebar</h3>
+                    <div class="content"><div class="group">
+                                                                        
+<p>
+<strong>Resources</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="../../v5/reference/reference_index.html" class="wikilink1" title="v5:reference:reference_index" data-wiki-id="v5:reference:reference_index">Reference Manual</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../../v5/userguide/userguide_index.html" class="wikilink1" title="v5:userguide:userguide_index" data-wiki-id="v5:userguide:userguide_index">User Guide &amp; Tutorials</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../../v5/dictionary/dictionary_index.html" class="wikilink1" title="v5:dictionary:dictionary_index" data-wiki-id="v5:dictionary:dictionary_index">The Data Dictionary</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../../v5/axmls/axmls_index.html" class="wikilink1" title="v5:axmls:axmls_index" data-wiki-id="v5:axmls:axmls_index">ADOdb-xmlschema</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../../v5/activerecord/activerecord_index.html" class="wikilink1" title="v5:activerecord:activerecord_index" data-wiki-id="v5:activerecord:activerecord_index">ADOdb Active Record</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../../v5/performance/performance_index.html" class="wikilink1" title="v5:performance:performance_index" data-wiki-id="v5:performance:performance_index">Performance Monitoring</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../../v5/datetime/datetime_index.html" class="wikilink1" title="v5:datetime:datetime_index" data-wiki-id="v5:datetime:datetime_index">Date/Time Library</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../../v5/session/session_index.html" class="wikilink1" title="v5:session:session_index" data-wiki-id="v5:session:session_index">Session Management Library</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../../v5/proxy/proxy_index.html" class="wikilink1" title="v5:proxy:proxy_index" data-wiki-id="v5:proxy:proxy_index">ADOdb Proxy Server</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../../v5/addons/addons_index.html" class="wikilink1" title="v5:addons:addons_index" data-wiki-id="v5:addons:addons_index">Unsupported Addons</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../../project/standards.html" class="wikilink1" title="project:standards" data-wiki-id="project:standards">Coding Standards</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../../v5/php_compatibility_status.html" class="wikilink1" title="v5:php_compatibility_status" data-wiki-id="v5:php_compatibility_status">PHP Compatibility Status</a></div>
+</li>
+</ul>
+
+<p>
+<strong><a href="../../v5/database/supported.html" class="wikilink1" title="v5:database:supported" data-wiki-id="v5:database:supported">Supported Databases</a></strong>
+</p>
+<ol>
+<li class="level1"><div class="li"> Full support    <ul><li><a href="../../v5/database/ibm_db2.html" class="wikilink1" title="v5:database:ibm_db2">IBM DB2</a></li><li><a href="../../v5/database/microsoft_sql_server.html" class="wikilink1" title="v5:database:microsoft_sql_server">Microsoft SQL Server</a></li><li><a href="../../v5/database/mysql.html" class="wikilink1" title="v5:database:mysql">MySQL</a></li><li><a href="../../v5/database/oracle.html" class="wikilink1" title="v5:database:oracle">Oracle</a></li><li><a href="../../v5/database/postgresql.html" class="wikilink1" title="v5:database:postgresql">PostgreSQL</a></li><li><a href="../../v5/database/sqlite.html" class="wikilink1" title="v5:database:sqlite">SQLite Database</a></li></ul></div>
+</li>
+<li class="level1"><div class="li"> Partial support <ul><li><a href="../../v5/database/firebird.html" class="wikilink1" title="v5:database:firebird">Firebird &amp; Interbase</a></li><li><a href="../../v5/database/ldap.html" class="wikilink1" title="v5:database:ldap">LDAP</a></li><li><a href="../../v5/database/access.html" class="wikilink1" title="v5:database:access">Microsoft Access</a></li><li><a href="../../v5/database/odbc.html" class="wikilink1" title="v5:database:odbc">ODBC</a></li><li><a href="../../v5/database/pdo.html" class="wikilink1" title="v5:database:pdo">PDO</a></li><li><a href="../../v5/database/pdo_new.html" class="wikilink1" title="v5:database:pdo_new">PDO (new)</a></li></ul></div>
+</li>
+<li class="level1"><div class="li"> <a href="../../v5/database/unsupported.html" class="wikilink1" title="v5:database:unsupported" data-wiki-id="v5:database:unsupported">Obsolete/Unsupported Drivers</a></div>
+</li>
+</ol>
+                                            </div></div>
+                </div></nav><!-- /aside -->
+            
+            <!-- ********** CONTENT ********** -->
+            <main id="dokuwiki__content"><div class="pad group">
+                
+                <div class="pageId"><span>v5:userguide:mysql_tutorial</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc" class="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#let_s_not_call_the_whole_thing_off">Let's NOT call the whole thing off</a></div></li>
+<li class="level1"><div class="li"><a href="#mysql_example">MySQL Example</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#connecting_to_the_database">Connecting to the Database</a></div></li>
+<li class="level2"><div class="li"><a href="#executing_the_sql">Executing the SQL</a></div></li>
+<li class="level2"><div class="li"><a href="#retrieving_the_data">Retrieving the Data</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="#adoconnection">ADOConnection</a></div></li>
+<li class="level1"><div class="li"><a href="#other_useful_functions">Other Useful Functions</a></div></li>
+<li class="level1"><div class="li"><a href="#advanced_material">Advanced Material</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#inserts_and_updates">Inserts and Updates</a></div></li>
+<li class="level2"><div class="li"><a href="#metatypes">MetaTypes</a></div></li>
+<li class="level2"><div class="li"><a href="#select_limit_and_top_support">Select Limit and Top Support</a></div></li>
+<li class="level2"><div class="li"><a href="#caching_support">Caching Support</a></div></li>
+<li class="level2"><div class="li"><a href="#session_handler_support">Session Handler Support</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="#commercial_use_encouraged">Commercial Use Encouraged</a></div></li>
+<li class="level1"><div class="li"><a href="#conclusion">Conclusion</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+<div class="wrap_right wrap_box plugin_wrap">
+<p>
+Author Credit: John Lim
+</p>
+</div>
+<h1 class="sectionedit3" id="moving_from_mysql_to_adodb">Moving from MySQL to ADOdb</h1>
+<div class="level1">
+<div class="wrap_indent plugin_wrap">
+<p>
+<em>
+You say eether and I say eyether, <br>
+
+You say neether and I say nyther; <br>
+
+Eether, eyether, neether, nyther - <br>
+
+Let's call the whole thing off ! <br>
+
+<br>
+
+You like potato and I like po-tah-to, <br>
+
+You like tomato and I like to-mah-to; <br>
+
+Potato, po-tah-to, tomato, to-mah-to - <br>
+
+Let's call the whole thing off !
+</em>
+</p>
+</div>
+<p>
+I love this song, especially the version with Louis Armstrong and Ella singing duet. It is all about how hard it is for two people in love to be compatible with each other. It's about compromise and finding a common ground, and that's what this article is all about.
+</p>
+
+<p>
+PHP is all about creating dynamic web-sites with the least fuss and the most fun. To create these websites we need to use databases to retrieve login information, to splash dynamic news onto the web page and store forum postings. So let's say we were using the popular MySQL database for this. Your company has done such a fantastic job that the Web site is more popular than your wildest dreams. You find that MySQL cannot scale to handle the workload; time to switch databases.
+</p>
+
+<p>
+Unfortunately in PHP every database is accessed slightly differently. To connect to MySQL, you would use <code>mysqli_connect();</code> when you decide to upgrade to Oracle or Microsoft SQL Server, you would use <code>ocilogon()</code> or <code>mssql_connect()</code> respectively. What is worse is that the parameters you use for the different connect functions are different also.. One database says po-tato, the other database says pota-to. Oh-oh.
+</p>
+
+</div>
+
+<h2 class="sectionedit6" id="let_s_not_call_the_whole_thing_off">Let's NOT call the whole thing off</h2>
+<div class="level2">
+
+<p>
+A database wrapper library such as ADOdb comes in handy when you need to ensure portability. It provides you with a common <abbr title="Application Programming Interface">API</abbr> to communicate with any supported database so you don't have to call things off.
+</p>
+
+<p>
+ADOdb stands for Active Data Objects DataBase (sorry computer guys are sometimes not very original). ADOdb currently supports MySQL, PostgreSQL, Oracle, Interbase, Microsoft SQL Server, Access, FoxPro, Sybase, ODBC and ADO. You can download ADOdb from <a href="http://sourceforge.net/projects/adodb/files/latest/download" class="urlextern" target="_blank" title="http://sourceforge.net/projects/adodb/files/latest/download" rel="ugc nofollow noopener">http://sourceforge.net/projects/adodb/files/latest/download</a>.
+</p>
+
+</div>
+
+<h2 class="sectionedit7" id="mysql_example">MySQL Example</h2>
+<div class="level2">
+
+<p>
+The most common database used with PHP is MySQL, so I guess you should be familiar with the following code. It connects to a MySQL server at <em>localhost</em>, database <em>mydb</em>, and executes an SQL select statement. The results are printed, one line per row.
+</p>
+<pre class="code php"><span class="co1">// Section 1</span>
+<span class="re0">$db</span> <span class="sy0">=</span> <a target="_blank" href="http://www.php.net/mysqli_connect"><span class="kw3">mysqli_connect</span></a><span class="br0">(</span><span class="st0">"localhost"</span><span class="sy0">,</span> <span class="st0">"root"</span><span class="sy0">,</span> <span class="st0">"password"</span><span class="br0">)</span><span class="sy0">;</span>
+<a target="_blank" href="http://www.php.net/mysqli_select_db"><span class="kw3">mysqli_select_db</span></a><span class="br0">(</span><span class="st0">"mydb"</span><span class="sy0">,</span><span class="re0">$db</span><span class="br0">)</span><span class="sy0">;</span>
+&nbsp;
+<span class="co1">// Section 2</span>
+<span class="re0">$result</span> <span class="sy0">=</span> <a target="_blank" href="http://www.php.net/mysqli_query"><span class="kw3">mysqli_query</span></a><span class="br0">(</span><span class="st0">"SELECT * FROM employees"</span><span class="sy0">,</span><span class="re0">$db</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="kw1">if</span> <span class="br0">(</span><span class="re0">$result</span> <span class="sy0">===</span> <span class="kw4">false</span><span class="br0">)</span> <a target="_blank" href="http://www.php.net/die"><span class="kw3">die</span></a><span class="br0">(</span><span class="st0">"failed"</span><span class="br0">)</span><span class="sy0">;</span>
+&nbsp;
+<span class="co1">// Section 3</span>
+<span class="kw1">while</span> <span class="br0">(</span><span class="re0">$fields</span> <span class="sy0">=</span> <a target="_blank" href="http://www.php.net/mysqli_fetch_row"><span class="kw3">mysqli_fetch_row</span></a><span class="br0">(</span><span class="re0">$result</span><span class="br0">)</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="kw1">for</span> <span class="br0">(</span><span class="re0">$i</span><span class="sy0">=</span><span class="nu0">0</span><span class="sy0">,</span> <span class="re0">$max</span><span class="sy0">=</span><a target="_blank" href="http://www.php.net/sizeof"><span class="kw3">sizeof</span></a><span class="br0">(</span><span class="re0">$fields</span><span class="br0">)</span><span class="sy0">;</span> <span class="re0">$i</span> <span class="sy0">&lt;</span> <span class="re0">$max</span><span class="sy0">;</span> <span class="re0">$i</span><span class="sy0">++</span><span class="br0">)</span> <span class="br0">{</span>
+        <span class="kw1">print</span> <span class="re0">$fields</span><span class="br0">[</span><span class="re0">$i</span><span class="br0">]</span><span class="sy0">.</span><span class="st_h">' '</span><span class="sy0">;</span>
+    <span class="br0">}</span>
+    <span class="kw1">print</span> <span class="st0">"&lt;br&gt;<span class="es1">\n</span>"</span><span class="sy0">;</span>
+<span class="br0">}</span></pre>
+
+<p>
+The above code has been split in 3 sections:
+</p>
+<ol>
+<li class="level1"><div class="li"> The connection phase. </div>
+</li>
+<li class="level1"><div class="li"> The execution of the SQL, and </div>
+</li>
+<li class="level1"><div class="li"> Displaying the fields. The while loop scans the rows of the result, while the for loop scans the fields in one row.</div>
+</li>
+</ol>
+
+<p>
+Here is the equivalent code in ADOdb
+</p>
+<pre class="code php"><span class="co1">// Section 1</span>
+<span class="kw1">include</span><span class="br0">(</span><span class="st0">"adodb.inc.php"</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$db</span> <span class="sy0">=</span> newADOConnection<span class="br0">(</span><span class="st_h">'mysqli'</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">connect</span><span class="br0">(</span><span class="st0">"localhost"</span><span class="sy0">,</span> <span class="st0">"root"</span><span class="sy0">,</span> <span class="st0">"password"</span><span class="sy0">,</span> <span class="st0">"mydb"</span><span class="br0">)</span><span class="sy0">;</span>
+&nbsp;
+<span class="co1">// Section 2</span>
+<span class="re0">$result</span> <span class="sy0">=</span> <span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">execute</span><span class="br0">(</span><span class="st0">"SELECT * FROM employees"</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="kw1">if</span> <span class="br0">(</span><span class="re0">$result</span> <span class="sy0">===</span> <span class="kw4">false</span><span class="br0">)</span> <a target="_blank" href="http://www.php.net/die"><span class="kw3">die</span></a><span class="br0">(</span><span class="st0">"failed"</span><span class="br0">)</span><span class="sy0">;</span>
+&nbsp;
+<span class="co1">// Section 3</span>
+<span class="kw1">while</span> <span class="br0">(</span><span class="sy0">!</span><span class="re0">$result</span><span class="sy0">-&gt;</span><span class="me1">EOF</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="kw1">for</span> <span class="br0">(</span><span class="re0">$i</span><span class="sy0">=</span><span class="nu0">0</span><span class="sy0">,</span> <span class="re0">$max</span><span class="sy0">=</span><span class="re0">$result</span><span class="sy0">-&gt;</span><span class="me1">fieldCount</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span> <span class="re0">$i</span> <span class="sy0">&lt;</span> <span class="re0">$max</span><span class="sy0">;</span> <span class="re0">$i</span><span class="sy0">++</span><span class="br0">)</span> <span class="br0">{</span>
+        <span class="kw1">print</span> <span class="re0">$result</span><span class="sy0">-&gt;</span><span class="me1">fields</span><span class="br0">[</span><span class="re0">$i</span><span class="br0">]</span><span class="sy0">.</span><span class="st_h">' '</span><span class="sy0">;</span>
+    <span class="br0">}</span>
+    <span class="re0">$result</span><span class="sy0">-&gt;</span><span class="me1">moveNext</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="kw1">print</span> <span class="st0">"&lt;br&gt;<span class="es1">\n</span>"</span><span class="sy0">;</span>
+<span class="br0">}</span></pre>
+
+<p>
+Now porting to Oracle is as simple as changing the second line to <code>newADOConnection('oracle')</code>. Let's walk through the code&hellip;
+</p>
+
+</div>
+
+<h3 class="sectionedit8" id="connecting_to_the_database">Connecting to the Database</h3>
+<div class="level3">
+<pre class="code php"><span class="kw1">include</span><span class="br0">(</span><span class="st0">"adodb.inc.php"</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$db</span> <span class="sy0">=</span> newADOConnection<span class="br0">(</span><span class="st_h">'mysql'</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">connect</span><span class="br0">(</span><span class="st0">"localhost"</span><span class="sy0">,</span> <span class="st0">"root"</span><span class="sy0">,</span> <span class="st0">"password"</span><span class="sy0">,</span> <span class="st0">"mydb"</span><span class="br0">)</span><span class="sy0">;</span></pre>
+
+<p>
+The connection code is a bit more sophisticated than MySQL's because our needs are more sophisticated. In ADOdb, we use an object-oriented approach to managing the complexity of handling multiple databases. We have different classes to handle different databases. If you aren't familiar with object-oriented programing, don't worry &ndash; the complexity is all hidden away in the <code>NewADOConnection()</code> function.
+</p>
+
+<p>
+To conserve memory, we only load the PHP code specific to the database you are connecting to. We do this by calling <code>NewADOConnection(databasedriver)</code>. Legal database drivers include mysql, mssql, oracle, oci8, postgres, sybase, vfp, access, ibase and many others.
+</p>
+
+<p>
+Then we create a new instance of the connection class by calling <code>NewADOConnection()</code>. Finally we connect to the database using <code>$db-&gt;Connect()</code>.
+</p>
+
+</div>
+
+<h3 class="sectionedit9" id="executing_the_sql">Executing the SQL</h3>
+<div class="level3">
+<pre class="code php"><span class="re0">$result</span> <span class="sy0">=</span> <span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">execute</span><span class="br0">(</span><span class="st0">"SELECT * FROM employees"</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="kw1">if</span> <span class="br0">(</span><span class="re0">$result</span> <span class="sy0">===</span> <span class="kw4">false</span><span class="br0">)</span> <a target="_blank" href="http://www.php.net/die"><span class="kw3">die</span></a><span class="br0">(</span><span class="st0">"failed"</span><span class="br0">)</span><span class="sy0">;</span></pre>
+
+<p>
+Sending the SQL statement to the server is straight forward. <code>Execute()</code> will return a recordset object on successful execution. You should check $result as we do above.
+</p>
+
+<p>
+An issue that confuses beginners is the fact that we have two types of objects in ADOdb, the connection object and the recordset object. When do we use each?
+</p>
+
+<p>
+The connection object ($db) is responsible for connecting to the database, formatting your SQL and querying the database server. The recordset object ($result) is responsible for retrieving the results and formatting the reply as text or as an array.
+</p>
+
+<p>
+The only thing I need to add is that ADOdb provides several helper functions for making INSERT and UPDATE statements easier, which we will cover in the Advanced section.
+</p>
+
+</div>
+
+<h3 class="sectionedit10" id="retrieving_the_data">Retrieving the Data</h3>
+<div class="level3">
+<pre class="code php"><span class="kw1">while</span> <span class="br0">(</span><span class="sy0">!</span><span class="re0">$result</span><span class="sy0">-&gt;</span><span class="me1">EOF</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw1">for</span> <span class="br0">(</span><span class="re0">$i</span><span class="sy0">=</span><span class="nu0">0</span><span class="sy0">,</span> <span class="re0">$max</span><span class="sy0">=</span><span class="re0">$result</span><span class="sy0">-&gt;</span><span class="me1">fieldCount</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span> <span class="re0">$i</span> <span class="sy0">&lt;</span> <span class="re0">$max</span><span class="sy0">;</span> <span class="re0">$i</span><span class="sy0">++</span><span class="br0">)</span>
+        <span class="kw1">print</span> <span class="re0">$result</span><span class="sy0">-&gt;</span><span class="me1">fields</span><span class="br0">[</span><span class="re0">$i</span><span class="br0">]</span><span class="sy0">.</span><span class="st_h">' '</span><span class="sy0">;</span>
+    <span class="re0">$result</span><span class="sy0">-&gt;</span><span class="me1">moveNext</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="kw1">print</span> <span class="st0">"&lt;br&gt;<span class="es1">\n</span>"</span><span class="sy0">;</span>
+<span class="br0">}</span></pre>
+
+<p>
+The paradigm for getting the data is that it's like reading a file. For every line, we check first whether we have reached the end-of-file (<abbr title="End of file">EOF</abbr>). While not end-of-file, loop through each field in the row. Then move to the next line (MoveNext) and repeat.
+</p>
+
+<p>
+The <code>$result-&gt;fields[]</code> array is generated by the PHP database extension. Some database extensions do not index the array by field name. To force indexing by name - that is associative arrays - use the <code>$ADODB_FETCH_MODE</code> global variable.
+</p>
+<pre class="code php"><span class="re0">$ADODB_FETCH_MODE</span> <span class="sy0">=</span> ADODB_FETCH_NUM<span class="sy0">;</span>
+<span class="re0">$rs1</span> <span class="sy0">=</span> <span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">execute</span><span class="br0">(</span><span class="st_h">'select * from table'</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$ADODB_FETCH_MODE</span> <span class="sy0">=</span> ADODB_FETCH_ASSOC<span class="sy0">;</span>
+<span class="re0">$rs2</span> <span class="sy0">=</span> <span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">execute</span><span class="br0">(</span><span class="st_h">'select * from table'</span><span class="br0">)</span><span class="sy0">;</span>
+<a target="_blank" href="http://www.php.net/print_r"><span class="kw3">print_r</span></a><span class="br0">(</span><span class="re0">$rs1</span><span class="sy0">-&gt;</span><span class="me1">fields</span><span class="br0">)</span><span class="sy0">;</span> <span class="co1">// shows array([0]=&gt;'v0',[1] =&gt;'v1')</span>
+<a target="_blank" href="http://www.php.net/print_r"><span class="kw3">print_r</span></a><span class="br0">(</span><span class="re0">$rs2</span><span class="sy0">-&gt;</span><span class="me1">fields</span><span class="br0">)</span><span class="sy0">;</span> <span class="co1">// shows array(['col1']=&gt;'v0',['col2'] =&gt;'v1')</span></pre>
+
+<p>
+As you can see in the above example, both recordsets store and use different fetch modes based on the <code>$ADODB_FETCH_MODE</code> setting when the recordset was created by <code>Execute()</code>.
+</p>
+
+</div>
+
+<h2 class="sectionedit11" id="adoconnection">ADOConnection</h2>
+<div class="level2">
+
+<p>
+Object that performs the connection to the database, executes SQL statements and has a set of utility functions for standardising the format of SQL statements for issues such as concatenation and date formats.
+</p>
+
+</div>
+
+<h2 class="sectionedit12" id="other_useful_functions">Other Useful Functions</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> <code>$recordset-&gt;move($pos)</code> scrolls to that particular row. ADOdb supports forward scrolling for all databases. Some databases will not support backwards scrolling. This is normally not a problem as you can always cache records to simulate backwards scrolling.</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> <code>$recordset-&gt;recordCount()</code> returns the number of records accessed by the SQL statement. Some databases will return -1 because it is not supported.</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> <code>$recordset-&gt;getArray()</code> returns the result as an array.</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> <code>rs2html($recordset)</code> is a function that generates a <abbr title="HyperText Markup Language">HTML</abbr> table based on the $recordset passed to it. An example with the relevant lines in bold:</div>
+</li>
+</ul>
+<pre class="code php"><span class="kw1">include</span><span class="br0">(</span><span class="st_h">'adodb.inc.php'</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="kw1">include</span><span class="br0">(</span><span class="st_h">'tohtml.inc.php'</span><span class="br0">)</span><span class="sy0">;</span> <span class="coMULTI">/* includes the rs2html function */</span>
+<span class="re0">$conn</span> <span class="sy0">=</span> newADOConnection<span class="br0">(</span><span class="st_h">'mysqli'</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$conn</span><span class="sy0">-&gt;</span><span class="me1">pConnect</span><span class="br0">(</span><span class="st_h">'localhost'</span><span class="sy0">,</span><span class="st_h">'userid'</span><span class="sy0">,</span><span class="st_h">'password'</span><span class="sy0">,</span><span class="st_h">'database'</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$rs</span> <span class="sy0">=</span> <span class="re0">$conn</span><span class="sy0">-&gt;</span><span class="me1">execute</span><span class="br0">(</span><span class="st_h">'select * from table'</span><span class="br0">)</span><span class="sy0">;</span>
+rs2html<span class="br0">(</span><span class="re0">$rs</span><span class="br0">)</span><span class="sy0">;</span> <span class="coMULTI">/* recordset to html table */</span> </pre>
+
+</div>
+
+<h2 class="sectionedit13" id="advanced_material">Advanced Material</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit14" id="inserts_and_updates">Inserts and Updates</h3>
+<div class="level3">
+
+<p>
+Let's say you want to insert the following data into a database.
+</p>
+<pre class="code">ID = 3
+TheDate=mktime(0,0,0,8,31,2001) /* 31st August 2001 */
+Note= sugar why don't we call it off</pre>
+
+<p>
+When you move to another database, your insert might no longer work.
+</p>
+
+<p>
+The first problem is that each database has a different default date format. MySQL expects YYYY-MM-DD format, while other databases have different defaults. ADOdb has a function called <a href="../../v5/reference/connection/dbdate.html" class="wikilink1" title="v5:reference:connection:dbdate" data-wiki-id="v5:reference:connection:dbdate">dbDate()</a> that addresses this issue by converting converting the date to the correct format.
+</p>
+
+<p>
+The next problem is that the <em>don't</em> in the Note needs to be quoted. In MySQL, we use <code>don\'t</code> but in some other databases (Sybase, Access, Microsoft SQL Server) we use <code>don''t</code>. The <a href="../../v5/reference/connection/qstr.html" class="wikilink1" title="v5:reference:connection:qstr" data-wiki-id="v5:reference:connection:qstr">qStr</a> function addresses this issue.
+</p>
+
+<p>
+So how do we use the functions? Like this:
+</p>
+<pre class="code php"><span class="re0">$sql</span> <span class="sy0">=</span> <span class="st0">"INSERT INTO table (id, thedate,note) values ("</span>
+   <span class="sy0">.</span> <span class="re0">$ID</span> <span class="sy0">.</span> <span class="st_h">','</span>
+   <span class="sy0">.</span> <span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">dbDate</span><span class="br0">(</span><span class="re0">$TheDate</span><span class="br0">)</span> <span class="sy0">.</span><span class="st_h">','</span>
+   <span class="sy0">.</span> <span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">qStr</span><span class="br0">(</span><span class="re0">$Note</span><span class="br0">)</span><span class="sy0">.</span><span class="st0">")"</span><span class="sy0">;</span>
+<span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">execute</span><span class="br0">(</span><span class="re0">$sql</span><span class="br0">)</span><span class="sy0">;</span></pre>
+
+<p>
+ADOdb also supports <code><a href="../../v5/reference/connection/affected_rows.html" class="wikilink1" title="v5:reference:connection:affected_rows" data-wiki-id="v5:reference:connection:affected_rows">$connection-&gt;affected_rows()</a></code> (returns the number of rows affected by last update or delete) and <code><a href="../../v5/reference/connection/insert_id.html" class="wikilink1" title="v5:reference:connection:insert_id" data-wiki-id="v5:reference:connection:insert_id">$recordset-&gt;insert_id()</a></code> (returns last autoincrement number generated by an insert statement). Be forewarned that <strong>not all databases support the two functions</strong>.
+</p>
+
+</div>
+
+<h3 class="sectionedit15" id="metatypes">MetaTypes</h3>
+<div class="level3">
+
+<p>
+You can find out more information about each of the fields (I use the words fields and columns interchangeably) you are selecting by calling the recordset method <code>FetchField($fieldoffset)</code>. This will return an object with 3 properties: <em>name</em>, <em>type</em> and <em>max_length</em>.
+</p>
+
+<p>
+For example:
+</p>
+<pre class="code php"><span class="re0">$recordset</span> <span class="sy0">=</span> <span class="re0">$conn</span><span class="sy0">-&gt;</span><span class="me1">execute</span><span class="br0">(</span><span class="st0">"select adate from table"</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$f0</span> <span class="sy0">=</span> <span class="re0">$recordset</span><span class="sy0">-&gt;</span><span class="me1">fetchField</span><span class="br0">(</span><span class="nu0">0</span><span class="br0">)</span><span class="sy0">;</span></pre>
+
+<p>
+Then <code>$f0-&gt;name</code> will hold 'adata', <code>$f0-&gt;type</code> will be set to 'date'. If the <em>max_length</em> is unknown, it will be set to -1.
+</p>
+
+<p>
+One problem with handling different databases is that each database often calls the same type by a different name. For example a timestamp type is called <em>datetime</em> in one database and <em>time</em> in another. So ADOdb has a special <code>MetaType($type, $max_length)</code> function that standardises the types to the following:
+</p>
+<div class="table sectionedit16"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> MetaType </th><th class="col1"> Description </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> C </td><td class="col1"> character and varchar types </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> X </td><td class="col1"> text or long character (eg. more than 255 bytes wide). </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> B </td><td class="col1"> blob or binary image </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> D </td><td class="col1"> date </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> T </td><td class="col1"> timestamp </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0"> L </td><td class="col1"> logical (boolean) </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0"> I </td><td class="col1"> integer </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0"> N </td><td class="col1"> numeric (float, double, money) </td>
+	</tr>
+</table></div>
+
+<p>
+In the above date example,
+</p>
+<pre class="code php"><span class="re0">$recordset</span> <span class="sy0">=</span> <span class="re0">$conn</span><span class="sy0">-&gt;</span><span class="me1">execute</span><span class="br0">(</span><span class="st0">"select adate from table"</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$f0</span> <span class="sy0">=</span> <span class="re0">$recordset</span><span class="sy0">-&gt;</span><span class="me1">fetchField</span><span class="br0">(</span><span class="nu0">0</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$type</span> <span class="sy0">=</span> <span class="re0">$recordset</span><span class="sy0">-&gt;</span><span class="me1">metaType</span><span class="br0">(</span><span class="re0">$f0</span><span class="sy0">-&gt;</span><span class="me1">type</span><span class="sy0">,</span> <span class="re0">$f0</span><span class="sy0">-&gt;</span><span class="me1">max_length</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="kw1">print</span> <span class="re0">$type</span><span class="sy0">;</span> <span class="coMULTI">/* should print 'D' */</span></pre>
+
+</div>
+
+<h3 class="sectionedit17" id="select_limit_and_top_support">Select Limit and Top Support</h3>
+<div class="level3">
+
+<p>
+ADOdb has a function called <code><a href="../../v5/reference/connection/selectlimit.html" class="wikilink1" title="v5:reference:connection:selectlimit" data-wiki-id="v5:reference:connection:selectlimit">$connection-&gt;SelectLimit($sql,$nrows,$offset)</a></code> that allows you to retrieve a subset of the recordset. This will take advantage of native <code>SELECT TOP</code> on Microsoft products and <code>SELECT &hellip; LIMIT</code> with PostgreSQL and MySQL, and emulated if the database does not support it.
+</p>
+
+</div>
+
+<h3 class="sectionedit18" id="caching_support">Caching Support</h3>
+<div class="level3">
+
+<p>
+ADOdb allows you to cache recordsets in your file system, and only requery the database server after a certain timeout period with 
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>$connection&rarr;cacheExecute($secs2cache,$sql)</code></div>
+</li>
+<li class="level1"><div class="li"> <code>$connection&rarr;cacheSelectLimit($secs2cache,$sql,$nrows,$offset)</code>.</div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit19" id="session_handler_support">Session Handler Support</h3>
+<div class="level3">
+
+<p>
+ADOdb also supports session handlers. You can store your session variables in a database for true scalability using ADOdb. For further information, see the section on <a href="../../v5/session/session_index.html" class="wikilink1" title="v5:session:session_index" data-wiki-id="v5:session:session_index">Sessions</a>.
+</p>
+
+</div>
+
+<h2 class="sectionedit20" id="commercial_use_encouraged">Commercial Use Encouraged</h2>
+<div class="level2">
+
+<p>
+If you plan to write commercial PHP applications that you want to resell, you should consider ADOdb. It has been released using the lesser <abbr title="GNU General Public License">GPL</abbr>, which means you can legally include it in commercial applications, while keeping your code proprietary. Commercial use of ADOdb is strongly encouraged! We are using it internally for this reason.
+</p>
+
+</div>
+
+<h2 class="sectionedit21" id="conclusion">Conclusion</h2>
+<div class="level2">
+
+<p>
+As a thank you for finishing this article, here are the complete lyrics for <em>let's call the whole thing off</em>.
+</p>
+<div class="wrap_indent plugin_wrap">
+<p>
+<em>
+Refrain <br>
+
+You say eether and I say eyether, <br>
+
+You say neether and I say nyther; <br>
+
+Eether, eyether, neether, nyther - <br>
+
+Let's call the whole thing off ! <br>
+
+<br>
+
+You like potato and I like po-tah-to, <br>
+
+You like tomato and I like to-mah-to; <br>
+
+Potato, po-tah-to, tomato, to-mah-to - <br>
+
+Let's call the whole thing off ! <br>
+
+<br>
+
+But oh, if we call the whole thing off, then we must part. <br>
+
+And oh, if we ever part, then that might break my heart. <br>
+
+<br>
+
+So, if you like pajamas and I like pa-jah-mas, <br>
+
+I'll wear pajamas and give up pa-jah-mas. <br>
+
+For we know we <br>
+
+Need each other, so we <br>
+
+Better call the calling off off. <br>
+
+Let's call the whole thing off ! <br>
+
+<br>
+
+Second Refrain <br>
+
+<br>
+
+You say laughter and I say lawfter, <br>
+
+You say after and I say awfter; <br>
+
+Laughter, lawfter, after, awfter - <br>
+
+Let's call the whole thing off ! <br>
+
+<br>
+
+You like vanilla and I like vanella, <br>
+
+You, sa's'parilla and I sa's'parella; <br>
+
+Vanilla, vanella, choc'late, strawb'ry - <br>
+
+Let's call the whole thing off ! <br>
+
+<br>
+
+But oh, if we call the whole thing off, then we must part. <br>
+
+And oh, if we ever part, then that might break my heart. <br>
+
+<br>
+
+So, if you go for oysters and I go for ersters, <br>
+
+I'll order oysters and cancel the ersters. <br>
+
+For we know we <br>
+
+Need each other, so we <br>
+
+Better call the calling off off. <br>
+
+Let's call the whole thing off !
+</em>
+</p>
+</div>
+<p>
+Song and lyrics by George and Ira Gershwin, introduced by Fred Astaire and Ginger Rogers in the film &ldquo;Shall We Dance?&rdquo;
+</p>
+
+<p>
+&copy; 2001-2014 John Lim.
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>v5/userguide/mysql_tutorial.txt</bdi> &middot; Last modified: 2018/06/27 16:09 by <bdi>dregad</bdi></div>
+
+                
+                <hr class="a11y">
+            </div></main><!-- /content -->
+
+            <!-- PAGE ACTIONS -->
+            <nav id="dokuwiki__pagetools" aria-labelledby="dokuwiki__pagetools__heading">
+                <h3 class="a11y" id="dokuwiki__pagetools__heading">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li class="source"><a href="mysql_tutorial.html" title="Show pagesource [v]" rel="nofollow" accesskey="v"><span>Show pagesource</span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24"><path d="M13 9h5.5L13 3.5V9M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4c0-1.11.89-2 2-2m.12 13.5l3.74 3.74 1.42-1.41-2.33-2.33 2.33-2.33-1.42-1.41-3.74 3.74m11.16 0l-3.74-3.74-1.42 1.41 2.33 2.33-2.33 2.33 1.42 1.41 3.74-3.74z"></path></svg></a></li><li class="revs"><a href="mysql_tutorial.html" title="Old revisions [o]" rel="nofollow" accesskey="o"><span>Old revisions</span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24"><path d="M11 7v5.11l4.71 2.79.79-1.28-4-2.37V7m0-5C8.97 2 5.91 3.92 4.27 6.77L2 4.5V11h6.5L5.75 8.25C6.96 5.73 9.5 4 12.5 4a7.5 7.5 0 0 1 7.5 7.5 7.5 7.5 0 0 1-7.5 7.5c-3.27 0-6.03-2.09-7.06-5h-2.1c1.1 4.03 4.77 7 9.16 7 5.24 0 9.5-4.25 9.5-9.5A9.5 9.5 0 0 0 12.5 2z"></path></svg></a></li><li class="backlink"><a href="mysql_tutorial.html" title="Backlinks" rel="nofollow"><span>Backlinks</span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24"><path d="M10.59 13.41c.41.39.41 1.03 0 1.42-.39.39-1.03.39-1.42 0a5.003 5.003 0 0 1 0-7.07l3.54-3.54a5.003 5.003 0 0 1 7.07 0 5.003 5.003 0 0 1 0 7.07l-1.49 1.49c.01-.82-.12-1.64-.4-2.42l.47-.48a2.982 2.982 0 0 0 0-4.24 2.982 2.982 0 0 0-4.24 0l-3.53 3.53a2.982 2.982 0 0 0 0 4.24m2.82-4.24c.39-.39 1.03-.39 1.42 0a5.003 5.003 0 0 1 0 7.07l-3.54 3.54a5.003 5.003 0 0 1-7.07 0 5.003 5.003 0 0 1 0-7.07l1.49-1.49c-.01.82.12 1.64.4 2.43l-.47.47a2.982 2.982 0 0 0 0 4.24 2.982 2.982 0 0 0 4.24 0l3.53-3.53a2.982 2.982 0 0 0 0-4.24.973.973 0 0 1 0-1.42z"></path></svg></a></li><li class="siteexport_addpage"><a href="mysql_tutorial.html" title="Export Page to HTML/PDF" rel="nofollow"><span>Export Page to HTML/PDF</span><svg width="61px" height="51px" viewbox="0 0 61 51" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs></defs><path d="M26.1891503,39.0065635 L26.0876578,38.9773206 L60.6523866,1.23972885 L60.4321374,2.11844376 L60.476442,2.07071678 L60.4265202,2.14085429 L49.5024876,45.7237994 L32.8255882,40.9187101 L26,50.508302 L26,39.2103249 L26.1891503,39.0065635 Z M60.9727675,0.862917243 L22.2676619,38.2155059 L-0.00245042233,30.2214566 L60.9727675,0.862917243 Z" id="Paper-Plane"></path></svg></a></li><li class="top"><a href="#dokuwiki__top" title="Back to top [t]" rel="nofollow" accesskey="t"><span>Back to top</span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path></svg></a></li>                    </ul>
+                </div>
+            </nav>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<footer id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="https://creativecommons.org/licenses/by-sa/4.0/deed.en" rel="license" class="urlextern" target="_blank">CC Attribution-Share Alike 4.0 International</a></bdi></div>
+    <div class="buttons">
+        <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.en" rel="license" target="_blank"><img src="../../lib/images/license/button/cc-by-sa.png" alt="CC Attribution-Share Alike 4.0 International"></a>        <a href="https://www.dokuwiki.org/donate" title="Donate" target="_blank"><img src="../../lib/tpl/dokuwiki/images/button-donate.gif" width="80" height="15" alt="Donate"></a>
+        <a href="https://php.net" title="Powered by PHP" target="_blank"><img src="../../lib/tpl/dokuwiki/images/button-php.gif" width="80" height="15" alt="Powered by PHP"></a>
+        <a href="../../check/referer" title="Valid HTML5" target="_blank"><img src="../../lib/tpl/dokuwiki/images/button-html5.png" width="80" height="15" alt="Valid HTML5"></a>
+        <a href="../../css-validator/check/referer.profile.css3?profile=css3" title="Valid CSS" target="_blank"><img src="../../lib/tpl/dokuwiki/images/button-css.png" width="80" height="15" alt="Valid CSS"></a>
+        <a href="https://dokuwiki.org/" title="Driven by DokuWiki" target="_blank"><img src="../../lib/tpl/dokuwiki/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki"></a>
+    </div>
+
+    </div></footer><!-- /footer -->
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/taskrunner.1688205703.gif?1688205703" width="2" height="1" alt=""></div>
+    <div id="screen__mode" class="no"></div></body>
+</html>

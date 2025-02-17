@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki">
+<meta name="theme-color" content="#008800">
+<meta name="robots" content="index,follow">
+<meta name="keywords" content="v5,activerecord,active_record_tutorial">
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.html" title="ADOdb">
+<link rel="start" href="active_record_tutorial.html">
+<link rel="contents" href="active_record_tutorial.html" title="Sitemap">
+<link rel="manifest" href="../../lib/exe/manifest.html">
+<link rel="alternate" type="application/rss+xml" title="Recent Changes">
+<link rel="alternate" type="application/rss+xml" title="Current namespace">
+<link rel="alternate" type="text/html" title="Plain HTML" href="active_record_tutorial.html">
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="active_record_tutorial.html">
+<link rel="canonical" href="https://adodb.org/dokuwiki/doku.php?id=v5:activerecord:active_record_tutorial">
+<link rel="stylesheet" href="../../lib/exe/css.php.t.dokuwiki.css">
+<!--[if gte IE 9]><!-->
+<script>/*<![CDATA[*/var NS='v5:activerecord';var JSINFO = {"plugins":{"edittable":{"default columnwidth":""}},"move_renameokay":false,"id":"v5:activerecord:active_record_tutorial","namespace":"v5:activerecord","ACT":"show","useHeadingNavigation":1,"useHeadingContent":1};
+/*!]]>*/</script>
+<script src="../../lib/exe/jquery.php.t.dokuwiki.js" defer>/*<![CDATA[*/
+/*!]]>*/</script>
+<script src="../../lib/exe/js.php.t.dokuwiki.js" defer>/*<![CDATA[*/
+/*!]]>*/</script>
+<!--<![endif]-->
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="shortcut icon" href="../../lib/tpl/dokuwiki/images/favicon.ico">
+<link rel="apple-touch-icon" href="../../lib/tpl/dokuwiki/images/apple-touch-icon.png">
+    <title>v5:activerecord:active_record_tutorial</title></head>
+
+<body>
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_dokuwiki    showSidebar hasSidebar">
+
+        
+<!-- ********** HEADER ********** -->
+<header id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1 class="logo"><a href="../..//index.html" accesskey="h" title="Home [h]"><img src="../../logo.png" width="176" height="62" alt=""> <span>ADOdb</span></a></h1>
+                    <p class="claim">Database Abstraction Layer for PHP</p>
+            </div>
+
+    
+
+    <!-- BREADCRUMBS -->
+            
+    
+    <hr class="a11y">
+<div style="text-align:right"><a href="https://adodb.org">ADOdb Web Site</a></div></div></header><!-- /header -->
+
+        <div class="wrapper group">
+
+                            <!-- ********** ASIDE ********** -->
+                <nav id="dokuwiki__aside" aria-label="Sidebar"><div class="pad aside include group">
+                    <h3 class="toggle">Sidebar</h3>
+                    <div class="content"><div class="group">
+                                                                        
+<p>
+<strong>Resources</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="../../v5/reference/reference_index.html" class="wikilink1" title="v5:reference:reference_index" data-wiki-id="v5:reference:reference_index">Reference Manual</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../../v5/userguide/userguide_index.html" class="wikilink1" title="v5:userguide:userguide_index" data-wiki-id="v5:userguide:userguide_index">User Guide &amp; Tutorials</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../../v5/dictionary/dictionary_index.html" class="wikilink1" title="v5:dictionary:dictionary_index" data-wiki-id="v5:dictionary:dictionary_index">The Data Dictionary</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../../v5/axmls/axmls_index.html" class="wikilink1" title="v5:axmls:axmls_index" data-wiki-id="v5:axmls:axmls_index">ADOdb-xmlschema</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../../v5/activerecord/activerecord_index.html" class="wikilink1" title="v5:activerecord:activerecord_index" data-wiki-id="v5:activerecord:activerecord_index">ADOdb Active Record</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../../v5/performance/performance_index.html" class="wikilink1" title="v5:performance:performance_index" data-wiki-id="v5:performance:performance_index">Performance Monitoring</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../../v5/datetime/datetime_index.html" class="wikilink1" title="v5:datetime:datetime_index" data-wiki-id="v5:datetime:datetime_index">Date/Time Library</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../../v5/session/session_index.html" class="wikilink1" title="v5:session:session_index" data-wiki-id="v5:session:session_index">Session Management Library</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../../v5/proxy/proxy_index.html" class="wikilink1" title="v5:proxy:proxy_index" data-wiki-id="v5:proxy:proxy_index">ADOdb Proxy Server</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../../v5/addons/addons_index.html" class="wikilink1" title="v5:addons:addons_index" data-wiki-id="v5:addons:addons_index">Unsupported Addons</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../../project/standards.html" class="wikilink1" title="project:standards" data-wiki-id="project:standards">Coding Standards</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../../v5/php_compatibility_status.html" class="wikilink1" title="v5:php_compatibility_status" data-wiki-id="v5:php_compatibility_status">PHP Compatibility Status</a></div>
+</li>
+</ul>
+
+<p>
+<strong><a href="../../v5/database/supported.html" class="wikilink1" title="v5:database:supported" data-wiki-id="v5:database:supported">Supported Databases</a></strong>
+</p>
+<ol>
+<li class="level1"><div class="li"> Full support    <ul><li><a href="../../v5/database/ibm_db2.html" class="wikilink1" title="v5:database:ibm_db2">IBM DB2</a></li><li><a href="../../v5/database/microsoft_sql_server.html" class="wikilink1" title="v5:database:microsoft_sql_server">Microsoft SQL Server</a></li><li><a href="../../v5/database/mysql.html" class="wikilink1" title="v5:database:mysql">MySQL</a></li><li><a href="../../v5/database/oracle.html" class="wikilink1" title="v5:database:oracle">Oracle</a></li><li><a href="../../v5/database/postgresql.html" class="wikilink1" title="v5:database:postgresql">PostgreSQL</a></li><li><a href="../../v5/database/sqlite.html" class="wikilink1" title="v5:database:sqlite">SQLite Database</a></li></ul></div>
+</li>
+<li class="level1"><div class="li"> Partial support <ul><li><a href="../../v5/database/firebird.html" class="wikilink1" title="v5:database:firebird">Firebird &amp; Interbase</a></li><li><a href="../../v5/database/ldap.html" class="wikilink1" title="v5:database:ldap">LDAP</a></li><li><a href="../../v5/database/access.html" class="wikilink1" title="v5:database:access">Microsoft Access</a></li><li><a href="../../v5/database/odbc.html" class="wikilink1" title="v5:database:odbc">ODBC</a></li><li><a href="../../v5/database/pdo.html" class="wikilink1" title="v5:database:pdo">PDO</a></li><li><a href="../../v5/database/pdo_new.html" class="wikilink1" title="v5:database:pdo_new">PDO (new)</a></li></ul></div>
+</li>
+<li class="level1"><div class="li"> <a href="../../v5/database/unsupported.html" class="wikilink1" title="v5:database:unsupported" data-wiki-id="v5:database:unsupported">Obsolete/Unsupported Drivers</a></div>
+</li>
+</ol>
+                                            </div></div>
+                </div></nav><!-- /aside -->
+            
+            <!-- ********** CONTENT ********** -->
+            <main id="dokuwiki__content"><div class="pad group">
+                
+                <div class="pageId"><span>v5:activerecord:active_record_tutorial</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc" class="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#overview">Overview</a></div></li>
+<li class="level1"><div class="li"><a href="#table_rows_as_objects">Table Rows as Objects</a></div></li>
+<li class="level1"><div class="li"><a href="#table_columns_as_object_properties">Table Columns as Object Properties</a></div></li>
+<li class="level1"><div class="li"><a href="#inserting_and_updating_a_record">Inserting and Updating a Record</a></div></li>
+<li class="level1"><div class="li"><a href="#setting_the_table_name">Setting the Table Name</a></div></li>
+<li class="level1"><div class="li"><a href="#using_adodb_assoc_case">Using ADODB_ASSOC_CASE</a></div></li>
+<li class="level1"><div class="li"><a href="#saving_records">Saving Records</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#replacing_records">Replacing Records</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="#loading_individual_records">Loading Individual Records</a></div></li>
+<li class="level1"><div class="li"><a href="#quoting_identifiers">Quoting Identifiers</a></div></li>
+<li class="level1"><div class="li"><a href="#error_handling_and_debugging">Error Handling and Debugging</a></div></li>
+<li class="level1"><div class="li"><a href="#converting_a_recordset_to_an_active_record_object">Converting a recordset to an Active Record object</a></div></li>
+<li class="level1"><div class="li"><a href="#primary_keys">Primary Keys</a></div></li>
+<li class="level1"><div class="li"><a href="#retrieval_of_auto-incrementing_id">Retrieval of Auto-incrementing ID</a></div></li>
+<li class="level1"><div class="li"><a href="#dealing_with_multiple_databases">Dealing with Multiple Databases</a></div></li>
+<li class="level1"><div class="li"><a href="#active_record_considered_bad">Active Record Considered Bad?</a></div></li>
+<li class="level1"><div class="li"><a href="#transactions">Transactions</a></div></li>
+<li class="level1"><div class="li"><a href="#one_to_many_relations">One to Many Relations</a></div></li>
+<li class="level1"><div class="li"><a href="#classhasmany">ClassHasMany</a></div></li>
+<li class="level1"><div class="li"><a href="#tablehasmany">TableHasMany</a></div></li>
+<li class="level1"><div class="li"><a href="#tablekeyhasmany">tableKeyHasMany</a></div></li>
+<li class="level1"><div class="li"><a href="#hasmany">HasMany</a></div></li>
+<li class="level1"><div class="li"><a href="#classbelongsto">ClassBelongsTo</a></div></li>
+<li class="level1"><div class="li"><a href="#tablebelongsto">TableBelongsTo</a></div></li>
+<li class="level1"><div class="li"><a href="#tablekeybelongsto">TableKeyBelongsTo</a></div></li>
+<li class="level1"><div class="li"><a href="#loadrelations">LoadRelations</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="active_record_tutorial">Active Record Tutorial</h1>
+<div class="level1">
+<div class="wrap_right wrap_box wrap_round plugin_wrap">
+<h5 id="original_author_credit">Original Author Credit</h5>
+
+<p>
+John Lim<br>
+
+Chris Ravenscroft<br>
+
+</p>
+</div>
+</div>
+
+<h2 class="sectionedit4" id="overview">Overview</h2>
+<div class="level2">
+
+<p>
+This tutorial shows basic usage of the ADODB Active Record Feature. It relies on a MySQL database, and each script needs to include the code shown <a href="../../v5/activerecord/code_snippet_1.html" class="wikilink1" title="v5:activerecord:code_snippet_1" data-wiki-id="v5:activerecord:code_snippet_1">here</a>, in order to initialize the tables.
+</p>
+
+</div>
+
+<h2 class="sectionedit5" id="table_rows_as_objects">Table Rows as Objects</h2>
+<div class="level2">
+
+<p>
+ADOdb_Active_Records are object representations of table rows. Each table in the database is represented by a class in PHP. To begin working with a table as a ADOdb_Active_Record, a class that extends ADOdb_Active_Record needs to be created for it.
+</p>
+<pre class="code php"><span class="kw2">class</span> person <span class="kw2">extends</span> ADOdb_Active_Record<span class="br0">{</span><span class="br0">}</span>
+<span class="re0">$person</span> <span class="sy0">=</span> <span class="kw2">new</span> person<span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span></pre>
+
+<p>
+In the above example, a new ADOdb_Active_Record object $person was created to access the &ldquo;persons&rdquo; table. 
+</p>
+
+<p>
+<a href="http://devzone.zend.com/1306/using-data-objects-with-php-and-db_oo2" class="urlextern" target="_blank" title="http://devzone.zend.com/1306/using-data-objects-with-php-and-db_oo2" rel="ugc nofollow noopener">Zend_Db_DataObject</a> <strong>obsolete</strong> takes the name of the class, pluralizes it (according to American English rules), and assumes that this is the name of the table in the database. 
+Also note that with MySQL, table names are case-sensitive under Linux, so your class name must match the table name's case. With other databases with case-insensitive tables, your class can be capitalized differently.
+</p>
+
+<p>
+This kind of behavior is typical of ADOdb_Active_Record. It will assume as much as possible by convention rather than explicit configuration. In situations where it isn't possible to use the conventions that ADOdb_Active_Record expects, options can be overridden as we'll see later.
+</p>
+
+</div>
+
+<h2 class="sectionedit6" id="table_columns_as_object_properties">Table Columns as Object Properties</h2>
+<div class="level2">
+
+<p>
+When the $person object was instantiated, ADOdb_Active_Record read the table metadata from the database itself, and then exposed the table's columns (fields) as object properties.
+</p>
+
+<p>
+Our &ldquo;persons&rdquo; table has three fields: 
+</p>
+<pre class="code">"name_first", 
+"name_last", 
+"favorite_color". </pre>
+
+<p>
+Each of these fields is now a property of the $person object. To see all these properties, use the <a href="../../v5/activerecord/getattributenames.html" class="wikilink1" title="v5:activerecord:getattributenames" data-wiki-id="v5:activerecord:getattributenames">ADOdb_Active_Record::getAttributeNames()</a> method
+</p>
+<pre class="code php"><a target="_blank" href="http://www.php.net/var_dump"><span class="kw3">var_dump</span></a><span class="br0">(</span><span class="re0">$person</span><span class="sy0">-&gt;</span><span class="me1">getAttributeNames</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span>
+&nbsp;
+<span class="co4">/**
+ * Outputs the following:
+ * array(4) {
+ *    [0]=&gt;
+ *    string(2) "id"
+ *    [1]=&gt;
+ *    string(9) "name_first"
+ *    [2]=&gt;
+ *    string(8) "name_last"
+ *    [3]=&gt;
+ *    string(13) "favorite_color"
+ *  }
+ */</span></pre>
+
+<p>
+One big difference between ADOdb and Zend's implementation is we do not automatically convert to camelCaps style.
+</p>
+<hr>
+<div class="wrap_right wrap_box wrap_round plugin_wrap">
+<h5 id="see_also">See Also</h5>
+
+<p>
+<a href="../../v5/userguide/error_handling.html" class="wikilink1" title="v5:userguide:error_handling" data-wiki-id="v5:userguide:error_handling">Error Handling In ADOdb</a>
+</p>
+</div>
+</div>
+
+<h2 class="sectionedit9" id="inserting_and_updating_a_record">Inserting and Updating a Record</h2>
+<div class="level2">
+
+<p>
+An ADOdb_Active_Record object is a representation of a single table row. However, when our $person object is instantiated, it does not reference any particular row. It is a blank record that does not yet exist in the database. An ADOdb_Active_Record object is considered blank when its primary key is NULL. The primary key in our persons table is &ldquo;id&rdquo;.
+</p>
+
+<p>
+To insert a new record into the database, change the object's properties and then call the <a href="../../v5/activerecord/save.html" class="wikilink1" title="v5:activerecord:save" data-wiki-id="v5:activerecord:save">save()</a> method:
+</p>
+<pre class="code php"><span class="re0">$person</span> <span class="sy0">=</span> <span class="kw2">new</span> person<span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$person</span><span class="sy0">-&gt;</span><span class="me1">name_first</span> <span class="sy0">=</span> <span class="st_h">'Andi'</span><span class="sy0">;</span>
+<span class="re0">$person</span><span class="sy0">-&gt;</span><span class="me1">name_last</span>  <span class="sy0">=</span> <span class="st_h">'Gutmans'</span><span class="sy0">;</span>
+<span class="re0">$person</span><span class="sy0">-&gt;</span><span class="me1">save</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+&nbsp;</pre>
+
+<p>
+The above code snippet fails because of the constraint in the table previously defined
+</p>
+<pre class="code">1048: Column 'favorite_color' cannot be null</pre>
+
+<p>
+This error occurred because MySQL rejected the INSERT statement that was generated.
+</p>
+
+<p>
+To insert a new ADOdb_Active_Record in the database, populate all of ADOdb_Active_Record's properties so that they satisfy the constraints of the database table, and then call the <a href="../../activerecod/save.html" class="wikilink2" title="activerecod:save" rel="nofollow" data-wiki-id="activerecod:save">save()</a> method:
+</p>
+<pre class="code php"><span class="co4">/**
+ * Calling the save() method will successfully INSERT
+ * this $person into the database table.
+ */</span>
+<span class="re0">$person</span> <span class="sy0">=</span> <span class="kw2">new</span> person<span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$person</span><span class="sy0">-&gt;</span><span class="me1">name_first</span>     <span class="sy0">=</span> <span class="st_h">'Andi'</span><span class="sy0">;</span>
+<span class="re0">$person</span><span class="sy0">-&gt;</span><span class="me1">name_last</span>      <span class="sy0">=</span> <span class="st_h">'Gutmans'</span><span class="sy0">;</span>
+<span class="re0">$person</span><span class="sy0">-&gt;</span><span class="me1">favorite_color</span> <span class="sy0">=</span> <span class="st_h">'blue'</span><span class="sy0">;</span>
+<span class="re0">$person</span><span class="sy0">-&gt;</span><span class="me1">save</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span></pre>
+
+<p>
+Once this $person has been INSERTed into the database by calling save(), the primary key can now be read as a property. Since this is the first row inserted into our temporary table, its &ldquo;id&rdquo; will be 1:
+</p>
+<pre class="code php"><a target="_blank" href="http://www.php.net/var_dump"><span class="kw3">var_dump</span></a><span class="br0">(</span><span class="re0">$person</span><span class="sy0">-&gt;</span><span class="me1">id</span><span class="br0">)</span><span class="sy0">;</span>
+&nbsp;
+<span class="co4">/**
+ * Outputs the following:
+ * string(1)
+ */</span></pre>
+
+<p>
+From this point on, updating it is simply a matter of changing the object's properties and calling the <a href="../../v5/activerecord/save.html" class="wikilink1" title="v5:activerecord:save" data-wiki-id="v5:activerecord:save">save</a> method again:
+</p>
+<pre class="code php"><span class="re0">$person</span><span class="sy0">-&gt;</span><span class="me1">favorite_color</span> <span class="sy0">=</span> <span class="st_h">'red'</span><span class="sy0">;</span>
+<span class="re0">$person</span><span class="sy0">-&gt;</span><span class="me1">save</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span></pre>
+
+<p>
+The code snippet above will change the favorite color to red, and then UPDATE the record in the database.
+</p>
+
+</div>
+
+<h2 class="sectionedit10" id="setting_the_table_name">Setting the Table Name</h2>
+<div class="level2">
+
+<p>
+The default behaviour on creating an ADOdb_Active_Record is to pluralize the class name and use that as the table name. Often, this is not the case. For example, the person class could be reading from the &ldquo;People&rdquo; table.
+</p>
+
+<p>
+We provide two ways to define your own table:
+</p>
+
+<p>
+1. Use a constructor parameter to override the default table naming behaviour.
+</p>
+<pre class="code">class person extends ADOdb_Active_Record{}
+$person = new person('People');</pre>
+
+<p>
+2. Define it in a class declaration:
+</p>
+<pre class="code">class person extends ADOdb_Active_Record
+{
+    var $_table = 'People';
+}
+$person = new person();</pre>
+
+</div>
+
+<h2 class="sectionedit11" id="using_adodb_assoc_case">Using ADODB_ASSOC_CASE</h2>
+<div class="level2">
+
+<p>
+You can define the <a href="../../v5/reference/adodb_assoc_case.html" class="wikilink1" title="v5:reference:adodb_assoc_case" data-wiki-id="v5:reference:adodb_assoc_case">ADODB_ASSOC_CASE</a> constant to control the field names' case
+</p>
+<pre class="code php"><a target="_blank" href="http://www.php.net/define"><span class="kw3">define</span></a><span class="br0">(</span><span class="st_h">'ADODB_ASSOC_CASE'</span><span class="sy0">,</span> ADODB_ASSOC_CASE_LOWER<span class="br0">)</span><span class="sy0">;</span>
+<span class="kw1">require</span> <span class="st0">"adodb.inc.php"</span><span class="sy0">;</span>
+<span class="re0">$person</span> <span class="sy0">=</span> <span class="kw2">new</span> person<span class="br0">(</span><span class="st_h">'People'</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$person</span><span class="sy0">-&gt;</span><span class="me1">name</span> <span class="sy0">=</span> <span class="st_h">'Lily'</span><span class="sy0">;</span>
+&nbsp;
+<a target="_blank" href="http://www.php.net/define"><span class="kw3">define</span></a><span class="br0">(</span><span class="st_h">'ADODB_ASSOC_CASE'</span><span class="sy0">,</span> ADODB_ASSOC_CASE_UPPER<span class="br0">)</span><span class="sy0">;</span>
+<span class="kw1">require</span> <span class="st0">"adodb.inc.php"</span><span class="sy0">;</span>
+<span class="re0">$person2</span> <span class="sy0">=</span> <span class="kw2">new</span> person<span class="br0">(</span><span class="st_h">'People'</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$person2</span><span class="sy0">-&gt;</span><span class="me1">NAME</span> <span class="sy0">=</span> <span class="st_h">'Lily'</span><span class="sy0">;</span></pre>
+
+</div>
+
+<h2 class="sectionedit12" id="saving_records">Saving Records</h2>
+<div class="level2">
+
+<p>
+The method <a href="../../v5/activerecord/save.html" class="wikilink1" title="v5:activerecord:save" data-wiki-id="v5:activerecord:save">save</a> saves a record by executing an INSERT or UPDATE SQL statement as appropriate.
+</p>
+
+</div>
+
+<h3 class="sectionedit13" id="replacing_records">Replacing Records</h3>
+<div class="level3">
+
+<p>
+The method <a href="../../v5/activerecord/replace.html" class="wikilink1" title="v5:activerecord:replace" data-wiki-id="v5:activerecord:replace">replace</a> supports replace functionality, whereby the record is inserted if it does not exists, or updated otherwise.
+</p>
+<pre class="code php"><span class="re0">$rec</span> <span class="sy0">=</span> <span class="kw2">new</span> ADOdb_Active_Record<span class="br0">(</span><span class="st0">"product"</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$rec</span><span class="sy0">-&gt;</span><span class="me1">name</span> <span class="sy0">=</span> <span class="st_h">'John'</span><span class="sy0">;</span>
+<span class="re0">$rec</span><span class="sy0">-&gt;</span><span class="me1">tel_no</span> <span class="sy0">=</span> <span class="st_h">'34111145'</span><span class="sy0">;</span>
+<span class="re0">$ok</span> <span class="sy0">=</span> <span class="re0">$rec</span><span class="sy0">-&gt;</span><span class="me1">replace</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span> <span class="co1">// 0=failure, 1=update, 2=insert</span>
+ADOdb_Active_Record<span class="sy0">::</span><span class="me2">Load</span><span class="br0">(</span><span class="re0">$where</span><span class="br0">)</span></pre>
+<hr>
+<div class="wrap_right wrap_box plugin_wrap" style="width: 200px; max-width: 100%;">
+<h5 id="more_information">More Information</h5>
+
+<p>
+For more information on bind variables, see <a href="../../v5/reference/connection/execute.html" class="wikilink1" title="v5:reference:connection:execute" data-wiki-id="v5:reference:connection:execute">execute</a>
+</p>
+</div>
+</div>
+
+<h2 class="sectionedit16" id="loading_individual_records">Loading Individual Records</h2>
+<div class="level2">
+
+<p>
+Sometimes, we want to load a single record into an Active Record using the <a href="../../v5/activerecord/load.html" class="wikilink1" title="v5:activerecord:load" data-wiki-id="v5:activerecord:load">load</a> method.
+</p>
+<pre class="code php"><span class="re0">$person</span><span class="sy0">-&gt;</span><span class="me1">load</span><span class="br0">(</span><span class="st0">"id=3"</span><span class="br0">)</span><span class="sy0">;</span>
+or
+<span class="re0">$person</span><span class="sy0">-&gt;</span><span class="me1">load</span><span class="br0">(</span><span class="st0">"id=?"</span><span class="sy0">,</span> <a target="_blank" href="http://www.php.net/array"><span class="kw3">array</span></a><span class="br0">(</span><span class="nu0">3</span><span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span></pre>
+
+</div>
+
+<h1 class="sectionedit17" id="loading_record_sets">Loading Record Sets</h1>
+<div class="level1">
+
+<p>
+An array of active records based on some search criteria can be loaded using the <a href="../../v5/activerecord/find.html" class="wikilink1" title="v5:activerecord:find" data-wiki-id="v5:activerecord:find">find</a> method.
+</p>
+<pre class="code php"><span class="kw2">class</span> person <span class="kw2">extends</span> ADOdb_Active_Record <span class="br0">{</span>
+  <span class="kw2">var</span> <span class="re0">$_table</span> <span class="sy0">=</span> <span class="st_h">'people'</span><span class="sy0">;</span>
+<span class="br0">}</span>
+&nbsp;
+<span class="re0">$person</span> <span class="sy0">=</span> <span class="kw2">new</span> person<span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$peopleArray</span> <span class="sy0">=</span> <span class="re0">$person</span><span class="sy0">-&gt;</span><span class="me1">find</span><span class="br0">(</span><span class="st0">"name like ? order by age"</span><span class="sy0">,</span> <a target="_blank" href="http://www.php.net/array"><span class="kw3">array</span></a><span class="br0">(</span><span class="st_h">'Sm%'</span><span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span></pre>
+
+</div>
+
+<h2 class="sectionedit18" id="quoting_identifiers">Quoting Identifiers</h2>
+<div class="level2">
+
+<p>
+You can force column names to be quoted by use of the <a href="../../v5/activerecord/quotenames.html" class="wikilink1" title="v5:activerecord:quotenames" data-wiki-id="v5:activerecord:quotenames">$_quoteNames</a> variable.
+</p>
+
+</div>
+
+<h2 class="sectionedit19" id="error_handling_and_debugging">Error Handling and Debugging</h2>
+<div class="level2">
+
+<p>
+The ADOdb Active Record can be used in conjunction with <a href="../../v5/userguide/error_handling.html" class="wikilink1" title="v5:userguide:error_handling" data-wiki-id="v5:userguide:error_handling">ADOdb error handling</a>.
+</p>
+<pre class="code php"><span class="kw1">include</span> <span class="st_h">'adodb/adodb-errorhandler.inc.php'</span><span class="sy0">;</span>
+&nbsp;
+<span class="re0">$ok</span> <span class="sy0">=</span> <span class="re0">$rec</span><span class="sy0">-&gt;</span><span class="me1">Save</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="kw1">if</span> <span class="br0">(</span><span class="sy0">!</span><span class="re0">$ok</span><span class="br0">)</span> 
+    <span class="re0">$err</span> <span class="sy0">=</span> <span class="re0">$rec</span><span class="sy0">-&gt;</span><span class="me1">ErrorMsg</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span></pre>
+
+<p>
+The ADOConnection::Debug property is obeyed. So if <a href="../../v5/userguide/debug.html" class="wikilink1" title="v5:userguide:debug" data-wiki-id="v5:userguide:debug">$db-&gt;debug</a> is enabled, then ADOdb_Active_Record errors are also outputted to standard output and written to the browser.
+</p>
+
+</div>
+
+<h2 class="sectionedit20" id="converting_a_recordset_to_an_active_record_object">Converting a recordset to an Active Record object</h2>
+<div class="level2">
+
+<p>
+You can convert an array to an ADOdb_Active_Record using <a href="../../v5/activerecord/set.html" class="wikilink1" title="v5:activerecord:set" data-wiki-id="v5:activerecord:set">set</a>. The array must be numerically indexed, and have all fields of the table defined in the array. The elements of the array must be in the table's natural order too.
+</p>
+<pre class="code php"><span class="re0">$row</span> <span class="sy0">=</span> <span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">GetRow</span><span class="br0">(</span><span class="st0">"select * from tablex where id=<span class="es4">$id</span>"</span><span class="br0">)</span><span class="sy0">;</span>
+&nbsp;
+<span class="co2"># PHP4 or PHP5 without enabling exceptions
+</span><span class="re0">$obj</span> <span class="sy0">=</span> <span class="kw2">new</span> ADOdb_Active_Record<span class="br0">(</span><span class="st_h">'Products'</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="kw1">if</span> <span class="br0">(</span><span class="re0">$obj</span><span class="sy0">-&gt;</span><span class="me1">ErrorMsg</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="br0">{</span>
+	<span class="kw1">echo</span> <span class="re0">$obj</span><span class="sy0">-&gt;</span><span class="me1">ErrorMsg</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="br0">}</span> <span class="kw1">else</span> <span class="br0">{</span>
+	<span class="re0">$obj</span><span class="sy0">-&gt;</span><span class="me1">Set</span><span class="br0">(</span><span class="re0">$row</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="br0">}</span>
+&nbsp;
+<span class="co2"># in PHP5, with exceptions enabled:
+</span>
+<span class="kw1">include</span><span class="br0">(</span><span class="st_h">'adodb-exceptions.inc.php'</span><span class="br0">)</span><span class="sy0">;</span>
+try <span class="br0">{</span>
+	<span class="re0">$obj</span> <span class="sy0">=</span> <span class="kw2">new</span> ADOdb_Active_Record<span class="br0">(</span><span class="st_h">'Products'</span><span class="br0">)</span><span class="sy0">;</span>
+	<span class="re0">$obj</span><span class="sy0">-&gt;</span><span class="me1">Set</span><span class="br0">(</span><span class="re0">$row</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="br0">}</span> catch<span class="br0">(</span>exceptions <span class="re0">$e</span><span class="br0">)</span> <span class="br0">{</span>
+	<span class="kw1">echo</span> <span class="re0">$e</span><span class="sy0">-&gt;</span><span class="me1">getMessage</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="br0">}</span></pre>
+
+</div>
+
+<h2 class="sectionedit21" id="primary_keys">Primary Keys</h2>
+<div class="level2">
+
+<p>
+ADOdb_Active_Record does not require the table to have a primary key. You can insert records for such a table, but you will not be able to update nor delete.
+</p>
+
+<p>
+Sometimes you are retrieving data from a view or table that has no primary key, but has a unique index. You can dynamically set the primary key of a table through the constructor:
+</p>
+<pre class="code php"><span class="re0">$pkeys</span> <span class="sy0">=</span> <a target="_blank" href="http://www.php.net/array"><span class="kw3">array</span></a><span class="br0">(</span><span class="st_h">'category'</span><span class="sy0">,</span><span class="st_h">'prodcode'</span><span class="br0">)</span><span class="sy0">;</span>
+&nbsp;
+<span class="co1">// set primary key using constructor</span>
+<span class="re0">$rec</span> <span class="sy0">=</span> <span class="kw2">new</span> ADOdb_Active_Record<span class="br0">(</span><span class="st_h">'Products'</span><span class="sy0">,</span> <span class="re0">$pkeys</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="co1">// or define a new class</span>
+<span class="kw2">class</span> Product <span class="kw2">extends</span> ADOdb_Active_Record <span class="br0">{</span>
+    <span class="kw2">function</span> __construct<span class="br0">(</span><span class="br0">)</span>
+    <span class="br0">{</span>
+	parent<span class="sy0">::</span>__construct<span class="br0">(</span><span class="st_h">'Products'</span><span class="sy0">,</span> <a target="_blank" href="http://www.php.net/array"><span class="kw3">array</span></a><span class="br0">(</span><span class="st_h">'prodid'</span><span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="br0">}</span>
+<span class="br0">}</span>
+&nbsp;
+<span class="re0">$rec</span> <span class="sy0">=</span> <span class="kw2">new</span> Product<span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span></pre>
+
+</div>
+
+<h2 class="sectionedit22" id="retrieval_of_auto-incrementing_id">Retrieval of Auto-incrementing ID</h2>
+<div class="level2">
+
+<p>
+When creating a new record, the retrieval of the last auto-incrementing ID is not reliable for databases that do not support the <a href="../../v5/reference/connection/insert_id.html" class="wikilink1" title="v5:reference:connection:insert_id" data-wiki-id="v5:reference:connection:insert_id">insert_Id</a> function call (check <code>$connection&rarr;hasInsertID</code>). In this case we perform a 
+</p>
+<pre class="code">SELECT MAX($primarykey) FROM $table</pre>
+
+<p>
+which will not work reliably in a multi-user environment. You can override the <a href="../../v5/activerecord/lastinsertid.html" class="wikilink1" title="v5:activerecord:lastinsertid" data-wiki-id="v5:activerecord:lastinsertid">lastInsertID()</a> function in this case.
+</p>
+
+</div>
+
+<h2 class="sectionedit23" id="dealing_with_multiple_databases">Dealing with Multiple Databases</h2>
+<div class="level2">
+
+<p>
+Sometimes we want to load data from one database and insert it into another using ActiveRecords. This can be done using the optional parameter of the ADOdb_Active_Record constructor. In the following example, we read data from db.table1 and store it in db2.table2:
+</p>
+<pre class="code php"><span class="re0">$db</span> <span class="sy0">=</span> NewADOConnection<span class="br0">(</span><span class="sy0">...</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$db2</span> <span class="sy0">=</span> NewADOConnection<span class="br0">(</span><span class="sy0">...</span><span class="br0">)</span><span class="sy0">;</span>
+&nbsp;
+ADOdb_Active_Record<span class="sy0">::</span><span class="me2">SetDatabaseAdapter</span><span class="br0">(</span><span class="re0">$db2</span><span class="br0">)</span><span class="sy0">;</span>
+&nbsp;
+<span class="re0">$activeRecs</span> <span class="sy0">=</span> <span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">GetActiveRecords</span><span class="br0">(</span><span class="st_h">'table1'</span><span class="br0">)</span><span class="sy0">;</span>
+&nbsp;
+<span class="kw1">foreach</span><span class="br0">(</span><span class="re0">$activeRecs</span> <span class="kw1">as</span> <span class="re0">$rec</span><span class="br0">)</span> <span class="br0">{</span>
+   <span class="re0">$rec2</span> <span class="sy0">=</span> <span class="kw2">new</span> ADOdb_Active_Record<span class="br0">(</span><span class="st_h">'table2'</span><span class="sy0">,</span><span class="re0">$db2</span><span class="br0">)</span><span class="sy0">;</span>
+   <span class="re0">$rec2</span><span class="sy0">-&gt;</span><span class="me1">id</span> <span class="sy0">=</span> <span class="re0">$rec</span><span class="sy0">-&gt;</span><span class="me1">id</span><span class="sy0">;</span>
+   <span class="re0">$rec2</span><span class="sy0">-&gt;</span><span class="me1">name</span> <span class="sy0">=</span> <span class="re0">$rec</span><span class="sy0">-&gt;</span><span class="me1">name</span><span class="sy0">;</span>
+&nbsp;
+    <span class="re0">$rec2</span><span class="sy0">-&gt;</span><span class="me1">Save</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="br0">}</span></pre>
+
+<p>
+If you have to pass in a primary key called &ldquo;id&rdquo; and the 2nd db connection in the constructor, you can do so too:
+</p>
+<pre class="code">$rec = new ADOdb_Active_Record("table1",array("id"),$db2);</pre>
+
+<p>
+You can now give a named label in <a href="../../v5/activerecord/setdatabaseadapter.html" class="wikilink1" title="v5:activerecord:setdatabaseadapter" data-wiki-id="v5:activerecord:setdatabaseadapter">setDatabaseAdapter</a>, allowing to determine in your class definition which database to load, using var <a href="../../v5/activerecord/dbat.html" class="wikilink1" title="v5:activerecord:dbat" data-wiki-id="v5:activerecord:dbat">$_dbat</a>.
+</p>
+<pre class="code php"><span class="re0">$db1</span> <span class="sy0">=</span> NewADOConnection<span class="br0">(</span><span class="sy0">...</span><span class="br0">)</span><span class="sy0">;</span> <span class="co1">// some ADOdb DB</span>
+ADOdb_Active_Record<span class="sy0">::</span><span class="me2">SetDatabaseAdapter</span><span class="br0">(</span><span class="re0">$db1</span><span class="sy0">,</span> <span class="st_h">'mysql'</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$db2</span> <span class="sy0">=</span> NewADOConnection<span class="br0">(</span><span class="sy0">...</span><span class="br0">)</span><span class="sy0">;</span> <span class="co1">// some ADOdb DB</span>
+ADOdb_Active_Record<span class="sy0">::</span><span class="me2">SetDatabaseAdapter</span><span class="br0">(</span><span class="re0">$db2</span><span class="sy0">,</span> <span class="st_h">'oracle'</span><span class="br0">)</span><span class="sy0">;</span>
+&nbsp;
+<span class="kw2">class</span> FooRecord <span class="kw2">extends</span> ADOdb_Active_Record
+<span class="br0">{</span>
+<span class="kw2">var</span> <span class="re0">$_dbat</span> <span class="sy0">=</span> <span class="st_h">'mysql'</span><span class="sy0">;</span>  <span class="co1">// uses 'mysql' connection</span>
+<span class="sy0">...</span>
+<span class="br0">}</span></pre>
+
+</div>
+
+<h2 class="sectionedit24" id="active_record_considered_bad">Active Record Considered Bad?</h2>
+<div class="level2">
+
+<p>
+Although the Active Record concept is useful, you have to be aware of some pitfalls when using Active Record. The level of granularity of Active Record is individual records. It encourages code like the following, used to increase the price of all furniture products by 10%:
+</p>
+<pre class="code php"><span class="re0">$recs</span> <span class="sy0">=</span> <span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">GetActiveRecords</span><span class="br0">(</span><span class="st0">"Products"</span><span class="sy0">,</span><span class="st0">"category='Furniture'"</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="kw1">foreach</span><span class="br0">(</span><span class="re0">$recs</span> <span class="kw1">as</span> <span class="re0">$rec</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="re0">$rec</span><span class="sy0">-&gt;</span><span class="me1">price</span> <span class="sy0">*=</span> <span class="nu19">1.1</span><span class="sy0">;</span> <span class="co1">// increase price by 10% for all Furniture products</span>
+    <span class="re0">$rec</span><span class="sy0">-&gt;</span><span class="me1">save</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="br0">}</span></pre>
+
+<p>
+Of course an UPDATE statement is superior because it's simpler and much more efficient (probably by a factor of x10 or more):
+</p>
+<pre class="code php"><span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">Execute</span><span class="br0">(</span><span class="st0">"update Products set price = price * 1.1 where category='Furniture'"</span><span class="br0">)</span><span class="sy0">;</span></pre>
+
+<p>
+For performance sensitive code, using direct SQL will always be faster than using Active Records due to overhead and the fact that all fields in a row are retrieved (rather than only the subset you need) whenever an Active Record is loaded.
+</p>
+<hr>
+
+</div>
+
+<h2 class="sectionedit25" id="transactions">Transactions</h2>
+<div class="level2">
+<div class="wrap_right wrap_box plugin_wrap" style="width: 200px; max-width: 100%;">
+<p>
+More about <a href="../../v5/reference/reference_index.html" class="wikilink1" title="v5:reference:reference_index" data-wiki-id="v5:reference:reference_index">Transaction Handling</a>
+</p>
+</div>
+<p>
+The default transaction mode in ADOdb is autocommit. So that is the default with active record too. The general rules for managing transactions still apply. Active Record to the database is a set of insert/update/delete statements, and the db has no knowledge of active records.
+</p>
+
+<p>
+Smart transactions, that does an auto-rollback if an error occurs, is still the best method to multiple activities (inserts/updates/deletes) that need to be treated as a single transaction:
+</p>
+<pre class="code php"><span class="re0">$conn</span><span class="sy0">-&gt;</span><span class="me1">StartTrans</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$parent</span><span class="sy0">-&gt;</span><span class="me1">save</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$child</span><span class="sy0">-&gt;</span><span class="me1">save</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$conn</span><span class="sy0">-&gt;</span><span class="me1">CompleteTrans</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span></pre>
+
+</div>
+
+<h2 class="sectionedit28" id="one_to_many_relations">One to Many Relations</h2>
+<div class="level2">
+
+<p>
+Since ADOdb 5.06, we support parent child relationships. This is done using the ClassBelongsTo() and ClassHasMany() functions.
+</p>
+
+</div>
+
+<h2 class="sectionedit29" id="classhasmany">ClassHasMany</h2>
+<div class="level2">
+
+<p>
+To globally define a one-to-many relationship we use the static function <a href="../../v5/activerecord/classhasmany.html" class="wikilink1" title="v5:activerecord:classhasmany" data-wiki-id="v5:activerecord:classhasmany">classHasMany</a>. For example, we have 2 tables, persons (parent table) and children (child table) linked by persons.id = children.person_id. The variable $person&rarr;children is an array that holds the children. To define this relationship:
+</p>
+<pre class="code php"><span class="kw2">class</span> person <span class="kw2">extends</span> ADOdb_Active_Record<span class="br0">{</span><span class="br0">}</span>
+ADODB_Active_Record<span class="sy0">::</span><span class="me2">ClassHasMany</span><span class="br0">(</span><span class="st_h">'person'</span><span class="sy0">,</span> <span class="st_h">'children'</span><span class="sy0">,</span><span class="st_h">'person_id'</span><span class="br0">)</span><span class="sy0">;</span>
+&nbsp;
+<span class="re0">$person</span> <span class="sy0">=</span> <span class="kw2">new</span> person<span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$person</span><span class="sy0">-&gt;</span><span class="me1">Load</span><span class="br0">(</span><span class="st0">"id=1"</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="kw1">foreach</span><span class="br0">(</span><span class="re0">$person</span><span class="sy0">-&gt;</span><span class="me1">children</span> <span class="kw1">as</span> <span class="re0">$c</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="kw1">echo</span> <span class="st0">" <span class="es4">$c-&gt;name_first</span> "</span><span class="sy0">;</span>
+    <span class="re0">$c</span><span class="sy0">-&gt;</span><span class="me1">name_first</span> <span class="sy0">.=</span> <span class="st_h">' K.'</span><span class="sy0">;</span>
+    <span class="re0">$c</span><span class="sy0">-&gt;</span><span class="me1">Save</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>  <span class="co2">## each child record must be saved individually
+</span><span class="br0">}</span></pre>
+
+<p>
+If no data is loaded, then children is set to an empty array:
+</p>
+<pre class="code php"><span class="re0">$person2</span> <span class="sy0">=</span> <span class="kw2">new</span> person<span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$p</span> <span class="sy0">=</span> <span class="re0">$person2</span><span class="sy0">-&gt;</span><span class="me1">children</span><span class="sy0">;</span>  <span class="co2">## $p is an empty array()</span></pre>
+
+<p>
+By default, data returned by HasMany() is unsorted. To define an order by clause (or define a SELECT LIMIT window), see LoadRelations() below. Another point is that all children are loaded only when the child member is accessed (in  
+</p>
+<pre class="code php">__get<span class="br0">(</span><span class="br0">)</span></pre>
+
+<p>
+), and not when the Load() function of the parent object is called. This helps to conserve memory.
+</p>
+
+<p>
+To create and save new parent and child records:
+</p>
+<pre class="code php"><span class="kw2">class</span> person <span class="kw2">extends</span> ADOdb_Active_Record<span class="br0">{</span><span class="br0">}</span>
+<span class="kw2">class</span> children <span class="kw2">extends</span> ADOdb_Active_Record<span class="br0">{</span><span class="br0">}</span>
+ADODB_Active_Record<span class="sy0">::</span><span class="me2">ClassHasMany</span><span class="br0">(</span><span class="st_h">'person'</span><span class="sy0">,</span> <span class="st_h">'children'</span><span class="sy0">,</span><span class="st_h">'person_id'</span><span class="br0">)</span><span class="sy0">;</span>
+&nbsp;
+<span class="re0">$person</span> <span class="sy0">=</span> <span class="kw2">new</span> person<span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+&nbsp;
+<span class="kw1">for</span> <span class="br0">(</span><span class="re0">$i</span><span class="sy0">=</span><span class="nu0">0</span><span class="sy0">;</span> <span class="re0">$i</span><span class="sy0">&lt;</span><span class="nu0">10</span><span class="sy0">;</span> <span class="re0">$i</span><span class="sy0">++</span><span class="br0">)</span>
+    <span class="re0">$person</span><span class="sy0">-&gt;</span><span class="me1">children</span><span class="br0">[</span><span class="nu0">0</span><span class="br0">]</span> <span class="sy0">=</span> <span class="kw2">new</span> children<span class="br0">(</span><span class="st_h">'children'</span><span class="br0">)</span><span class="sy0">;</span>
+&nbsp;
+<span class="co1">// modify fields of $person, then...</span>
+<span class="re0">$person</span><span class="sy0">-&gt;</span><span class="me1">save</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+&nbsp;
+<span class="kw1">foreach</span><span class="br0">(</span><span class="re0">$person</span><span class="sy0">-&gt;</span><span class="me1">children</span> <span class="kw1">as</span> <span class="re0">$c</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="co1">// modify fields of $c then...</span>
+    <span class="re0">$c</span><span class="sy0">-&gt;</span><span class="me1">save</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="br0">}</span></pre>
+
+<p>
+You can have multiple relationships (warning: relations are case-sensitive, 'Children' !== 'children'):
+</p>
+<pre class="code php">ADODB_Active_Record<span class="sy0">::</span><span class="me2">ClassHasMany</span><span class="br0">(</span><span class="st_h">'person'</span><span class="sy0">,</span> <span class="st_h">'children'</span><span class="sy0">,</span><span class="st_h">'person_id'</span><span class="br0">)</span><span class="sy0">;</span>
+ADODB_Active_Record<span class="sy0">::</span><span class="me2">ClassHasMany</span><span class="br0">(</span><span class="st_h">'person'</span><span class="sy0">,</span> <span class="st_h">'siblings'</span><span class="sy0">,</span><span class="st_h">'person_id'</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$person</span> <span class="sy0">=</span> <span class="kw2">new</span> person<span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$person</span><span class="sy0">-&gt;</span><span class="me1">Load</span><span class="br0">(</span><span class="st_h">'id=1'</span><span class="br0">)</span><span class="sy0">;</span>
+<a target="_blank" href="http://www.php.net/var_dump"><span class="kw3">var_dump</span></a><span class="br0">(</span><span class="re0">$person</span><span class="sy0">-&gt;</span><span class="me1">children</span><span class="br0">)</span><span class="sy0">;</span>
+<a target="_blank" href="http://www.php.net/var_dump"><span class="kw3">var_dump</span></a><span class="br0">(</span><span class="re0">$person</span><span class="sy0">-&gt;</span><span class="me1">siblings</span><span class="br0">)</span><span class="sy0">;</span></pre>
+
+<p>
+By default, the child class is ADOdb_Active_Record. Sometimes you might want the child class to be based on your own class which has additional functions. You can do so using the last parameter:
+</p>
+<pre class="code php"><span class="kw2">class</span> person <span class="kw2">extends</span> ADOdb_Active_Record<span class="br0">{</span><span class="br0">}</span>
+<span class="kw2">class</span> child <span class="kw2">extends</span> ADOdb_Active_Record <span class="br0">{</span> <span class="sy0">....</span> some modifications here <span class="sy0">...</span> <span class="br0">}</span>
+ADODB_Active_Record<span class="sy0">::</span><span class="me2">ClassHasMany</span><span class="br0">(</span><span class="st_h">'person'</span><span class="sy0">,</span> <span class="st_h">'children'</span><span class="sy0">,</span><span class="st_h">'person_id'</span><span class="sy0">,</span> <span class="st_h">'child'</span><span class="br0">)</span><span class="sy0">;</span></pre>
+
+<p>
+Lastly some troubleshooting issues. We use the 
+</p>
+<pre class="code php">__get<span class="br0">(</span><span class="br0">)</span></pre>
+
+<p>
+ method to set $p&rarr;children below. So once $p&rarr;children is defined by accessing it, we don't change the child reference, as shown below:
+</p>
+<pre class="code php">ADODB_Active_Record<span class="sy0">::</span><span class="me2">ClassHasMany</span><span class="br0">(</span><span class="st_h">'person'</span><span class="sy0">,</span> <span class="st_h">'children'</span><span class="sy0">,</span><span class="st_h">'person_id'</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$p</span> <span class="sy0">=</span> <span class="kw2">new</span> person<span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$p</span><span class="sy0">-&gt;</span><span class="me1">Load</span><span class="br0">(</span><span class="st_h">'id=1'</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="co2"># $p-&gt;children points to person_id = 1
+</span><a target="_blank" href="http://www.php.net/var_dump"><span class="kw3">var_dump</span></a><span class="br0">(</span><span class="re0">$p</span><span class="sy0">-&gt;</span><span class="me1">children</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$p</span><span class="sy0">-&gt;</span><span class="me1">Load</span><span class="br0">(</span><span class="st_h">'id=2'</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="co2"># $p-&gt;children still points to person_id = 1
+</span><a target="_blank" href="http://www.php.net/var_dump"><span class="kw3">var_dump</span></a><span class="br0">(</span><span class="re0">$p</span><span class="sy0">-&gt;</span><span class="me1">children</span><span class="br0">)</span><span class="sy0">;</span></pre>
+
+<p>
+The solution to the above is to 
+</p>
+<pre class="code">unset($p-&gt;children) </pre>
+
+<p>
+before 
+</p>
+<pre class="code">$p-&gt;Load('id=2').</pre>
+
+</div>
+
+<h2 class="sectionedit30" id="tablehasmany">TableHasMany</h2>
+<div class="level2">
+
+<p>
+For some classes, the mapping between class name and table name (which is the pluralised version) might not match. For example, the class name might be person, but the table name might be people. So we have 2 tables, people (parent table) and children (child table) linked by people.id = children.person_id.
+</p>
+
+<p>
+Then you use the following static function <a href="../../v5/activerecord/tablehasmany.html" class="wikilink1" title="v5:activerecord:tablehasmany" data-wiki-id="v5:activerecord:tablehasmany">ADODB_Active_Record::TableHasMany()</a> like this:
+</p>
+<pre class="code">ADODB_Active_Record::TableHasMany('people', 'children', 'person_id')</pre>
+
+</div>
+
+<h2 class="sectionedit31" id="tablekeyhasmany">tableKeyHasMany</h2>
+<div class="level2">
+
+<p>
+For some classes, the mapping between class name and table name (which is the pluralised version) might not match or the primary key is not the default id. For example, the class name might be person, but the table name might be people. So we have 2 tables, people (parent table) and children (child table) linked by people.pid = children.person_id. This issue can be managed with the <a href="../../v5/activerecord/tablekeyhasmany.html" class="wikilink1" title="v5:activerecord:tablekeyhasmany" data-wiki-id="v5:activerecord:tablekeyhasmany">tableKeyHasMany</a> method
+</p>
+
+<p>
+Here is sample usage using mysql:
+</p>
+<pre class="code php"><span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">Execute</span><span class="br0">(</span><span class="st0">"insert into children (person_id,name_first,name_last) 
+              values (1,'Jill','Lim')"</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">Execute</span><span class="br0">(</span><span class="st0">"insert into children (person_id,name_first,name_last) 
+               values (1,'Joan','Lim')"</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">Execute</span><span class="br0">(</span><span class="st0">"insert into children (person_id,name_first,name_last)
+               values (1,'JAMIE','Lim')"</span><span class="br0">)</span><span class="sy0">;</span>
+&nbsp;
+<span class="kw2">class</span> person <span class="kw2">extends</span> ADOdb_Active_Record<span class="br0">{</span><span class="br0">}</span>
+ADODB_Active_Record<span class="sy0">::</span><span class="me2">ClassHasMany</span><span class="br0">(</span><span class="st_h">'person'</span><span class="sy0">,</span> <span class="st_h">'children'</span><span class="sy0">,</span><span class="st_h">'person_id'</span><span class="br0">)</span><span class="sy0">;</span>
+&nbsp;
+<span class="re0">$person</span> <span class="sy0">=</span> <span class="kw2">new</span> person<span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$person</span><span class="sy0">-&gt;</span><span class="me1">name_first</span>     <span class="sy0">=</span> <span class="st_h">'John'</span><span class="sy0">;</span>
+<span class="re0">$person</span><span class="sy0">-&gt;</span><span class="me1">name_last</span>      <span class="sy0">=</span> <span class="st_h">'Lim'</span><span class="sy0">;</span>
+<span class="re0">$person</span><span class="sy0">-&gt;</span><span class="me1">favorite_color</span> <span class="sy0">=</span> <span class="st_h">'lavender'</span><span class="sy0">;</span>
+<span class="re0">$person</span><span class="sy0">-&gt;</span><span class="me1">save</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span> <span class="co1">// this save will perform an INSERT successfully</span>
+&nbsp;
+<span class="coMULTI">/*
+* no need to define HasMany() again, adodb remembers definition
+*/</span>
+<span class="re0">$person2</span> <span class="sy0">=</span> <span class="kw2">new</span> person<span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span> 
+<span class="re0">$person2</span><span class="sy0">-&gt;</span><span class="me1">Load</span><span class="br0">(</span><span class="st_h">'id=1'</span><span class="br0">)</span><span class="sy0">;</span>
+&nbsp;
+<span class="re0">$c</span> <span class="sy0">=</span> <span class="re0">$person2</span><span class="sy0">-&gt;</span><span class="me1">children</span><span class="sy0">;</span>
+<span class="kw1">if</span> <span class="br0">(</span><a target="_blank" href="http://www.php.net/is_array"><span class="kw3">is_array</span></a><span class="br0">(</span><span class="re0">$c</span><span class="br0">)</span> 
+<span class="sy0">&amp;&amp;</span> <a target="_blank" href="http://www.php.net/sizeof"><span class="kw3">sizeof</span></a><span class="br0">(</span><span class="re0">$c</span><span class="br0">)</span> <span class="sy0">==</span> <span class="nu0">3</span> 
+<span class="sy0">&amp;&amp;</span> <span class="re0">$c</span><span class="br0">[</span><span class="nu0">0</span><span class="br0">]</span><span class="sy0">-&gt;</span><span class="me1">name_first</span><span class="sy0">==</span><span class="st_h">'Jill'</span> 
+<span class="sy0">&amp;&amp;</span> <span class="re0">$c</span><span class="br0">[</span><span class="nu0">1</span><span class="br0">]</span><span class="sy0">-&gt;</span><span class="me1">name_first</span><span class="sy0">==</span><span class="st_h">'Joan'</span>
+<span class="sy0">&amp;&amp;</span> <span class="re0">$c</span><span class="br0">[</span><span class="nu0">2</span><span class="br0">]</span><span class="sy0">-&gt;</span><span class="me1">name_first</span> <span class="sy0">==</span> <span class="st_h">'JAMIE'</span><span class="br0">)</span> 
+    <span class="kw1">echo</span> <span class="st0">"OK Loaded HasMany&lt;br&gt;"</span><span class="sy0">;</span>
+<span class="kw1">else</span> <span class="br0">{</span>
+    <span class="kw1">echo</span> <span class="st0">"Error loading hasMany should have 
+          3 array elements Jill Joan Jamie&lt;br&gt;"</span><span class="sy0">;</span>
+<span class="br0">}</span></pre>
+
+</div>
+
+<h2 class="sectionedit32" id="hasmany">HasMany</h2>
+<div class="level2">
+
+<p>
+This older method is deprecated and ClassHasMany/TableHasMany/TableKeyHasMany should be used.
+</p>
+
+<p>
+The older way to define a one-to-many relationship is to use 
+</p>
+<pre class="code">$parentobj-&gt;HasMany($relation, $foreignKey = ''). </pre>
+
+<p>
+For example, we have 2 tables, persons (parent table) and children (child table) linked by persons.id = children.person_id. The variable <code>$person&rarr;children</code> is an array that holds the children. To define this relationship:
+</p>
+<pre class="code php"><span class="kw2">class</span> person <span class="kw2">extends</span> ADOdb_Active_Record<span class="br0">{</span><span class="br0">}</span>
+&nbsp;
+<span class="re0">$person</span> <span class="sy0">=</span> <span class="kw2">new</span> person<span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$person</span><span class="sy0">-&gt;</span><span class="me1">HasMany</span><span class="br0">(</span><span class="st_h">'children'</span><span class="sy0">,</span><span class="st_h">'person_id'</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$person</span><span class="sy0">-&gt;</span><span class="me1">Load</span><span class="br0">(</span><span class="st0">"id=1"</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="kw1">foreach</span><span class="br0">(</span><span class="re0">$person</span><span class="sy0">-&gt;</span><span class="me1">children</span> <span class="kw1">as</span> <span class="re0">$c</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="kw1">echo</span> <span class="st0">" <span class="es4">$c-&gt;name_first</span> "</span><span class="sy0">;</span>
+    <span class="re0">$c</span><span class="sy0">-&gt;</span><span class="me1">name_first</span> <span class="sy0">.=</span> <span class="st_h">' K.'</span><span class="sy0">;</span>
+    <span class="re0">$c</span><span class="sy0">-&gt;</span><span class="me1">Save</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>  <span class="co2">## each child record must be saved individually
+</span><span class="br0">}</span></pre>
+
+<p>
+This HasMany() definition is global for the current script. This means that you only need to define it once. In the following example, $person2 knows about children.
+</p>
+<pre class="code php"><span class="re0">$person</span> <span class="sy0">=</span> <span class="kw2">new</span> person<span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$person</span><span class="sy0">-&gt;</span><span class="me1">HasMany</span><span class="br0">(</span><span class="st_h">'children'</span><span class="sy0">,</span><span class="st_h">'person_id'</span><span class="br0">)</span><span class="sy0">;</span>
+&nbsp;
+<span class="re0">$person2</span> <span class="sy0">=</span> <span class="kw2">new</span> person<span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$person</span><span class="sy0">-&gt;</span><span class="me1">Load</span><span class="br0">(</span><span class="st0">"id=1"</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$p</span> <span class="sy0">=</span> <span class="re0">$person2</span><span class="sy0">-&gt;</span><span class="me1">children</span><span class="sy0">;</span></pre>
+
+</div>
+
+<h2 class="sectionedit33" id="classbelongsto">ClassBelongsTo</h2>
+<div class="level2">
+
+<p>
+You can define the parent of the current object using <a href="../../v5/activerecord/classbelongsto.html" class="wikilink1" title="v5:activerecord:classbelongsto" data-wiki-id="v5:activerecord:classbelongsto">classBelongsTo</a>. In the example below, we have a child table kids, and a parent table person. We have a link kids.person_id = persons.id. We create a child first, then link it to the parent:
+</p>
+<pre class="code php"><span class="kw2">class</span> kid <span class="kw2">extends</span> ADOdb_Active_Record<span class="br0">{</span><span class="br0">}</span><span class="sy0">;</span>
+ADODB_Active_Record<span class="sy0">::</span><span class="me2">ClassBelongsTo</span><span class="br0">(</span><span class="st_h">'kid'</span><span class="sy0">,</span><span class="st_h">'person'</span><span class="sy0">,</span><span class="st_h">'person_id'</span><span class="sy0">,</span><span class="st_h">'id'</span><span class="br0">)</span><span class="sy0">;</span>
+&nbsp;
+<span class="coMULTI">/*
+* default tablename will be 'kids', with primary key 'id'
+*/</span>
+<span class="re0">$ch</span> <span class="sy0">=</span> <span class="kw2">new</span> kid<span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span> 
+<span class="re0">$ch</span><span class="sy0">-&gt;</span><span class="me1">Load</span><span class="br0">(</span><span class="st_h">'id=1'</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$p</span> <span class="sy0">=</span> <span class="re0">$ch</span><span class="sy0">-&gt;</span><span class="me1">person</span><span class="sy0">;</span>
+<span class="kw1">if</span> <span class="br0">(</span><span class="sy0">!</span><span class="re0">$p</span> <span class="sy0">||</span> <span class="re0">$p</span><span class="sy0">-&gt;</span><span class="me1">name_first</span> <span class="sy0">!=</span> <span class="st_h">'John'</span><span class="br0">)</span> 
+    <span class="kw1">echo</span> <span class="st0">"Error loading belongsTo&lt;br&gt;"</span><span class="sy0">;</span>
+<span class="kw1">else</span> 
+    <span class="kw1">echo</span> <span class="st0">"OK loading BelongTo&lt;br&gt;"</span><span class="sy0">;</span>
+&nbsp;</pre>
+
+<p>
+Also if no data is loaded into the child instance, then $p will return null;
+</p>
+<pre class="code php">ADODB_Active_Record<span class="sy0">::</span><span class="me2">ClassBelongsTo</span><span class="br0">(</span><span class="st_h">'kid'</span><span class="sy0">,</span><span class="st_h">'person'</span><span class="sy0">,</span><span class="st_h">'person_id'</span><span class="sy0">,</span><span class="st_h">'id'</span><span class="br0">)</span><span class="sy0">;</span>
+&nbsp;
+<span class="re0">$ch</span> <span class="sy0">=</span> <span class="kw2">new</span> kid<span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$p</span> <span class="sy0">=</span> <span class="re0">$ch</span><span class="sy0">-&gt;</span><span class="me1">person</span><span class="sy0">;</span> <span class="co2"># $p is null</span></pre>
+
+<p>
+Another way to define the class of the parent (which otherwise defaults to ADODB_Active_Record) as follows:
+</p>
+<pre class="code php"><span class="kw2">class</span> kid <span class="kw2">extends</span> ADOdb_Active_Record<span class="br0">{</span><span class="br0">}</span><span class="sy0">;</span>
+<span class="kw2">class</span> person <span class="kw2">extends</span> ADOdb_Active_Record<span class="br0">{</span><span class="sy0">...</span> your modifications <span class="sy0">...</span> <span class="br0">}</span><span class="sy0">;</span>
+ADODB_Active_Record<span class="sy0">::</span><span class="me2">ClassBelongsTo</span><span class="br0">(</span><span class="st_h">'kid'</span><span class="sy0">,</span><span class="st_h">'person'</span><span class="sy0">,</span><span class="st_h">'person_id'</span><span class="sy0">,</span><span class="st_h">'id'</span><span class="sy0">,</span> <span class="st_h">'person'</span><span class="br0">)</span><span class="sy0">;</span></pre>
+
+</div>
+
+<h2 class="sectionedit34" id="tablebelongsto">TableBelongsTo</h2>
+<div class="level2">
+
+<p>
+If the child table differs from the convention that the child table name is the plural of the child class name, use this function: <a href="../../v5/activerecord/tablebelongsto.html" class="wikilink1" title="v5:activerecord:tablebelongsto" data-wiki-id="v5:activerecord:tablebelongsto">ADODB_Active_Record::TableBelongsTo()</a>.
+</p>
+
+<p>
+E.g. the class is child, but the table name is children, and the link between the two tables is children.person_id = person.id:
+</p>
+<pre class="code">ADODB_Active_Record::TableBelongsTo('children','person','person_id','id');</pre>
+
+</div>
+
+<h2 class="sectionedit35" id="tablekeybelongsto">TableKeyBelongsTo</h2>
+<div class="level2">
+
+<p>
+If the child table differs from the convention that the child table name is the plural of the child class name or the primary key is not 'id', use this function: <a href="../../v5/activerecord/tablekeybelongsto.html" class="wikilink1" title="v5:activerecord:tablekeybelongsto" data-wiki-id="v5:activerecord:tablekeybelongsto">ADODB_Active_Record::TableKeyBelongsTo()</a>.
+</p>
+
+<p>
+E.g. the class is child, but the table name is children and primary key is ch_id, and the link between the two tables is children.person_id = person.id:
+</p>
+<pre class="code">ADODB_Active_Record::TableKeyBelongsTo('children','ch_id', 'person','person_id','id');</pre>
+
+</div>
+
+<h2 class="sectionedit36" id="loadrelations">LoadRelations</h2>
+<div class="level2">
+
+<p>
+Sometimes you want to load only a subset of data in a relationship. For example, you could load all female children sorted by children.name using <a href="../../v5/activerecord/loadrelations.html" class="wikilink1" title="v5:activerecord:loadrelations" data-wiki-id="v5:activerecord:loadrelations">loadRelations</a>:
+</p>
+<pre class="code php"><span class="co2"># assume this has been called:
+</span><span class="co2">#   ADODB_Active_Record::ClassHasMany('person', 'children','person_id');
+</span><span class="re0">$person</span> <span class="sy0">=</span> <span class="kw2">new</span> person<span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$person</span><span class="sy0">-&gt;</span><span class="me1">Load</span><span class="br0">(</span><span class="st_h">'id=23'</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="coMULTI">/*
+*  Load doesn't load children until $person-&gt;children
+* is accessed or LoadRelations is called:
+*/</span>
+<span class="re0">$person</span><span class="sy0">-&gt;</span><span class="me1">LoadRelations</span><span class="br0">(</span><span class="st_h">'children'</span><span class="sy0">,</span><span class="st0">"gender='F' order by name"</span><span class="br0">)</span><span class="sy0">;</span></pre>
+
+<p>
+Lastly, if you have lots of child data, you can define a window of data of records to load. In the following example, we load a window of 100 records at a time:
+</p>
+<pre class="code php"><span class="co2"># assume this has been called:
+</span><span class="co2">#  ADODB_Active_Record::ClassHasMany('Account', 'transactions','account_id');
+</span><span class="co2">#acc = new Account();
+</span><span class="re0">$acc</span><span class="sy0">-&gt;</span><span class="me1">Load</span><span class="br0">(</span><span class="st_h">'id=23'</span><span class="br0">)</span><span class="sy0">;</span>
+&nbsp;
+<span class="re0">$start</span> <span class="sy0">=</span> <span class="nu0">0</span><span class="sy0">;</span>
+<span class="kw1">while</span><span class="br0">(</span><span class="kw4">true</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="re0">$acc</span><span class="sy0">-&gt;</span><span class="me1">LoadRelations</span><span class="br0">(</span><span class="st_h">'transactions'</span><span class="sy0">,</span>
+                        <span class="st0">"tx_done=0 order by trxdate"</span><span class="sy0">,</span> 
+                        <span class="re0">$start</span><span class="sy0">,</span> 
+                        <span class="re0">$start</span><span class="sy0">+</span><span class="nu0">100</span><span class="br0">)</span><span class="sy0">;</span>
+&nbsp;
+    <span class="kw1">if</span> <span class="br0">(</span><span class="sy0">!</span><span class="re0">$acc</span><span class="sy0">-&gt;</span><span class="me1">transactions</span><span class="br0">)</span> 
+        <span class="kw1">break</span><span class="sy0">;</span>
+    <span class="kw1">foreach</span> <span class="br0">(</span><span class="re0">$acc</span><span class="sy0">-&gt;</span><span class="me1">transactions</span> <span class="kw1">as</span> <span class="re0">$k</span> <span class="sy0">=&gt;</span> <span class="re0">$trx</span><span class="br0">)</span> 
+    <span class="br0">{</span>
+	<span class="co2">## process
+</span>	<span class="re0">$trx</span><span class="sy0">-&gt;</span><span class="me1">tx_done</span> <span class="sy0">=</span> <span class="nu0">1</span><span class="sy0">;</span>
+	<span class="re0">$trx</span><span class="sy0">-&gt;</span><span class="me1">save</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+    <span class="br0">}</span>
+    <span class="re0">$start</span> <span class="sy0">+=</span> <span class="nu0">100</span><span class="sy0">;</span>
+    <a target="_blank" href="http://www.php.net/unset"><span class="kw3">unset</span></a><span class="br0">(</span><span class="re0">$acc</span><span class="sy0">-&gt;</span><span class="me1">transactions</span><span class="br0">)</span><span class="sy0">;</span>
+&nbsp;
+<span class="br0">}</span></pre>
+
+<p>
+The $offset is 0-based, and $limit is the number of records to retrieve. The default is to ignore $offset (-1) and $limit (-1).
+</p>
+
+<p>
+All of the code snippets above have been pulled together into a single procedure <a href="../../v5/activerecord/code_snippet_2.html" class="wikilink1" title="v5:activerecord:code_snippet_2" data-wiki-id="v5:activerecord:code_snippet_2">Here</a>.
+</p>
+
+</div>
+
+<h1 class="sectionedit37" id="extended_active_record">Extended Active Record</h1>
+<div class="level1">
+
+<p>
+See the <a href="../../v5/activerecord/extended_active_record_tutorial.html" class="wikilink1" title="v5:activerecord:extended_active_record_tutorial" data-wiki-id="v5:activerecord:extended_active_record_tutorial">Active Record eXtended</a>
+</p>
+
+</div>
+
+<h1 class="sectionedit38" id="todo_code_contributions_welcome">Todo (Code Contributions welcome)</h1>
+<div class="level1">
+
+<p>
+Check _original and current field values before update, only update changes. Also if the primary key value is changed, then on update, we should save and use the original primary key values in the WHERE clause!
+</p>
+
+<p>
+PHP5 specific: Make GetActiveRecords*() return an Iterator.
+</p>
+
+<p>
+PHP5 specific: Change PHP5 implementation of Active Record to use 
+</p>
+<pre class="code php">__get<span class="br0">(</span><span class="br0">)</span> and __set<span class="br0">(</span><span class="br0">)</span></pre>
+
+<p>
+ for better performance.
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>v5/activerecord/active_record_tutorial.txt</bdi> &middot; Last modified: 2022/06/09 18:37 by <bdi>3.83.52.90</bdi></div>
+
+                
+                <hr class="a11y">
+            </div></main><!-- /content -->
+
+            <!-- PAGE ACTIONS -->
+            <nav id="dokuwiki__pagetools" aria-labelledby="dokuwiki__pagetools__heading">
+                <h3 class="a11y" id="dokuwiki__pagetools__heading">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li class="source"><a href="active_record_tutorial.html" title="Show pagesource [v]" rel="nofollow" accesskey="v"><span>Show pagesource</span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24"><path d="M13 9h5.5L13 3.5V9M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4c0-1.11.89-2 2-2m.12 13.5l3.74 3.74 1.42-1.41-2.33-2.33 2.33-2.33-1.42-1.41-3.74 3.74m11.16 0l-3.74-3.74-1.42 1.41 2.33 2.33-2.33 2.33 1.42 1.41 3.74-3.74z"></path></svg></a></li><li class="revs"><a href="active_record_tutorial.html" title="Old revisions [o]" rel="nofollow" accesskey="o"><span>Old revisions</span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24"><path d="M11 7v5.11l4.71 2.79.79-1.28-4-2.37V7m0-5C8.97 2 5.91 3.92 4.27 6.77L2 4.5V11h6.5L5.75 8.25C6.96 5.73 9.5 4 12.5 4a7.5 7.5 0 0 1 7.5 7.5 7.5 7.5 0 0 1-7.5 7.5c-3.27 0-6.03-2.09-7.06-5h-2.1c1.1 4.03 4.77 7 9.16 7 5.24 0 9.5-4.25 9.5-9.5A9.5 9.5 0 0 0 12.5 2z"></path></svg></a></li><li class="backlink"><a href="active_record_tutorial.html" title="Backlinks" rel="nofollow"><span>Backlinks</span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24"><path d="M10.59 13.41c.41.39.41 1.03 0 1.42-.39.39-1.03.39-1.42 0a5.003 5.003 0 0 1 0-7.07l3.54-3.54a5.003 5.003 0 0 1 7.07 0 5.003 5.003 0 0 1 0 7.07l-1.49 1.49c.01-.82-.12-1.64-.4-2.42l.47-.48a2.982 2.982 0 0 0 0-4.24 2.982 2.982 0 0 0-4.24 0l-3.53 3.53a2.982 2.982 0 0 0 0 4.24m2.82-4.24c.39-.39 1.03-.39 1.42 0a5.003 5.003 0 0 1 0 7.07l-3.54 3.54a5.003 5.003 0 0 1-7.07 0 5.003 5.003 0 0 1 0-7.07l1.49-1.49c-.01.82.12 1.64.4 2.43l-.47.47a2.982 2.982 0 0 0 0 4.24 2.982 2.982 0 0 0 4.24 0l3.53-3.53a2.982 2.982 0 0 0 0-4.24.973.973 0 0 1 0-1.42z"></path></svg></a></li><li class="siteexport_addpage"><a href="active_record_tutorial.html" title="Export Page to HTML/PDF" rel="nofollow"><span>Export Page to HTML/PDF</span><svg width="61px" height="51px" viewbox="0 0 61 51" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs></defs><path d="M26.1891503,39.0065635 L26.0876578,38.9773206 L60.6523866,1.23972885 L60.4321374,2.11844376 L60.476442,2.07071678 L60.4265202,2.14085429 L49.5024876,45.7237994 L32.8255882,40.9187101 L26,50.508302 L26,39.2103249 L26.1891503,39.0065635 Z M60.9727675,0.862917243 L22.2676619,38.2155059 L-0.00245042233,30.2214566 L60.9727675,0.862917243 Z" id="Paper-Plane"></path></svg></a></li><li class="top"><a href="#dokuwiki__top" title="Back to top [t]" rel="nofollow" accesskey="t"><span>Back to top</span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path></svg></a></li>                    </ul>
+                </div>
+            </nav>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<footer id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="https://creativecommons.org/licenses/by-sa/4.0/deed.en" rel="license" class="urlextern" target="_blank">CC Attribution-Share Alike 4.0 International</a></bdi></div>
+    <div class="buttons">
+        <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.en" rel="license" target="_blank"><img src="../../lib/images/license/button/cc-by-sa.png" alt="CC Attribution-Share Alike 4.0 International"></a>        <a href="https://www.dokuwiki.org/donate" title="Donate" target="_blank"><img src="../../lib/tpl/dokuwiki/images/button-donate.gif" width="80" height="15" alt="Donate"></a>
+        <a href="https://php.net" title="Powered by PHP" target="_blank"><img src="../../lib/tpl/dokuwiki/images/button-php.gif" width="80" height="15" alt="Powered by PHP"></a>
+        <a href="../../check/referer" title="Valid HTML5" target="_blank"><img src="../../lib/tpl/dokuwiki/images/button-html5.png" width="80" height="15" alt="Valid HTML5"></a>
+        <a href="../../css-validator/check/referer.profile.css3?profile=css3" title="Valid CSS" target="_blank"><img src="../../lib/tpl/dokuwiki/images/button-css.png" width="80" height="15" alt="Valid CSS"></a>
+        <a href="https://dokuwiki.org/" title="Driven by DokuWiki" target="_blank"><img src="../../lib/tpl/dokuwiki/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki"></a>
+    </div>
+
+    </div></footer><!-- /footer -->
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/taskrunner.1688205610.gif?1688205610" width="2" height="1" alt=""></div>
+    <div id="screen__mode" class="no"></div></body>
+</html>

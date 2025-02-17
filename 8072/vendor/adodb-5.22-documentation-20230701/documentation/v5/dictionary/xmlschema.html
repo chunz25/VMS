@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki">
+<meta name="theme-color" content="#008800">
+<meta name="robots" content="index,follow">
+<meta name="keywords" content="v5,dictionary,xmlschema">
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.html" title="ADOdb">
+<link rel="start" href="xmlschema.html">
+<link rel="contents" href="xmlschema.html" title="Sitemap">
+<link rel="manifest" href="../../lib/exe/manifest.html">
+<link rel="alternate" type="application/rss+xml" title="Recent Changes">
+<link rel="alternate" type="application/rss+xml" title="Current namespace">
+<link rel="alternate" type="text/html" title="Plain HTML" href="xmlschema.html">
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="xmlschema.html">
+<link rel="canonical" href="https://adodb.org/dokuwiki/doku.php?id=v5:dictionary:xmlschema">
+<link rel="stylesheet" href="../../lib/exe/css.php.t.dokuwiki.css">
+<!--[if gte IE 9]><!-->
+<script>/*<![CDATA[*/var NS='v5:dictionary';var JSINFO = {"plugins":{"edittable":{"default columnwidth":""}},"move_renameokay":false,"id":"v5:dictionary:xmlschema","namespace":"v5:dictionary","ACT":"show","useHeadingNavigation":1,"useHeadingContent":1};
+/*!]]>*/</script>
+<script src="../../lib/exe/jquery.php.t.dokuwiki.js" defer>/*<![CDATA[*/
+/*!]]>*/</script>
+<script src="../../lib/exe/js.php.t.dokuwiki.js" defer>/*<![CDATA[*/
+/*!]]>*/</script>
+<!--<![endif]-->
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="shortcut icon" href="../../lib/tpl/dokuwiki/images/favicon.ico">
+<link rel="apple-touch-icon" href="../../lib/tpl/dokuwiki/images/apple-touch-icon.png">
+    <title>v5:dictionary:xmlschema</title></head>
+
+<body>
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_dokuwiki    showSidebar hasSidebar">
+
+        
+<!-- ********** HEADER ********** -->
+<header id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1 class="logo"><a href="../..//index.html" accesskey="h" title="Home [h]"><img src="../../logo.png" width="176" height="62" alt=""> <span>ADOdb</span></a></h1>
+                    <p class="claim">Database Abstraction Layer for PHP</p>
+            </div>
+
+    
+
+    <!-- BREADCRUMBS -->
+            
+    
+    <hr class="a11y">
+<div style="text-align:right"><a href="https://adodb.org">ADOdb Web Site</a></div></div></header><!-- /header -->
+
+        <div class="wrapper group">
+
+                            <!-- ********** ASIDE ********** -->
+                <nav id="dokuwiki__aside" aria-label="Sidebar"><div class="pad aside include group">
+                    <h3 class="toggle">Sidebar</h3>
+                    <div class="content"><div class="group">
+                                                                        
+<p>
+<strong>Resources</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="../../v5/reference/reference_index.html" class="wikilink1" title="v5:reference:reference_index" data-wiki-id="v5:reference:reference_index">Reference Manual</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../../v5/userguide/userguide_index.html" class="wikilink1" title="v5:userguide:userguide_index" data-wiki-id="v5:userguide:userguide_index">User Guide &amp; Tutorials</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../../v5/dictionary/dictionary_index.html" class="wikilink1" title="v5:dictionary:dictionary_index" data-wiki-id="v5:dictionary:dictionary_index">The Data Dictionary</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../../v5/axmls/axmls_index.html" class="wikilink1" title="v5:axmls:axmls_index" data-wiki-id="v5:axmls:axmls_index">ADOdb-xmlschema</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../../v5/activerecord/activerecord_index.html" class="wikilink1" title="v5:activerecord:activerecord_index" data-wiki-id="v5:activerecord:activerecord_index">ADOdb Active Record</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../../v5/performance/performance_index.html" class="wikilink1" title="v5:performance:performance_index" data-wiki-id="v5:performance:performance_index">Performance Monitoring</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../../v5/datetime/datetime_index.html" class="wikilink1" title="v5:datetime:datetime_index" data-wiki-id="v5:datetime:datetime_index">Date/Time Library</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../../v5/session/session_index.html" class="wikilink1" title="v5:session:session_index" data-wiki-id="v5:session:session_index">Session Management Library</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../../v5/proxy/proxy_index.html" class="wikilink1" title="v5:proxy:proxy_index" data-wiki-id="v5:proxy:proxy_index">ADOdb Proxy Server</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../../v5/addons/addons_index.html" class="wikilink1" title="v5:addons:addons_index" data-wiki-id="v5:addons:addons_index">Unsupported Addons</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../../project/standards.html" class="wikilink1" title="project:standards" data-wiki-id="project:standards">Coding Standards</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../../v5/php_compatibility_status.html" class="wikilink1" title="v5:php_compatibility_status" data-wiki-id="v5:php_compatibility_status">PHP Compatibility Status</a></div>
+</li>
+</ul>
+
+<p>
+<strong><a href="../../v5/database/supported.html" class="wikilink1" title="v5:database:supported" data-wiki-id="v5:database:supported">Supported Databases</a></strong>
+</p>
+<ol>
+<li class="level1"><div class="li"> Full support    <ul><li><a href="../../v5/database/ibm_db2.html" class="wikilink1" title="v5:database:ibm_db2">IBM DB2</a></li><li><a href="../../v5/database/microsoft_sql_server.html" class="wikilink1" title="v5:database:microsoft_sql_server">Microsoft SQL Server</a></li><li><a href="../../v5/database/mysql.html" class="wikilink1" title="v5:database:mysql">MySQL</a></li><li><a href="../../v5/database/oracle.html" class="wikilink1" title="v5:database:oracle">Oracle</a></li><li><a href="../../v5/database/postgresql.html" class="wikilink1" title="v5:database:postgresql">PostgreSQL</a></li><li><a href="../../v5/database/sqlite.html" class="wikilink1" title="v5:database:sqlite">SQLite Database</a></li></ul></div>
+</li>
+<li class="level1"><div class="li"> Partial support <ul><li><a href="../../v5/database/firebird.html" class="wikilink1" title="v5:database:firebird">Firebird &amp; Interbase</a></li><li><a href="../../v5/database/ldap.html" class="wikilink1" title="v5:database:ldap">LDAP</a></li><li><a href="../../v5/database/access.html" class="wikilink1" title="v5:database:access">Microsoft Access</a></li><li><a href="../../v5/database/odbc.html" class="wikilink1" title="v5:database:odbc">ODBC</a></li><li><a href="../../v5/database/pdo.html" class="wikilink1" title="v5:database:pdo">PDO</a></li><li><a href="../../v5/database/pdo_new.html" class="wikilink1" title="v5:database:pdo_new">PDO (new)</a></li></ul></div>
+</li>
+<li class="level1"><div class="li"> <a href="../../v5/database/unsupported.html" class="wikilink1" title="v5:database:unsupported" data-wiki-id="v5:database:unsupported">Obsolete/Unsupported Drivers</a></div>
+</li>
+</ol>
+                                            </div></div>
+                </div></nav><!-- /aside -->
+            
+            <!-- ********** CONTENT ********** -->
+            <main id="dokuwiki__content"><div class="pad group">
+                
+                <div class="pageId"><span>v5:dictionary:xmlschema</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    
+<h1 class="sectionedit1" id="adodb-xmlschema">ADOdb-xmlschema</h1>
+<div class="level1">
+
+
+<div class="wrap_right wrap_box wrap_round plugin_wrap" style="width: 300px; max-width: 100%;">
+<h5 id="see_also">See also</h5>
+
+<p>
+<a href="../../v5/axmls/axmls_functions.html" class="wikilink1" title="v5:axmls:axmls_functions" data-wiki-id="v5:axmls:axmls_functions">AXMLS Function Reference</a><br>
+
+<a href="../../v5/dictionary/dictionary_index.html" class="wikilink1" title="v5:dictionary:dictionary_index" data-wiki-id="v5:dictionary:dictionary_index">The Meta Functions</a><br>
+
+</p>
+</div>
+</div>
+
+<h2 class="sectionedit4" id="introduction">Introduction</h2>
+<div class="level2">
+
+<p>
+Adodb-xmlschema, or AXMLS, is a set of classes that extends the ADOdb <a href="../../v5/dictionary/dictionary_index.html" class="wikilink1" title="v5:dictionary:dictionary_index" data-wiki-id="v5:dictionary:dictionary_index">The Data Dictionary</a> by processing XML formatted files and transforming them into ADOdb portable schema management commands. In simple terms:
+</p>
+<ul>
+<li class="level1"><div class="li"> An XML file contains all of the definitions required to create a table, the associated columns, indexes and constraints. </div>
+</li>
+<li class="level1"><div class="li"> The table can be created by processing the XML file with the <a href="../../v5/axmls/parseschema.html" class="wikilink1" title="v5:axmls:parseschema" data-wiki-id="v5:axmls:parseschema">parseSchema</a> method, which converts the XML into an array of SQL statements. These statements can then be executed using the <a href="../../v5/axmls/executeschema.html" class="wikilink1" title="v5:axmls:executeschema" data-wiki-id="v5:axmls:executeschema">executeSchema</a> method.</div>
+</li>
+<li class="level1"><div class="li"> That XML file can be used <strong>unmodified</strong> against any database supported by ADOdb.</div>
+</li>
+<li class="level1"><div class="li"> Any modifications to the table can be enabled by simply modifying the XML file, and re-executing the XML load command. The ADOdb Meta Functions take care of any processing required to apply those changes to the table.</div>
+</li>
+<li class="level1"><div class="li"> In limited circumstances, the XML file may also contain data rows to load into the table.</div>
+</li>
+</ul>
+<hr>
+<div class="wrap_right wrap_box plugin_wrap" style="width: 200px; max-width: 100%;">
+<h5 id="original_author_credit">Original Author Credit</h5>
+<pre class="code">Richard Tango-Lowy
+Dan Cech </pre>
+</div>
+</div>
+
+<h2 class="sectionedit7" id="installation">Installation</h2>
+<div class="level2">
+
+<p>
+This feature is included in the standard release
+</p>
+
+</div>
+
+<h2 class="sectionedit8" id="using_axmls_in_your_application">Using AXMLS in Your Application</h2>
+<div class="level2">
+
+<p>
+There are two steps involved in using AXMLS in your application: first, you must create a schema, or XML representation of your database, and second, you must create the PHP code that will parse and execute the schema.
+</p>
+
+</div>
+
+<h3 class="sectionedit9" id="a_basic_schema_definition">A Basic Schema Definition</h3>
+<div class="level3">
+
+<p>
+Let's begin with a schema that describes a typical, if simplistic user management table for an application.
+</p>
+<pre class="code xml"><span class="sc3"><span class="re1">&lt;?xml</span> <span class="re0">version</span>=<span class="st0">"1.0"</span><span class="re2">?&gt;</span></span>
+<span class="sc3"><span class="re1">&lt;schema</span> <span class="re0">version</span>=<span class="st0">"0.3"</span><span class="re2">&gt;</span></span>
+&nbsp;
+  <span class="sc3"><span class="re1">&lt;table</span> <span class="re0">name</span>=<span class="st0">"users"</span><span class="re2">&gt;</span></span>
+    <span class="sc3"><span class="re1">&lt;desc<span class="re2">&gt;</span></span></span>A typical users table for our application.<span class="sc3"><span class="re1">&lt;/desc<span class="re2">&gt;</span></span></span>
+    <span class="sc3"><span class="re1">&lt;field</span> <span class="re0">name</span>=<span class="st0">"userId"</span> <span class="re0">type</span>=<span class="st0">"I"</span><span class="re2">&gt;</span></span>
+      <span class="sc3"><span class="re1">&lt;descr<span class="re2">&gt;</span></span></span>A unique ID assigned to each user.<span class="sc3"><span class="re1">&lt;/descr<span class="re2">&gt;</span></span></span>
+      <span class="sc3"><span class="re1">&lt;KEY</span><span class="re2">/&gt;</span></span>
+      <span class="sc3"><span class="re1">&lt;AUTOINCREMENT</span><span class="re2">/&gt;</span></span>
+    <span class="sc3"><span class="re1">&lt;/field<span class="re2">&gt;</span></span></span>
+&nbsp;
+    <span class="sc3"><span class="re1">&lt;field</span> <span class="re0">name</span>=<span class="st0">"userName"</span> <span class="re0">type</span>=<span class="st0">"C"</span> <span class="re0">size</span>=<span class="st0">"16"</span><span class="re2">&gt;</span><span class="re1">&lt;NOTNULL</span><span class="re2">/&gt;</span><span class="re1">&lt;/field<span class="re2">&gt;</span></span></span>
+&nbsp;
+    <span class="sc3"><span class="re1">&lt;index</span> <span class="re0">name</span>=<span class="st0">"userName"</span><span class="re2">&gt;</span></span>
+      <span class="sc3"><span class="re1">&lt;descr<span class="re2">&gt;</span></span></span>Put a unique index on the user name<span class="sc3"><span class="re1">&lt;/descr<span class="re2">&gt;</span></span></span>
+      <span class="sc3"><span class="re1">&lt;col<span class="re2">&gt;</span></span></span>userName<span class="sc3"><span class="re1">&lt;/col<span class="re2">&gt;</span></span></span>
+      <span class="sc3"><span class="re1">&lt;UNIQUE</span><span class="re2">/&gt;</span></span>
+    <span class="sc3"><span class="re1">&lt;/index<span class="re2">&gt;</span></span></span>
+  <span class="sc3"><span class="re1">&lt;/table<span class="re2">&gt;</span></span></span>
+&nbsp;
+  <span class="sc3"><span class="re1">&lt;sql<span class="re2">&gt;</span></span></span>
+    <span class="sc3"><span class="re1">&lt;descr<span class="re2">&gt;</span></span></span>Insert some data into the users table.<span class="sc3"><span class="re1">&lt;/descr<span class="re2">&gt;</span></span></span>
+    <span class="sc3"><span class="re1">&lt;query<span class="re2">&gt;</span></span></span>insert into users (userName) values ( 'admin' )<span class="sc3"><span class="re1">&lt;/query<span class="re2">&gt;</span></span></span>
+    <span class="sc3"><span class="re1">&lt;query<span class="re2">&gt;</span></span></span>insert into users (userName) values ( 'Joe' )<span class="sc3"><span class="re1">&lt;/query<span class="re2">&gt;</span></span></span>
+  <span class="sc3"><span class="re1">&lt;/sql<span class="re2">&gt;</span></span></span>
+<span class="sc3"><span class="re1">&lt;/schema<span class="re2">&gt;</span></span></span>			</pre>
+
+<p>
+Let's take a detailed look at this schema. The opening <code>&lt;?xml version=&ldquo;1.0&rdquo;?&gt;</code> tag is 					required by XML. The &lt;schema&gt; tag tells the parser that the enclosed markup defines an XML schema. The version=&ldquo;0.3&rdquo; attribute sets the version of the AXMLS DTD used by the XML schema All versions of AXMLS prior					to version 1.0 have a schema version of &ldquo;0.1&rdquo;. The current schema version is &ldquo;0.3&rdquo;.
+</p>
+<pre class="code xml"><span class="sc3"><span class="re1">&lt;?xml</span> <span class="re0">version</span>=<span class="st0">"1.0"</span><span class="re2">?&gt;</span></span>
+<span class="sc3"><span class="re1">&lt;schema</span> <span class="re0">version</span>=<span class="st0">"0.3"</span><span class="re2">&gt;</span></span>
+  ...
+<span class="sc3"><span class="re1">&lt;/schema<span class="re2">&gt;</span></span></span></pre>
+
+<p>
+Next we define one or more tables. A table consists of a fields (and other objects) enclosed by <code>&lt;table&gt;</code> tags. The name=&ldquo;&rdquo; attribute specifies the name of the table that will be created in the database.
+</p>
+<pre class="code xml"><span class="sc3"><span class="re1">&lt;table</span> <span class="re0">name</span>=<span class="st0">"users"</span><span class="re2">&gt;</span></span>
+&nbsp;
+    <span class="sc3"><span class="re1">&lt;desc<span class="re2">&gt;</span></span></span>A typical users table for our application.<span class="sc3"><span class="re1">&lt;/desc<span class="re2">&gt;</span></span></span>
+    <span class="sc3"><span class="re1">&lt;field</span> <span class="re0">name</span>=<span class="st0">"userId"</span> <span class="re0">type</span>=<span class="st0">"I"</span><span class="re2">&gt;</span></span>
+      <span class="sc3"><span class="re1">&lt;descr<span class="re2">&gt;</span></span></span>A unique ID assigned to each user.<span class="sc3"><span class="re1">&lt;/descr<span class="re2">&gt;</span></span></span>
+      <span class="sc3"><span class="re1">&lt;KEY</span><span class="re2">/&gt;</span></span>
+      <span class="sc3"><span class="re1">&lt;AUTOINCREMENT</span><span class="re2">/&gt;</span></span>
+    <span class="sc3"><span class="re1">&lt;/field<span class="re2">&gt;</span></span></span>
+&nbsp;
+    <span class="sc3"><span class="re1">&lt;field</span> <span class="re0">name</span>=<span class="st0">"userName"</span> <span class="re0">type</span>=<span class="st0">"C"</span> <span class="re0">size</span>=<span class="st0">"16"</span><span class="re2">&gt;</span><span class="re1">&lt;NOTNULL</span><span class="re2">/&gt;</span><span class="re1">&lt;/field<span class="re2">&gt;</span></span></span>
+&nbsp;
+<span class="sc3"><span class="re1">&lt;/table<span class="re2">&gt;</span></span></span></pre>
+
+<p>
+This table is called &ldquo;users&rdquo; and has a description and two fields:
+</p>
+<ul>
+<li class="level1"><div class="li"> The description is optional, and is currently  only for your own information; it is not applied to the database. </div>
+</li>
+<li class="level1"><div class="li"> The first &lt;field&gt; tag will create a field named &ldquo;userId&rdquo; of type &ldquo;I&rdquo;, or integer. (See the ADOdb Data Dictionary documentation for a list of valid types.) This &lt;field&gt; tag encloses two special field options: &lt;KEY/&gt;, which specifies this field as a primary key, and &lt;AUTOINCREMENT/&gt;, which specifies that the database engine should automatically fill this field with the next available value when a new row is inserted. </div>
+</li>
+<li class="level1"><div class="li"> The second &lt;field&gt; tag will create a field named &ldquo;userName&rdquo; of type &ldquo;C&rdquo;, or character, and of length 16 characters. The &lt;NOTNULL/&gt; option specifies that this field does not allow NULLs.</div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit10" id="adding_indexes">Adding Indexes</h3>
+<div class="level3">
+
+<p>
+There are two ways to add indexes to a table. The simplest is to mark a field with the &lt;KEY/&gt; option as described above; a primary key is a unique index. The second and more powerful method uses the &lt;index&gt; tags.
+</p>
+<pre class="code xml"><span class="sc3"><span class="re1">&lt;table</span> <span class="re0">name</span>=<span class="st0">"users"</span><span class="re2">&gt;</span></span>
+  ...
+&nbsp;
+  <span class="sc3"><span class="re1">&lt;index</span> <span class="re0">name</span>=<span class="st0">"userName"</span><span class="re2">&gt;</span></span>
+    <span class="sc3"><span class="re1">&lt;descr<span class="re2">&gt;</span></span></span>Put a unique index on the user name<span class="sc3"><span class="re1">&lt;/descr<span class="re2">&gt;</span></span></span>
+    <span class="sc3"><span class="re1">&lt;col<span class="re2">&gt;</span></span></span>userName<span class="sc3"><span class="re1">&lt;/col<span class="re2">&gt;</span></span></span>
+    <span class="sc3"><span class="re1">&lt;UNIQUE</span><span class="re2">/&gt;</span></span>
+  <span class="sc3"><span class="re1">&lt;/index<span class="re2">&gt;</span></span></span>
+&nbsp;
+<span class="sc3"><span class="re1">&lt;/table<span class="re2">&gt;</span></span></span></pre>
+
+<p>
+The &lt;index&gt; tag specifies that an index should be created on the enclosing table. The name=&ldquo;&rdquo; attribute provides the name of the index that will be created in the database. The description, as above, is for your information only. The &lt;col&gt; tags list each column that will be included in the index. Finally, the &lt;UNIQUE/&gt; tag specifies that this will be created as a unique index.	
+</p>
+
+</div>
+
+<h3 class="sectionedit11" id="arbitrary_sql_execution">Arbitrary SQL Execution</h3>
+<div class="level3">
+
+<p>
+Finally, AXMLS allows you to include arbitrary SQL that will be applied to the database when the schema is executed.
+</p>
+<pre class="code xml"><span class="sc3"><span class="re1">&lt;sql<span class="re2">&gt;</span></span></span>
+  <span class="sc3"><span class="re1">&lt;descr<span class="re2">&gt;</span></span></span>Insert some data into the users table.<span class="sc3"><span class="re1">&lt;/descr<span class="re2">&gt;</span></span></span>
+  <span class="sc3"><span class="re1">&lt;query<span class="re2">&gt;</span></span></span>insert into users (userName) values ( 'admin' )<span class="sc3"><span class="re1">&lt;/query<span class="re2">&gt;</span></span></span>
+  <span class="sc3"><span class="re1">&lt;query<span class="re2">&gt;</span></span></span>insert into users (userName) values ( 'Joe' )<span class="sc3"><span class="re1">&lt;/query<span class="re2">&gt;</span></span></span>
+<span class="sc3"><span class="re1">&lt;/sql<span class="re2">&gt;</span></span></span></pre>
+
+<p>
+The &lt;sql&gt; tag encloses any number of SQL queries that you define for your own use. 
+</p>
+
+</div>
+
+<h2 class="sectionedit12" id="executing_a_script">Executing A Script</h2>
+<div class="level2">
+
+<p>
+Now that we've defined an XML schema, you need to know how to  apply it to your database. Here's a simple PHP script that shows how to load the schema.
+</p>
+<pre class="code php"><span class="coMULTI">/* You must tell the script where to find the ADOdb and
+ * the AXMLS libraries.
+ */</span>
+<span class="kw1">require</span> <span class="st0">"path_to_adodb/adodb.inc.php"</span><span class="sy0">;</span>
+<span class="kw1">require</span> <span class="st0">"path_to_adodb/adodb-xmlschema03.inc.php"</span><span class="sy0">;</span>
+&nbsp;
+<span class="coMULTI">/* Configuration information. Define the schema filename,
+ * RDBMS platform (see the ADODB documentation for valid
+ * platform names), and database connection information here.
+ */</span>
+<span class="re0">$schemaFile</span> <span class="sy0">=</span> <span class="st_h">'example.xml'</span><span class="sy0">;</span>
+<span class="re0">$platform</span> <span class="sy0">=</span> <span class="st_h">'mysql'</span><span class="sy0">;</span>
+<span class="re0">$dbHost</span> <span class="sy0">=</span> <span class="st_h">'localhost'</span><span class="sy0">;</span>
+<span class="re0">$dbName</span> <span class="sy0">=</span> <span class="st_h">'database'</span><span class="sy0">;</span>
+<span class="re0">$dbUser</span> <span class="sy0">=</span> <span class="st_h">'username'</span><span class="sy0">;</span>
+<span class="re0">$dbPassword</span> <span class="sy0">=</span> <span class="st_h">'password'</span><span class="sy0">;</span>
+&nbsp;
+<span class="coMULTI">/* Start by creating a normal ADODB connection.
+ */</span>
+<span class="re0">$db</span> <span class="sy0">=</span> ADONewConnection<span class="br0">(</span> <span class="re0">$platform</span> <span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">connect</span><span class="br0">(</span> <span class="re0">$dbHost</span><span class="sy0">,</span> <span class="re0">$dbUser</span><span class="sy0">,</span> <span class="re0">$dbPassword</span><span class="sy0">,</span> <span class="re0">$dbName</span> <span class="br0">)</span><span class="sy0">;</span>
+&nbsp;
+<span class="coMULTI">/* Use the database connection to create a new adoSchema object.
+ */</span>
+<span class="re0">$schema</span> <span class="sy0">=</span> <span class="kw2">new</span> adoSchema<span class="br0">(</span> <span class="re0">$db</span> <span class="br0">)</span><span class="sy0">;</span>
+&nbsp;
+<span class="coMULTI">/* Call parseSchema() to build SQL from the XML schema file.
+ * Then call executeSchema() to apply the resulting SQL to 
+ * the database.
+ */</span>
+<span class="re0">$sql</span> <span class="sy0">=</span> <span class="re0">$schema</span><span class="sy0">-&gt;</span><span class="me1">parseSchema</span><span class="br0">(</span> <span class="re0">$schemaFile</span> <span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$result</span> <span class="sy0">=</span> <span class="re0">$schema</span><span class="sy0">-&gt;</span><span class="me1">executeSchema</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span></pre>
+
+<p>
+Let's look at each part of the example in turn. After you manually create the database, there are three steps required to load (or upgrade) your schema. First, create a normal ADOdb connection. The variables and values here should be those required to connect to your database.
+</p>
+<pre class="code php"><span class="re0">$db</span> <span class="sy0">=</span> ADONewConnection<span class="br0">(</span> <span class="st_h">'mysql'</span> <span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$db</span><span class="sy0">-&gt;</span><span class="me1">connect</span><span class="br0">(</span> <span class="st_h">'host'</span><span class="sy0">,</span> <span class="st_h">'user'</span><span class="sy0">,</span> <span class="st_h">'password'</span><span class="sy0">,</span> <span class="st_h">'database'</span> <span class="br0">)</span><span class="sy0">;</span></pre>
+
+<p>
+Second, create the adoSchema object that load and manipulate your schema. You must pass an ADOdb database connection object in order to create the adoSchema object.
+</p>
+<pre class="code php"><span class="re0">$schema</span> <span class="sy0">=</span> <span class="kw2">new</span> adoSchema<span class="br0">(</span> <span class="re0">$db</span> <span class="br0">)</span><span class="sy0">;</span></pre>
+
+<p>
+Third, call parseSchema() to parse the schema and then <code>executeSchema()</code> to apply it to the database. You must pass <code>parseSchema()</code> the path and filename of your schema file.
+</p>
+<pre class="code php"><span class="re0">$schema</span><span class="sy0">-&gt;</span><span class="me1">parseSchema</span><span class="br0">(</span> <span class="re0">$schemaFile</span> <span class="br0">)</span><span class="sy0">;</span> 
+<span class="re0">$schema</span><span class="sy0">-&gt;</span><span class="me1">executeSchema</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span> </pre>
+
+<p>
+Execute the above code and then log into your database. If you've done all this right, you should see your tables, indexes, and SQL.
+</p>
+
+<p>
+You can find the source files for this tutorial in the <code>examples</code> directory as tutorial_schema.xml and tutorial.php. See the class documentation for a more detailed description of the adoSchema methods, including methods and schema elements that are not described in this tutorial.
+</p>
+
+</div>
+
+<h2 class="sectionedit13" id="using_axmls">Using AXMLS</h2>
+<div class="level2">
+
+<p>
+AXMLS consists of two parts: the <strong>schema description</strong>, or <strong>DTD</strong>, and the PHP class that manipulates and parses the schema. This document introduces the reader to many of the tools AXMLS provides to manage and manipulate a schema.
+</p>
+
+</div>
+
+<h3 class="sectionedit14" id="executing_the_schema">Executing the Schema</h3>
+<div class="level3">
+
+<p>
+AXMLS provides two different methods for applying the SQL resulting from a parsed schema to the  database: <strong>inline execution</strong> and <strong>post execution</strong>. Use the <a href="../../v5/axmls/continueonerror.html" class="wikilink1" title="v5:axmls:continueonerror" data-wiki-id="v5:axmls:continueonerror">continueOnError()</a> method to specify whether or not database execution should attempt to continue if an error occurs.
+</p>
+
+<p>
+<strong>Inline Execution</strong> applies each schema entity to the database immediately after that entity is parsed. I.e., the first table is read from the schema and applied to the database, then the second table, etc.
+</p>
+<pre class="code php"><span class="re0">$schema</span> <span class="sy0">=</span> <span class="kw2">new</span> adoSchema<span class="br0">(</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">dbconn</span> <span class="br0">)</span><span class="sy0">;</span>
+&nbsp;
+<span class="co1">// Inline Execution</span>
+<span class="re0">$schema</span><span class="sy0">-&gt;</span><span class="me1">continueOnError</span><span class="br0">(</span> <span class="kw4">TRUE</span> <span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$schema</span><span class="sy0">-&gt;</span><span class="me1">executeInline</span><span class="br0">(</span> <span class="kw4">TRUE</span> <span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$schema</span><span class="sy0">-&gt;</span><span class="me1">parseSchemaFile</span><span class="br0">(</span> <span class="st0">"schema.xml"</span> <span class="br0">)</span><span class="sy0">;</span></pre>
+
+<p>
+<strong>Post Execution</strong> parses the entire database and then applies all of the resulting SQL statements to the database in order.
+</p>
+<pre class="code php"><span class="re0">$schema</span> <span class="sy0">=</span> <span class="kw2">new</span> adoSchema<span class="br0">(</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">dbconn</span> <span class="br0">)</span><span class="sy0">;</span>
+&nbsp;
+<span class="co1">// Post Execution (default)</span>
+<span class="re0">$schema</span><span class="sy0">-&gt;</span><span class="me1">executeInline</span><span class="br0">(</span> <span class="kw4">FALSE</span> <span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$schema</span><span class="sy0">-&gt;</span><span class="me1">parseSchemaFile</span><span class="br0">(</span> <span class="st0">"schema.xml"</span> <span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$schema</span><span class="sy0">-&gt;</span><span class="me1">executeSchema</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span></pre>
+
+<p>
+If successful, either method will build or upgrade the database.
+</p>
+
+</div>
+
+<h3 class="sectionedit15" id="upgrading_an_existing_database">Upgrading an Existing Database</h3>
+<div class="level3">
+
+<p>
+Upgrading a database is as simple as creating one. To upgrade an existing database to a new version of a schema, simply parse and execute the schema as above. AXMLS will automatically upgrade all tables and indices to match those provided in the schema.
+</p>
+
+</div>
+
+<h3 class="sectionedit16" id="object_prefixing">Object Prefixing</h3>
+<div class="level3">
+
+<p>
+In a world of pluggable and reusable code, multiple applications often coexist in a single database. Object prefixes allow you to create a namespace for your application. For example, an application called Tackle might want to prefix all its tables and objects with <strong>tackle_</strong> so they'll be less likely to conflict with other applications that share the database. AXMLS's <a href="../../v5/axmls/setprefix.html" class="wikilink1" title="v5:axmls:setprefix" data-wiki-id="v5:axmls:setprefix">setPrefix()</a> method provides this capability.
+</p>
+<pre class="code php"><span class="re0">$schema</span> <span class="sy0">=</span> <span class="kw2">new</span> adoSchema<span class="br0">(</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">dbconn</span> <span class="br0">)</span><span class="sy0">;</span>
+&nbsp;
+<span class="co1">// Set the prefix for database objects (before parsing)</span>
+<span class="re0">$schema</span><span class="sy0">-&gt;</span><span class="me1">setPrefix</span><span class="br0">(</span> <span class="st_h">'tackle'</span> <span class="br0">)</span><span class="sy0">;</span></pre>
+
+</div>
+
+<h3 class="sectionedit17" id="getting_at_the_sql">Getting at the SQL</h3>
+<div class="level3">
+
+<p>
+AXMLS provides several tools for accessing the SQL created by the schema parser. Calling <a href="../../v5/axmls/printsql.html" class="wikilink1" title="v5:axmls:printsql" data-wiki-id="v5:axmls:printsql">printSql</a> returns the parsed SQL in <abbr title="HyperText Markup Language">HTML</abbr>, text, or PHP array format. Calling <a href="../../v5/axmls/savesql.html" class="wikilink1" title="v5:axmls:savesql" data-wiki-id="v5:axmls:savesql">saveSql</a> saves the parsed SQL to the specified file.
+</p>
+<pre class="code php"><span class="re0">$schema</span><span class="sy0">-&gt;</span><span class="me1">parseSchemaFile</span><span class="br0">(</span> <span class="st0">"schema.xml"</span> <span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$schema</span><span class="sy0">-&gt;</span><span class="me1">executeSchema</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+&nbsp;
+<span class="kw1">print</span><span class="br0">(</span> <span class="re0">$schema</span><span class="sy0">-&gt;</span><span class="me1">printSQL</span><span class="br0">(</span> <span class="st_h">'TEXT'</span> <span class="br0">)</span><span class="sy0">;</span> <span class="co1">// Display SQL as text</span>
+<span class="kw1">print</span><span class="br0">(</span> <span class="re0">$schema</span><span class="sy0">-&gt;</span><span class="me1">printSQL</span><span class="br0">(</span> <span class="st_h">'HTML'</span> <span class="br0">)</span><span class="sy0">;</span> <span class="co1">// Display SQL as HTML</span>
+<span class="re0">$sql</span> <span class="sy0">=</span> <span class="re0">$schema</span><span class="sy0">-&gt;</span><span class="me1">printSQL</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>	<span class="co1">// Fetch SQL as array</span>
+&nbsp;
+<span class="co1">// Save SQL to file</span>
+<span class="re0">$schema</span><span class="sy0">-&gt;</span><span class="me1">saveSQL</span><span class="br0">(</span> <span class="st_h">'schema.sql'</span> <span class="br0">)</span><span class="sy0">;</span></pre>
+
+<p>
+As always, see the Class Documentation for detailed information about the methods.
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>v5/dictionary/xmlschema.txt</bdi> &middot; Last modified: 2018/06/11 10:05 by <bdi>dregad</bdi></div>
+
+                
+                <hr class="a11y">
+            </div></main><!-- /content -->
+
+            <!-- PAGE ACTIONS -->
+            <nav id="dokuwiki__pagetools" aria-labelledby="dokuwiki__pagetools__heading">
+                <h3 class="a11y" id="dokuwiki__pagetools__heading">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li class="source"><a href="xmlschema.html" title="Show pagesource [v]" rel="nofollow" accesskey="v"><span>Show pagesource</span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24"><path d="M13 9h5.5L13 3.5V9M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4c0-1.11.89-2 2-2m.12 13.5l3.74 3.74 1.42-1.41-2.33-2.33 2.33-2.33-1.42-1.41-3.74 3.74m11.16 0l-3.74-3.74-1.42 1.41 2.33 2.33-2.33 2.33 1.42 1.41 3.74-3.74z"></path></svg></a></li><li class="revs"><a href="xmlschema.html" title="Old revisions [o]" rel="nofollow" accesskey="o"><span>Old revisions</span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24"><path d="M11 7v5.11l4.71 2.79.79-1.28-4-2.37V7m0-5C8.97 2 5.91 3.92 4.27 6.77L2 4.5V11h6.5L5.75 8.25C6.96 5.73 9.5 4 12.5 4a7.5 7.5 0 0 1 7.5 7.5 7.5 7.5 0 0 1-7.5 7.5c-3.27 0-6.03-2.09-7.06-5h-2.1c1.1 4.03 4.77 7 9.16 7 5.24 0 9.5-4.25 9.5-9.5A9.5 9.5 0 0 0 12.5 2z"></path></svg></a></li><li class="backlink"><a href="xmlschema.html" title="Backlinks" rel="nofollow"><span>Backlinks</span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24"><path d="M10.59 13.41c.41.39.41 1.03 0 1.42-.39.39-1.03.39-1.42 0a5.003 5.003 0 0 1 0-7.07l3.54-3.54a5.003 5.003 0 0 1 7.07 0 5.003 5.003 0 0 1 0 7.07l-1.49 1.49c.01-.82-.12-1.64-.4-2.42l.47-.48a2.982 2.982 0 0 0 0-4.24 2.982 2.982 0 0 0-4.24 0l-3.53 3.53a2.982 2.982 0 0 0 0 4.24m2.82-4.24c.39-.39 1.03-.39 1.42 0a5.003 5.003 0 0 1 0 7.07l-3.54 3.54a5.003 5.003 0 0 1-7.07 0 5.003 5.003 0 0 1 0-7.07l1.49-1.49c-.01.82.12 1.64.4 2.43l-.47.47a2.982 2.982 0 0 0 0 4.24 2.982 2.982 0 0 0 4.24 0l3.53-3.53a2.982 2.982 0 0 0 0-4.24.973.973 0 0 1 0-1.42z"></path></svg></a></li><li class="siteexport_addpage"><a href="xmlschema.html" title="Export Page to HTML/PDF" rel="nofollow"><span>Export Page to HTML/PDF</span><svg width="61px" height="51px" viewbox="0 0 61 51" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs></defs><path d="M26.1891503,39.0065635 L26.0876578,38.9773206 L60.6523866,1.23972885 L60.4321374,2.11844376 L60.476442,2.07071678 L60.4265202,2.14085429 L49.5024876,45.7237994 L32.8255882,40.9187101 L26,50.508302 L26,39.2103249 L26.1891503,39.0065635 Z M60.9727675,0.862917243 L22.2676619,38.2155059 L-0.00245042233,30.2214566 L60.9727675,0.862917243 Z" id="Paper-Plane"></path></svg></a></li><li class="top"><a href="#dokuwiki__top" title="Back to top [t]" rel="nofollow" accesskey="t"><span>Back to top</span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path></svg></a></li>                    </ul>
+                </div>
+            </nav>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<footer id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="https://creativecommons.org/licenses/by-sa/4.0/deed.en" rel="license" class="urlextern" target="_blank">CC Attribution-Share Alike 4.0 International</a></bdi></div>
+    <div class="buttons">
+        <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.en" rel="license" target="_blank"><img src="../../lib/images/license/button/cc-by-sa.png" alt="CC Attribution-Share Alike 4.0 International"></a>        <a href="https://www.dokuwiki.org/donate" title="Donate" target="_blank"><img src="../../lib/tpl/dokuwiki/images/button-donate.gif" width="80" height="15" alt="Donate"></a>
+        <a href="https://php.net" title="Powered by PHP" target="_blank"><img src="../../lib/tpl/dokuwiki/images/button-php.gif" width="80" height="15" alt="Powered by PHP"></a>
+        <a href="../../check/referer" title="Valid HTML5" target="_blank"><img src="../../lib/tpl/dokuwiki/images/button-html5.png" width="80" height="15" alt="Valid HTML5"></a>
+        <a href="../../css-validator/check/referer.profile.css3?profile=css3" title="Valid CSS" target="_blank"><img src="../../lib/tpl/dokuwiki/images/button-css.png" width="80" height="15" alt="Valid CSS"></a>
+        <a href="https://dokuwiki.org/" title="Driven by DokuWiki" target="_blank"><img src="../../lib/tpl/dokuwiki/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki"></a>
+    </div>
+
+    </div></footer><!-- /footer -->
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/taskrunner.1688205645.gif?1688205645" width="2" height="1" alt=""></div>
+    <div id="screen__mode" class="no"></div></body>
+</html>

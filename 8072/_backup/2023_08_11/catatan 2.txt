@@ -1,0 +1,24 @@
+task :
+
+all process first ( init ) :
+
+A. get data from SAP insert to vms_gateway
+
+1. get vendor
+2. get store
+3. get product
+4. get category
+5. get po
+6. get gr
+
+B. vms_gateway to vms_db
+
+1. int_01_insert_vendor
+2. int_02_insert_store
+3. int_03_insert_product
+4. int_04_insert_category
+5. int_05_insert_po
+6. int_06_insert_gr  
+
+all process every day
+1. get

@@ -1,0 +1,14 @@
+ReadConfigParam
+RESTToJSONFile
+JSONFileParse
+JSONFileToDb
+
+jumat :
+
+- getInvoice
+- getPayment
+- saveReceipt Supplier
+- getReceiptSupplier
+- open file image/pdf --> PO , RN , Invoice Supplier , Receipt Invoice , Surat Jalan 
+
+- bahas flow untuk grooseries
