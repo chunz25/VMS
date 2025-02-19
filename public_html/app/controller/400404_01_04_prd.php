@@ -1,9 +1,9 @@
 <?php
 // Data PO Header -------------
 $sql001 = "SELECT * FROM proforma_invoice WHERE purchase_order_no='" . $_REQUEST["po_no"] . "'";
-// $exec_sql001 = shell_exec($_MAIN__CONFIGS_030[5] . ' -s ' . $sql001);
-// $json_exec_sql001 = json_decode($exec_sql001, true);
-// $data_header = $json_exec_sql001["rows"][0];
+$exec_sql001 = shell_exec($_MAIN__CONFIGS_030[5] . ' -s ' . $sql001);
+$json_exec_sql001 = json_decode($exec_sql001, true);
+$data_header = $json_exec_sql001["rows"][0];
 ?>
 <style>
 	.tabelpopup {
@@ -20,7 +20,6 @@ $sql001 = "SELECT * FROM proforma_invoice WHERE purchase_order_no='" . $_REQUEST
 		color: #313030;
 	}
 </style>
-
 <div class="modal fade" id="tampil2" role="dialog">
 	<div class="modal-dialog">
 		<div class="modal-content">
@@ -39,14 +38,17 @@ $sql001 = "SELECT * FROM proforma_invoice WHERE purchase_order_no='" . $_REQUEST
 							</tr>
 							<tr>
 								<td class="tdpopup" align="right" width="40%">Amount</td>
+								<td class="tdpopup"><b><?php echo number_format($_REQUEST["ttl_amt"], 0, ".") ?></b>
 								</td>
 							</tr>
 							<tr>
 								<td class="tdpopup" align="right" width="40%">VAT</td>
+								<td class="tdpopup"><b><?php echo number_format($_REQUEST["vat_amt"], 0, ".") ?></b>
 								</td>
 							</tr>
 							<tr>
 								<td class="tdpopup" align="right" width="40%">Total Amount</td>
+								<td class="tdpopup"><b><?php echo number_format($_REQUEST["grd_amt"], 0, ".") ?></b>
 								</td>
 							</tr>
 							<tr>
@@ -236,17 +238,7 @@ $sql001 = "SELECT * FROM proforma_invoice WHERE purchase_order_no='" . $_REQUEST
 		const tglJan = new Date(tahunIni, 0, 16); // 15 January Tahun Depan
 		const tglFaktur = $("#datepicker").datepicker("getDate");
 		const thnFaktur = tglFaktur.getFullYear();
-		let bulanDepan;
-		let tahunDepan;
-		if (dateNow.getMonth() === 11) {
-			bulanDepan = 0;
-			tahunDepan = dateNow.getFullYear() + 1;
-		}
-		if (dateNow.getMonth() !== 11) {
-			bulanDepan = dateNow.getMonth() + 1;
-			tahunDepan = dateNow.getFullYear();
-		}
-		const tglDepan = new Date(tahunDepan, bulanDepan, 16); // tgl 15 bulan depan
+		const tglDepan = new Date(dateNow.getFullYear(), dateNow.getMonth(), 16); // tgl 15 bulan depan
 
 		if (dateNow < tglJan) {
 			if ((thnFaktur < tahunLalu) || (thnFaktur === tahunIni && dateNow > tglJan)) {
@@ -257,7 +249,7 @@ $sql001 = "SELECT * FROM proforma_invoice WHERE purchase_order_no='" . $_REQUEST
 		}
 
 		if (dateNow >= tglJan) {
-			if ((tglFaktur.getMonth() < dateNow.getMonth() || tglFaktur > tglDepan)) { // Jika Bulan Faktur === Bulan Pengajuan && Tanggal Pengajuan <= 3 Bulan depan
+			if ((tglFaktur.getMonth() <= dateNow.getMonth() && tglFaktur > tglDepan)) { // Jika Bulan Faktur === Bulan Pengajuan && Tanggal Pengajuan <= 3 Bulan depan
 				alert('Bulan Faktur Pajak Tidak Sesuai Dengan Periode Invoice, Mohon Ganti Faktur Pajak.');
 				event.preventDefault(); // Prevent form submission
 				return;

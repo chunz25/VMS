@@ -40,7 +40,9 @@ function cek_jenis_file($param = "")
 }
 
 
-function validasi_file($param3 = "") {}
+function validasi_file($param3 = "")
+{
+}
 
 function simpan_file($param1 = "", $param2 = "")
 {
@@ -102,18 +104,17 @@ function proses_cek_djp($param1 = "", $param2 = "", $param3 = "")
 				}
 			}
 			/*
-				else
-				{
-					$resultnya="No NPWP tidak sama dengan faktur Pajak \n Silahkan Hubungi Bagian Finance..\n No NPWP Faktur : ".$noNPWP."\n".$noNPWPdata;
-				}
-				*/
+																																	 else
+																																	 {
+																																		 $resultnya="No NPWP tidak sama dengan faktur Pajak \n Silahkan Hubungi Bagian Finance..\n No NPWP Faktur : ".$noNPWP."\n".$noNPWPdata;
+																																	 }
+																																	 */
 		} else {
 			$resultnya = "No Faktur Pajak Tidak Ditemukan";
 		}
 	} else {
 		$resultnya = "File Faktur Pajak tidak original dari DJP";
 	}
-
 
 	return $resultnya;
 }
@@ -170,37 +171,84 @@ if ($_REQUEST["no_invoice_supplier"] == '' or $fileUpload1["name"] == '' or $fil
 
 
 			// 4. cek ke DJP file pajaknya valid engga ?
-			if ($resultnya == "success") {
+			// if ($resultnya == "success") {
 
+			// 	$resultnya = proses_cek_djp($_REQUEST["newnamefile"], 1000, 2000);
+			// 	$resultnya = "success";
+			// 	if ($resultnya == "success") {
+
+			// 		if ($_REQUEST["status_pfi"] == '34') {
+			// 			$nama_sp = "ip02_inv_insert_02_sp";
+			// 		} else {
+			// 			$nama_sp = "ip02_inv_insert_sp";
+			// 		}
+
+			// 		if ((trim($no_faktur_pajak) == '') or ($no_faktur_pajak == null)) {
+			// 			$no_faktur_pajak = $_REQUEST["no_fp"];
+			// 		}
+			// 		if ((trim($tgl_faktur_pajak) == '') or ($tgl_faktur_pajak == null)) {
+			// 			$tgl_faktur_pajak = $_REQUEST["tgl_fp"];
+			// 		}
+
+
+			// 		$sql4004020102 = "CALL " . $nama_sp . "('" . $_REQUEST["pfi_no"] . "','" . $_REQUEST["no_invoice_supplier"] . "'," . $_REQUEST["biaya_materai"] . ",'" . $_REQUEST["remark"] . "','" . trim($no_faktur_pajak) . "','" . trim($tgl_faktur_pajak) . "')";
+			// 		$rs = $db->Execute($sql4004020102);
+
+			// 		if ($rs) {
+			// 			// include $address_file_configs . "_lib/smtpmail/sendinv_mail.php";
+			// 			$resultnya = "success";
+			// 		} else {
+			// 			$resultnya = "failed";
+			// 		}
+			// 	}
+			// }
+
+			if ($resultnya == "success") {
 				$resultnya = proses_cek_djp($_REQUEST["newnamefile"], 1000, 2000);
 				$resultnya = "success";
 				if ($resultnya == "success") {
-
 					if ($_REQUEST["status_pfi"] == '34') {
 						$nama_sp = "ip02_inv_insert_02_sp";
 					} else {
 						$nama_sp = "ip02_inv_insert_sp";
 					}
 
-					if ((trim($no_faktur_pajak) == '') or ($no_faktur_pajak == null)) {
+					if (empty(trim($no_faktur_pajak))) {
 						$no_faktur_pajak = $_REQUEST["no_fp"];
 					}
-					if ((trim($tgl_faktur_pajak) == '') or ($tgl_faktur_pajak == null)) {
+					if (empty(trim($tgl_faktur_pajak))) {
 						$tgl_faktur_pajak = $_REQUEST["tgl_fp"];
 					}
 
+					try {
+						$params = [
+							'pfi_no' => $_REQUEST["pfi_no"],
+							'no_invoice_supplier' => $_REQUEST["no_invoice_supplier"],
+							'biaya_materai' => $_REQUEST["biaya_materai"],
+							'remark' => $_REQUEST["remark"],
+							'no_faktur_pajak' => trim($no_faktur_pajak),
+							'tgl_faktur_pajak' => trim($tgl_faktur_pajak)
+						];
+						
+						$sql4004020102 = "CALL " . $nama_sp . "('" . $_REQUEST["pfi_no"] . "','" . $_REQUEST["no_invoice_supplier"] . "'," . $_REQUEST["biaya_materai"] . ",'" . $_REQUEST["remark"] . "','" . trim($no_faktur_pajak) . "','" . trim($tgl_faktur_pajak) . "')";
+						$rs = $db->Execute($sql4004020102);
 
-					$sql4004020102 = "CALL " . $nama_sp . "('" . $_REQUEST["pfi_no"] . "','" . $_REQUEST["no_invoice_supplier"] . "'," . $_REQUEST["biaya_materai"] . ",'" . $_REQUEST["remark"] . "','" . trim($no_faktur_pajak) . "','" . trim($tgl_faktur_pajak) . "')";
-					$rs = $db->Execute($sql4004020102);
-
-					if ($rs) {
-						include $address_file_configs . "_lib/smtpmail/sendinv_mail.php";
-						$resultnya = "success";
-					} else {
+						if ($rs) {
+							$resultnya = "success";
+						} else {
+							$errorMessage = "Gagal menjalankan stored procedure " . $nama_sp . ". Error: " . $db->ErrorMsg() . ". Detail Parameter: " . json_encode($params);
+							// $errorMessage = json_encode($stmt);
+							throw new Exception($errorMessage);
+						}
+					} catch (Exception $e) {
 						$resultnya = "failed";
+						error_log("Error: " . $e->getMessage());
+						echo json_encode(["status" => "failed", "message" => $e->getMessage()]);
+						exit;
 					}
 				}
 			}
+
 		}
 	}
 }
