@@ -1,8 +1,5 @@
 <?php
 
-// include $address_file_configs . "_lib/smtpmail/porelease_mail.php";
-// include $address_file_configs . "_lib/smtpmail/grlogistik_mail.php";
-
 $boleh_buka = false;
 switch ($_SESSION['tb_id_user_type']) {
   case 1:
@@ -74,7 +71,7 @@ if ($boleh_buka == true) {
     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
     <h3><i class="icon fa fa-ban"></i> Alert !</h3>
     Terdapat &nbsp;&nbsp; <B>
-      <font size="6"><?php echo $qty10; ?> </font>
+      <font size="6"><?= $qty10; ?> </font>
     </B> &nbsp;&nbsp; Invoice yang Faktur pajaknya tidak Valid.</br>
     Harap Segera diproses....! Supaya bisa diproses Pembayarannya !</br>
     <a href="#" class="small-box-footer" onclick="cobayy('Invoice+Receipt','400405');"> Klik disini ........ <i
@@ -87,13 +84,13 @@ if ($boleh_buka == true) {
       <!-- small box -->
       <div class="small-box bg-aqua">
         <div class="inner">
-          <h3><?php echo $qty1 ?></h3>
+          <h3><?= $qty1 ?></h3>
           <p>Purchase Order</p>
         </div>
         <div class="icon">
           <i class="ion ion-bag"></i>
         </div>
-        <?php echo $link_more1; ?>
+        <?= $link_more1; ?>
         <!-- <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a> -->
       </div>
     </div><!-- ./col -->
@@ -101,26 +98,26 @@ if ($boleh_buka == true) {
       <!-- small box -->
       <div class="small-box bg-green">
         <div class="inner">
-          <h3><?php echo $qty2 ?></h3>
+          <h3><?= $qty2 ?></h3>
           <p>Goods Receive</p>
         </div>
         <div class="icon">
           <i class="ion ion-stats-bars"></i>
         </div>
-        <?php echo $link_more2; ?>
+        <?= $link_more2; ?>
       </div>
     </div><!-- ./col -->
     <div class="col-lg-3 col-xs-6">
       <!-- small box -->
       <div class="small-box bg-yellow">
         <div class="inner">
-          <h3><?php echo $qty3 ?></h3>
+          <h3><?= $qty3 ?></h3>
           <p>Dispute Quantity</p>
         </div>
         <div class="icon">
           <i class="ion ion-person-add"></i>
         </div>
-        <?php echo $link_more3; ?>
+        <?= $link_more3; ?>
 
       </div>
     </div><!-- ./col -->
@@ -128,13 +125,13 @@ if ($boleh_buka == true) {
       <!-- small box -->
       <div class="small-box bg-red">
         <div class="inner">
-          <h3><?php echo $qty4 ?></h3>
+          <h3><?= $qty4 ?></h3>
           <p>Settlement Price</p>
         </div>
         <div class="icon">
           <i class="ion ion-pie-graph"></i>
         </div>
-        <?php echo $link_more4; ?>
+        <?= $link_more4; ?>
       </div>
     </div><!-- ./col -->
   </div><!-- /.row -->
@@ -145,26 +142,26 @@ if ($boleh_buka == true) {
       <!-- small box -->
       <div class="small-box bg-yellow">
         <div class="inner">
-          <h3><?php echo $qty5 ?></h3>
+          <h3><?= $qty5 ?></h3>
           <p>Dispute Price</p>
         </div>
         <div class="icon">
           <i class="ion ion-bag"></i>
         </div>
-        <?php echo $link_more5; ?>
+        <?= $link_more5; ?>
       </div>
     </div><!-- ./col -->
     <div class="col-lg-3 col-xs-6">
       <!-- small box -->
       <div class="small-box bg-green">
         <div class="inner">
-          <h3><?php echo $qty6 ?></h3>
+          <h3><?= $qty6 ?></h3>
           <p>Receipt Supplier</p>
         </div>
         <div class="icon">
           <i class="ion ion-person-add"></i>
         </div>
-        <?php echo $link_more6; ?>
+        <?= $link_more6; ?>
       </div>
     </div><!-- ./col -->
 
@@ -172,26 +169,26 @@ if ($boleh_buka == true) {
       <!-- small box -->
       <div class="small-box bg-purple">
         <div class="inner">
-          <h3><?php echo $qty7 ?></h3>
+          <h3><?= $qty7 ?></h3>
           <p>READY TO PAY</p>
         </div>
         <div class="icon">
           <i class="ion ion-pie-graph"></i>
         </div>
-        <?php echo $link_more7; ?>
+        <?= $link_more7; ?>
       </div>
     </div><!-- ./col -->
     <div class="col-lg-3 col-xs-6">
       <!-- small box -->
       <div class="small-box bg-yellow">
         <div class="inner">
-          <h3><?php echo $qty8 ?></h3>
+          <h3><?= $qty8 ?></h3>
           <p>PAID</p>
         </div>
         <div class="icon">
           <i class="ion ion-bag"></i>
         </div>
-        <?php echo $link_more8; ?>
+        <?= $link_more8; ?>
       </div>
     </div><!-- ./col -->
   </div><!-- /.row -->

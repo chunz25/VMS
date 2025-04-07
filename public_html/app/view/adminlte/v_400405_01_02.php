@@ -12,13 +12,13 @@
 	<div class="modal-dialog modal-lg">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h4 class="modal-title" id="exampleModalCenterTitle">UPLOAD ULANG FAKTUR PAJAK # <?php echo $_REQUEST["po_no"]; ?></h4>
+				<h4 class="modal-title" id="exampleModalCenterTitle">UPLOAD ULANG FAKTUR PAJAK # <?= $_REQUEST["po_no"]; ?></h4>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 			</div>
 			<div class="modal-body" align="left"> 
 				<label>Faktur Pajak Sebelumnya :</label>
 				<?php //if(is_file('_docs/FP/'.$namafilepdf)){ ?>
-				<embed src="_docs/FP/<?php echo $namafilepdf;?>" frameborder="0" width="100%" height="180px">	
+				<embed src="_docs/FP/<?= $namafilepdf;?>" frameborder="0" width="100%" height="180px">	
 				<?php //}
 					//else
 					//{
@@ -29,8 +29,8 @@
                 <form role="form" id="my_form" action="index.php" method="post" enctype="multipart/form-data">
                   <div class="box-body">
 					<label>HPP / VAT :</label></br>
-					 <input name="total_amountx" type="text" value="<?php echo number_format($data_header['total_amount']) ?>" size="45" readonly> 
-					 <input name="vat_amountx" type="text" value="<?php echo number_format($data_header['vat_amount']) ?>" size="45" readonly >
+					 <input name="total_amountx" type="text" value="<?= number_format($data_header['total_amount']) ?>" size="45" readonly> 
+					 <input name="vat_amountx" type="text" value="<?= number_format($data_header['vat_amount']) ?>" size="45" readonly >
 					 </br>
 					 </br>
 				<div class="alert alert-info alert-dismissable">
@@ -47,10 +47,10 @@
 					<input type="hidden" name="main" value="040">
 					<input type="hidden" name="main_act" value="010">
 					<input type="hidden" name="main_id" value="400405_01_03">
-					<input type="hidden" name="total_amount" value="<?php echo $data_header['total_amount']; ?>">
-					<input type="hidden" name="vat_amount" value="<?php echo $data_header['vat_amount']; ?>">
-					<input type="hidden" name="po_no" value="<?php echo $_REQUEST["po_no"]; ?>">
-					<input type="hidden" name="newnamefile" value="<?php echo $_REQUEST["po_no"]; ?>">
+					<input type="hidden" name="total_amount" value="<?= $data_header['total_amount']; ?>">
+					<input type="hidden" name="vat_amount" value="<?= $data_header['vat_amount']; ?>">
+					<input type="hidden" name="po_no" value="<?= $_REQUEST["po_no"]; ?>">
+					<input type="hidden" name="newnamefile" value="<?= $_REQUEST["po_no"]; ?>">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
 					<button type="submit"  class="btn btn-primary" >Submit</button>
                   </div>	

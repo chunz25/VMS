@@ -30,15 +30,15 @@ $rs = $db->Execute($sql_400402_02);
 			<?php if ($rs) 
 			while ($arr = $rs->FetchRow()) { ?>
 			  <tr valign="top">      
-				<td ><?php echo $arr['tgl'];?></td>
-				<td ><?php echo $arr['admin'];?></td>		
-				<td ><?php echo $arr['buyer'];?></td>
-				<td ><?php echo $arr['finance'];?></td>
-				<td ><?php echo $arr['gr'];?></td>
-				<td ><?php echo $arr['supplier'];?></td>
-				<td ><?php echo $arr['group_supplier'];?></td>
-				<td ><?php echo $arr['total'];?></td>
-				<td  align="center"><button class="btn btn-warning btn-xs btn-flat" data-toggle="modal" data-target="#add01" onclick="bukaModalHelmizz301('#tempatmodal','index.php?main=040&main_act=010&main_id=400205_01_01&po_no=<?php echo urlencode($arr['purchase_order_no']); ?>','','#tampil2');" >View Detail</button></td>
+				<td ><?= $arr['tgl'];?></td>
+				<td ><?= $arr['admin'];?></td>		
+				<td ><?= $arr['buyer'];?></td>
+				<td ><?= $arr['finance'];?></td>
+				<td ><?= $arr['gr'];?></td>
+				<td ><?= $arr['supplier'];?></td>
+				<td ><?= $arr['group_supplier'];?></td>
+				<td ><?= $arr['total'];?></td>
+				<td  align="center"><button class="btn btn-warning btn-xs btn-flat" data-toggle="modal" data-target="#add01" onclick="bukaModalHelmizz301('#tempatmodal','index.php?main=040&main_act=010&main_id=400205_01_01&po_no=<?= urlencode($arr['purchase_order_no']); ?>','','#tampil2');" >View Detail</button></td>
 							
 			  </tr>
 			<?php } ?>

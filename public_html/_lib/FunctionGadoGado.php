@@ -32,7 +32,7 @@ function array_to_table_helmi($array_nya,$array_tampil_nya,$property_table='',$p
 									
 										
 										
-										<td > &nbsp;<B><?php echo $value2 ;?></B>&nbsp; </td>
+										<td > &nbsp;<B><?= $value2 ;?></B>&nbsp; </td>
 										
 									
 									
@@ -41,7 +41,7 @@ function array_to_table_helmi($array_nya,$array_tampil_nya,$property_table='',$p
 					?>
 					</TR>
 					</THEAD>
-					<TBODY <?php echo $property_body;?> >
+					<TBODY <?= $property_body;?> >
 					<?php
 					$nomornya=0;
 						foreach ($array_nya as $key3 => $value3) {
@@ -49,12 +49,12 @@ function array_to_table_helmi($array_nya,$array_tampil_nya,$property_table='',$p
 					?>
 									
 					<tr>		
-							<td><?php echo $nomornya?>.</td>
+							<td><?= $nomornya?>.</td>
 							<?php
 							foreach ($field_kolom as $key4 => $value4)					
 							{
 							?>
-							<td><?php echo $value3[$value4];?>&nbsp;</td>
+							<td><?= $value3[$value4];?>&nbsp;</td>
 							<?php
 							}
 							?>

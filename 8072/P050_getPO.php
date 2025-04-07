@@ -32,27 +32,22 @@ for ($i = 1; $i <= $jml_hari; $i++) {
 	SELECT * FROM vms_db.vw_supplier
 	";
 	$supp = $db1->query($supp);
-	// var_dump($supp);die;
+	
 	while ($a = $supp->fetch(PDO::FETCH_OBJ)) {
 		$sup = $a->supplier_code;
-		// var_dump($sup);die;
 		$dataPOST = array(
 			"purchase_order_no" => "",
 			"supplier_code" => $sup,
-			"document_date" => $tanggal
+			"release_date" => $tanggal
 		);
 
 		// save JSON File
 		$folder = __DIR__ . "/data/in/";
 		$file_in_name = $folder . "PO_" . "_" . $tanggal . "_" . date("Ymd") . ".json";
 
-		// var_dump($dataPOST);
-		// die;
 		include "config/koneksiCURL.php";
 
 		$dataResult = $responseData["header"];
-		// $no++;
-		// die(var_dump($dataResult));
 
 		$sqlInsert = "
 				insert
@@ -65,6 +60,7 @@ for ($i = 1; $i <= $jml_hari; $i++) {
 					supplier_code,
 					document_date,
 					delivery_date,
+					release_date,
 					order_type,
 					category_code,
 					category_sub_code,
@@ -80,6 +76,7 @@ for ($i = 1; $i <= $jml_hari; $i++) {
 				)
 				values
 				(	
+					?,
 					?,
 					?,
 					?,
@@ -173,7 +170,7 @@ for ($i = 1; $i <= $jml_hari; $i++) {
 				$value1["pk_header"] = $value1["purchase_order_no"];
 
 				if (trim($value1["company_code"]) == 'EC01') {
-				// if ($value1["total_amount"] > 0 && trim($value1["company_code"]) == 'EC01') {
+					// if ($value1["total_amount"] > 0 && trim($value1["company_code"]) == 'EC01') {
 					// insert to db -----
 
 					$insert = $db1->prepare($sqlInsert);
@@ -227,7 +224,7 @@ for ($i = 1; $i <= $jml_hari; $i++) {
 
 try {
 	$sqlToVmsDb = "call vms_db.insert_purchase_order_sp()";
-	$statement 	= $db1->prepare($sqlToVmsDb);
+	$statement = $db1->prepare($sqlToVmsDb);
 	$statement->execute();
 } catch (PDOException $e) {
 	print "Error!: $sqlToVmsDb --- " . $e->getMessage() . "<br/>\n";

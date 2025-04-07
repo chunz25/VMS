@@ -27,7 +27,7 @@ $data_header = $json_exec_sql001["rows"][0];
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h4 id="exampleModalCenterTitle">PROSES INVOICE RECEIPT # <?php echo $_REQUEST["gr_no"]; ?></h4>
+				<h4 id="exampleModalCenterTitle">PROSES INVOICE RECEIPT # <?= $_REQUEST["gr_no"]; ?></h4>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
 						aria-hidden="true">&times;</span></button>
 			</div>
@@ -38,26 +38,26 @@ $data_header = $json_exec_sql001["rows"][0];
 						<tbody>
 							<tr>
 								<td class="tdpopup" align="right" width="40%">No. PO</td>
-								<td class="tdpopup"><b><?php echo $_REQUEST["po_no"] ?></b></td>
+								<td class="tdpopup"><b><?= $_REQUEST["po_no"] ?></b></td>
 							</tr>
 							<tr>
 								<td class="tdpopup" align="right" width="40%">Amount</td>
-								<td class="tdpopup"><b><?php echo number_format($_REQUEST["ttl_amt"], 0, ".") ?></b>
+								<td class="tdpopup"><b><?= number_format($_REQUEST["ttl_amt"], 0, ".") ?></b>
 								</td>
 							</tr>
 							<tr>
 								<td class="tdpopup" align="right" width="40%">VAT</td>
-								<td class="tdpopup"><b><?php echo number_format($_REQUEST["vat_amt"], 0, ".") ?></b>
+								<td class="tdpopup"><b><?= number_format($_REQUEST["vat_amt"], 0, ".") ?></b>
 								</td>
 							</tr>
 							<tr>
 								<td class="tdpopup" align="right" width="40%">Total Amount</td>
-								<td class="tdpopup"><b><?php echo number_format($_REQUEST["grd_amt"], 0, ".") ?></b>
+								<td class="tdpopup"><b><?= number_format($_REQUEST["grd_amt"], 0, ".") ?></b>
 								</td>
 							</tr>
 							<tr>
 								<td class="tdpopup" align="right" width="40%">No. NPWP</td>
-								<td class="tdpopup"><b><?php echo $_REQUEST["npwp_no"] ?></b></td>
+								<td class="tdpopup"><b><?= $_REQUEST["npwp_no"] ?></b></td>
 							</tr>
 							<tr>
 								<td class="tdpopup" align="right" width="40%">No Invoice Supplier:</td>
@@ -73,7 +73,7 @@ $data_header = $json_exec_sql001["rows"][0];
 											<i class="fa fa-calendar"></i>
 										</div>
 										<input type="text" class="form-control pull-right" id="datepicker" name="tgl_fp"
-											value="<?php echo date("Y-m-d"); ?>" style="background-color:lightblue;">
+											value="<?= date("Y-m-d"); ?>" style="background-color:lightblue;">
 									</div>
 								</td>
 							</tr>
@@ -120,14 +120,14 @@ $data_header = $json_exec_sql001["rows"][0];
 						<input type="hidden" name="main" value="040">
 						<input type="hidden" name="main_act" value="010">
 						<input type="hidden" name="main_id" value="400404_01_05">
-						<input type="hidden" name="vat_amount" value="<?php echo $_REQUEST["vat_amt"]; ?>">
-						<input type="hidden" name="total_amount" value="<?php echo $_REQUEST["ttl_amt"]; ?>">
-						<input type="hidden" name="po_no" value="<?php echo $_REQUEST["po_no"]; ?>">
-						<input type="hidden" name="gr_no" value="<?php echo $_REQUEST["gr_no"]; ?>">
-						<input type="hidden" name="pfi_no" value="<?php echo $_REQUEST["pfi_no"]; ?>">
-						<input type="hidden" name="status_pfi" value="<?php echo $_REQUEST["status_pfi"]; ?>">
-						<input type="hidden" name="npwp_no" value="<?php echo $_REQUEST["npwp_no"]; ?>">
-						<input type="hidden" name="newnamefile" value="<?php echo $_REQUEST["gr_no"]; ?>">
+						<input type="hidden" name="vat_amount" value="<?= $_REQUEST["vat_amt"]; ?>">
+						<input type="hidden" name="total_amount" value="<?= $_REQUEST["ttl_amt"]; ?>">
+						<input type="hidden" name="po_no" value="<?= $_REQUEST["po_no"]; ?>">
+						<input type="hidden" name="gr_no" value="<?= $_REQUEST["gr_no"]; ?>">
+						<input type="hidden" name="pfi_no" value="<?= $_REQUEST["pfi_no"]; ?>">
+						<input type="hidden" name="status_pfi" value="<?= $_REQUEST["status_pfi"]; ?>">
+						<input type="hidden" name="npwp_no" value="<?= $_REQUEST["npwp_no"]; ?>">
+						<input type="hidden" name="newnamefile" value="<?= $_REQUEST["gr_no"]; ?>">
 						<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
 						<button type="submit" class="btn btn-primary">Submit</button>
 					</div>

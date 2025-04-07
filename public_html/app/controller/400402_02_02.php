@@ -5,5 +5,5 @@ if ($rs) {
     echo "success";
 } else {
     echo "failed";
-};
-//if($rs){print_r($data_header);} else {echo "failed";};
+}
+;

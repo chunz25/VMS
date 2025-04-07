@@ -2,7 +2,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            <?php echo $_REQUEST["param_menu1"];?>
+            <?= $_REQUEST["param_menu1"];?>
             <small>preview of simple tables</small>
           </h1>
           <ol class="breadcrumb">

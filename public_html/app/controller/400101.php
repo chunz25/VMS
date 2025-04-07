@@ -1,20 +1,4 @@
-<?php
-
-
-
-//include "100101_v.php";
-?>
 <!-- Content Header (Page header) -->
-<!-- <section class="content-header">
-          <font size="10">
-           <b> <?php echo $_REQUEST["param_menu1"]; ?></b>
-          </font>
-          <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li><a href="#">Examples</a></li>
-            <li class="active">Blank page</li>
-          </ol>
-        </section> -->
 <!-- Main content -->
 <section class="content" style="padding:3px;">
   <!-- Default box -->
@@ -22,7 +6,7 @@
     <!---->
     <div class="box-header with-border">
       <font size="3">
-        <b> <?php echo $_REQUEST["param_menu1"]; ?></b>
+        <b> <?= $_REQUEST["param_menu1"]; ?></b>
       </font>
 
     </div>
@@ -48,19 +32,19 @@
         <TBODY>
           <?php if ($rs)
             while ($arr = $rs->FetchRow()) { ?>
-            <tr valign="top">
-              <td><?php echo $arr['ta_application_id']; ?></td>
-              <td><?php echo $arr['application_cd']; ?></td>
-              <td><?php echo $arr['application_full_nm']; ?></td>
-              <td><?php echo $arr['application_short_nm']; ?></td>
-              <td><?php echo $arr['application_desc']; ?></td>
-              <td><?php echo $arr['application_version']; ?></td>
-              <td><?php echo $arr['application_logo_big']; ?></td>
-              <td><?php echo $arr['application_logo_small']; ?></td>
-              <td><?php echo $arr['application_seq']; ?></td>
+              <tr valign="top">
+                <td><?= $arr['ta_application_id']; ?></td>
+                <td><?= $arr['application_cd']; ?></td>
+                <td><?= $arr['application_full_nm']; ?></td>
+                <td><?= $arr['application_short_nm']; ?></td>
+                <td><?= $arr['application_desc']; ?></td>
+                <td><?= $arr['application_version']; ?></td>
+                <td><?= $arr['application_logo_big']; ?></td>
+                <td><?= $arr['application_logo_small']; ?></td>
+                <td><?= $arr['application_seq']; ?></td>
 
-            </tr>
-          <?php } ?>
+              </tr>
+            <?php } ?>
         </TBODY>
       </TABLE>
     </div><!-- /.box-body -->
@@ -68,8 +52,8 @@
                Footer 
             </div>  --><!-- /.box-footer-->
     <!-- <div class="overlay">
-					  <i class="fa fa-refresh fa-spin"></i>
-					</div> -->
+            <i class="fa fa-refresh fa-spin"></i>
+          </div> -->
   </div><!-- /.box -->
 
 
@@ -88,7 +72,7 @@
 <script>
   function klikallcekbox() {
     alert('test');
-    $('.cekboxpilih').each(function() { //iterate all listed checkbox items
+    $('.cekboxpilih').each(function () { //iterate all listed checkbox items
       this.checked = true; //change ".checkbox" checked status
     });
   }
@@ -97,7 +81,7 @@
     $('#loading').modal('show');
     $(param1).load(param2,
       param3,
-      function(responseTxt, statusTxt, xhr) {
+      function (responseTxt, statusTxt, xhr) {
         if (statusTxt == "success") {
           $('#loading').modal('hide');
           $(param4).modal('show');

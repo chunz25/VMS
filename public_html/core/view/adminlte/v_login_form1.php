@@ -3,10 +3,10 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title><?php echo $_MAIN__CONFIGS_010[3]; ?></title>
+	<title><?= $_MAIN__CONFIGS_010[3]; ?></title>
 	<!-- Tell the browser to be responsive to screen width -->
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-	<link rel="icon" type="image/png" href="<?php echo $_MAIN__CONFIGS_010[7]; ?>">
+	<link rel="icon" type="image/png" href="<?= $_MAIN__CONFIGS_010[7]; ?>">
 	<link href="themes/admin_LTE/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 	<link href="themes/admin_LTE/bootstrap/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 	<link href="themes/admin_LTE/bootstrap/css/ionicons.min.css" rel="stylesheet" type="text/css" />
@@ -36,17 +36,17 @@
 		<!-- /.login-logo -->
 		<div class="login-box-body">
 			<img src="_assets/_images/logo2.png"></img>
-			<p class="login-box-msg"><?php echo $message_login; ?></p>
+			<p class="login-box-msg"><?= $message_login; ?></p>
 			<p class="login-box-msg">Silahkan Login untuk mulai bertransaksi</p>
 			<form action="index.php" method="post">
 				<div class="form-group has-feedback">
-					<input type="text" name="username_input" class="form-control" placeholder="<?php echo $_MAIN__CONFIGS_010[5]; ?>">
+					<input type="text" name="username_input" class="form-control" placeholder="<?= $_MAIN__CONFIGS_010[5]; ?>">
 					<span class="glyphicon glyphicon-envelop"></span>
 				</div>
 				<div class="form-group has-feedback">
-					<input type="password" name="password_input" class="form-control" placeholder="<?php echo $_MAIN__CONFIGS_010[6]; ?>">
+					<input type="password" name="password_input" class="form-control" placeholder="<?= $_MAIN__CONFIGS_010[6]; ?>">
 					<span class="glyphicon glyphicon-lock form-control-feedback"></span>
-					<input type="hidden" name="main" value="<?php echo $_MAIN__CONFIGS_010[2]; ?>">
+					<input type="hidden" name="main" value="<?= $_MAIN__CONFIGS_010[2]; ?>">
 				</div>
 				<div class="row">
 					<div class="col-xs-8"></div>

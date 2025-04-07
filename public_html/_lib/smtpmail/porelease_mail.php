@@ -1,27 +1,23 @@
 <?php
 define('b', dirname(__FILE__));
 
-// Import PHPMailer classes into the global namespace
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-// Load database connection and other required files
 include "conn/config.php";
 require 'librarysmtp/autoload.php';
 require 'mail_form.php';
 
-// Fetch suppliers from the database
 $suppQuery = "
     SELECT DISTINCT a.supplier_code, a.supplier_name, a.department
     FROM vw_porelease a
     ORDER BY purchase_order_no
 ";
 $suppStmt = $db->query($suppQuery);
-$suppliers = $suppStmt->fetchAll(PDO::FETCH_OBJ);  // Fetch all suppliers
+$suppliers = $suppStmt->fetchAll(PDO::FETCH_OBJ);
 
 if ($suppliers !== null) {
     foreach ($suppliers as $ven) {
-        // Fetch purchase orders for the supplier
         $poQuery = "
             SELECT * FROM vw_porelease
             WHERE supplier_code = :supplier_code
@@ -30,9 +26,8 @@ if ($suppliers !== null) {
         ";
         $poStmt = $db->prepare($poQuery);
         $poStmt->execute(['supplier_code' => $ven->supplier_code, 'department' => $ven->department]);
-        $poDetails = $poStmt->fetchAll(PDO::FETCH_OBJ);  // Fetch all PO details
+        $poDetails = $poStmt->fetchAll(PDO::FETCH_OBJ);
 
-        // Generate email body with PO details
         $body = '';
         foreach ($poDetails as $po) {
             $body .= "
@@ -49,23 +44,17 @@ if ($suppliers !== null) {
             ";
         }
 
-        // Initialize PHPMailer and set up SMTP
         $mail = new PHPMailer(true);
 
         try {
-            // Server settings
             $mail->isSMTP();
-            $mail->Host = $host;  // Set your SMTP host
+            $mail->Host = $host;
             $mail->SMTPAuth = true;
-            $mail->Username = $username;  // SMTP username
-            $mail->Password = $password;  // SMTP password
-            $mail->SMTPSecure = 'SSL';  // Use SSL encryption
-            $mail->Port = 25;  // Set the correct SMTP port
-
-            // Recipients
+            $mail->Username = $username;
+            $mail->Password = $password;
+            $mail->SMTPSecure = 'SSL';
+            $mail->Port = 25;
             $mail->setFrom($username, 'VMSMail');
-
-            // Fetch and add recipient email addresses for the supplier
             $usertoQuery = "
                 SELECT * FROM email WHERE tb_id_user_type IN (5) AND username = :supplier_code
             ";
@@ -76,8 +65,6 @@ if ($suppliers !== null) {
             foreach ($usertoEmails as $email) {
                 $mail->addAddress($email->email);
             }
-
-            // Add CC recipients
             $userccQuery = "
                 SELECT * FROM email WHERE tb_id_user_type IN (7)
                 UNION ALL
@@ -94,8 +81,6 @@ if ($suppliers !== null) {
             foreach ($userccEmails as $email) {
                 $mail->addCC($email->email);
             }
-
-            // Email content
             $mail->addBCC($username);
             $mail->isHTML(true);
             $mail->Subject = 'VMS: New PO ' . $ven->supplier_name;
@@ -114,15 +99,12 @@ if ($suppliers !== null) {
                         <th>Description</th>
                     </tr>' . $body . '</table>';
 
-            // Send the email
             $mail->send();
             echo 'Message has been sent successfully for supplier: ' . $ven->supplier_name . ' Department ' . $ven->department . "\r\n";
 
-            // Clear the email body for the next supplier
             $body = '';
 
             try {
-                // Mark purchase_order as email sent
                 $updateQuery = "
                     UPDATE purchase_order 
                     SET sendmail = 1 
@@ -141,7 +123,6 @@ if ($suppliers !== null) {
             echo "Message could not be sent for supplier {$ven->supplier_name} Department {$ven->department}. Mailer Error: {$mail->ErrorInfo}" . "\r\n";
 
             try {
-                // Mark purchase_order as email sent
                 $updateQuery = "
                     UPDATE purchase_order 
                     SET sendmail = 1 

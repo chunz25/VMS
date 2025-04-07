@@ -28,14 +28,14 @@ $rs = $db->Execute($sql_400402_02);
 			<?php if ($rs) 
 			while ($arr = $rs->FetchRow()) { ?>
 			  <tr valign="top">      
-				<td align="center" ><?php echo $arr['purchase_order_no'];?></td>
-				<td align="center" ><?php echo $arr['goods_receive_no'];?></td>
-				<td align="center" ><?php echo $arr['store_code'];?></td>
-				<td align="center" ><?php echo $arr['supplier_code'];?></td>
-				<!-- <td ><?php echo $arr['name'];?></td> -->
-				<td align="center" ><?php echo $arr['document_date'];?></td>
-				<td align="right"><?php echo number_format($arr['total_amount']);?></td>
-				<td  align="center"><button class="btn btn-warning btn-xs btn-flat" data-toggle="modal" data-target="#add01" onclick="cobayy('GOODS+RECEIVE','400402_01_01','<?php echo $arr['goods_receive_no'];?>');" >Proses</button></td>				
+				<td align="center" ><?= $arr['purchase_order_no'];?></td>
+				<td align="center" ><?= $arr['goods_receive_no'];?></td>
+				<td align="center" ><?= $arr['store_code'];?></td>
+				<td align="center" ><?= $arr['supplier_code'];?></td>
+				<!-- <td ><?= $arr['name'];?></td> -->
+				<td align="center" ><?= $arr['document_date'];?></td>
+				<td align="right"><?= number_format($arr['total_amount']);?></td>
+				<td  align="center"><button class="btn btn-warning btn-xs btn-flat" data-toggle="modal" data-target="#add01" onclick="cobayy('GOODS+RECEIVE','400402_01_01','<?= $arr['goods_receive_no'];?>');" >Proses</button></td>				
 			  </tr>
 			<?php } ?>
 		</TBODY>

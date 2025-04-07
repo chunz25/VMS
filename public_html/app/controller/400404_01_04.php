@@ -1,6 +1,6 @@
 <?php
 // Data PO Header -------------
-$sql001 = "SELECT * FROM proforma_invoice WHERE purchase_order_no='" . $_REQUEST["po_no"] . "'";
+// $sql001 = "SELECT * FROM proforma_invoice WHERE purchase_order_no='" . $_REQUEST["po_no"] . "'";
 // $exec_sql001 = shell_exec($_MAIN__CONFIGS_030[5] . ' -s ' . $sql001);
 // $json_exec_sql001 = json_decode($exec_sql001, true);
 // $data_header = $json_exec_sql001["rows"][0];
@@ -20,12 +20,11 @@ $sql001 = "SELECT * FROM proforma_invoice WHERE purchase_order_no='" . $_REQUEST
 		color: #313030;
 	}
 </style>
-
 <div class="modal fade" id="tampil2" role="dialog">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h4 id="exampleModalCenterTitle">PROSES INVOICE RECEIPT # <?php echo $_REQUEST["gr_no"]; ?></h4>
+				<h4 id="exampleModalCenterTitle">PROSES INVOICE RECEIPT # <?= $_REQUEST["gr_no"]; ?></h4>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
 						aria-hidden="true">&times;</span></button>
 			</div>
@@ -35,23 +34,26 @@ $sql001 = "SELECT * FROM proforma_invoice WHERE purchase_order_no='" . $_REQUEST
 						<tbody>
 							<tr>
 								<td class="tdpopup" align="right" width="40%">No. PO</td>
-								<td class="tdpopup"><b><?php echo $_REQUEST["po_no"] ?></b></td>
+								<td class="tdpopup"><b><?= $_REQUEST["po_no"] ?></b></td>
 							</tr>
 							<tr>
 								<td class="tdpopup" align="right" width="40%">Amount</td>
+								<td class="tdpopup"><b><?= number_format($_REQUEST["ttl_amt"], 0, ".", ",") ?></b>
 								</td>
 							</tr>
 							<tr>
 								<td class="tdpopup" align="right" width="40%">VAT</td>
+								<td class="tdpopup"><b><?= number_format($_REQUEST["vat_amt"], 0, ".", ",") ?></b>
 								</td>
 							</tr>
 							<tr>
 								<td class="tdpopup" align="right" width="40%">Total Amount</td>
+								<td class="tdpopup"><b><?= number_format($_REQUEST["grd_amt"], 0, ".", ",") ?></b>
 								</td>
 							</tr>
 							<tr>
 								<td class="tdpopup" align="right" width="40%">No. NPWP</td>
-								<td class="tdpopup"><b><?php echo $_REQUEST["npwp_no"] ?></b></td>
+								<td class="tdpopup"><b><?= $_REQUEST["npwp_no"] ?></b></td>
 							</tr>
 							<tr>
 								<td class="tdpopup" align="right" width="40%">No Invoice Supplier:</td>
@@ -67,8 +69,8 @@ $sql001 = "SELECT * FROM proforma_invoice WHERE purchase_order_no='" . $_REQUEST
 											<i class="fa fa-calendar"></i>
 										</div>
 										<input type="text" class="form-control pull-right" id="datepicker"
-											onkeypress="return false;" name="tgl_fp"
-											value="<?php echo date("Y-m-d"); ?>" style="background-color:lightblue;">
+											onkeypress="return false;" name="tgl_fp" value="<?= date("Y-m-d"); ?>"
+											style="background-color:lightblue;">
 									</div>
 								</td>
 							</tr>
@@ -115,14 +117,14 @@ $sql001 = "SELECT * FROM proforma_invoice WHERE purchase_order_no='" . $_REQUEST
 						<input type="hidden" name="main" value="040">
 						<input type="hidden" name="main_act" value="010">
 						<input type="hidden" name="main_id" value="400404_01_05">
-						<input type="hidden" name="vat_amount" value="<?php echo $_REQUEST["vat_amt"]; ?>">
-						<input type="hidden" name="total_amount" value="<?php echo $_REQUEST["ttl_amt"]; ?>">
-						<input type="hidden" name="po_no" value="<?php echo $_REQUEST["po_no"]; ?>">
-						<input type="hidden" name="gr_no" value="<?php echo $_REQUEST["gr_no"]; ?>">
-						<input type="hidden" name="pfi_no" value="<?php echo $_REQUEST["pfi_no"]; ?>">
-						<input type="hidden" name="status_pfi" value="<?php echo $_REQUEST["status_pfi"]; ?>">
-						<input type="hidden" name="npwp_no" value="<?php echo $_REQUEST["npwp_no"]; ?>">
-						<input type="hidden" name="newnamefile" value="<?php echo $_REQUEST["gr_no"]; ?>">
+						<input type="hidden" name="vat_amount" value="<?= $_REQUEST["vat_amt"]; ?>">
+						<input type="hidden" name="total_amount" value="<?= $_REQUEST["ttl_amt"]; ?>">
+						<input type="hidden" name="po_no" value="<?= $_REQUEST["po_no"]; ?>">
+						<input type="hidden" name="gr_no" value="<?= $_REQUEST["gr_no"]; ?>">
+						<input type="hidden" name="pfi_no" value="<?= $_REQUEST["pfi_no"]; ?>">
+						<input type="hidden" name="status_pfi" value="<?= $_REQUEST["status_pfi"]; ?>">
+						<input type="hidden" name="npwp_no" value="<?= $_REQUEST["npwp_no"]; ?>">
+						<input type="hidden" name="newnamefile" value="<?= $_REQUEST["gr_no"]; ?>">
 						<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
 						<button type="submit" class="btn btn-primary">Submit</button>
 					</div>
@@ -211,7 +213,6 @@ $sql001 = "SELECT * FROM proforma_invoice WHERE purchase_order_no='" . $_REQUEST
 				// Call function to redirect with POST method
 				redirectWithPost(targetUrlTF1, postDataTF1);
 			} else {
-				alert(response);
 				alert('Gagal Proses Invoice receipt Silahkan dicoba lagi...');
 				$('#modalOverlayPra').modal('hide');
 			}
@@ -236,33 +237,23 @@ $sql001 = "SELECT * FROM proforma_invoice WHERE purchase_order_no='" . $_REQUEST
 		const tglJan = new Date(tahunIni, 0, 16); // 15 January Tahun Depan
 		const tglFaktur = $("#datepicker").datepicker("getDate");
 		const thnFaktur = tglFaktur.getFullYear();
-		let bulanDepan;
-		let tahunDepan;
-		if (dateNow.getMonth() === 11) {
-			bulanDepan = 0;
-			tahunDepan = dateNow.getFullYear() + 1;
-		}
-		if (dateNow.getMonth() !== 11) {
-			bulanDepan = dateNow.getMonth() + 1;
-			tahunDepan = dateNow.getFullYear();
-		}
-		const tglDepan = new Date(tahunDepan, bulanDepan, 16); // tgl 15 bulan depan
+		const tglDepan = new Date(dateNow.getFullYear(), dateNow.getMonth(), 16); // tgl 15 bulan depan
 
-		if (dateNow < tglJan) {
-			if ((thnFaktur < tahunLalu) || (thnFaktur === tahunIni && dateNow > tglJan)) {
-				alert('Tahun Faktur Pajak Tidak Sesuai Dengan Periode Invoice, Mohon Ganti Faktur Pajak.');
-				event.preventDefault(); // Prevent form submission
-				return;
-			}
-		}
+		// if (dateNow < tglJan) {
+		// 	if ((thnFaktur < tahunLalu) || (thnFaktur === tahunIni && dateNow > tglJan)) {
+		// 		alert('Tahun Faktur Pajak Tidak Sesuai Dengan Periode Invoice, Mohon Ganti Faktur Pajak.');
+		// 		event.preventDefault(); // Prevent form submission
+		// 		return;
+		// 	}
+		// }
 
-		if (dateNow >= tglJan) {
-			if ((tglFaktur.getMonth() < dateNow.getMonth() || tglFaktur > tglDepan)) { // Jika Bulan Faktur === Bulan Pengajuan && Tanggal Pengajuan <= 3 Bulan depan
-				alert('Bulan Faktur Pajak Tidak Sesuai Dengan Periode Invoice, Mohon Ganti Faktur Pajak.');
-				event.preventDefault(); // Prevent form submission
-				return;
-			}
-		}
+		// if (dateNow >= tglJan) {
+		// 	if ((tglFaktur.getMonth() <= dateNow.getMonth() && tglFaktur > tglDepan)) { // Jika Bulan Faktur === Bulan Pengajuan && Tanggal Pengajuan <= 3 Bulan depan
+		// 		alert('Bulan Faktur Pajak Tidak Sesuai Dengan Periode Invoice, Mohon Ganti Faktur Pajak.');
+		// 		event.preventDefault(); // Prevent form submission
+		// 		return;
+		// 	}
+		// }
 
 		if (!noInvoiceSupplier) {
 			alert('Nomor Invoice tidak boleh kosong.');

@@ -1,10 +1,7 @@
 <?php
-//Import PHPMailer classes into the global namespace
-//These must be at the top of your script, not inside a function
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-//Load Composer's autoloader
 require 'librarysmtp/autoload.php';
 require 'mail_form.php';
 
@@ -14,6 +11,8 @@ $gr = "
     ORDER BY CAST(line_item AS UNSIGNED)
 ";
 $gr = $db->Execute($gr);
+
+$body = '';
 
 $suppliercode = '';
 while ($arr = $gr->FetchRow()) {
@@ -41,34 +40,28 @@ while ($arr = $gr->FetchRow()) {
     $suppliercode = $arr['supplier_code'];
 }
 
-//Create an instance; passing `true` enables exceptions
 $mail = new PHPMailer(true);
+$mail->isSMTP();
+$mail->Host = $host;
+$mail->SMTPAuth = true;
+$mail->Username = $username;
+$mail->Password = $password;
+$mail->SMTPSecure = 'SSL';
+$mail->Port = 25;
 
-try {
-    //Server settings
-    $mail->isSMTP();                                            //Send using SMTP
-    $mail->Host = $host;                                  // SMTP host
-    $mail->SMTPAuth = true;                                   // Enable SMTP authentication
-    $mail->Username = $username;                              // SMTP username
-    $mail->Password = $password;                              // SMTP password
-    $mail->SMTPSecure = 'SSL';          // Enable STARTTLS
-    $mail->Port = 25;                                     // Use port 25 for SMTP
-
-    //Recipients
-    $mail->setFrom($username, 'VMSMail');
-    $userto = "
+$mail->setFrom($username, 'VMSMail');
+$userto = "
         SELECT * FROM email WHERE tb_id_user_type IN (5) AND username = '" . $suppliercode . "'
     ";
-    $userto = $db->Execute($userto);
+$userto = $db->Execute($userto);
 
-    while ($a = $userto->FetchRow()) {
-        $mail->addAddress($a['email']);
-    }
+while ($a = $userto->FetchRow()) {
+    $mail->addAddress($a['email']);
+}
 
-    //Content
-    $mail->isHTML(true);
-    $mail->Subject = 'VMS: Dispute QTY ' . $goods_receive_no;
-    $mail->Body = '
+$mail->isHTML(true);
+$mail->Subject = 'VMS: Dispute QTY ' . $goods_receive_no;
+$mail->Body = '
         <p>Dear bapak/ibu,</p>
         <p>FYI, Berikut list Reject atas Request Dispute Settlement Qty pada Proses Invoice yang diajukan oleh tim anda di Vendor Management System ECI:</p>
         <table border="1" cellpadding="0" cellspacing="0" width="100%">
@@ -93,10 +86,7 @@ try {
             <th>Note Cancel</th>
         </tr>' . $body . '</table>
         <p>Mohon untuk segera diproses.</p>
-        <p>https://vmsdev.electronic-city.biz/</p>';
+        <p><a href="' . $base_url . '">Vendor Management System</a></p>';
 
-    $mail->send();
-    echo 'success';
-} catch (Exception $e) {
-    echo 'failed: ', $mail->ErrorInfo;
-}
+$mail->send();
+echo 'success';

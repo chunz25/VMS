@@ -29,7 +29,7 @@
 		<div class="modal-content">
 		<div class="modal-header">
         <h4 class="modal-title" id="exampleModalCenterTitle">
-		PRINT INVOICE RECEIPT # <?php echo $data_header['invoice_receipt_no'];?> <!-- || <?php echo $namafilepdf;?> || <?php echo $_REQUEST["po_no"];?> -->
+		PRINT INVOICE RECEIPT # <?= $data_header['invoice_receipt_no'];?> <!-- || <?= $namafilepdf;?> || <?= $_REQUEST["po_no"];?> -->
 		</h4>
 		
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -38,7 +38,7 @@
       </div>
 			<div class="modal-body" align="left">
 				
-				<embed src="_docs/INVR/<?php echo $namafilepdf;?>" frameborder="0" width="100%" height="450px">
+				<embed src="_docs/INVR/<?= $namafilepdf;?>" frameborder="0" width="100%" height="450px">
 				
 			</div>
 		</div>

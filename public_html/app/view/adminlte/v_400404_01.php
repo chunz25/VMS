@@ -11,14 +11,14 @@ $rs = $db->Execute($sql_400402_02);
 		<!-- <div class="row">
 				<div class="col-xs-6">	
 		
-		Search By : <input type="text" size="" name=""> &nbsp;<button class="btn btn-info btn-xs btn-flat" onclick="window.open('c9fb1392bf5979cd6785e937fb6ec170.php?id_main=400502');"data-toggle="tooltip" title="Reset Password <?php echo $hp;?> " ><i class="fa fa-search"> Search </i></button>
+		Search By : <input type="text" size="" name=""> &nbsp;<button class="btn btn-info btn-xs btn-flat" onclick="window.open('c9fb1392bf5979cd6785e937fb6ec170.php?id_main=400502');"data-toggle="tooltip" title="Reset Password <?= $hp;?> " ><i class="fa fa-search"> Search </i></button>
 		
 </div>	
 <div class="col-xs-6">	
 		<div class="pull-right">
 		<button class="btn bg-maroon btn-xs btn-flat" onclick="window.open('c9fb1392bf5979cd6785e937fb6ec170.php?id_main=400502');" data-toggle="tooltip" title="Reset Password " ><i class="fa fa-print"> Print</i></button>
   <button class="btn btn-primary btn-xs btn-flat" onclick="window.open('c9fb1392bf5979cd6785e937fb6ec170.php?id_main=400502');" data-toggle="tooltip" title="Reset Password  " ><i class="fa fa-file-text-o"> Save To Excel</i></button>
-  <button class="btn btn-info btn-xs btn-flat" onclick="window.open('c9fb1392bf5979cd6785e937fb6ec170.php?id_main=400502');"data-toggle="tooltip" title="Reset Password <?php echo $hp;?> " ><i class="fa fa-file-text-o"> CSV For Tax</i></button>
+  <button class="btn btn-info btn-xs btn-flat" onclick="window.open('c9fb1392bf5979cd6785e937fb6ec170.php?id_main=400502');"data-toggle="tooltip" title="Reset Password <?= $hp;?> " ><i class="fa fa-file-text-o"> CSV For Tax</i></button>
 		</div>
 </div>	
 </div>	<hr>-->
@@ -43,16 +43,16 @@ $rs = $db->Execute($sql_400402_02);
 			<?php if ($rs) 
 			while ($arr = $rs->FetchRow()) { ?>
 			  <tr valign="top">      
-				<td ><?php echo $arr['purchase_order_no'];?></td>
-				<td ><?php echo $arr['goods_receive_no'];?></td>
-				<td ><?php echo $arr['proforma_invoice_no'];?></td>
-				<td ><?php echo $arr['invoice_no'];?></td>
-				<td ><?php echo $arr['store_code'];?></td>
-				<td ><?php echo $arr['supplier_code'];?></td>
-				<td align="right"><?php echo number_format($arr['total_amount'],2);?></td>
-				<td align="right" ><?php echo number_format($arr['vat_amount'],2);?></td>
-				<td align="right" ><?php echo number_format($arr['grand_total'],2);?></td>
-				<td  align="center"><button class="btn btn-warning btn-xs btn-flat" data-toggle="modal" data-target="#add01" onclick="cobayy('INVOICE','400404_01_01','<?php echo $arr['invoice_no'];?>');" >Proses</button></td>				
+				<td ><?= $arr['purchase_order_no'];?></td>
+				<td ><?= $arr['goods_receive_no'];?></td>
+				<td ><?= $arr['proforma_invoice_no'];?></td>
+				<td ><?= $arr['invoice_no'];?></td>
+				<td ><?= $arr['store_code'];?></td>
+				<td ><?= $arr['supplier_code'];?></td>
+				<td align="right"><?= number_format($arr['total_amount'],2);?></td>
+				<td align="right" ><?= number_format($arr['vat_amount'],2);?></td>
+				<td align="right" ><?= number_format($arr['grand_total'],2);?></td>
+				<td  align="center"><button class="btn btn-warning btn-xs btn-flat" data-toggle="modal" data-target="#add01" onclick="cobayy('INVOICE','400404_01_01','<?= $arr['invoice_no'];?>');" >Proses</button></td>				
 			  </tr>
 			<?php } ?>
 		</TBODY>

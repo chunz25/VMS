@@ -1,31 +1,20 @@
 <?php
-// Import PHPMailer classes into the global namespace
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-// Load Composer's autoloader
 require 'librarysmtp/autoload.php';
 require 'mail_form.php';
 
-// Prepare the SQL query with parameterized queries to prevent SQL injection
-$gr_no = isset($gr_no) ? $gr_no : '';  // Ensure $gr_no is defined
-if (empty($gr_no)) {
-    echo json_encode(['status' => false, 'message' => 'Missing GR number.']);
-    exit;
-}
-
 $grQuery = "
     SELECT * FROM vw_invoice
-    WHERE goods_receive_no = ?
+    WHERE goods_receive_no = '" . $gr_no . "'
 ";
-$grStmt = $db->prepare($grQuery);
-$grStmt->execute([$gr_no]);
+$grStmt = $db->execute($grQuery);
 
-// Initialize variables
 $body = '';
 $suppliercode = '';
 $inv = '';
-$no = 0;  // Counter
+$no = 0;
 
 while ($arr = $grStmt->FetchRow()) {
     $no++;
@@ -44,48 +33,38 @@ while ($arr = $grStmt->FetchRow()) {
     $inv = htmlspecialchars($arr['invoice']);
 }
 
-// Ensure we have a supplier code
 if (empty($suppliercode)) {
     echo json_encode(['status' => false, 'message' => 'No supplier code found.']);
     exit;
 }
 
-// Create an instance of PHPMailer, passing `true` enables exceptions
 $mail = new PHPMailer(true);
 
-try {
-    // Server settings
-    $mail->isSMTP();                                            // Send using SMTP
-    $mail->Host = $host;                                        // SMTP host
-    $mail->SMTPAuth = true;                                     // Enable SMTP authentication
-    $mail->Username = $username;                                // SMTP username
-    $mail->Password = $password;                                // SMTP password
-    $mail->SMTPSecure = 'SSL';            // Enable implicit TLS encryption
-    $mail->Port = 25;                                          // Use port 465 for TLS
+$mail->isSMTP();
+$mail->Host = $host;
+$mail->SMTPAuth = true;
+$mail->Username = $username;
+$mail->Password = $password;
+$mail->SMTPSecure = 'SSL';
+$mail->Port = 25;
 
-    // Set sender's email address and name
-    $mail->setFrom($username, 'VMSMail');
+$mail->setFrom($username, 'VMSMail');
 
-    // Prepare SQL query to fetch email recipients
-    $usertoQuery = "
+$usertoQuery = "
         SELECT email FROM email 
-        WHERE tb_id_user_type IN (5) AND username = ?
+        WHERE tb_id_user_type IN (5) AND username = '" . $suppliercode . "'
     ";
-    $usertoStmt = $db->prepare($usertoQuery);
-    $usertoStmt->execute([$suppliercode]);
+$usertoStmt = $db->execute($usertoQuery);
 
-    // Add recipient email addresses
-    while ($a = $usertoStmt->FetchRow()) {
-        $mail->addAddress($a['email']);
-    }
+while ($a = $usertoStmt->FetchRow()) {
+    $mail->addAddress($a['email']);
+}
 
-    // Add BCC for the sender
-    $mail->addBCC($username);
+$mail->addBCC($username);
 
-    // Email content
-    $mail->isHTML(true);
-    $mail->Subject = 'VMS: Confirm Invoice ' . $inv;
-    $mail->Body = '
+$mail->isHTML(true);
+$mail->Subject = 'VMS: Confirm Invoice ' . $inv;
+$mail->Body = '
         <p>Dear Bapak/Ibu,</p>
         <p>FYI, Berikut adalah list approved atas Receipt Supplier pada Proses Invoice yang diajukan oleh vendor di Vendor Management System ECI:</p>
         <table border="1" cellpadding="5" cellspacing="0" width="100%">
@@ -100,12 +79,5 @@ try {
                 <th>Total Amount</th>
             </tr>' . $body . '</table>';
 
-    // Send the email
-    $mail->send();
-    // echo json_encode(['status' => true, 'message' => 'Email sent successfully.']);
-    echo 'success';
-} catch (Exception $e) {
-    // Log and return error message
-    error_log("Email could not be sent. Mailer Error: {$mail->ErrorInfo}");
-    echo json_encode(['status' => false, 'message' => 'Email could not be sent.']);
-}
+$mail->send();
+echo 'success';

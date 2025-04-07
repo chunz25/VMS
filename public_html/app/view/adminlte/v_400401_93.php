@@ -22,7 +22,7 @@
 		<div class="modal-content">
 		<div class="modal-header">
         <h4 class="modal-title" id="exampleModalCenterTitle">
-		PRINT PROFORMA INVOICE # <?php echo $_REQUEST["po_no"].$_REQUEST["bf"];?> <!-- || <?php echo $namafilepdf;?> || <?php echo $_REQUEST["po_no"];?> -->
+		PRINT PROFORMA INVOICE # <?= $_REQUEST["po_no"].$_REQUEST["bf"];?> <!-- || <?= $namafilepdf;?> || <?= $_REQUEST["po_no"];?> -->
 		</h4>
 		
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -31,7 +31,7 @@
       </div>
 			<div class="modal-body" align="left">
 				
-				<embed src="_docs/RETURN/<?php echo $namafilepdf;?>" frameborder="0" width="100%" height="450px">
+				<embed src="_docs/RETURN/<?= $namafilepdf;?>" frameborder="0" width="100%" height="450px">
 				
 			</div>
 		</div>

@@ -28,23 +28,21 @@ if ($_POST['par'] == 'tabcontent3') {
 		<TBODY>
 			<?php if ($rs)
 				while ($arr = $rs->FetchRow()) { ?>
-				<tr valign="top">
-					<td><?php echo $arr['reference_no']; ?></td>
-					<td><?php echo $arr['purchase_order_no']; ?></td>
-					<td><?php echo $arr['goods_receive_no']; ?></td>
-					<td><?php echo $arr['invoice_no']; ?></td>
-					<td align="center"><?php echo $arr['accounting_no']; ?></td>
-					<td><?php echo $arr['store_code']; ?></td>
-					<td><?php echo $arr['supplier_code']; ?></td>
-					<td><?php echo $arr['supplier_name']; ?></td>
-					<td align="center"><?php echo $arr['posting_date']; ?></td>
-					<td align="center"><?php echo $arr['due_date']; ?></td>
-					<td align="right"><?php echo number_format($arr['amount'], 2); ?></td>
-					<td align="center"><?php echo $arr['payment_date']; ?></td>
-
-
-				</tr>
-			<?php } ?>
+					<tr valign="top">
+						<td><?= $arr['reference_no']; ?></td>
+						<td><?= $arr['purchase_order_no']; ?></td>
+						<td><?= $arr['goods_receive_no']; ?></td>
+						<td><?= $arr['invoice_no']; ?></td>
+						<td align="center"><?= $arr['accounting_no']; ?></td>
+						<td><?= $arr['store_code']; ?></td>
+						<td><?= $arr['supplier_code']; ?></td>
+						<td><?= $arr['supplier_name']; ?></td>
+						<td align="center"><?= $arr['posting_date']; ?></td>
+						<td align="center"><?= $arr['due_date']; ?></td>
+						<td align="right"><?= number_format($arr['amount'], 2); ?></td>
+						<td align="center"><?= $arr['payment_date']; ?></td>
+					</tr>
+				<?php } ?>
 		</TBODY>
 	</TABLE>
 </div>

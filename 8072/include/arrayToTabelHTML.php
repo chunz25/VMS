@@ -47,7 +47,7 @@
 			
 			<tbody>
 			<tr>
-				<td><?php echo $key1 ?></td>
+				<td><?= $key1 ?></td>
 				<?php foreach ($value1 as $key2 => $value2) { ?>
 				<td>
 				<?php if (is_array($value2)){print_r($value2);}else{echo $value2;} ?>

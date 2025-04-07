@@ -74,9 +74,9 @@ curl_close($curl);
 ?>
 
 			<tr>
-				<td><?php echo $key1 ?></td>
+				<td><?= $key1 ?></td>
 				<?php foreach ($value1 as $key2 => $value2) { ?>
-				<td><?php echo $value2 ?>
+				<td><?= $value2 ?>
 				<?php }?>
 			</tr>
 		<?php } ?>

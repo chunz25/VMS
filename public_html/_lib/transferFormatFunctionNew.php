@@ -302,7 +302,7 @@ function array_to_html_helmi($array_nya,$property_umum_nya='',$property_special_
 					
 					 if($key==0){
 									?>
-									<tr <?php echo $property_umum_nya['THEAD_TR'];?> >
+									<tr <?= $property_umum_nya['THEAD_TR'];?> >
 										<td width="25"> <B>No.</B> </td>
 										<?php 
 										$banyaknya_kolom=0;
@@ -310,7 +310,7 @@ function array_to_html_helmi($array_nya,$property_umum_nya='',$property_special_
 										//die();
 										foreach ($value as $nama_field => $isi_field){
 										?>
-										<td <?php //echo $property_special_nya['TDHEAD_TD'][$banyaknya_kolom];?> > &nbsp;<B><?php echo str_replace("_"," ",$nama_field);?></B>&nbsp; </td>
+										<td <?php //echo $property_special_nya['TDHEAD_TD'][$banyaknya_kolom];?> > &nbsp;<B><?= str_replace("_"," ",$nama_field);?></B>&nbsp; </td>
 										<?php
 												$banyaknya_kolom++;
 											}
@@ -336,7 +336,7 @@ function array_to_html_helmi($array_nya,$property_umum_nya='',$property_special_
 					{
 					?>	
 					
-					<td <?php //echo $property_special_nya['TDBODY_TD'][$banyaknya_kolom];?> ><?php echo $isi_field?>&nbsp;</td>
+					<td <?php //echo $property_special_nya['TDBODY_TD'][$banyaknya_kolom];?> ><?= $isi_field?>&nbsp;</td>
 					<?php
 						$banyaknya_kolom++;
 					}

@@ -30,16 +30,16 @@ $rs = $db->Execute($sql_400402_02);
 			<?php if ($rs) 
 			while ($arr = $rs->FetchRow()) { ?>
 			  <tr valign="top">      
-				<td ><?php echo $arr['purchase_order_no'];?></td>
-				<td ><?php echo $arr['goods_receive_no'];?></td>
-				<td ><?php echo $arr['store_code'];?></td>
-				<td ><?php echo $arr['supplier_code'];?></td>
-				<td ><?php echo $arr['document_date'];?></td>
-				<td ><?php echo $arr['document_date'];?></td>
-				<td ><?php echo $arr['document_date'];?></td>
+				<td ><?= $arr['purchase_order_no'];?></td>
+				<td ><?= $arr['goods_receive_no'];?></td>
+				<td ><?= $arr['store_code'];?></td>
+				<td ><?= $arr['supplier_code'];?></td>
+				<td ><?= $arr['document_date'];?></td>
+				<td ><?= $arr['document_date'];?></td>
+				<td ><?= $arr['document_date'];?></td>
 				
-				<td  align="center"><span class="label label-info"><?php echo "NEW"?></span></td>
-				<td  align="center"><button class="btn btn-warning btn-xs btn-flat" data-toggle="modal" data-target="#add01" onclick="cobayy('GOODS+RECEIVE','400402_00_01','<?php echo $arr['goods_receive_no'];?>');" >Proses</button></td>				
+				<td  align="center"><span class="label label-info"><?= "NEW"?></span></td>
+				<td  align="center"><button class="btn btn-warning btn-xs btn-flat" data-toggle="modal" data-target="#add01" onclick="cobayy('GOODS+RECEIVE','400402_00_01','<?= $arr['goods_receive_no'];?>');" >Proses</button></td>				
 			  </tr>
 			<?php } ?>
 		</TBODY>

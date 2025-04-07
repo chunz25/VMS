@@ -933,7 +933,7 @@ Committed_AS:   348732 kB
 
 ?>
 
-<form method="POST" action="<?php echo $PHP_SELF ?>">
+<form method="POST" action="<?= $PHP_SELF ?>">
 <table><tr>
 <td> Form size: <input type="submit" value=" &lt; " name="SMALLER"><input type="submit" value=" &gt; &gt; " name="BIGGER">
 </td>

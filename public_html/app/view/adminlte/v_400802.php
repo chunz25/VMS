@@ -2,7 +2,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            <?php echo $_REQUEST["param_menu1"];?>
+            <?= $_REQUEST["param_menu1"];?>
             
           </h1>
           
@@ -147,18 +147,18 @@
 								<!-- timeline time label -->
 								<li class="time-label">
 									<span class="bg-red">
-										Minggu, <?php echo $ii;?> Feb. 2014
+										Minggu, <?= $ii;?> Feb. 2014
 									</span>
 								</li>
 								<!-- /.timeline-label -->
 								<!-- timeline item -->
 								<li>
 									<!-- timeline icon -->
-									<i class="fa fa-envelope bg-blue"><?php echo $ii;?></i>
+									<i class="fa fa-envelope bg-blue"><?= $ii;?></i>
 									<div class="timeline-item">
 										<span class="time"><i class="fa fa-clock-o"></i> Minggu, 15 agustus 2019 12:05</span>
 
-										<h3 class="timeline-header"><a href="#">INV NO : <?php echo $ii;?> </a> | Tot Sales : <?php echo $ii;?>.000.000 </h3>							
+										<h3 class="timeline-header"><a href="#">INV NO : <?= $ii;?> </a> | Tot Sales : <?= $ii;?>.000.000 </h3>							
 									</div>
 								</li>
 								<!-- END timeline item -->

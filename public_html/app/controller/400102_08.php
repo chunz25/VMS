@@ -1,34 +1,37 @@
 <?php
 // user Product
 $sql = "SELECT * FROM tb_user where tb_id_user_type=2";
-$rs = $db->Execute($sql); 
+$rs = $db->Execute($sql);
 //echo __FILE__;
 ?>
-<div class="box-body table-responsive" style="padding:2px;">              
-	<button class="btn btn-success btn-xs btn-flat" onclick="bukaModalHelmizz301('#tempatmodal08','index.php?main=040&main_act=010&main_id=400102_08_01','','#tampil08');"><i class="fa fa-edit"></i> Add User Product</button>					 
-    <button class="btn btn-info btn-xs btn-flat" data-toggle="modal" data-target="#add01"><i class="fa fa-print"></i> PRINT</button>  
-    <button class="btn btn-warning btn-xs btn-flat" data-toggle="modal" data-target="#add01">XLSX</button>  
-    <hr>
-<TABLE id="tbl08"  class="table table-striped table-bordered" style="padding:0px;">
-<THEAD>
-      <tr valign="top">        
+<div class="box-body table-responsive" style="padding:2px;">
+  <button class="btn btn-success btn-xs btn-flat"
+    onclick="bukaModalHelmizz301('#tempatmodal08','index.php?main=040&main_act=010&main_id=400102_08_01','','#tampil08');"><i
+      class="fa fa-edit"></i> Add User Product</button>
+  <button class="btn btn-info btn-xs btn-flat" data-toggle="modal" data-target="#add01"><i class="fa fa-print"></i>
+    PRINT</button>
+  <button class="btn btn-warning btn-xs btn-flat" data-toggle="modal" data-target="#add01">XLSX</button>
+  <hr>
+  <TABLE id="tbl08" class="table table-striped table-bordered" style="padding:0px;">
+    <THEAD>
+      <tr valign="top">
         <td align="center"><b>EMAIL</b></td>
-        <td align="center"><b>USERNAME</b></td>       
+        <td align="center"><b>USERNAME</b></td>
         <td align="center"><b>EMPLOYEE_NO</b></td>
-        <td align="center"><b>STORE_CODE</b></td>      
+        <td align="center"><b>STORE_CODE</b></td>
       </tr>
-</THEAD>
-<TBODY>
-<?php if ($rs) 
-while ($arr = $rs->FetchRow()) { ?>
-      <tr valign="top">  
-        <td ><?php echo $arr['email'];?></td>
-        <td ><?php echo $arr['username'];?></td>      
-        <td ><?php echo $arr['employee_no'];?></td>
-        <td ><?php echo $arr['store_code'];?></td>
-      </tr>
-<?php } ?>
-</TBODY>
-</TABLE>
+    </THEAD>
+    <TBODY>
+      <?php if ($rs)
+        while ($arr = $rs->FetchRow()) { ?>
+          <tr valign="top">
+            <td><?= $arr['email']; ?></td>
+            <td><?= $arr['username']; ?></td>
+            <td><?= $arr['employee_no']; ?></td>
+            <td><?= $arr['store_code']; ?></td>
+          </tr>
+        <?php } ?>
+    </TBODY>
+  </TABLE>
 </div>
 <div id="tempatmodal08"></div>

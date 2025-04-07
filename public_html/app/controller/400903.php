@@ -1,7 +1,6 @@
 <?php
 require_once("db_connPDO.php");
 
-
 $stmt = $pdo->prepare("
   SELECT 
     supplier_code , 
@@ -14,11 +13,8 @@ $stmt = $pdo->prepare("
 $stmt->execute();
 $supplierList = $stmt->fetchAll();
 
-// die(var_dump($supplierList));
-
 ?>
 <style>
-  /* Hide the number input spinner */
   input[type=number]::-webkit-outer-spin-button,
   input[type=number]::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -27,13 +23,12 @@ $supplierList = $stmt->fetchAll();
 
   input[type=number] {
     -moz-appearance: textfield;
-    /* Hide spinner in Firefox */
   }
 </style>
 <!-- Content Header (Page header) -->
 <section class="content-header">
   <h1>
-    <?php echo $_REQUEST["param_menu1"]; ?>
+    <?= $_REQUEST["param_menu1"]; ?>
   </h1>
 </section>
 
@@ -84,7 +79,7 @@ $supplierList = $stmt->fetchAll();
 </section><!-- /.content -->
 
 <script type="text/javascript">
-  $(function() {
+  $(function () {
     $(".datepicker").datepicker({
       format: 'yyyy-mm-dd',
       autoclose: true,

@@ -11,7 +11,7 @@
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h2 class="modal-title" id="exampleModalCenterTitle">REQUEST CANCEL PO # <?php echo $_REQUEST["po_no"]; ?></h2>
+				<h2 class="modal-title" id="exampleModalCenterTitle">REQUEST CANCEL PO # <?= $_REQUEST["po_no"]; ?></h2>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 			</div>
 			<div class="modal-body" align="left">               
@@ -28,7 +28,7 @@
 					<input type="hidden" name="main" value="040">
 					<input type="hidden" name="main_act" value="010">
 					<input type="hidden" name="main_id" value="400401_01_03">
-					<input type="hidden" name="purchase_order_no" value="<?php echo $_REQUEST["po_no"]; ?>">
+					<input type="hidden" name="purchase_order_no" value="<?= $_REQUEST["po_no"]; ?>">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
 					<button type="submit"  class="btn btn-primary" >Submit</button>
                   </div>	

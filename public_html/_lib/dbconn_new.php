@@ -245,7 +245,7 @@ function formListBox2($db, $sql_f, $var_name = "helmi", $default_str = "", $more
 	//die();
 	$hanya_pertama = 1;
 	?>
-	<select name="<?php echo $var_name; ?>">
+	<select name="<?= $var_name; ?>">
 		<?php
 		while ($res_tabel_f = $res_tabel_f_h->FetchRow()) {
 			if ($hanya_pertama == 1) {
@@ -269,7 +269,7 @@ function formListBox2($db, $sql_f, $var_name = "helmi", $default_str = "", $more
 			} # end of if odbc_result;
 	
 			?>
-			<option value="<?php echo $res_tabel_f[$nama_kolom_pertama] ?>" <?php echo $selected_f ?>>
+			<option value="<?= $res_tabel_f[$nama_kolom_pertama] ?>" <?= $selected_f ?>>
 				<?php
 				echo $res_tabel_f[$nama_kolom_kedua];
 				?>

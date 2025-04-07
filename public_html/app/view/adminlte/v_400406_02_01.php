@@ -26,7 +26,7 @@
           <!-- title row -->
           <div class="row">
             <div class="col-xs-12">
-				<h2 class="page-header"> <?php echo $_REQUEST["param_menu1"];?> #<?php echo $_REQUEST["param_menu3"];?> </h2>
+				<h2 class="page-header"> <?= $_REQUEST["param_menu1"];?> #<?= $_REQUEST["param_menu3"];?> </h2>
            </div><!-- /.col -->
           </div>
           <!-- info row -->
@@ -34,43 +34,43 @@
             <div class="col-sm-4 invoice-col">
               From
 				<address>
-					<strong><?php echo $data_header_supplier[name];?></strong><br>
-					<?php echo $data_header_supplier[address1];?><br>
-					<?php echo $data_header_supplier[address2];?>, <?php echo $data_header_supplier[city];?><br>
-					Phone : <?php echo $data_header_supplier[phone];?><br/>
-					Email : <?php echo $data_header_supplier[email];?><br/>
-					Npwp : <?php echo $data_header_supplier[npwp];?>
+					<strong><?= $data_header_supplier[name];?></strong><br>
+					<?= $data_header_supplier[address1];?><br>
+					<?= $data_header_supplier[address2];?>, <?= $data_header_supplier[city];?><br>
+					Phone : <?= $data_header_supplier[phone];?><br/>
+					Email : <?= $data_header_supplier[email];?><br/>
+					Npwp : <?= $data_header_supplier[npwp];?>
 				</address>
             </div><!-- /.col -->			 
             <div class="col-sm-4 invoice-col">
               To
 			  <address>
-					<strong><?php echo $_MAIN__CONFIGS_040[4] ?></strong><br>
-					<strong>Store : <?php echo $data_header[store_code]." ".$data_header_store[name];?></strong><br>
-					<?php echo $data_header_store[address];?><br>
-					<?php echo $data_header_store[city];?> <?php echo $data_header_store[zip_code];?><br>
-					Phone: <?php echo $data_header_store[phone];?><br/>
-					Email: <?php echo $data_header_store[email];?>
+					<strong><?= $_MAIN__CONFIGS_040[4] ?></strong><br>
+					<strong>Store : <?= $data_header[store_code]." ".$data_header_store[name];?></strong><br>
+					<?= $data_header_store[address];?><br>
+					<?= $data_header_store[city];?> <?= $data_header_store[zip_code];?><br>
+					Phone: <?= $data_header_store[phone];?><br/>
+					Email: <?= $data_header_store[email];?>
 				</address>
 				
             </div><!-- /.col -->
             <div class="col-sm-4 invoice-col">
-             <b>Invoice No #<u><?php echo $_REQUEST["param_menu3"];?></u></b><br/><br/>            
+             <b>Invoice No #<u><?= $_REQUEST["param_menu3"];?></u></b><br/><br/>            
 			  <table width="75%">
 				  <tr>
 					  <td><b>Supplier Code</b></td>
 					  <td> : </td>
-					  <td align="right"><?php echo $data_header_supplier[supplier_code];?></td>
+					  <td align="right"><?= $data_header_supplier[supplier_code];?></td>
 				  <tr>
 				  <tr>
 					  <td><b>Order Date</b></td>
 					  <td> : </td>
-					  <td align="right"><?php echo $data_header[document_date];?></td>
+					  <td align="right"><?= $data_header[document_date];?></td>
 				  <tr>
 				  <tr>
 					  <td><b>Received Date</b></td>
 					  <td> : </td>
-					  <td align="right"><?php echo $data_header[delivery_date];?></td>
+					  <td align="right"><?= $data_header[delivery_date];?></td>
 				  <tr>
 			  </table>            
             </div><!-- /.col -->
@@ -101,16 +101,16 @@
 					<?php if ($rs) 
 					while ($arr = $rs->FetchRow()) { ?>
 					  <tr valign="top">				
-						<td align="right"><?php echo number_format($arr['line_item'],0);?></td>
-						<td ><?php echo $arr['product_code'];?></td>
-						<td ><?php echo $arr['barcode'];?></td>
-						<td ><?php echo $arr['description'];?></td>
-						<td ><?php echo $arr['unit'];?></td>
-						<td align="right"><?php echo number_format($arr['tax_pct'],0);?></td>
-						<td align="right"><?php echo number_format($arr['quantity']);?></td>
-						<td align="right"><?php echo number_format($arr['unit_price']);?></td>
-						<td align="right"><?php echo number_format($arr['amount']);?></td>					
-						<td align="right"><?php echo number_format($arr['vat_amount']);?></td>	
+						<td align="right"><?= number_format($arr['line_item'],0);?></td>
+						<td ><?= $arr['product_code'];?></td>
+						<td ><?= $arr['barcode'];?></td>
+						<td ><?= $arr['description'];?></td>
+						<td ><?= $arr['unit'];?></td>
+						<td align="right"><?= number_format($arr['tax_pct'],0);?></td>
+						<td align="right"><?= number_format($arr['quantity']);?></td>
+						<td align="right"><?= number_format($arr['unit_price']);?></td>
+						<td align="right"><?= number_format($arr['amount']);?></td>					
+						<td align="right"><?= number_format($arr['vat_amount']);?></td>	
 					  </tr>
 					<?php } ?>
 				</TBODY>
@@ -130,8 +130,8 @@
 					<input type="hidden" name="main" value="040">
 					<input type="hidden" name="main_act" value="010">
 					<input type="hidden" name="main_id" value="400404_01_02">
-					<input type="hidden" name="newnamefile" value="<?php echo $data_header["purchase_order_no"];?>">
-					<input type="hidden" name="main_id_key" value="<?php echo $_REQUEST["param_menu3"]; ?>">	
+					<input type="hidden" name="newnamefile" value="<?= $data_header["purchase_order_no"];?>">
+					<input type="hidden" name="main_id_key" value="<?= $_REQUEST["param_menu3"]; ?>">	
 					<button type="submit" class="btn btn-default btn-flat btn-sm btn-info" align="right"><i class="fa fa-edit"></i> <b>SUBMIT TO INVOICE RECEIPT</b></button>
               
 			  </form>
@@ -141,15 +141,15 @@
                 <table class="table">
                   <tr>
                     <th style="width:50%">Subtotal excl tax</th>
-                    <td align="right"><?php echo number_format($data_header[total_amount],2);?></td>
+                    <td align="right"><?= number_format($data_header[total_amount],2);?></td>
                   </tr>
                   <tr>
                     <th>Tax</th>
-                    <td align="right"><?php echo number_format($data_header[vat_amount],2);?></td>
+                    <td align="right"><?= number_format($data_header[vat_amount],2);?></td>
                   </tr>  
                   <tr>
                     <th>Total</th>
-                    <td align="right"><?php echo number_format($data_header[grand_total],2);?></td>
+                    <td align="right"><?= number_format($data_header[grand_total],2);?></td>
                   </tr>
                 </table>
               </div>
@@ -164,13 +164,13 @@
 				  <!-- button 1 -------- -->
 					<a class="btn btn-default btn-flat btn-sm btn-info"  onclick="cobayy('INVOICE','400406','&param_menu4=2');"><i class="fa fa-edit"></i> <b>BACK TO LIST PAYMENT</b></a>
 					<!-- button 2 ---------- -->
-						<a class="btn btn-default btn-flat btn-sm btn-default"  onclick="bukaModalHelmizz301('#tempatmodal','index.php?main=040&main_act=010&main_id=400401_90&po_no=<?php echo urlencode($data_header['purchase_order_no']); ?>','','#tampil3');"><i class="fa fa-print"></i> <b>PO</b></a>
+						<a class="btn btn-default btn-flat btn-sm btn-default"  onclick="bukaModalHelmizz301('#tempatmodal','index.php?main=040&main_act=010&main_id=400401_90&po_no=<?= urlencode($data_header['purchase_order_no']); ?>','','#tampil3');"><i class="fa fa-print"></i> <b>PO</b></a>
 				  <!-- button 3 ---------- -->
-					<a class="btn btn-default btn-flat btn-sm btn-default"  onclick="bukaModalHelmizz301('#tempatmodal','index.php?main=040&main_act=010&main_id=400401_91&goods_receive_no=<?php echo urlencode($data_header['goods_receive_no']); ?>&po_no=<?php echo urlencode($data_header['purchase_order_no']); ?>','','#tampil4');"><i class="fa fa-print"></i> <b>GRN</b></a>
+					<a class="btn btn-default btn-flat btn-sm btn-default"  onclick="bukaModalHelmizz301('#tempatmodal','index.php?main=040&main_act=010&main_id=400401_91&goods_receive_no=<?= urlencode($data_header['goods_receive_no']); ?>&po_no=<?= urlencode($data_header['purchase_order_no']); ?>','','#tampil4');"><i class="fa fa-print"></i> <b>GRN</b></a>
 				   <!-- button 4 -------- -->
-					<a class="btn btn-default btn-flat btn-sm btn-default"  onclick="bukaModalHelmizz301('#tempatmodal','index.php?main=040&main_act=010&main_id=400401_93&po_no=<?php echo urlencode($data_header['purchase_order_no']); ?>','','#tampil6');"><i class="fa fa-print"></i> <b>PFI</b></a>
+					<a class="btn btn-default btn-flat btn-sm btn-default"  onclick="bukaModalHelmizz301('#tempatmodal','index.php?main=040&main_act=010&main_id=400401_93&po_no=<?= urlencode($data_header['purchase_order_no']); ?>','','#tampil6');"><i class="fa fa-print"></i> <b>PFI</b></a>
 					<!-- button 5 -------- -->
-					<a class="btn btn-default btn-flat btn-sm btn-default"  onclick="bukaModalHelmizz301('#tempatmodal','index.php?main=040&main_act=010&main_id=400401_94&po_no=<?php echo urlencode($data_header['purchase_order_no']); ?>','','#tampil7');"><i class="fa fa-print"></i> <b>INVOICE</b></a>
+					<a class="btn btn-default btn-flat btn-sm btn-default"  onclick="bukaModalHelmizz301('#tempatmodal','index.php?main=040&main_act=010&main_id=400401_94&po_no=<?= urlencode($data_header['purchase_order_no']); ?>','','#tampil7');"><i class="fa fa-print"></i> <b>INVOICE</b></a>
 				</div>
 				<div class="box-tools pull-right">
 				 

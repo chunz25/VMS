@@ -36,7 +36,7 @@ $info2=$_SESSION['username'];
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            <?php echo $_REQUEST["param_menu1"];?>
+            <?= $_REQUEST["param_menu1"];?>
             <small></small>
           </h1>
           
@@ -56,49 +56,49 @@ $info2=$_SESSION['username'];
                     <tr>                    
                       <td align="right">Type User </td>
                       <td>
-                        <?php echo $info1?>
+                        <?= $info1?>
                       </td> 
                     </tr>
 					<tr>  
                       <td align="right">Username </td>
                       <td>
-                        <b><?php echo $_SESSION['username']?></b>
+                        <b><?= $_SESSION['username']?></b>
                       </td>  
                     </tr>
 					<tr>  
                       <td align="right">Email </td>
                       <td>
-                        <b><?php echo $_SESSION['email']?></b>
+                        <b><?= $_SESSION['email']?></b>
                       </td>  
                     </tr>
 					<tr>  
                       <td align="right">Supplier Group</td>
                       <td>
-                        <b><?php echo $_SESSION['supplier_group']?></b>
+                        <b><?= $_SESSION['supplier_group']?></b>
                       </td>  
                     </tr>
 					<tr>  
                       <td align="right">Supplier Name</td>
                       <td>
-                        <b><?php echo $_SESSION['supplier_name']?></b>
+                        <b><?= $_SESSION['supplier_name']?></b>
                       </td>  
                     </tr>
 					<tr>  
                       <td align="right">Full Name PIC</td>
                       <td>
-                        <b><?php echo $_SESSION['fullname']?></b>
+                        <b><?= $_SESSION['fullname']?></b>
                       </td>  
                     </tr>
 					<tr>  
                       <td align="right">Handphone</td>
                       <td>
-                        <b><?php echo $_SESSION['hp']?></b>
+                        <b><?= $_SESSION['hp']?></b>
                       </td>  
                     </tr>
 					<tr>  
                       <td align="right">Last login</td>
                       <td>
-                        <b><?php echo $_SESSION['last_login']?></b>
+                        <b><?= $_SESSION['last_login']?></b>
                       </td>  
                     </tr>
                   </table>
@@ -121,13 +121,13 @@ $info2=$_SESSION['username'];
                     <tr>                    
                       <td align="right">Type User :</td>
                       <td>
-                        <?php echo $info1?>
+                        <?= $info1?>
                       </td> 
                     </tr>
 					<tr>  
                       <td align="right">Username :</td>
                       <td>
-                        <b><?php echo $_SESSION['username']?></b>
+                        <b><?= $_SESSION['username']?></b>
                       </td>  
                     </tr>
 					

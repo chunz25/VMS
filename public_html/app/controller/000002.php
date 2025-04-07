@@ -1,7 +1,7 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
   <h1>
-    <?php echo $_REQUEST["param_menu1"]; ?>
+    <?= $_REQUEST["param_menu1"]; ?>
     <small>preview of simple tables</small>
   </h1>
   <ol class="breadcrumb">
@@ -163,7 +163,8 @@
           <h3 class="box-title">Responsive Hover Table</h3>
           <div class="box-tools">
             <div class="input-group">
-              <input type="text" name="table_search" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Search" />
+              <input type="text" name="table_search" class="form-control input-sm pull-right" style="width: 150px;"
+                placeholder="Search" />
               <div class="input-group-btn">
                 <button class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
               </div>

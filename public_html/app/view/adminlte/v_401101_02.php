@@ -50,15 +50,15 @@ $rs = $db->Execute($sql_400402_02);
 		
 			?>
 			  <tr valign="top">      
-				<td ><?php echo $arr['purchase_order_no'];?></td>
-				<td ><?php echo $arr['goods_receive_no'];?></td>
-				<td ><?php echo $arr['store_code'];?></td>
-				<td ><?php echo $arr['supplier_code'];?></td>
-				<td ><?php echo $arr['name'];?></td>				
-				<td ><?php echo $arr['document_date'];?></td>				
+				<td ><?= $arr['purchase_order_no'];?></td>
+				<td ><?= $arr['goods_receive_no'];?></td>
+				<td ><?= $arr['store_code'];?></td>
+				<td ><?= $arr['supplier_code'];?></td>
+				<td ><?= $arr['name'];?></td>				
+				<td ><?= $arr['document_date'];?></td>				
 				<td  align="center"><span class="label label-info"><?php // echo $view_status;?>Dispute Qty Finished</span></td>
-				<td  align="center"><span class="label label-info"><?php echo $arr['revision_seq'];?></span></td>
-				<td  align="center"><button class="btn btn-warning btn-xs btn-flat" data-toggle="modal" data-target="#add01" onclick="cobayy('DISPUTE+QUANTITY','401101_02_01','<?php echo $arr['goods_receive_no'];?>&param_menu4=<?php echo $arr['status_grn'];?>');" ><?php echo $view_action;?> </button></td>					
+				<td  align="center"><span class="label label-info"><?= $arr['revision_seq'];?></span></td>
+				<td  align="center"><button class="btn btn-warning btn-xs btn-flat" data-toggle="modal" data-target="#add01" onclick="cobayy('DISPUTE+QUANTITY','401101_02_01','<?= $arr['goods_receive_no'];?>&param_menu4=<?= $arr['status_grn'];?>');" ><?= $view_action;?> </button></td>					
 			  </tr>
 			<?php } ?>
 		</TBODY>

@@ -6,7 +6,6 @@ $json_exec_sql001 = json_decode($exec_sql001, true);
 $data_header = $json_exec_sql001["rows"][0];
 
 // data PO Header ----------------
-
 $sql005 = '"select * from purchase_order where purchase_order_no=' . "'" . $data_header["purchase_order_no"] . "'" . '"';
 $exec_sql005 = shell_exec($_MAIN__CONFIGS_030[5] . ' -s ' . $sql005);
 $json_exec_sql005 = json_decode($exec_sql005, true);
@@ -33,7 +32,8 @@ $rs = $db->Execute($sql004);
 		<!-- title row -->
 		<div class="row">
 			<div class="col-xs-12">
-				<h2 class="page-header"><?php echo $_REQUEST["param_menu1"]; ?> #<?php echo $_REQUEST["param_menu3"]; ?> [ DISPUTE QUANTITY ]</h2>
+				<h2 class="page-header"><?= $_REQUEST["param_menu1"]; ?> #<?= $_REQUEST["param_menu3"]; ?>
+					[ DISPUTE QUANTITY ]</h2>
 			</div><!-- /.col -->
 		</div>
 		<!-- info row -->
@@ -41,52 +41,53 @@ $rs = $db->Execute($sql004);
 			<div class="col-sm-4 invoice-col">
 				From
 				<address>
-					<strong><?php echo $data_header_supplier["name"]; ?></strong><br>
-					<?php echo $data_header_supplier["address1"]; ?><br>
-					<?php echo $data_header_supplier["address2"]; ?>, <?php echo $data_header_supplier["city"]; ?><br>
-					Phone : <?php echo $data_header_supplier["phone"]; ?><br />
-					Email : <?php echo $data_header_supplier["email"]; ?><br />
-					Npwp : <?php echo $data_header_supplier["npwp"]; ?>
+					<strong><?= $data_header_supplier["name"]; ?></strong><br>
+					<?= $data_header_supplier["address1"]; ?><br>
+					<?= $data_header_supplier["address2"]; ?>, <?= $data_header_supplier["city"]; ?><br>
+					Phone : <?= $data_header_supplier["phone"]; ?><br />
+					Email : <?= $data_header_supplier["email"]; ?><br />
+					Npwp : <?= $data_header_supplier["npwp"]; ?>
 				</address>
 			</div><!-- /.col -->
 			<div class="col-sm-4 invoice-col">
 				To
 				<address>
-					<strong><?php echo $_MAIN__CONFIGS_040[4] ?></strong><br>
-					<strong>Store : <?php echo $data_header["store_code"] . " " . $data_header_store["name"]; ?></strong><br>
-					<?php echo $data_header_store["address"]; ?><br>
-					<?php echo $data_header_store["city"]; ?> <?php echo $data_header_store["zip_code"]; ?><br>
-					Phone: <?php echo $data_header_store["phone"]; ?><br />
-					Email: <?php echo $data_header_store["email"]; ?>
+					<strong><?= $_MAIN__CONFIGS_040[4] ?></strong><br>
+					<strong>Store :
+						<?= $data_header["store_code"] . " " . $data_header_store["name"]; ?></strong><br>
+					<?= $data_header_store["address"]; ?><br>
+					<?= $data_header_store["city"]; ?> <?= $data_header_store["zip_code"]; ?><br>
+					Phone: <?= $data_header_store["phone"]; ?><br />
+					Email: <?= $data_header_store["email"]; ?>
 				</address>
 			</div><!-- /.col -->
 			<div class="col-sm-4 invoice-col">
-				<b>Goods Receive Note No #<u><?php echo $_REQUEST["param_menu3"]; ?></u></b><br /><br />
+				<b>Goods Receive Note No #<u><?= $_REQUEST["param_menu3"]; ?></u></b><br /><br />
 				<table width="75%">
 					<tr>
 						<td><b>Supplier Code</b></td>
 						<td> : </td>
-						<td align="right"><?php echo $data_header_supplier["supplier_code"]; ?></td>
+						<td align="right"><?= $data_header_supplier["supplier_code"]; ?></td>
 					<tr>
 					<tr>
 						<td><b>Order No</b></td>
 						<td> : </td>
-						<td align="right"><?php echo $data_header["purchase_order_no"]; ?></td>
+						<td align="right"><?= $data_header["purchase_order_no"]; ?></td>
 					<tr>
 					<tr>
 						<td><b>Order Date</b></td>
 						<td> : </td>
-						<td align="right"><?php echo $data_header_po["document_date"]; ?></td>
+						<td align="right"><?= $data_header_po["document_date"]; ?></td>
 					<tr>
 					<tr>
 						<td><b>Expected Delivery Date</b></td>
 						<td> : </td>
-						<td align="right"><?php echo $data_header_po["delivery_date"]; ?></td>
+						<td align="right"><?= $data_header_po["delivery_date"]; ?></td>
 					<tr>
 					<tr>
 						<td><b>Received Date</b></td>
 						<td> : </td>
-						<td align="right"><?php echo $data_header["document_date"]; ?></td>
+						<td align="right"><?= $data_header["document_date"]; ?></td>
 					<tr>
 				</table>
 			</div><!-- /.col -->
@@ -112,24 +113,25 @@ $rs = $db->Execute($sql004);
 					<TBODY>
 						<?php if ($rs)
 							while ($arr = $rs->FetchRow()) { ?>
-							<tr valign="top">
-								<td align="right"><?php echo number_format($arr['line_item'], 0); ?></td>
-								<td><?php echo $arr['product_code']; ?></td>
-								<td><?php echo $arr['barcode']; ?></td>
-								<td><?php echo $arr['description']; ?></td>
-								<td><?php echo $arr['unit']; ?></td>
-								<td align="right"><?php echo number_format($arr['po_quantity']); ?></td>
-								<td align="right"><?php echo number_format($arr['quantity']); ?></td>
-								<td align="right"><input type="text" name="qty_rev[<?php echo $arr['product_code']; ?>]" placeholder="only different qty" size="12"></td>
-							</tr>
-						<?php } ?>
+								<tr valign="top">
+									<td align="right"><?= number_format($arr['line_item'], 0); ?></td>
+									<td><?= $arr['product_code']; ?></td>
+									<td><?= $arr['barcode']; ?></td>
+									<td><?= $arr['description']; ?></td>
+									<td><?= $arr['unit']; ?></td>
+									<td align="right"><?= number_format($arr['po_quantity']); ?></td>
+									<td align="right"><?= number_format($arr['quantity']); ?></td>
+									<td align="right"><input type="text" name="qty_rev[<?= $arr['product_code']; ?>]"
+											placeholder="only different qty" size="12"></td>
+								</tr>
+							<?php } ?>
 					</TBODY>
 				</TABLE>
 				<input type="hidden" name="main" value="040">
 				<input type="hidden" name="main_act" value="010">
 				<input type="hidden" name="main_id" value="400402_01_04">
-				<input type="hidden" name="goods_receive_no" value="<?php echo $_REQUEST["param_menu3"]; ?>">
-				<input type="hidden" name="revision_seq" value="<?php echo $data_header["revision_seq"]; ?>">
+				<input type="hidden" name="goods_receive_no" value="<?= $_REQUEST["param_menu3"]; ?>">
+				<input type="hidden" name="revision_seq" value="<?= $data_header["revision_seq"]; ?>">
 
 			</div><!-- /.col -->
 		</div><!-- /.row -->
@@ -144,8 +146,11 @@ $rs = $db->Execute($sql004);
 
 			<div class="col-xs-12">
 				<div class="box-tools pull-right">
-					<a class="btn btn-default btn-flat btn-sm btn-info" onclick="cobayy('GOODS+RECEIVE','400402_01_01','<?php echo $_REQUEST["param_menu3"]; ?>');"><i class="fa fa-edit"></i> <b>BACK TO LIST SETTLEMENT QTY</b></a>
-					<button type="submit" class="btn btn-default btn-flat btn-sm btn-info"><i class="fa fa-edit"></i> <b>SUBMIT DISPUTE QUANTITY</b></button>
+					<a class="btn btn-default btn-flat btn-sm btn-info"
+						onclick="cobayy('GOODS+RECEIVE','400402_01_01','<?= $_REQUEST["param_menu3"]; ?>');"><i
+							class="fa fa-edit"></i> <b>BACK TO LIST SETTLEMENT QTY</b></a>
+					<button type="submit" class="btn btn-default btn-flat btn-sm btn-info"><i class="fa fa-edit"></i>
+						<b>SUBMIT DISPUTE QUANTITY</b></button>
 				</div>
 			</div>
 		</div>
@@ -154,9 +159,8 @@ $rs = $db->Execute($sql004);
 </section><!-- /.content -->
 <div class="clearfix"></div>
 <script>
-	$("#my_form").submit(function(event) {
+	$("#my_form").submit(function (event) {
 		if (confirm('Apakah Data Sudah diisi dengan benar ?')) {
-			//$('#loading').modal('show');
 			event.preventDefault(); //prevent default action 
 			var post_url = $(this).attr("action"); //get form action url
 			var request_method = $(this).attr("method"); //get form GET/POST method
@@ -168,15 +172,12 @@ $rs = $db->Execute($sql004);
 				contentType: false,
 				cache: false,
 				processData: false
-			}).done(function(response) { //
-				//$("#server-results").html(response);
-				// alert(response);
+			}).done(function (response) { //
 				if (response == 'success') {
 					alert('Dispute quantity Sudah diproses, Menunggu confirm dari ELECTRONIC CITY ...');
-					//$(".close").click()
-					cobayy('SETTLEMENT+QUANTITY', '400402', '');
+					cobayy('SETTLEMENT+QUANTITY', '400402', '1');
 				} else {
-					alert('Gagal dispute quantity proses...');
+					alert('Gagal dispute quantity proses : ' + response);
 					return false;
 				}
 			});

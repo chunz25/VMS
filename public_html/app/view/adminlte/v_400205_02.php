@@ -33,19 +33,19 @@ $rs = $db->Execute($sql_400402_02);
 			<?php if ($rs) 
 			while ($arr = $rs->FetchRow()) { ?>
 			  <tr valign="top">      
-				<td ><?php echo $arr['purchase_order_no'];?></td>
-				<td ><?php echo $arr['goods_receive_no'];?></td>		
-				<td ><?php echo $arr['invoice_no'];?></td>
-				<td ><?php echo $arr['invoice_receipt_no'];?></td>
-				<td ><?php echo $arr['store_code'];?></td>
-				<td ><?php echo $arr['supplier_code'];?></td>
-				<td ><?php echo $arr['supplier_name'];?></td>
-				<td ><?php echo $arr['document_date'];?></td>
-				<td ><?php echo $arr['inv_receipt_date'];?></td>
-				<td align="right"><?php echo number_format($arr['total_amount'],2);?></td>				
-				<td align="right"><?php echo number_format($arr['vat_amount'],2);?></td>				
-				<td align="right"><?php echo number_format($arr['grand_total'],2);?></td>				
-				<td  align="center"><button class="btn btn-warning btn-xs btn-flat" data-toggle="modal" data-target="#add01" onclick="bukaModalHelmizz301('#tempatmodal3','index.php?main=040&main_act=010&main_id=400205_02_01&po_no=<?php echo urlencode($arr['purchase_order_no']); ?>','','#tampil3');" >Revisi</button></td>				
+				<td ><?= $arr['purchase_order_no'];?></td>
+				<td ><?= $arr['goods_receive_no'];?></td>		
+				<td ><?= $arr['invoice_no'];?></td>
+				<td ><?= $arr['invoice_receipt_no'];?></td>
+				<td ><?= $arr['store_code'];?></td>
+				<td ><?= $arr['supplier_code'];?></td>
+				<td ><?= $arr['supplier_name'];?></td>
+				<td ><?= $arr['document_date'];?></td>
+				<td ><?= $arr['inv_receipt_date'];?></td>
+				<td align="right"><?= number_format($arr['total_amount'],2);?></td>				
+				<td align="right"><?= number_format($arr['vat_amount'],2);?></td>				
+				<td align="right"><?= number_format($arr['grand_total'],2);?></td>				
+				<td  align="center"><button class="btn btn-warning btn-xs btn-flat" data-toggle="modal" data-target="#add01" onclick="bukaModalHelmizz301('#tempatmodal3','index.php?main=040&main_act=010&main_id=400205_02_01&po_no=<?= urlencode($arr['purchase_order_no']); ?>','','#tampil3');" >Revisi</button></td>				
 			  </tr>
 			<?php } ?>
 		</TBODY>

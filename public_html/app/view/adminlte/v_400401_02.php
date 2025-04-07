@@ -31,17 +31,17 @@ $rs = $db->Execute($sql_400401_02);
 <?php if ($rs) 
 while ($arr = $rs->FetchRow()) { ?>
       <tr valign="top">
-        <td align="center" ><?php echo $arr['purchase_order_no'];?></td>
-        <td ><?php echo $arr['store_code'];?></td>
-        <td align="center"><?php echo $arr['supplier_code'];?></td>
-        <td align="center"><?php echo $arr['document_date'];?></td>
-        <td align="center"><?php echo $arr['delivery_date'];?></td>
-        <td align="right"><?php echo number_format($arr['total_amount'],2,',','.');?></td>
-        <td  align="right"><?php echo number_format($arr['total_vat_amount'],2,',','.');?></td>
-        <td  align="right"><?php echo number_format($arr['grand_total'],2,',','.');?></td>
-        <td  align="center"><span class="label label-danger"><?php echo "Req Cancel"?></span></td>
-        <td  align="center"><button class="btn btn-warning btn-xs btn-flat" data-toggle="modal" data-target="#add01" onclick="cobayy('PURCHASE+ORDER','400401_02_01','<?php echo $arr['purchase_order_no'];?>');" >View Detail</button></td>
-		<!-- "bukaModalHelmizz301('#tempatmodal','index.php?main=040&main_act=010&main_id=400401_00_01&po_no=<?php echo urlencode($arr['purchase_order_no']); ?>&code=<?php echo urlencode($arr['stock_code']);?>&paramdet=<?php echo urlencode($paramdet);?>','','#tampil2');" -->
+        <td align="center" ><?= $arr['purchase_order_no'];?></td>
+        <td ><?= $arr['store_code'];?></td>
+        <td align="center"><?= $arr['supplier_code'];?></td>
+        <td align="center"><?= $arr['document_date'];?></td>
+        <td align="center"><?= $arr['delivery_date'];?></td>
+        <td align="right"><?= number_format($arr['total_amount'],2,',','.');?></td>
+        <td  align="right"><?= number_format($arr['total_vat_amount'],2,',','.');?></td>
+        <td  align="right"><?= number_format($arr['grand_total'],2,',','.');?></td>
+        <td  align="center"><span class="label label-danger"><?= "Req Cancel"?></span></td>
+        <td  align="center"><button class="btn btn-warning btn-xs btn-flat" data-toggle="modal" data-target="#add01" onclick="cobayy('PURCHASE+ORDER','400401_02_01','<?= $arr['purchase_order_no'];?>');" >View Detail</button></td>
+		<!-- "bukaModalHelmizz301('#tempatmodal','index.php?main=040&main_act=010&main_id=400401_00_01&po_no=<?= urlencode($arr['purchase_order_no']); ?>&code=<?= urlencode($arr['stock_code']);?>&paramdet=<?= urlencode($paramdet);?>','','#tampil2');" -->
       </tr>
 <?php } ?>
 </TBODY>

@@ -1,14 +1,11 @@
 <?php
-// Import PHPMailer classes into the global namespace
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-// Load Composer's autoloader and database connection
 include "conn/config.php";
 require 'librarysmtp/autoload.php';
 require 'mail_form.php';
 
-// Fetch suppliers with unsent goods_receive emails
 $suppQuery = "
     SELECT DISTINCT a.supplier_code, a.supplier_name
     FROM vw_grmail a
@@ -19,7 +16,6 @@ $suppliers = $suppStmt->fetchAll(PDO::FETCH_OBJ);
 
 if ($suppliers) {
     foreach ($suppliers as $ven) {
-        // Fetch goods receive details for the supplier
         $poQuery = "
             SELECT * FROM vw_grmail
             WHERE supplier_code = :supplier_code
@@ -29,7 +25,6 @@ if ($suppliers) {
         $poStmt->execute(['supplier_code' => $ven->supplier_code]);
         $poDetails = $poStmt->fetchAll(PDO::FETCH_OBJ);
 
-        // Initialize email body
         $body = '';
         foreach ($poDetails as $arr) {
             $body .= '
@@ -43,27 +38,21 @@ if ($suppliers) {
                     <td>' . $arr->document_date . '</td>
                     <td>' . $arr->est_delivery_date . '</td>
                     <td>' . $arr->product_code . ' - ' . $arr->product_name . '</td>
-                    <td>' . $arr->qty_received . '</td>
+                    <td>' . intval($arr->qty_received) . '</td>
                 </tr>';
         }
 
-        // Initialize PHPMailer
         $mail = new PHPMailer(true);
 
         try {
-            // SMTP Server settings
             $mail->isSMTP();
-            $mail->Host = $host;       // Set your SMTP host
+            $mail->Host = $host;
             $mail->SMTPAuth = true;
-            $mail->Username = $username;   // SMTP username
-            $mail->Password = $password;   // SMTP password
-            $mail->SMTPSecure = 'SSL';  // Use SSL
-            $mail->Port = 25;         // Use port 465 for SSL
-
-            // Set email sender
+            $mail->Username = $username;
+            $mail->Password = $password;
+            $mail->SMTPSecure = 'SSL';
+            $mail->Port = 25;
             $mail->setFrom($username, 'VMSMail');
-
-            // Add recipients
             $userToQuery = "
                 SELECT * FROM email WHERE tb_id_user_type IN (5) AND username = :supplier_code
             ";
@@ -74,8 +63,6 @@ if ($suppliers) {
             foreach ($usertoEmails as $email) {
                 $mail->addAddress($email->email);
             }
-
-            // Email content
             $mail->addBCC($username);
             $mail->isHTML(true);
             $mail->Subject = 'VMS: New GR ' . $ven->supplier_name;
@@ -96,12 +83,10 @@ if ($suppliers) {
                         <th>Qty Received</th>
                     </tr>' . $body . '</table>';
 
-            // Send the email
             $mail->send();
             echo 'Message has been sent for supplier: ' . $ven->supplier_name . "\r\n";
 
             try {
-                // Mark goods_receive as email sent
                 $updateQuery = "
                     UPDATE goods_receive 
                     SET sendmail = 1 
@@ -120,7 +105,6 @@ if ($suppliers) {
             echo "Message could not be sent for supplier {$ven->supplier_name}. Mailer Error: {$mail->ErrorInfo}" . "\r\n";
 
             try {
-                // Mark goods_receive as email sent
                 $updateQuery = "
                     UPDATE goods_receive 
                     SET sendmail = 1 
@@ -136,7 +120,6 @@ if ($suppliers) {
             }
         }
 
-        // Clear body content for the next supplier
         $body = '';
     }
 } else {

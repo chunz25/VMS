@@ -22,13 +22,13 @@ $rs = $db->Execute($sql);
 while ($arr = $rs->FetchRow()) { ?>
       <tr valign="top">  
         
-        <td ><?php echo $arr['username'];?></td>      
-        <td ><?php echo $arr['supplier_code'];?></td>
-        <td ><?php echo $arr['supplier_name'];?></td>
-        <td ><?php echo $arr['department'];?></td>
-        <td ><?php echo $arr['supplier_group'];?></td>
-		<td ><?php echo $arr['email'];?></td>
-		<td ><?php echo $arr['last_login'];?></td>
+        <td ><?= $arr['username'];?></td>      
+        <td ><?= $arr['supplier_code'];?></td>
+        <td ><?= $arr['supplier_name'];?></td>
+        <td ><?= $arr['department'];?></td>
+        <td ><?= $arr['supplier_group'];?></td>
+		<td ><?= $arr['email'];?></td>
+		<td ><?= $arr['last_login'];?></td>
         <td ><span class='label label-success'><i class="fa fa-whatsapp"></i></span></td>
       </tr>
 <?php } ?>

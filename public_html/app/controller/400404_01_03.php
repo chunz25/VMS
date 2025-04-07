@@ -5,4 +5,5 @@ if ($rs) {
     echo "success";
 } else {
     echo "failed";
-};
+}
+;

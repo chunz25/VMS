@@ -2,7 +2,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            <?php echo $_REQUEST["param_menu1"];?>
+            <?= $_REQUEST["param_menu1"];?>
             
           </h1>
         </section>

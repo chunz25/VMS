@@ -47,20 +47,20 @@ $rs = $db->Execute($sql_400402_02);
 			<?php if ($rs) 
 			while ($arr = $rs->FetchRow()) { ?>
 			  <tr valign="top">      
-				<td ><?php echo $arr['supplier_code'];?></td>
-				<td ><?php echo $arr['supplier_name'];?></td>
-				<td ><?php echo $arr['department'];?></td>
+				<td ><?= $arr['supplier_code'];?></td>
+				<td ><?= $arr['supplier_name'];?></td>
+				<td ><?= $arr['department'];?></td>
 				
-				<td ><?php echo $arr['inv_belum_selesai'];?></td>
-				<td ><?php echo $arr['inv_sudah_selesai'];?></td>
-				<td ><?php echo $arr['total_inv_process'];?></td>
-				<td ><?php echo $arr['email'];?></td>
-				<td ><?php echo $arr['fullname'];?></td>
-				<td ><?php echo $arr['hp'];?></td>
-				<td ><?php echo $arr['last_login'];?></td>
-				<td ><?php echo $arr['supplier_group'];?></td>
+				<td ><?= $arr['inv_belum_selesai'];?></td>
+				<td ><?= $arr['inv_sudah_selesai'];?></td>
+				<td ><?= $arr['total_inv_process'];?></td>
+				<td ><?= $arr['email'];?></td>
+				<td ><?= $arr['fullname'];?></td>
+				<td ><?= $arr['hp'];?></td>
+				<td ><?= $arr['last_login'];?></td>
+				<td ><?= $arr['supplier_group'];?></td>
 								
-				<td  align="center"><button class="btn btn-warning btn-xs btn-flat" data-toggle="modal" data-target="#add01" onclick="bukaModalHelmizz301('#tempatmodal','index.php?main=040&main_act=010&main_id=400205_01_01&po_no=<?php echo urlencode($arr['purchase_order_no']); ?>','','#tampil2');" >View Detail</button></td>
+				<td  align="center"><button class="btn btn-warning btn-xs btn-flat" data-toggle="modal" data-target="#add01" onclick="bukaModalHelmizz301('#tempatmodal','index.php?main=040&main_act=010&main_id=400205_01_01&po_no=<?= urlencode($arr['purchase_order_no']); ?>','','#tampil2');" >View Detail</button></td>
 							
 			  </tr>
 			<?php } ?>

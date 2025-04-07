@@ -1,26 +1,10 @@
 <?php
 include_once($_MAIN__CONFIGS_000[4] . 'inc_condition.php');
 
-// $sql_400401_01 = " AND supplier_code='".$_SESSION['supplier_code']."'";
 $sql_400401_02 = "SELECT supplier,divisi,MP_SKU,MP_BARCODE,MP_DESCP,MP_CONV1,MP_CONV2,MP_STOCK,MPR_PRICE0  `SALE_PRICE_KARTON`,MPR_PRICE1 `SALE_PRICE_PACK`,MPR_PRICE2 SALE_PRICE_PCS , MINIMAL_JUAL,(MP_CONV2/MP_CONV1) as ISI_PACK_DALAM_PCS FROM supereco_vms_db.v_bocis_produk_saleprice WHERE  mp_stock>0 order by supplier ";
-//die($sql_400401_02);
 $rs = $db->Execute($sql_400401_02);
 
-/*
 
-
-
-
-
-
-
-
-
-
-
-
-
-*/
 ?>
 <style>
   .table.dataTable {
@@ -60,22 +44,22 @@ $rs = $db->Execute($sql_400401_02);
     <?php if ($rs)
       while ($arr = $rs->FetchRow()) {
 
-    ?>
-      <tr valign="top">
-        <td align=""><?php echo $arr['supplier']; ?></td>
-        <td align="center"><?php echo $arr['mp_sku']; ?></td>
-        <td align="center"><?php echo $arr['mp_barcode']; ?></td>
-        <td align=""><?php echo $arr['mp_descp']; ?></td>
-        <td align="right"><?php echo number_format($arr['mp_conv1'], 0, ',', '.'); ?></td>
-        <td align="right"><?php echo number_format($arr['mp_conv2'], 0, ',', '.'); ?></td>
-        <td align="right"><?php echo number_format($arr['mp_stock'], 0, ',', '.'); ?></td>
-        <td align="right"><?php echo number_format($arr['sale_price_karton'], 0, ',', '.'); ?></td>
-        <td align="right"><?php echo number_format($arr['sale_price_pack'], 0, ',', '.'); ?></td>
-        <td align="right"><?php echo number_format($arr['sale_price_pcs'], 0, ',', '.'); ?></td>
-        <td align="right"><?php echo number_format($arr['minimal_jual'], 0, ',', '.'); ?></td>
-        <td align="right"><?php echo number_format($arr['isi_pack_dalam_pcs'], 0, ',', '.'); ?></td>
-      </tr>
-    <?php } ?>
+        ?>
+        <tr valign="top">
+          <td align=""><?= $arr['supplier']; ?></td>
+          <td align="center"><?= $arr['mp_sku']; ?></td>
+          <td align="center"><?= $arr['mp_barcode']; ?></td>
+          <td align=""><?= $arr['mp_descp']; ?></td>
+          <td align="right"><?= number_format($arr['mp_conv1'], 0, ',', '.'); ?></td>
+          <td align="right"><?= number_format($arr['mp_conv2'], 0, ',', '.'); ?></td>
+          <td align="right"><?= number_format($arr['mp_stock'], 0, ',', '.'); ?></td>
+          <td align="right"><?= number_format($arr['sale_price_karton'], 0, ',', '.'); ?></td>
+          <td align="right"><?= number_format($arr['sale_price_pack'], 0, ',', '.'); ?></td>
+          <td align="right"><?= number_format($arr['sale_price_pcs'], 0, ',', '.'); ?></td>
+          <td align="right"><?= number_format($arr['minimal_jual'], 0, ',', '.'); ?></td>
+          <td align="right"><?= number_format($arr['isi_pack_dalam_pcs'], 0, ',', '.'); ?></td>
+        </tr>
+      <?php } ?>
   </TBODY>
 </TABLE>
 <div id="tempatmodal"></div>

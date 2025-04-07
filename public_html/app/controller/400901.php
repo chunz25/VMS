@@ -1,7 +1,6 @@
 <?php
 require_once("db_connPDO.php");
 
-
 $stmt = $pdo->prepare("
   SELECT 
     supplier_code , 
@@ -13,15 +12,12 @@ $stmt = $pdo->prepare("
 ");
 $stmt->execute();
 $supplierList = $stmt->fetchAll();
-
-// die(var_dump($supplierList));
-
 ?>
 
 <!-- Content Header (Page header) -->
 <section class="content-header">
   <h1>
-    <?php echo $_REQUEST["param_menu1"]; ?>
+    <?= $_REQUEST["param_menu1"]; ?>
   </h1>
 </section>
 
@@ -35,17 +31,17 @@ $supplierList = $stmt->fetchAll();
             target="_reportwindow">
             <label>Supplier Code :</label>
             <?php if (isset($_SESSION['supplier_code'])) { ?>
-            <input type="text" name="supplier_code" value="<?= $_SESSION['supplier_code'] ?>" hidden>
-            <input type="text" class="form-control" readonly
-              value="<?= $_SESSION['supplier_code'] . " - " . $_SESSION['supplier_name'] ?>">
+              <input type="text" name="supplier_code" value="<?= $_SESSION['supplier_code'] ?>" hidden>
+              <input type="text" class="form-control" readonly
+                value="<?= $_SESSION['supplier_code'] . " - " . $_SESSION['supplier_name'] ?>">
             <?php } else { ?>
-            <select class="form-control" name="supplier_code">
-              <option value="" disabled selected hidden>Pilih Supplier</option>
-              <?php foreach ($supplierList as $s) { ?>
-              <option value="<?= $s['supplier_code'] ?>"><?= $s['supplier_code'] . ' - ' . $s['supplier_name'] ?>
-              </option>
-              <?php } ?>
-            </select>
+              <select class="form-control" name="supplier_code">
+                <option value="" disabled selected hidden>Pilih Supplier</option>
+                <?php foreach ($supplierList as $s) { ?>
+                  <option value="<?= $s['supplier_code'] ?>"><?= $s['supplier_code'] . ' - ' . $s['supplier_name'] ?>
+                  </option>
+                <?php } ?>
+              </select>
             <?php } ?>
             <br>
             <label>Status PO :</label>

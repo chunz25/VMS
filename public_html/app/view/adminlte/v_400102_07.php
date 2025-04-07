@@ -17,11 +17,11 @@ echo __FILE__;
 <?php if ($rs) 
 while ($arr = $rs->FetchRow()) { ?>
       <tr valign="top">
-        <td ><?php echo $arr['tb_user_group_id'];?></td>
-        <td ><?php echo $arr['ta_application_id'];?></td>
-        <td ><?php echo $arr['user_group_nm'];?></td>
-        <td ><?php echo $arr['user_group_desc'];?></td>
-        <td ><?php echo $arr['admin_fg'];?></td>
+        <td ><?= $arr['tb_user_group_id'];?></td>
+        <td ><?= $arr['ta_application_id'];?></td>
+        <td ><?= $arr['user_group_nm'];?></td>
+        <td ><?= $arr['user_group_desc'];?></td>
+        <td ><?= $arr['admin_fg'];?></td>
       </tr>
 <?php } ?>
 </TBODY>

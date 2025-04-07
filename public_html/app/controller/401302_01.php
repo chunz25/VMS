@@ -1,13 +1,8 @@
 <?php
 include_once($_MAIN__CONFIGS_000[4] . 'inc_condition.php');
 
-// $sql_400401_01 = " AND supplier_code='".$_SESSION['supplier_code']."'";
 $sql_400401_02 = "SELECT * FROM purchase_order_all_status_v where ( status_po in ('14','99') ) " . $sql_400401_01;
-//die($sql_400401_02);
 $rs = $db->Execute($sql_400401_02);
-?>
-
-<?php  //echo $sql_400401_02;
 ?>
 <TABLE id="tbl01" class="table table-striped table-bordered" style="padding:0px;">
 	<THEAD>
@@ -51,23 +46,25 @@ $rs = $db->Execute($sql_400401_02);
 						$status_po = "Delivered";
 						break;
 				}
-		?>
-			<tr valign="top">
-				<td align="center"><?php echo $arr['purchase_order_no']; ?></td>
-				<td><?php echo $arr['store_code']; ?></td>
-				<td><?php echo $arr['department']; ?></td>
-				<td align="center"><?php echo $arr['supplier_code']; ?></td>
-				<td align="center"><?php echo $arr['supplier_name']; ?></td>
-				<td align="center"><?php echo $arr['document_date']; ?></td>
-				<td align="center"><?php echo $arr['delivery_date']; ?></td>
-				<td align="right"><?php echo number_format($arr['total_amount'], 0, ',', '.'); ?></td>
-				<td align="right"><?php echo number_format($arr['total_vat_amount'], 0, ',', '.'); ?></td>
-				<td align="right"><?php echo number_format($arr['grand_total'], 0, ',', '.'); ?></td>
-				<td align="center"><?php echo $arr['header_text']; ?></td>
-				<td align="center"><span class="label label-info"><?php echo $status_po; ?></span></td>
-				<td align="center"><button class="btn btn-warning btn-xs btn-flat" data-toggle="modal" data-target="#add01" onclick="cobayy('PURCHASE+ORDER','401302_01_01','<?php echo $arr['purchase_order_no']; ?>');">View</button></td>
-			</tr>
-		<?php } ?>
+				?>
+				<tr valign="top">
+					<td align="center"><?= $arr['purchase_order_no']; ?></td>
+					<td><?= $arr['store_code']; ?></td>
+					<td><?= $arr['department']; ?></td>
+					<td align="center"><?= $arr['supplier_code']; ?></td>
+					<td align="center"><?= $arr['supplier_name']; ?></td>
+					<td align="center"><?= $arr['document_date']; ?></td>
+					<td align="center"><?= $arr['delivery_date']; ?></td>
+					<td align="right"><?= number_format($arr['total_amount'], 0, ',', '.'); ?></td>
+					<td align="right"><?= number_format($arr['total_vat_amount'], 0, ',', '.'); ?></td>
+					<td align="right"><?= number_format($arr['grand_total'], 0, ',', '.'); ?></td>
+					<td align="center"><?= $arr['header_text']; ?></td>
+					<td align="center"><span class="label label-info"><?= $status_po; ?></span></td>
+					<td align="center"><button class="btn btn-warning btn-xs btn-flat" data-toggle="modal" data-target="#add01"
+							onclick="cobayy('PURCHASE+ORDER','401302_01_01','<?= $arr['purchase_order_no']; ?>');">View</button>
+					</td>
+				</tr>
+			<?php } ?>
 	</TBODY>
 </TABLE>
 <div id="tempatmodal"></div>

@@ -1,15 +1,12 @@
 <?php
 include_once('inc_condition.php');
 
-//$sql_400402_01 = " AND supplier_code='".$_SESSION['supplier_code']."'";
 $sql_400402_02 = "SELECT * FROM proforma_invoice_all_status_v where ( status_pfi in ('31','34') ) and document_status is null " . $sql_400401_01;
 $rs = $db->Execute($sql_400402_02);
 
 ?>
 <!-- Content Header (Page header) -->
 <!-- Main content -->
-<?php // echo $sql_400402_02;
-?>
 <TABLE id="tbl01" class="table table-striped table-bordered" style="padding:0px;">
 	<THEAD>
 		<tr valign="top">
@@ -30,35 +27,36 @@ $rs = $db->Execute($sql_400402_02);
 	<TBODY>
 		<?php if ($rs)
 			while ($arr = $rs->FetchRow()) { ?>
-			<tr valign="top">
-				<td><?php echo $arr['purchase_order_no']; ?></td>
-				<td><?php echo $arr['goods_receive_no']; ?></td>
+				<tr valign="top">
+					<td><?= $arr['purchase_order_no']; ?></td>
+					<td><?= $arr['goods_receive_no']; ?></td>
+					<td><?= $arr['store_code']; ?></td>
+					<td><?= $arr['supplier_code']; ?></td>
+					<td><?= $arr['supplier_name']; ?></td>
+					<td><?= $arr['department']; ?></td>
+					<td><?= $arr['document_date']; ?></td>
+					<td><?= number_format($arr['total_amount'], 2); ?></td>
+					<td align="right"><?= number_format($arr['vat_amount'], 2); ?></td>
+					<td align="right"><?= number_format($arr['grand_total'], 2); ?></td>
+					<td align="center">
+						<?php
+						if ($arr['status_pfi'] == '34') {
+							?>
+							<button class="btn btn-warning btn-xs btn-flat" data-toggle="modal" data-target="#add01"
+								onclick="cobayy('SETTLEMENT+PRICE','400403_02_01','<?= $arr['proforma_invoice_no']; ?>&param_menu4=<?= $arr['status_pfi']; ?>');">Proses
+							</button>
+							<?php
+						} else {
+							?>
+							<button class="btn btn-warning btn-xs btn-flat" data-toggle="modal" data-target="#add01"
+								onclick="cobayy('SETTLEMENT+PRICE','400403_01_01','<?= $arr['proforma_invoice_no']; ?>');">Proses</button>
+							<?php
+						}
+						?>
 
-				<td><?php echo $arr['store_code']; ?></td>
-				<td><?php echo $arr['supplier_code']; ?></td>
-				<td><?php echo $arr['supplier_name']; ?></td>
-				<td><?php echo $arr['department']; ?></td>
-				<td><?php echo $arr['document_date']; ?></td>
-				<td><?php echo number_format($arr['total_amount'], 2); ?></td>
-				<td align="right"><?php echo number_format($arr['vat_amount'], 2); ?></td>
-				<td align="right"><?php echo number_format($arr['grand_total'], 2); ?></td>
-				<td align="center"><?php // echo $arr['status_pfi'];
-									?>
-					<?php
-					if ($arr['status_pfi'] == '34') {
-					?>
-						<button class="btn btn-warning btn-xs btn-flat" data-toggle="modal" data-target="#add01" onclick="cobayy('SETTLEMENT+PRICE','400403_02_01','<?php echo $arr['proforma_invoice_no']; ?>&param_menu4=<?php echo $arr['status_pfi']; ?>');">Proses </button>
-					<?php
-					} else {
-					?>
-						<button class="btn btn-warning btn-xs btn-flat" data-toggle="modal" data-target="#add01" onclick="cobayy('SETTLEMENT+PRICE','400403_01_01','<?php echo $arr['proforma_invoice_no']; ?>');">Proses</button>
-					<?php
-					}
-					?>
-
-				</td>
-			</tr>
-		<?php } ?>
+					</td>
+				</tr>
+			<?php } ?>
 	</TBODY>
 </TABLE>
 <div id="tempatmodal"></div>

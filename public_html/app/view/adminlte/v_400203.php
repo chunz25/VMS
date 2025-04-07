@@ -1,7 +1,7 @@
 <!-- Content Header (Page header) -->
         <!-- <section class="content-header">
           <font size="10">
-           <b> <?php echo $_REQUEST["param_menu1"];?></b>
+           <b> <?= $_REQUEST["param_menu1"];?></b>
           </font>
           <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -15,7 +15,7 @@
           <div class="box box-solid" id="isicontent1" style="padding:0px;" > <!--style="overflow-y:auto;padding:0px;"-->
             <!----> <div class="box-header with-border">
               <font size="3">
-           <b> <?php echo $_REQUEST["param_menu1"];?></b>
+           <b> <?= $_REQUEST["param_menu1"];?></b>
           </font>
               
             </div> 
@@ -47,15 +47,15 @@ $rs = $db->Execute($sql); ?>
 while ($arr = $rs->FetchRow()) { ?>
       <tr valign="top">
        
-        <td ><?php echo $arr['product_code'];?></td>
-        <td ><?php echo $arr['barcode'];?></td>
-        <td ><?php echo $arr['description'];?></td>
-        <td ><?php echo $arr['brand'];?></td>
-        <td ><?php echo $arr['dimension'];?></td>
-        <td ><?php echo $arr['weight'];?></td>
-        <td ><?php echo $arr['uom'];?></td>
-        <td ><?php echo $arr['tax_pct'];?></td>
-        <td ><?php echo $arr['active'];?></td>
+        <td ><?= $arr['product_code'];?></td>
+        <td ><?= $arr['barcode'];?></td>
+        <td ><?= $arr['description'];?></td>
+        <td ><?= $arr['brand'];?></td>
+        <td ><?= $arr['dimension'];?></td>
+        <td ><?= $arr['weight'];?></td>
+        <td ><?= $arr['uom'];?></td>
+        <td ><?= $arr['tax_pct'];?></td>
+        <td ><?= $arr['active'];?></td>
         
       </tr>
 <?php } ?>

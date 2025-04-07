@@ -37,7 +37,7 @@ for ($i = 1; $i <= $jml_hari; $i++) {
 		$dataPOST = array(
 			"purchase_order_no" => $nopo,
 			"supplier_code" => $sup,
-			"document_date" => ""
+			"release_date" => ""
 		);
 
 		// save JSON File
@@ -63,6 +63,7 @@ for ($i = 1; $i <= $jml_hari; $i++) {
 					supplier_code,
 					document_date,
 					delivery_date,
+					release_date,
 					order_type,
 					category_code,
 					category_sub_code,
@@ -78,6 +79,7 @@ for ($i = 1; $i <= $jml_hari; $i++) {
 				)
 				values
 				(	
+					?,
 					?,
 					?,
 					?,

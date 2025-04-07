@@ -30,10 +30,10 @@ $ipaddress = '';
 echo " IP address -----------------------> ".$ipaddress."  <--------------------- <br>";
 
 ?>
-<?php echo $_SERVER['DOCUMENT_ROOT'];?><br>
-<?php echo $_SERVER["REMOTE_ADDR"];;?>
+<?= $_SERVER['DOCUMENT_ROOT'];?><br>
+<?= $_SERVER["REMOTE_ADDR"];;?>
 <br>
-<?php echo (int)('1000.00');?>
+<?= (int)('1000.00');?>
 <?php
 phpinfo();
 ?>

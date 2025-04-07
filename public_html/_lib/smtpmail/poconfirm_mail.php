@@ -1,9 +1,7 @@
 <?php
-//Import PHPMailer classes into the global namespace
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-//Load Composer's autoloader
 require 'librarysmtp/autoload.php';
 require 'mail_form.php';
 
@@ -11,7 +9,7 @@ $sql004 = "SELECT * FROM purchase_order_item WHERE purchase_order_no='" . $po_no
 $rs = $db->Execute($sql004);
 
 $mccode = '';
-$body = ''; // Initialize the body string to avoid undefined variable issues
+$body = '';
 while ($arr = $rs->FetchRow()) {
     $no++;
     $body .= '
@@ -28,23 +26,16 @@ while ($arr = $rs->FetchRow()) {
             </tr>';
     $mccode = $arr['category_code'];
 }
-
-//Create an instance; passing `true` enables exceptions
 $mail = new PHPMailer(true);
-
-try {
-    //Server settings
-    $mail->isSMTP();                                            // Send using SMTP
-    $mail->Host = $host;                                  // SMTP host
-    $mail->SMTPAuth = true;                                   // Enable SMTP authentication
-    $mail->Username = $username;                              // SMTP username
-    $mail->Password = $password;                              // SMTP password
-    $mail->SMTPSecure = 'SSL';          // Enable STARTTLS encryption
-    $mail->Port = 25;                                     // TCP port 25 for STARTTLS
-
-    //Recipients
-    $mail->setFrom($username, 'VMSMail');
-    $userto = "
+$mail->isSMTP();
+$mail->Host = $host;
+$mail->SMTPAuth = true;
+$mail->Username = $username;
+$mail->Password = $password;
+$mail->SMTPSecure = 'SSL';
+$mail->Port = 25;
+$mail->setFrom($username, 'VMSMail');
+$userto = "
                 SELECT * FROM email WHERE tb_id_user_type IN (7,8)
                 UNION ALL
                 SELECT a.* FROM email a
@@ -53,17 +44,16 @@ try {
                 UNION ALL
                 SELECT * FROM email WHERE tb_id_user_type IN (4) AND LEFT(username,4) = LEFT('" . $store_mail . "',4)
             ";
-    $userto = $db->Execute($userto);
+$userto = $db->Execute($userto);
 
-    while ($a = $userto->FetchRow()) {
-        $mail->addAddress($a['email']);
-    }
+while ($a = $userto->FetchRow()) {
+    $mail->addAddress($a['email']);
+}
 
-    //Content
-    $mail->addBCC($username);
-    $mail->isHTML(true); // Set email format to HTML
-    $mail->Subject = 'VMS: Confirm PO ' . $po_no;
-    $mail->Body = '
+$mail->addBCC($username);
+$mail->isHTML(true);
+$mail->Subject = 'VMS: Confirm PO ' . $po_no;
+$mail->Body = '
                     <p>Dear bapak/ibu,</p>
                     <p>FYI, Berikut list konfirmasi PO pada Proses PO di Vendor Management System ECI:</p>
                     <table border="1" cellpadding="0" cellspacing="0" width="100%">
@@ -78,8 +68,5 @@ try {
                         <th>Product</th>
                         <th>Description</th>
                     </tr>' . $body . '</table>';
-    $mail->send();
-    echo 'success';
-} catch (Exception $e) {
-    echo "failed: " . $mail->ErrorInfo;
-}
+$mail->send();
+echo 'success';

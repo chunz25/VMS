@@ -1,5 +1,12 @@
 <?php
-include_once('inc_condition2.php');
+include('inc_condition2.php');
+
+$libur = "SELECT * FROM harilibur";
+$libur = $db->Execute($libur);
+$b = array();
+while ($a = $libur->fetchRow()) {
+	array_push($b, $a['tgl']);
+}
 
 // Get supplier list for filter dropdown
 $sqlSupplier = "SELECT supplier_code, name FROM supplier WHERE supplier_code IN (SELECT * FROM vw_supplier)";
@@ -39,7 +46,6 @@ if (isset($_POST['date_from']) || isset($_SESSION['param_rs'])) {
 
 	$rs = $db->Execute($sql);
 } else {
-	// $sql_400402_02 = "SELECT * FROM vw_rsdispute";
 	$sql_400402_02 = "SELECT * FROM vw_rsdispute WHERE insert_date = CAST(now() as date) + 1 " . $sql_400401_01;
 	$rs = $db->Execute($sql_400402_02);
 }
@@ -53,29 +59,29 @@ if (isset($_POST['date_from']) || isset($_SESSION['param_rs'])) {
 		<div class="form-group col-sm-2">
 			<input type="text" class="form-control datepicker" id="date_from" name="date_from" autocomplete="off"
 				placeholder="Pilih Tanggal Awal" onkeypress="return false;" value="<?php if (isset($date_from)) {
-																						echo $date_from;
-																					} ?>">
+					echo $date_from;
+				} ?>">
 		</div>
 		<div class="form-group col-sm-2">
 			<input type="text" class="form-control datepicker" id="date_to" name="date_to" autocomplete="off"
 				placeholder="Pilih Tanggal Akhir" onkeypress="return false;" value="<?php if (isset($date_to)) {
-																						echo $date_to;
-																					} ?>">
+					echo $date_to;
+				} ?>">
 		</div>
 		<div class="form-group col-sm-3">
 			<select class="form-control" id="statuspo" name="statuspo">
 				<option value="" disabled selected hidden>Pilih Status</option>
 				<option value="0" <?php if ($status_po == '0')
-										echo 'selected' ?>>All</option>
-				<option value="51" <?php if ($status_po == '51')
-										echo 'selected' ?>>Proses Verifikasi</option>
-				<option value="54" <?php if ($status_po == '54')
-										echo 'selected' ?>>Verified</option>
-				<option value="53" <?php if ($status_po == '53')
-										echo 'selected' ?>>File Upload Tidak Sesuai</option>
-			</select>
-		</div>
-		<div class="form-group col-sm-3">
+					echo 'selected' ?>>All</option>
+					<option value="51" <?php if ($status_po == '51')
+					echo 'selected' ?>>Proses Verifikasi</option>
+					<option value="54" <?php if ($status_po == '54')
+					echo 'selected' ?>>Verified</option>
+					<option value="53" <?php if ($status_po == '53')
+					echo 'selected' ?>>File Upload Tidak Sesuai</option>
+				</select>
+			</div>
+			<div class="form-group col-sm-3">
 			<?php if ($_SESSION['supplier_code']) { ?>
 				<input type="text" id="supplier_type" name="supplier_type" value="<?= $_SESSION['supplier_code'] ?>" hidden>
 				<input type="text" class="form-control"
@@ -84,10 +90,10 @@ if (isset($_POST['date_from']) || isset($_SESSION['param_rs'])) {
 				<select class="form-control" id="supplier_type" name="supplier_type">
 					<option value="" disabled selected hidden>Pilih Supplier</option>
 					<option value="0" <?php if ($supplier_type == '0')
-											echo 'selected' ?>>All</option>
+						echo 'selected' ?>>All</option>
 					<?php while ($supplier = $dataSupplier->FetchRow()) { ?>
 						<option value="<?= $supplier['supplier_code']; ?>" <?php if ($supplier_type == $supplier['supplier_code'])
-																				echo 'selected' ?>>
+							  echo 'selected' ?>>
 							<?= $supplier['supplier_code'] . " - " . $supplier['name']; ?>
 						</option>
 					<?php } ?>
@@ -132,82 +138,74 @@ if (isset($_POST['date_from']) || isset($_SESSION['param_rs'])) {
 					} else {
 						$tombol_act = "Detail";
 					}
-			?>
-				<tr valign="top">
-					<td><?php echo $arr['rs_no_sap']; ?></td>
-					<td><?= $arr['insert_date']; ?></td>
-					<td><?php echo $arr['purchase_order_no']; ?></td>
-					<td><?php echo $arr['no_invoice_supplier']; ?></td>
-					<td><?php echo $arr['store_code']; ?></td>
-					<td><?php echo $arr['supplier_code']; ?></td>
-					<td><?php echo $arr['supplier_name']; ?></td>
-					<td align="right"><?php echo number_format($arr['total_amount'], 2); ?></td>
-					<td align="right"><?php echo number_format($arr['vat_amount'], 2); ?></td>
-					<td align="right"><?php echo number_format($arr['biaya_materai'], 2); ?></td>
-					<td align="right"><?php echo number_format(($arr['grand_total'] + $arr['biaya_materai']), 2); ?></td>
-					<td align="center">
-						<?php
-						if ($arr['status_invr'] == '51') { ?>
-							<span class="label label-info"> Proses Verifikasi</span>
-						<?php } ?>
-						<?php
-						if (($arr['status_invr'] == '53')) {
-
-							if ($_SESSION['tb_id_user_type'] == '5') {
-						?>
-								<?php
-								$tgl = array('13', '28');
-								$day = array('Sat', 'Sun');
-								$tglmerah = $b;
-								// var_dump($tgl);
-								if (in_array(date('d'), $tgl) || in_array(date('D'), $day) || in_array(date("Y-m-d"), $tglmerah)) {
-								?>
-									<a class="btn btn-danger btn-xs btn-flat"
-										onclick="alert('Tidak bisa kirim invoice, karena bukan tanggal operational tukar faktur');">File
-										Upload<br> Tidak Sesuai !</a>
-								<?php
-								} else {
-								?>
-									<a class="btn btn-danger btn-xs btn-flat"
-										onclick="bukaModalHelmizz301('#tempatmodalTF2','index.php?main=040&main_act=010&main_id=400405_01_05&po_no=<?php echo urlencode($arr['purchase_order_no']); ?>&gr_no=<?php echo urlencode($arr['goods_receive_no']); ?>&no_inv_sup=<?php echo urlencode($arr['no_invoice_supplier']); ?>','','#tampil2');">File
-										Upload<br> Tidak Sesuai !</a>
-								<?php
-								}
-								?>
-
-
+					?>
+					<tr valign="top">
+						<td><?= $arr['rs_no_sap']; ?></td>
+						<td><?= $arr['insert_date']; ?></td>
+						<td><?= $arr['purchase_order_no']; ?></td>
+						<td><?= $arr['no_invoice_supplier']; ?></td>
+						<td><?= $arr['store_code']; ?></td>
+						<td><?= $arr['supplier_code']; ?></td>
+						<td><?= $arr['supplier_name']; ?></td>
+						<td align="right"><?= number_format($arr['total_amount'], 2); ?></td>
+						<td align="right"><?= number_format($arr['vat_amount'], 2); ?></td>
+						<td align="right"><?= number_format($arr['biaya_materai'], 2); ?></td>
+						<td align="right"><?= number_format(($arr['grand_total'] + $arr['biaya_materai']), 2); ?></td>
+						<td align="center">
 							<?php
-							} else {
-							?>
-								<button class="btn btn-danger btn-xs btn-flat" data-toggle="modal" data-target="#add01">File
-									Upload<br> Tidak Sesuai !</button>
-							<?php }
-						}
-						if ($arr['status_invr'] == '54') { ?>
-							<span class="label label-info">Verified</span>
-						<?php } ?>
-					</td>
-					<td align="center">
-						<button class="btn btn-warning btn-xs btn-flat" data-toggle="modal" data-target="#add01"
-							onclick="cobayy('RECEIPT+SUPPLIER','400405_01_01','<?php echo urlencode($arr['no_invoice_supplier']); ?>&po_no=<?php echo urlencode($arr['purchase_order_no']); ?>&invrstat=<?php echo urlencode($arr['status_invr']); ?>');"><?php echo $tombol_act; ?></button>
-					</td>
-					<td align="center">
-						<?php
-						if (!$arr['proforma_invoice_no']) {
-						?>
+							if ($arr['status_invr'] == '51') { ?>
+								<span class="label label-info"> Proses Verifikasi</span>
+							<?php } ?>
+							<?php
+							if (($arr['status_invr'] == '53')) {
 
-						<?php
-						} else {
-						?>
-							<button class="btn btn-success btn-xs btn-flat" data-toggle="modal" data-target="#add01"
-								onclick="cobayy('PROFORMA+INVOICE','400403_03_01','<?php echo $arr['proforma_invoice_no']; ?>&param_menu4=<?php echo $arr['status_pfi']; ?>');"><?php echo "View"; ?>
-							</button>
-						<?php
-						}
-						?>
-					</td>
-				</tr>
-			<?php } ?>
+								if ($_SESSION['tb_id_user_type'] == '5') {
+									?>
+									<?php
+									$tgl = array('13', '28');
+									$day = array('Sat', 'Sun');
+									$tglmerah = $b;
+									if (in_array(date('d'), $tgl) || in_array(date('D'), $day) || in_array(date("Y-m-d"), $tglmerah)) {
+										?>
+										<a class="btn btn-danger btn-xs btn-flat"
+											onclick="alert('Tidak bisa kirim invoice, karena bukan tanggal operational tukar faktur');">File
+											Upload<br> Tidak Sesuai !</a>
+										<?php
+									} else {
+										?>
+										<a class="btn btn-danger btn-xs btn-flat"
+											onclick="bukaModalHelmizz301('#tempatmodalTF2','index.php?main=040&main_act=010&main_id=400405_01_05&po_no=<?= urlencode($arr['purchase_order_no']); ?>&gr_no=<?= urlencode($arr['goods_receive_no']); ?>&no_inv_sup=<?= urlencode($arr['no_invoice_supplier']); ?>','','#tampil2');">File
+											Upload<br> Tidak Sesuai !</a>
+										<?php
+									}
+								} else {
+									?>
+									<button class="btn btn-danger btn-xs btn-flat" data-toggle="modal" data-target="#add01">File
+										Upload<br> Tidak Sesuai !</button>
+								<?php }
+							}
+							if ($arr['status_invr'] == '54') { ?>
+								<span class="label label-info">Verified</span>
+							<?php } ?>
+						</td>
+						<td align="center">
+							<button class="btn btn-warning btn-xs btn-flat" data-toggle="modal" data-target="#add01"
+								onclick="cobayy('RECEIPT+SUPPLIER','400405_01_01','<?= urlencode($arr['no_invoice_supplier']); ?>&po_no=<?= urlencode($arr['purchase_order_no']); ?>&invrstat=<?= urlencode($arr['status_invr']); ?>');"><?= $tombol_act; ?></button>
+						</td>
+						<td align="center">
+							<?php
+							if (!$arr['proforma_invoice_no']) {
+							} else {
+								?>
+								<button class="btn btn-success btn-xs btn-flat" data-toggle="modal" data-target="#add01"
+									onclick="cobayy('PROFORMA+INVOICE','400403_03_01','<?= $arr['proforma_invoice_no']; ?>&param_menu4=<?= $arr['status_pfi']; ?>');"><?= "View"; ?>
+								</button>
+								<?php
+							}
+							?>
+						</td>
+					</tr>
+				<?php } ?>
 		</TBODY>
 	</table>
 </div>
@@ -225,7 +223,7 @@ if (isset($_POST['date_from']) || isset($_SESSION['param_rs'])) {
 
 <script type="text/javascript">
 	$('#tbRS').dataTable();
-	$(document).ready(function() {
+	$(document).ready(function () {
 		$(".datepicker").datepicker({
 			format: 'yyyy-mm-dd',
 			autoclose: true,
@@ -233,7 +231,7 @@ if (isset($_POST['date_from']) || isset($_SESSION['param_rs'])) {
 		});
 
 		// Filter button event
-		$('#filterBtn').on('click', function() {
+		$('#filterBtn').on('click', function () {
 			const date_from = $('#date_from').val();
 			const date_to = $('#date_to').val();
 			const status_po = $('#statuspo').val();

@@ -8,7 +8,7 @@ $rs = $db->Execute($sql);
 <!-- Content Header (Page header) -->
         <!-- <section class="content-header">
           <font size="10">
-           <b> <?php echo $_REQUEST["param_menu1"];?></b>
+           <b> <?= $_REQUEST["param_menu1"];?></b>
           </font>
           <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -23,7 +23,7 @@ $rs = $db->Execute($sql);
           <div class="box box-solid" id="isicontent1" style="padding:0px;" > <!--style="overflow-y:auto;padding:0px;"-->
             <!----> <div class="box-header with-border">
               <font size="3">
-           <b> <?php echo $_REQUEST["param_menu1"];?></b>
+           <b> <?= $_REQUEST["param_menu1"];?></b>
           </font>
               
             </div> 
@@ -54,17 +54,17 @@ $rs = $db->Execute($sql);
 <?php if ($rs) 
 while ($arr = $rs->FetchRow()) { ?>
       <tr valign="top">
-         <td ><?php echo $arr['document_date'];?></td>
-        <td ><?php echo $arr['payment_no'];?></td>
-        <td ><?php echo $arr['supplier_code'];?></td>
-        <td ><?php echo $arr['supplier_name'];?></td>
+         <td ><?= $arr['document_date'];?></td>
+        <td ><?= $arr['payment_no'];?></td>
+        <td ><?= $arr['supplier_code'];?></td>
+        <td ><?= $arr['supplier_name'];?></td>
        
-        <td ><?php echo $arr['payment_description'];?></td>
-        <td ><?php echo $arr['bank_account'];?></td>
-        <td ><?php echo $arr['bank_name'];?></td>
+        <td ><?= $arr['payment_description'];?></td>
+        <td ><?= $arr['bank_account'];?></td>
+        <td ><?= $arr['bank_name'];?></td>
         
-        <td align="right"><?php echo number_format($arr['total_amount'],2);?></td>
-        <td  align="center"><button class="btn btn-warning btn-xs btn-flat" data-toggle="modal" data-target="#add01" onclick="cobayy('PAYMENT+DETAIL','400701_00_01','<?php echo $arr['payment_no'];?>');" >VIEW DETAIL</button></td>
+        <td align="right"><?= number_format($arr['total_amount'],2);?></td>
+        <td  align="center"><button class="btn btn-warning btn-xs btn-flat" data-toggle="modal" data-target="#add01" onclick="cobayy('PAYMENT+DETAIL','400701_00_01','<?= $arr['payment_no'];?>');" >VIEW DETAIL</button></td>
        
       </tr>
 <?php } ?>

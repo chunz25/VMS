@@ -12,11 +12,11 @@
 	<div class="modal-dialog modal-lg">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h2 class="modal-title" id="exampleModalCenterTitle">REVISI INV RECEIPT # <?php echo $_REQUEST["po_no"]; ?></h2>
+				<h2 class="modal-title" id="exampleModalCenterTitle">REVISI INV RECEIPT # <?= $_REQUEST["po_no"]; ?></h2>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 			</div>
 			<div class="modal-body" align="left"> 
-				<embed src="_docs/FP/<?php echo $namafilepdf;?>" frameborder="0" width="100%" height="250px">	
+				<embed src="_docs/FP/<?= $namafilepdf;?>" frameborder="0" width="100%" height="250px">	
 				<br>			
                 <form role="form" id="my_form" action="index.php" method="post" enctype="multipart/form-data">
                   <div class="box-body">
@@ -24,8 +24,8 @@
 					 <input name="proses" type="radio" value="1" checked> Proses Manual
 					 
 					<label>HPP / VAT :</label></br>
-					 <input name="address" type="text" value="<?php echo number_format($data_header['total_amount']) ?>" size="45" disabled> 
-					 <input name="address" type="text" value="<?php echo number_format($data_header['vat_amount']) ?>" size="45" disabled >
+					 <input name="address" type="text" value="<?= number_format($data_header['total_amount']) ?>" size="45" disabled> 
+					 <input name="address" type="text" value="<?= number_format($data_header['vat_amount']) ?>" size="45" disabled >
 					 </br>					 
 					<label>Link :</label></br>
 					 <input name="address" type="text" value="" size="135"> </br>               
@@ -34,8 +34,8 @@
 					<input type="hidden" name="main" value="040">
 					<input type="hidden" name="main_act" value="010">
 					<input type="hidden" name="main_id" value="400205_02_02">
-					<input type="hidden" name="no_inv" value="<?php echo $data_header["invoice_no"]; ?>">
-					<input type="hidden" name="po_no" value="<?php echo $_REQUEST["po_no"]; ?>">
+					<input type="hidden" name="no_inv" value="<?= $data_header["invoice_no"]; ?>">
+					<input type="hidden" name="po_no" value="<?= $_REQUEST["po_no"]; ?>">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
 					<button type="submit"  class="btn btn-primary" >Submit</button>
                   </div>	

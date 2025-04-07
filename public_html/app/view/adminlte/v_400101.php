@@ -7,7 +7,7 @@
 <!-- Content Header (Page header) -->
         <!-- <section class="content-header">
           <font size="10">
-           <b> <?php echo $_REQUEST["param_menu1"];?></b>
+           <b> <?= $_REQUEST["param_menu1"];?></b>
           </font>
           <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -21,7 +21,7 @@
           <div class="box box-solid" id="isicontent1" style="padding:0px;" > <!--style="overflow-y:auto;padding:0px;"-->
             <!----> <div class="box-header with-border">
               <font size="3">
-           <b> <?php echo $_REQUEST["param_menu1"];?></b>
+           <b> <?= $_REQUEST["param_menu1"];?></b>
           </font>
               
             </div> 
@@ -48,15 +48,15 @@ $rs = $db->Execute($sql); ?>
 <?php if ($rs) 
 while ($arr = $rs->FetchRow()) { ?>
       <tr valign="top">
-        <td ><?php echo $arr['ta_application_id'];?></td>
-        <td ><?php echo $arr['application_cd'];?></td>
-        <td ><?php echo $arr['application_full_nm'];?></td>
-        <td ><?php echo $arr['application_short_nm'];?></td>
-        <td ><?php echo $arr['application_desc'];?></td>
-        <td ><?php echo $arr['application_version'];?></td>
-        <td ><?php echo $arr['application_logo_big'];?></td>
-        <td ><?php echo $arr['application_logo_small'];?></td>
-        <td ><?php echo $arr['application_seq'];?></td>
+        <td ><?= $arr['ta_application_id'];?></td>
+        <td ><?= $arr['application_cd'];?></td>
+        <td ><?= $arr['application_full_nm'];?></td>
+        <td ><?= $arr['application_short_nm'];?></td>
+        <td ><?= $arr['application_desc'];?></td>
+        <td ><?= $arr['application_version'];?></td>
+        <td ><?= $arr['application_logo_big'];?></td>
+        <td ><?= $arr['application_logo_small'];?></td>
+        <td ><?= $arr['application_seq'];?></td>
         
       </tr>
 <?php } ?>

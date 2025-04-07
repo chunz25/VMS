@@ -27,7 +27,7 @@ $rs = $db->Execute($sql002);
 		<div class="row">
 			<div class="col-xs-12">
 				<h2 class="page-header">
-					<?php echo $_REQUEST["param_menu1"]; ?> #<?php echo $_REQUEST["param_menu3"]; ?> [DISPUTE PRICE]
+					<?= $_REQUEST["param_menu1"]; ?> #<?= $_REQUEST["param_menu3"]; ?> [DISPUTE PRICE]
 				</h2>
 			</div><!-- /.col -->
 		</div>
@@ -36,48 +36,49 @@ $rs = $db->Execute($sql002);
 			<div class="col-sm-4 invoice-col">
 				From
 				<address>
-					<strong><?php echo $data_header_supplier["name"]; ?></strong><br>
-					<?php echo $data_header_supplier["address1"]; ?><br>
-					<?php echo $data_header_supplier["address2"]; ?>, <?php echo $data_header_supplier["city"]; ?><br>
-					Phone : <?php echo $data_header_supplier["phone"]; ?><br />
-					Email : <?php echo $data_header_supplier["email"]; ?><br />
-					Npwp : <?php echo $data_header_supplier["npwp"]; ?>
+					<strong><?= $data_header_supplier["name"]; ?></strong><br>
+					<?= $data_header_supplier["address1"]; ?><br>
+					<?= $data_header_supplier["address2"]; ?>, <?= $data_header_supplier["city"]; ?><br>
+					Phone : <?= $data_header_supplier["phone"]; ?><br />
+					Email : <?= $data_header_supplier["email"]; ?><br />
+					Npwp : <?= $data_header_supplier["npwp"]; ?>
 				</address>
 			</div><!-- /.col -->
 			<div class="col-sm-4 invoice-col">
 				To
 				<address>
-					<strong><?php echo $_MAIN__CONFIGS_040[4] ?></strong><br>
-					<strong>Store : <?php echo $data_header["store_code"] . " " . $data_header_store["name"]; ?></strong><br>
-					<?php echo $data_header_store["address"]; ?><br>
-					<?php echo $data_header_store["city"]; ?> <?php echo $data_header_store["zip_code"]; ?><br>
-					Phone: <?php echo $data_header_store["phone"]; ?><br />
-					Email: <?php echo $data_header_store["email"]; ?>
+					<strong><?= $_MAIN__CONFIGS_040[4] ?></strong><br>
+					<strong>Store :
+						<?= $data_header["store_code"] . " " . $data_header_store["name"]; ?></strong><br>
+					<?= $data_header_store["address"]; ?><br>
+					<?= $data_header_store["city"]; ?> <?= $data_header_store["zip_code"]; ?><br>
+					Phone: <?= $data_header_store["phone"]; ?><br />
+					Email: <?= $data_header_store["email"]; ?>
 				</address>
 			</div><!-- /.col -->
 			<div class="col-sm-4 invoice-col">
-				<b>Proforma Invoice No #<u><?php echo $_REQUEST["param_menu3"]; ?></u></b><br /><br />
+				<b>Proforma Invoice No #<u><?= $_REQUEST["param_menu3"]; ?></u></b><br /><br />
 				<table width="75%">
 					<tr>
 						<td><b>Supplier Code</b></td>
 						<td> : </td>
-						<td align="right"><?php echo $data_header_supplier["supplier_code"]; ?></td>
+						<td align="right"><?= $data_header_supplier["supplier_code"]; ?></td>
 					<tr>
 					<tr>
 						<td><b>PO No</b></td>
 						<td> : </td>
-						<td align="right"><?php echo $data_header['purchase_order_no']; ?></td>
+						<td align="right"><?= $data_header['purchase_order_no']; ?></td>
 					<tr>
 					<tr>
 						<td><b>GRN No</b></td>
 						<td> : </td>
-						<td align="right"><?php echo $data_header['goods_receive_no']; ?></td>
+						<td align="right"><?= $data_header['goods_receive_no']; ?></td>
 					<tr>
 
 					<tr>
 						<td><b>Received Date</b></td>
 						<td> : </td>
-						<td align="right"><?php echo $data_header["document_date"]; ?></td>
+						<td align="right"><?= $data_header["document_date"]; ?></td>
 					<tr>
 				</table>
 			</div><!-- /.col -->
@@ -97,34 +98,31 @@ $rs = $db->Execute($sql002);
 							<th align="right"><b>QUANTITY</b></th>
 							<th align="right"><b>UNIT PRICE</b></th>
 							<th align="right"><b>REVISION UNIT PRICE</b></th>
-							<!-- <th align="right"><b>AMOUNT</b></th>						
-						<th align="right"><b>TAX AMOUNT</b></th>	-->
 						</tr>
 					</THEAD>
 					<TBODY>
 						<?php if ($rs)
 							while ($arr = $rs->FetchRow()) { ?>
-							<tr valign="top">
-								<td align="right"><?php echo number_format($arr['line_item'], 0); ?></td>
-								<td><?php echo $arr['product_code']; ?></td>
-								<td><?php echo $arr['barcode']; ?></td>
-								<td><?php echo $arr['description']; ?></td>
-								<td align="right"><?php echo number_format($arr['tax_pct'], 0); ?></td>
-								<td align="right"><?php echo number_format($arr['quantity']); ?></td>
-								<td align="right"><?php echo number_format($arr['unit_price']); ?></td>
-								<td align="right"><input type="text" name="unit_price[<?php echo $arr['product_code']; ?>]" placeholder="only different qty" size="12"></td>
-								<!-- <td align="right"><?php echo number_format($arr['amount']); ?></td>					
-						<td align="right"><?php echo number_format($arr['vat_amount']); ?></td> -->
-								<td align="right"></td>
-							</tr>
-						<?php } ?>
+								<tr valign="top">
+									<td align="right"><?= number_format($arr['line_item'], 0); ?></td>
+									<td><?= $arr['product_code']; ?></td>
+									<td><?= $arr['barcode']; ?></td>
+									<td><?= $arr['description']; ?></td>
+									<td align="right"><?= number_format($arr['tax_pct'], 0); ?></td>
+									<td align="right"><?= number_format($arr['quantity']); ?></td>
+									<td align="right"><?= number_format($arr['unit_price']); ?></td>
+									<td align="right"><input type="text" name="unit_price[<?= $arr['product_code']; ?>]"
+											placeholder="only different qty" size="12"></td>
+									<td align="right"></td>
+								</tr>
+							<?php } ?>
 					</TBODY>
 				</TABLE>
 				<input type="hidden" name="main" value="040">
 				<input type="hidden" name="main_act" value="010">
 				<input type="hidden" name="main_id" value="400403_01_04">
-				<input type="hidden" name="proforma_invoice_no" value="<?php echo $_REQUEST["param_menu3"]; ?>">
-				<input type="hidden" name="revision_seq" value="<?php echo $data_header["revision_seq"]; ?>">
+				<input type="hidden" name="proforma_invoice_no" value="<?= $_REQUEST["param_menu3"]; ?>">
+				<input type="hidden" name="revision_seq" value="<?= $data_header["revision_seq"]; ?>">
 			</div><!-- /.col -->
 		</div><!-- /.row -->
 		<div class="row">
@@ -141,8 +139,11 @@ $rs = $db->Execute($sql002);
 
 			<div class="col-xs-12">
 				<div class="box-tools pull-right">
-					<a class="btn btn-default btn-flat btn-sm btn-info" onclick="cobayy('PROFORMA+INVOICE','400403_01_01','<?php echo $_REQUEST["param_menu3"]; ?>');"><i class="fa fa-edit"></i> <b>BACK TO PROFORMA INVOICE</b></a>
-					<button type="submit" class="btn btn-default btn-flat btn-sm btn-info"><i class="fa fa-edit"></i> <b>SUBMIT DISPUTE PRICE</b></button>
+					<a class="btn btn-default btn-flat btn-sm btn-info"
+						onclick="cobayy('PROFORMA+INVOICE','400403_01_01','<?= $_REQUEST["param_menu3"]; ?>');"><i
+							class="fa fa-edit"></i> <b>BACK TO PROFORMA INVOICE</b></a>
+					<button type="submit" class="btn btn-default btn-flat btn-sm btn-info"><i class="fa fa-edit"></i>
+						<b>SUBMIT DISPUTE PRICE</b></button>
 				</div>
 			</div>
 		</div>
@@ -150,9 +151,8 @@ $rs = $db->Execute($sql002);
 </section><!-- /.content -->
 <div class="clearfix"></div>
 <script>
-	$("#my_form").submit(function(event) {
+	$("#my_form").submit(function (event) {
 		if (confirm('Apakah Data Sudah diisi dengan benar ?')) {
-			//$('#loading').modal('show');
 			event.preventDefault(); //prevent default action 
 			var post_url = $(this).attr("action"); //get form action url
 			var request_method = $(this).attr("method"); //get form GET/POST method
@@ -164,12 +164,10 @@ $rs = $db->Execute($sql002);
 				contentType: false,
 				cache: false,
 				processData: false
-			}).done(function(response) { //
-				//$("#server-results").html(response);
-				// alert(response);
+			}).done(function (response) {
 				if (response == 'success') {
 					alert('Dispute price Sudah diproses, Menunggu confirm dari ELECTRONIC CITY ...');
-					cobayy('PROFORMA+INVOICE', '400403', '');
+					cobayy('PROFORMA+INVOICE', '400403', '1');
 				} else {
 					alert('Gagal dispute price...');
 					return false;

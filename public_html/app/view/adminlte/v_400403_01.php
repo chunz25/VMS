@@ -30,18 +30,18 @@ $rs = $db->Execute($sql_400402_02);
 			<?php if ($rs) 
 			while ($arr = $rs->FetchRow()) { ?>
 			  <tr valign="top">      
-				<td ><?php echo $arr['purchase_order_no'];?></td>
-				<td ><?php echo $arr['goods_receive_no'];?></td>
+				<td ><?= $arr['purchase_order_no'];?></td>
+				<td ><?= $arr['goods_receive_no'];?></td>
 				
-				<td ><?php echo $arr['store_code'];?></td>
-				<td ><?php echo $arr['supplier_code'];?></td>
-				<td ><?php echo $arr['supplier_name'];?></td>
-				<td ><?php echo $arr['department'];?></td>
-				<td ><?php echo $arr['document_date'];?></td>
-				<td ><?php echo number_format($arr['total_amount'],2);?></td>
-				<td  align="right"><?php echo number_format($arr['vat_amount'],2);?></td>
-				<td  align="right"><?php echo number_format($arr['grand_total'],2);?></td>
-				<td  align="center"><button class="btn btn-warning btn-xs btn-flat" data-toggle="modal" data-target="#add01" onclick="cobayy('PROFORMA+INVOICE','400403_01_01','<?php echo $arr['proforma_invoice_no'];?>');" >Proses</button></td>				
+				<td ><?= $arr['store_code'];?></td>
+				<td ><?= $arr['supplier_code'];?></td>
+				<td ><?= $arr['supplier_name'];?></td>
+				<td ><?= $arr['department'];?></td>
+				<td ><?= $arr['document_date'];?></td>
+				<td ><?= number_format($arr['total_amount'],2);?></td>
+				<td  align="right"><?= number_format($arr['vat_amount'],2);?></td>
+				<td  align="right"><?= number_format($arr['grand_total'],2);?></td>
+				<td  align="center"><button class="btn btn-warning btn-xs btn-flat" data-toggle="modal" data-target="#add01" onclick="cobayy('PROFORMA+INVOICE','400403_01_01','<?= $arr['proforma_invoice_no'];?>');" >Proses</button></td>				
 			  </tr>
 			<?php } ?>
 		</TBODY>

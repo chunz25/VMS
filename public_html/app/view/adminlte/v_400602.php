@@ -13,7 +13,7 @@ $rs = $db->Execute($sql);
           <div class="box box-solid" id="isicontent1" style="padding:0px;" > <!--style="overflow-y:auto;padding:0px;"-->
             <!----> <div class="box-header with-border">
               <font size="3">
-           <b> <?php echo $_REQUEST["param_menu1"];?></b>
+           <b> <?= $_REQUEST["param_menu1"];?></b>
           </font>
               
             </div> 
@@ -44,15 +44,15 @@ $rs = $db->Execute($sql);
 while ($arr = $rs->FetchRow()) { ?>
       <tr valign="top">
 
-        <td ><?php echo $arr['tax_file_name'];?></td>
+        <td ><?= $arr['tax_file_name'];?></td>
 
-        <td ><?php echo $arr['store_code'];?></td>
-        <td ><?php echo $arr['supplier_code'];?></td>
-        <td ><?php echo $arr['supplier_name'];?></td>
-        <td align="center" ><?php echo $arr['document_date'];?></td>
-        <td align="right"><?php echo number_format($arr['total_amount']);?></td>
-        <td align="center"><?php echo $arr['tax_reg_no'];?></td>
-        <td  align="center"><button class="btn btn-warning btn-xs btn-flat" data-toggle="modal" data-target="#add01" onclick="cobayy('DEBIT+NOTE','400602_00_01','<?php echo $arr['debit_note_no'];?>');" >VIEW DETAIL</button></td>
+        <td ><?= $arr['store_code'];?></td>
+        <td ><?= $arr['supplier_code'];?></td>
+        <td ><?= $arr['supplier_name'];?></td>
+        <td align="center" ><?= $arr['document_date'];?></td>
+        <td align="right"><?= number_format($arr['total_amount']);?></td>
+        <td align="center"><?= $arr['tax_reg_no'];?></td>
+        <td  align="center"><button class="btn btn-warning btn-xs btn-flat" data-toggle="modal" data-target="#add01" onclick="cobayy('DEBIT+NOTE','400602_00_01','<?= $arr['debit_note_no'];?>');" >VIEW DETAIL</button></td>
       </tr>
 <?php } ?>
 </TBODY>

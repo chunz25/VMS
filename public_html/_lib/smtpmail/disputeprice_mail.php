@@ -1,35 +1,29 @@
 <?php
-// Import PHPMailer classes into the global namespace
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-// Load Composer's autoloader and other required files
 require 'librarysmtp/autoload.php';
 require 'mail_form.php';
 
-try {
-    // Prepare query for dispute price data
-    $grQuery = "
+if (!isset($proforma_invoice_no) || empty($proforma_invoice_no)) {
+    throw new Exception("Invalid proforma_invoice_no.");
+}
+
+$grQuery = "
         SELECT * FROM vw_disputeprice
-        WHERE proforma_invoice_no = :proforma_invoice_no
+        WHERE proforma_invoice_no = '" . $proforma_invoice_no . "'
         ORDER BY CAST(line_item AS UNSIGNED)
     ";
 
-    // Prepare the statement
-    $grStmt = $db->prepare($grQuery);
-    $grStmt->execute(['proforma_invoice_no' => $proforma_invoice_no]);
+$grStmt = $db->execute($grQuery);
 
-    // Initialize email body
-    $body = '';
-    $mccode = '';
-    $no = 0;
+$body = '';
+$mccode = '';
+$no = 0;
 
-    // Fetch data for the email body using foreach
-    $results = $grStmt->fetchAll(PDO::FETCH_ASSOC);
-
-    foreach ($results as $arr) {
-        $no++;
-        $body .= '
+while ($arr = $grStmt->fetchRow()) {
+    $no++;
+    $body .= '
             <tr>
                 <td>' . htmlspecialchars($arr['purchase_order_no']) . '</td> 
                 <td>' . htmlspecialchars($arr['goods_receive_no']) . '</td> 
@@ -51,56 +45,50 @@ try {
                 <td>' . htmlspecialchars($arr['unit_price_rev6']) . '</td> 
                 <td>' . htmlspecialchars($arr['notercv']) . '</td> 
             </tr>';
-        $mccode = $arr['dept'];  // Keep track of the last 'dept' value
-    }
+    $mccode = $arr['dept'];
+}
 
-    // Prepare query to fetch user email addresses
-    $usertoQuery = "
+$usertoQuery = "
         SELECT a.email 
         FROM email a
         LEFT JOIN tb_user b ON b.username = a.username
         WHERE a.tb_id_user_type IN (2) 
           AND CONCAT(COALESCE(b.lock1, ''), COALESCE(b.lock2, ''), COALESCE(b.lock3, '')) 
-          LIKE CONCAT('%', LEFT(:mccode, 3), '%')
+          LIKE CONCAT('%', LEFT('" . $mccode . "', 3), '%')
     ";
 
-    // Prepare and execute statement for user emails
-    $usertoStmt = $db->prepare($usertoQuery);
-    $usertoStmt->execute(['mccode' => $mccode]);
+$usertoStmt = $db->execute($usertoQuery);
+$validRecipients = 0;
 
-    // Fetch email addresses for recipients
-    $usertoEmails = $usertoStmt->fetchAll(PDO::FETCH_ASSOC);
+$mail = new PHPMailer(true);
+$mail->isSMTP();
+$mail->Host = $host;
+$mail->SMTPAuth = true;
+$mail->Username = $username;
+$mail->Password = $password;
+$mail->SMTPSecure = 'SSL';
+$mail->Port = 25;
+$mail->setFrom($username, 'VMSMail');
 
-    // Initialize PHPMailer
-    $mail = new PHPMailer(true);
-
-    // Server settings
-    $mail->isSMTP();
-    $mail->Host = $host;         // SMTP server hostname
-    $mail->SMTPAuth = true;
-    $mail->Username = $username;     // SMTP username
-    $mail->Password = $password;     // SMTP password
-    $mail->SMTPSecure = 'SSL';  // Use SSL encryption
-    $mail->Port = 25;  // Set the correct SMTP port          // TCP port for SSL
-
-    // Set sender email address
-    $mail->setFrom($username, 'VMSMail');
-
-    // Add recipients from the fetched email addresses
-    foreach ($usertoEmails as $email) {
-        $mail->addAddress($email['email']);
+while ($email = $usertoStmt->fetchRow()) {
+    $emailAddress = trim($email['email']);
+    if (filter_var($emailAddress, FILTER_VALIDATE_EMAIL)) {
+        $mail->addAddress($emailAddress);
+        $validRecipients++;
     }
+}
 
-    // Add BCC
-    $mail->addBCC($username);
+if ($validRecipients === 0) {
+    throw new Exception("No valid recipient emails found.");
+}
 
-    // Set email format to HTML
-    $mail->isHTML(true);
-    $mail->Subject = 'VMS: Dispute Price ' . htmlspecialchars($proforma_invoice_no);
-    $mail->Body = '
+$mail->addBCC($username);
+$mail->isHTML(true);
+$mail->Subject = 'VMS: Dispute Price ' . htmlspecialchars($proforma_invoice_no);
+$mail->Body = '
         <p>Dear Bapak/Ibu,</p>
         <p>FYI, berikut list Request Dispute Price pada proses invoice yang diajukan oleh vendor di Vendor Management System ECI:</p>
-        <table border="1" cellpadding="0" cellspacing="0" width="100%">
+        <table border="1" cellpadding="5" cellspacing="0" width="100%">
             <tr>
                 <th>Purchase Order</th>
                 <th>Receipt No</th>
@@ -124,13 +112,6 @@ try {
             </tr>' . $body . '
         </table>
         <p>Mohon untuk segera diproses.</p>
-        <p><a href="https://vmsdev.electronic-city.biz/">Vendor Management System</a></p>';
-
-    // Send email
-    $mail->send();
-    echo 'Success';
-} catch (Exception $e) {
-    echo "Email failed to send. Mailer Error: {$mail->ErrorInfo}";
-} catch (PDOException $e) {
-    echo "Database error: " . $e->getMessage();
-}
+        <p><a href="' . $base_url . '">Vendor Management System</a></p>';
+$mail->send();
+echo 'success';

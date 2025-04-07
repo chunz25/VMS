@@ -17,10 +17,10 @@ $rs = $db->Execute($sql);
 <?php if ($rs) 
 while ($arr = $rs->FetchRow()) { ?>
       <tr valign="top">  
-        <td ><?php echo $arr['email'];?></td>
-        <td ><?php echo $arr['username'];?></td>      
-        <td ><?php echo $arr['employee_no'];?></td>
-        <td ><?php echo $arr['store_code'];?></td>
+        <td ><?= $arr['email'];?></td>
+        <td ><?= $arr['username'];?></td>      
+        <td ><?= $arr['employee_no'];?></td>
+        <td ><?= $arr['store_code'];?></td>
       </tr>
 <?php } ?>
 </TBODY>

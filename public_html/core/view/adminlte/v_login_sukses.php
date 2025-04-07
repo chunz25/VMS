@@ -3,9 +3,9 @@
 
 <head>
   <meta charset="UTF-8">
-  <title><?php echo $_MAIN__CONFIGS_010[3]; ?></title>
+  <title><?= $_MAIN__CONFIGS_010[3]; ?></title>
   <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-  <link rel="icon" type="image/png" href="<?php echo $_MAIN__CONFIGS_010[7]; ?>">
+  <link rel="icon" type="image/png" href="<?= $_MAIN__CONFIGS_010[7]; ?>">
   <link href="themes/admin_LTE/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
   <link href="themes/admin_LTE/bootstrap/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
   <link href="themes/admin_LTE/bootstrap/css/ionicons.min.css" rel="stylesheet" type="text/css" />
@@ -20,14 +20,12 @@
 <!-- ADD THE CLASS fixed TO GET A FIXED HEADER AND SIDEBAR LAYOUT -->
 <!-- the fixed layout is not compatible with sidebar-mini -->
 
-<body class="<?php echo $_MAIN__CONFIGS_010[9]; ?>">
+<body class="<?= $_MAIN__CONFIGS_010[9]; ?>">
   <!-- Site wrapper -->
   <div class="wrapper">
-    <?php // include "main_030_01.php" 
-    ?>
     <!-- =============================================== -->
     <header class="main-header">
-      <a href="#" class="logo"><img src="<?php echo $_MAIN__CONFIGS_030[10]; ?>"></img></a>
+      <a href="#" class="logo"><img src="<?= $_MAIN__CONFIGS_030[10]; ?>"></img></a>
       <!-- Header Navbar: style can be found in header.less -->
       <nav class="navbar navbar-static-top" role="navigation">
         <!-- Sidebar toggle button-->
@@ -51,10 +49,6 @@
 
       </nav>
     </header>
-    <!-- =============================================== -->
-    <!-- Left side column. contains the sidebar -->
-    <?php // include "main_030_02.php" 
-    ?>
     <!-- =============================================== -->
     <?php
     switch ($_SESSION['tb_id_user_type']) {
@@ -109,7 +103,7 @@
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu">
           <li class="header">
-            <h5><b><?php echo $info4; ?></b></h5>
+            <h5><b><?= $info4; ?></b></h5>
             <hr>
           </li>
           <li>
@@ -127,16 +121,16 @@
               ?>
               <li class="treeview">
                 <a href="#">
-                  <i class="fa fa-dashboard"></i> <span><?php echo $colmenu1; ?></span> <i
+                  <i class="fa fa-dashboard"></i> <span><?= $colmenu1; ?></span> <i
                     class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
                   <?php
                   foreach ($_CONFIGS_SUBMENU[$row1][$rowmenu1] as $rowsubmenu1 => $colsubmenu1) { ?>
                     <li><a href="#"
-                        onclick="cobaxx('<?php echo urlencode($colsubmenu1); ?>','<?php echo urlencode($rowsubmenu1); ?>');">
-                        <i class="fa fa-circle-o"></i> <?php echo $colsubmenu1; ?>
-                        <!-- [<?php echo $rowsubmenu1; ?>] -->
+                        onclick="cobaxx('<?= urlencode($colsubmenu1); ?>','<?= urlencode($rowsubmenu1); ?>');">
+                        <i class="fa fa-circle-o"></i> <?= $colsubmenu1; ?>
+                        <!-- [<?= $rowsubmenu1; ?>] -->
                       </a>
                     </li>
                   <?php } ?>
@@ -157,7 +151,7 @@
           </a>
         </li>-->
           <li>
-            <a href="<?php echo $_MAIN__CONFIGS_000[2] . "logout.php" ?>">
+            <a href="<?= $_MAIN__CONFIGS_000[2] . "logout.php" ?>">
               <i class="fa fa-calendar"></i> <span>LOGOUT</span>
             </a>
           </li>
@@ -181,7 +175,7 @@
   <script src="themes/admin_LTE/plugins/datatables/jquery.dataTables.js" type="text/javascript"></script>
   <script src="themes/admin_LTE/plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
   <!-- SlimScroll -->
-  <script src="themes/admin_LTE/plugins/slimScroll/jquery.slimScroll.min.js" type="text/javascript"></script>
+  <script src="themes/admin_LTE/plugins/slimScroll/jquery.slimscroll.min.js" type="text/javascript"></script>
   <!-- FastClick -->
   <script src='themes/admin_LTE/plugins/fastclick/fastclick.min.js'></script>
   <!-- AdminLTE App -->

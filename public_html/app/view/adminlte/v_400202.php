@@ -1,7 +1,7 @@
 <!-- Content Header (Page header) -->
         <!-- <section class="content-header">
           <font size="10">
-           <b> <?php echo $_REQUEST["param_menu1"];?></b>
+           <b> <?= $_REQUEST["param_menu1"];?></b>
           </font>
           <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -15,7 +15,7 @@
           <div class="box box-solid" id="isicontent1" style="padding:0px;" > <!--style="overflow-y:auto;padding:0px;"-->
             <!----> <div class="box-header with-border">
               <font size="3">
-           <b> <?php echo $_REQUEST["param_menu1"];?></b>
+           <b> <?= $_REQUEST["param_menu1"];?></b>
           </font>
               
             </div> 
@@ -45,15 +45,15 @@ $rs = $db->Execute($sql); ?>
 while ($arr = $rs->FetchRow()) { ?>
       <tr valign="top">
        
-        <td ><?php echo $arr['supplier_code'];?></td>
-        <td ><?php echo $arr['name'];?></td>
-        <td ><?php echo $arr['address1'];?></td>
-        <td ><?php echo $arr['address2'];?></td>
-        <td ><?php echo $arr['city'];?></td>
-        <td ><?php echo $arr['npwp'];?></td>
+        <td ><?= $arr['supplier_code'];?></td>
+        <td ><?= $arr['name'];?></td>
+        <td ><?= $arr['address1'];?></td>
+        <td ><?= $arr['address2'];?></td>
+        <td ><?= $arr['city'];?></td>
+        <td ><?= $arr['npwp'];?></td>
        
-        <td ><?php echo $arr['category_supplier'];?></td>
-        <td ><?php echo $arr['department'];?></td>
+        <td ><?= $arr['category_supplier'];?></td>
+        <td ><?= $arr['department'];?></td>
       </tr>
 <?php } ?>
 </TBODY>

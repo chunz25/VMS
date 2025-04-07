@@ -1,29 +1,23 @@
 <?php
-// Import PHPMailer classes into the global namespace
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-// Load Composer's autoloader
 require 'librarysmtp/autoload.php';
 require 'mail_form.php';
 
-// Get the goods_receive_no from the request
 $goods_receive_no = $_REQUEST['main_id_key'];
 
-// Initialize $body variable
 $body = '';
 
-// SQL query to retrieve dispute quantity data, using prepared statements to prevent SQL injection
 $grQuery = "
     SELECT * FROM vw_disputeqty 
-    WHERE goods_receive_no = :goods_receive_no
+    WHERE goods_receive_no = '" . $goods_receive_no . "'
     ORDER BY CAST(line_item AS UNSIGNED)
 ";
-$grStmt = $db->prepare($grQuery);
-$grStmt->execute(['goods_receive_no' => $goods_receive_no]);
+$grStmt = $db->execute($grQuery);
 
 $suppliercode = '';
-while ($arr = $grStmt->fetch(PDO::FETCH_ASSOC)) {
+while ($arr = $grStmt->fetchRow()) {
     $body .= '
         <tr>
             <td>' . htmlspecialchars($arr['purchase_order_no']) . '</td> 
@@ -42,38 +36,28 @@ while ($arr = $grStmt->fetch(PDO::FETCH_ASSOC)) {
     $suppliercode = htmlspecialchars($arr['supplier_code']);
 }
 
-// Create an instance of PHPMailer
 $mail = new PHPMailer(true);
-
-try {
-    // Server settings
-    $mail->isSMTP();                                        // Send using SMTP
-    $mail->Host = $host;                              // SMTP host
-    $mail->SMTPAuth = true;                               // Enable SMTP authentication
-    $mail->Username = $username;                          // SMTP username
-    $mail->Password = $password;                          // SMTP password
-    $mail->SMTPSecure = 'SSL';  // Use SSL encryption
-    $mail->Port = 25;  // Set the correct SMTP port                       
-
-    // Recipients
-    $mail->setFrom($username, 'VMSMail');
-
-    // Query to fetch recipient email addresses
-    $usertoQuery = "
-        SELECT * FROM email WHERE tb_id_user_type IN (5) AND username = :suppliercode
+$mail->isSMTP();
+$mail->Host = $host;
+$mail->SMTPAuth = true;
+$mail->Username = $username;
+$mail->Password = $password;
+$mail->SMTPSecure = 'SSL';
+$mail->Port = 25;
+$mail->setFrom($username, 'VMSMail');
+$usertoQuery = "
+        SELECT * FROM email WHERE tb_id_user_type IN (5) AND username = '" . $suppliercode . "'
     ";
-    $usertoStmt = $db->prepare($usertoQuery);
-    $usertoStmt->execute(['suppliercode' => $suppliercode]);
+$usertoStmt = $db->execute($usertoQuery);
 
-    while ($a = $usertoStmt->fetch(PDO::FETCH_ASSOC)) {
-        $mail->addAddress($a['email']);
-    }
+while ($a = $usertoStmt->fetchRow()) {
+    $mail->addAddress($a['email']);
+}
 
-    // Content
-    $mail->addBCC($username);
-    $mail->isHTML(true);                                   // Set email format to HTML
-    $mail->Subject = 'VMS: Confirm Dispute QTY ' . htmlspecialchars($goods_receive_no);
-    $mail->Body = '
+$mail->addBCC($username);
+$mail->isHTML(true);
+$mail->Subject = 'VMS: Confirm Dispute QTY ' . htmlspecialchars($goods_receive_no);
+$mail->Body = '
         <p>Dear Bapak/Ibu,</p>
         <p>FYI, berikut list Approved atas Request Dispute Qty pada Proses Invoice yang diajukan oleh tim Anda di Vendor Management System ECI:</p>
         <table border="1" cellpadding="0" cellspacing="0" width="100%">
@@ -92,11 +76,7 @@ try {
                 <th>Qty Revisi</th>
             </tr>' . $body . '</table>
         <p>Mohon untuk segera diproses.</p>
-        <p><a href="https://vmsdev.electronic-city.biz/">Vendor Management System ECI</a></p>';
+        <p><a href="' . $base_url . '">Vendor Management System ECI</a></p>';
 
-    // Send email
-    $mail->send();
-    echo 'success';
-} catch (Exception $e) {
-    echo "Email failed to send. Error: {$mail->ErrorInfo}";
-}
+$mail->send();
+echo 'success';

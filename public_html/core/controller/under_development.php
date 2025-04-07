@@ -1,7 +1,7 @@
 <!-- Content Header (Page header) -->
 <!-- <section class="content-header">
           <font size="10">
-           <b> <?php echo $_REQUEST["param_menu1"]; ?></b>
+           <b> <?= $_REQUEST["param_menu1"]; ?></b>
           </font>
           <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -16,7 +16,7 @@
     <!---->
     <div class="box-header with-border">
       <font size="3">
-        <b> <?php echo $_REQUEST["param_menu1"]; ?></b>
+        <b> <?= $_REQUEST["param_menu1"]; ?></b>
       </font>
       <div class="box-tools pull-right">
         <button class="btn btn-primary btn-xs btn-flat" data-toggle="modal" data-target="#add01" onclick="klikallcekbox();">SELECT ALL</button>

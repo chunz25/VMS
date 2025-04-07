@@ -36,7 +36,7 @@
           <div class="row">
             <div class="col-xs-12">
 				<h2 class="page-header">
-					<?php echo $_REQUEST["param_menu1"];?> #<?php echo $_REQUEST["param_menu3"];?>
+					<?= $_REQUEST["param_menu1"];?> #<?= $_REQUEST["param_menu3"];?>
 				</h2>			  
             </div><!-- /.col -->
           </div>
@@ -45,52 +45,52 @@
 		   <div class="col-sm-4 invoice-col">
               From
                <address>
-                <strong><?php echo $data_header_supplier[name];?></strong><br>
-                <?php echo $data_header_supplier[address1];?><br>
-                <?php echo $data_header_supplier[address2];?>, <?php echo $data_header_supplier[city];?><br>
-                Phone : <?php echo $data_header_supplier[phone];?><br/>
-                Email : <?php echo $data_header_supplier[email];?><br/>
-				Npwp : <?php echo $data_header_supplier[npwp];?>
+                <strong><?= $data_header_supplier[name];?></strong><br>
+                <?= $data_header_supplier[address1];?><br>
+                <?= $data_header_supplier[address2];?>, <?= $data_header_supplier[city];?><br>
+                Phone : <?= $data_header_supplier[phone];?><br/>
+                Email : <?= $data_header_supplier[email];?><br/>
+				Npwp : <?= $data_header_supplier[npwp];?>
               </address>
             </div><!-- /.col -->
             <div class="col-sm-4 invoice-col">
               To
                <address>
-                <strong><?php echo $_MAIN__CONFIGS_040[4] ?></strong><br>
-                <strong>Store : <?php echo $data_header[store_code]." ".$data_header_store[name];?></strong><br>
-                <?php echo $data_header_store[address];?><br>
-                <?php echo $data_header_store[city];?> <?php echo $data_header_store[zip_code];?><br>
-                Phone: <?php echo $data_header_store[phone];?><br/>
-                Email: <?php echo $data_header_store[email];?>
+                <strong><?= $_MAIN__CONFIGS_040[4] ?></strong><br>
+                <strong>Store : <?= $data_header[store_code]." ".$data_header_store[name];?></strong><br>
+                <?= $data_header_store[address];?><br>
+                <?= $data_header_store[city];?> <?= $data_header_store[zip_code];?><br>
+                Phone: <?= $data_header_store[phone];?><br/>
+                Email: <?= $data_header_store[email];?>
               </address>
             </div><!-- /.col -->          
             <div class="col-sm-4 invoice-col">
-             <b>Goods Receive Note No #<u><?php echo $_REQUEST["param_menu3"];?></u></b><br/><br/>            
+             <b>Goods Receive Note No #<u><?= $_REQUEST["param_menu3"];?></u></b><br/><br/>            
 			  <table width="75%">
 				  <tr>
 					  <td><b>Supplier Code</b></td>
 					  <td> : </td>
-					  <td align="right"><?php echo $data_header_supplier[supplier_code];?></td>
+					  <td align="right"><?= $data_header_supplier[supplier_code];?></td>
 				  <tr>
 				   <tr>
 					  <td><b>Order No</b></td>
 					  <td> : </td>
-					  <td align="right"><?php echo $data_header[purchase_order_no];?></td>
+					  <td align="right"><?= $data_header[purchase_order_no];?></td>
 				  <tr>
 				  <tr>
 					  <td><b>Order Date</b></td>
 					  <td> : </td>
-					  <td align="right"><?php echo $data_header_po[document_date];?></td>
+					  <td align="right"><?= $data_header_po[document_date];?></td>
 				  <tr>
 				  <tr>
 					  <td><b>Expected Delivery Date</b></td>
 					  <td> : </td>
-					  <td align="right"><?php echo $data_header_po[delivery_date];?></td>
+					  <td align="right"><?= $data_header_po[delivery_date];?></td>
 				  <tr>
 				  <tr>
 					  <td><b>Received Date</b></td>
 					  <td> : </td>
-					  <td align="right"><?php echo $data_header[document_date];?></td>
+					  <td align="right"><?= $data_header[document_date];?></td>
 				  <tr>
 			  </table>            
             </div><!-- /.col -->
@@ -117,14 +117,14 @@
 						<?php if ($rs) 
 						while ($arr = $rs->FetchRow()) { ?>
 						  <tr valign="top">					
-							<td align="right"><?php echo number_format($arr['line_item'],0);?></td>
-							<td ><?php echo $arr['product_code'];?></td>
-							<td ><?php echo $arr['barcode'];?></td>
-							<td ><?php echo $arr['description'];?></td>
-							<td ><?php echo $arr['unit'];?></td>
-							<td align="right"><?php echo number_format($arr['po_quantity']);?></td>
-							<td align="right"><?php echo number_format($arr['quantity']);?></td>	
-							<td align="right"><?php echo number_format(($arr['quantity']/$arr['po_quantity'])*100);?>%</td>	
+							<td align="right"><?= number_format($arr['line_item'],0);?></td>
+							<td ><?= $arr['product_code'];?></td>
+							<td ><?= $arr['barcode'];?></td>
+							<td ><?= $arr['description'];?></td>
+							<td ><?= $arr['unit'];?></td>
+							<td align="right"><?= number_format($arr['po_quantity']);?></td>
+							<td align="right"><?= number_format($arr['quantity']);?></td>	
+							<td align="right"><?= number_format(($arr['quantity']/$arr['po_quantity'])*100);?>%</td>	
 						  </tr>
 						<?php } ?>
 					</TBODY>
@@ -150,9 +150,9 @@
 					<!-- button 1 --------- -->
 					<a class="btn btn-default btn-flat btn-sm btn-info"  onclick="cobayy('GOODS+RECEIVE','400402','&param_menu4=1');"><i class="fa fa-edit"></i> <b>BACK TO LIST GR</b></a>
 					<!-- button 2 ---------- -->
-						<a class="btn btn-default btn-flat btn-sm btn-default"  onclick="bukaModalHelmizz301('#tempatmodal','index.php?main=040&main_act=010&main_id=400401_90&po_no=<?php echo urlencode($data_header['purchase_order_no']); ?>','','#tampil3');"><i class="fa fa-print"></i> <b>PRINT PO</b></a>
+						<a class="btn btn-default btn-flat btn-sm btn-default"  onclick="bukaModalHelmizz301('#tempatmodal','index.php?main=040&main_act=010&main_id=400401_90&po_no=<?= urlencode($data_header['purchase_order_no']); ?>','','#tampil3');"><i class="fa fa-print"></i> <b>PRINT PO</b></a>
 					<!-- button 3 ---------- -->
-					<a class="btn btn-default btn-flat btn-sm btn-default"  onclick="bukaModalHelmizz301('#tempatmodal','index.php?main=040&main_act=010&main_id=400401_91&goods_receive_no=<?php echo urlencode($data_header['goods_receive_no']); ?>&po_no=<?php echo urlencode($data_header['purchase_order_no']); ?>','','#tampil4');"><i class="fa fa-print"></i> <b>PRINT GRN</b></a>
+					<a class="btn btn-default btn-flat btn-sm btn-default"  onclick="bukaModalHelmizz301('#tempatmodal','index.php?main=040&main_act=010&main_id=400401_91&goods_receive_no=<?= urlencode($data_header['goods_receive_no']); ?>&po_no=<?= urlencode($data_header['purchase_order_no']); ?>','','#tampil4');"><i class="fa fa-print"></i> <b>PRINT GRN</b></a>
 				
 				</div>				
 				
@@ -162,15 +162,15 @@
 					'Apakah Data quantity sudah benar dan sesuai...?',
 					'index.php',
 					'400402_01_02',
-					'<?php echo $_REQUEST["param_menu3"]; ?>',
+					'<?= $_REQUEST["param_menu3"]; ?>',
 					'Data Berhasil Disimpan, Proses selanjutnya.. Proforma Invoice ',
 					'PROFORMA+INVOICE',
 					'400403_01_01',
-					'PFI3<?php echo $_REQUEST["param_menu3"]; ?>',
+					'PFI3<?= $_REQUEST["param_menu3"]; ?>',
 					'Gagal Data Proses masuk ke system, Silahkan dicoba lagi. '
 					)"><i class="fa fa-edit"></i> <b>PROCESS TO PFI</b></a>
 					<!-- button 5 -------- -->
-					<a class="btn btn-default btn-flat btn-sm btn-danger" onclick="dispute_process('Apakah Anda Yakin akan memproses dispute quantity.... ?','GOODS+RECEIVE','400402_01_03','<?php echo $data_header['goods_receive_no'];?>')"><i class="fa fa-edit"></i><b>DISPUTE QUANTITY</b></a>					
+					<a class="btn btn-default btn-flat btn-sm btn-danger" onclick="dispute_process('Apakah Anda Yakin akan memproses dispute quantity.... ?','GOODS+RECEIVE','400402_01_03','<?= $data_header['goods_receive_no'];?>')"><i class="fa fa-edit"></i><b>DISPUTE QUANTITY</b></a>					
 				</div> 				
             </div>
           </div>

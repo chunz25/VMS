@@ -15,7 +15,7 @@ $tab_content_file = array("400403_01", "400403_02", "400403_03"); //,"400403_03"
 <section class="content" style="padding:3px;">
 	<div class="box box-solid" id="isicontentovl" style="padding:0px;"> <!--style="overflow-y:auto;padding:0px;"-->
 		<div class="box-header with-border">
-			<font size="3"><b> <?php echo $_REQUEST["param_menu1"]; ?></b></font>
+			<font size="3"><b> <?= $_REQUEST["param_menu1"]; ?></b></font>
 		</div>
 		<div class="box-body" style="padding:2px;">
 			<div class="nav-tabs-custom">
@@ -23,9 +23,11 @@ $tab_content_file = array("400403_01", "400403_02", "400403_03"); //,"400403_03"
 					<?php
 					foreach ($tab_title as $tab_title_index => $tab_title_content) {
 						$tab_class = ($tab_title_index == $tab_status_active) ? "active" : "";
-					?>
-						<li class="<?php echo $tab_class ?>" style="<?php echo $style_tab; ?>"><a href="#<?php echo $tab_ahref[$tab_title_index]; ?>" data-toggle="tab"><?php echo $tab_title_content; ?></a></li>
-					<?php
+						?>
+						<li class="<?= $tab_class ?>" style="<?= $style_tab; ?>"><a
+								href="#<?= $tab_ahref[$tab_title_index]; ?>"
+								data-toggle="tab"><?= $tab_title_content; ?></a></li>
+						<?php
 					}
 					?>
 				</ul>
@@ -34,11 +36,11 @@ $tab_content_file = array("400403_01", "400403_02", "400403_03"); //,"400403_03"
 				<?php
 				foreach ($tab_ahref as $tab_ahref_index => $tab_ahref_content) {
 					$tab_class2 = ($tab_ahref_index == $tab_status_active) ? "tab-pane active" : "tab-pane";
-				?>
-					<div class="<?php echo $tab_class2 ?>" id="<?php echo $tab_ahref_content ?>">
+					?>
+					<div class="<?= $tab_class2 ?>" id="<?= $tab_ahref_content ?>">
 						<?php include $tab_content_file[$tab_ahref_index] . ".php"; ?>
 					</div>
-				<?php
+					<?php
 				}
 				?>
 			</div>

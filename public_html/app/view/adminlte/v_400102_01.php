@@ -23,15 +23,15 @@ $wa_address="https://api.whatsapp.com/send?phone=".$hp."&text=Halo%20Supplier%0A
       <tr valign="top">  
        
         <td ><button class="btn btn-info btn-xs" ><i class="fa fa-times" alt="delete this row"></i></button></td>
-		 <td ><?php echo $arr['email'];?></td>
-        <td ><?php echo $arr['username'];?></td>      
-        <td ><?php echo $arr['employee_no'];?></td>
-        <td ><?php echo $arr['store_code'];?></td>
+		 <td ><?= $arr['email'];?></td>
+        <td ><?= $arr['username'];?></td>      
+        <td ><?= $arr['employee_no'];?></td>
+        <td ><?= $arr['store_code'];?></td>
         <td align="center" >
-		<a href="<?php echo $wa_address;?>" target="whatsappWeb"><button class="btn btn-info btn-xs btn-flat"  data-toggle="tooltip" title="Chat via WhatsApp Web <?php echo $hp;?> " ><i class="fa fa-whatsapp"></i></button></a>
-		<button class="btn btn-info btn-xs btn-flat" onclick="mailto:('<?php echo $email;?>');" data-toggle="tooltip" title="Send Email <?php echo $hp;?> " ><i class="fa fa-envelope"></i></button>
-		<button class="btn btn-warning btn-xs btn-flat" onclick="window.open('<?php echo $wa_address;?>');" data-toggle="tooltip" title="Reset Password <?php echo $hp;?> " ><i class="fa fa-wrench"></i></button>
-		<button class="btn btn-info btn-xs btn-flat" onclick="window.open('<?php echo $wa_address;?>');" data-toggle="tooltip" title="See Detail <?php echo $hp;?> " ><i class="fa fa-search"></i></button>
+		<a href="<?= $wa_address;?>" target="whatsappWeb"><button class="btn btn-info btn-xs btn-flat"  data-toggle="tooltip" title="Chat via WhatsApp Web <?= $hp;?> " ><i class="fa fa-whatsapp"></i></button></a>
+		<button class="btn btn-info btn-xs btn-flat" onclick="mailto:('<?= $email;?>');" data-toggle="tooltip" title="Send Email <?= $hp;?> " ><i class="fa fa-envelope"></i></button>
+		<button class="btn btn-warning btn-xs btn-flat" onclick="window.open('<?= $wa_address;?>');" data-toggle="tooltip" title="Reset Password <?= $hp;?> " ><i class="fa fa-wrench"></i></button>
+		<button class="btn btn-info btn-xs btn-flat" onclick="window.open('<?= $wa_address;?>');" data-toggle="tooltip" title="See Detail <?= $hp;?> " ><i class="fa fa-search"></i></button>
 		</td>
       </tr>
 <?php } ?>

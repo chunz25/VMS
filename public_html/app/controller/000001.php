@@ -46,7 +46,7 @@ $info2 = $_SESSION['username'];
 <!-- Content Header (Page header) -->
 <section class="content-header">
   <h1>
-    <?php echo $_REQUEST["param_menu1"]; ?>
+    <?= $_REQUEST["param_menu1"]; ?>
     <small></small>
   </h1>
 
@@ -66,49 +66,49 @@ $info2 = $_SESSION['username'];
             <tr>
               <td align="right">Type User </td>
               <td>
-                <?php echo $info1 ?>
+                <?= $info1 ?>
               </td>
             </tr>
             <tr>
               <td align="right">Username </td>
               <td>
-                <b><?php echo $_SESSION['username'] ?></b>
+                <b><?= $_SESSION['username'] ?></b>
               </td>
             </tr>
             <tr>
               <td align="right">Email </td>
               <td>
-                <b><?php echo $_SESSION['email'] ?></b>
+                <b><?= $_SESSION['email'] ?></b>
               </td>
             </tr>
             <tr>
               <td align="right">Supplier Group</td>
               <td>
-                <b><?php echo $_SESSION['supplier_group'] ?></b>
+                <b><?= $_SESSION['supplier_group'] ?></b>
               </td>
             </tr>
             <tr>
               <td align="right">Supplier Name</td>
               <td>
-                <b><?php echo $_SESSION['supplier_name'] ?></b>
+                <b><?= $_SESSION['supplier_name'] ?></b>
               </td>
             </tr>
             <tr>
               <td align="right">Full Name PIC</td>
               <td>
-                <b><?php echo $_SESSION['fullname'] ?></b>
+                <b><?= $_SESSION['fullname'] ?></b>
               </td>
             </tr>
             <tr>
               <td align="right">Handphone</td>
               <td>
-                <b><?php echo $_SESSION['hp'] ?></b>
+                <b><?= $_SESSION['hp'] ?></b>
               </td>
             </tr>
             <tr>
               <td align="right">Last login</td>
               <td>
-                <b><?php echo $_SESSION['last_login'] ?></b>
+                <b><?= $_SESSION['last_login'] ?></b>
               </td>
             </tr>
           </table>
@@ -132,13 +132,13 @@ $info2 = $_SESSION['username'];
               <tr>
                 <td align="right">Type User :</td>
                 <td>
-                  <?php echo $info1 ?>
+                  <?= $info1 ?>
                 </td>
               </tr>
               <tr>
                 <td align="right">Username :</td>
                 <td>
-                  <b><?php echo $_SESSION['username'] ?></b>
+                  <b><?= $_SESSION['username'] ?></b>
                 </td>
               </tr>
 
@@ -179,9 +179,8 @@ $info2 = $_SESSION['username'];
 </section><!-- /.content -->
 
 <script>
-  $("#my_form").submit(function(event) {
+  $("#my_form").submit(function (event) {
     if (confirm('Apakah benar Password mau diubah...?')) {
-      //$('#loading').modal('show');
       event.preventDefault(); //prevent default action 
       var post_url = $(this).attr("action"); //get form action url
       var request_method = $(this).attr("method"); //get form GET/POST method
@@ -193,13 +192,10 @@ $info2 = $_SESSION['username'];
         contentType: false,
         cache: false,
         processData: false
-      }).done(function(response) { //
-        //$("#server-results").html(response);
+      }).done(function (response) { //
         alert(response);
         if (response == 'success') {
           alert('Password sudah Berubah ');
-
-          //$(".close").click()
           cobayy('PROFILE', '000001', '');
         } else {
           alert('Gagal Ubah Password');

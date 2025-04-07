@@ -28,7 +28,7 @@ $rs = $db->Execute($sql);
 <!-- Content Header (Page header) -->
         <!-- <section class="content-header">
           <font size="10">
-           <b> <?php echo $_REQUEST["param_menu1"];?></b>
+           <b> <?= $_REQUEST["param_menu1"];?></b>
           </font>
           <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -43,7 +43,7 @@ $rs = $db->Execute($sql);
           <div class="box box-solid" id="isicontent1" style="padding:0px;" > <!--style="overflow-y:auto;padding:0px;"-->
             <!----> <div class="box-header with-border">
               <font size="3">
-           <b> <?php echo $_REQUEST["param_menu1"];?></b>
+           <b> <?= $_REQUEST["param_menu1"];?></b>
           </font>          
             </div> 
             <div class="box-body table-responsive" style="padding:2px;">
@@ -69,16 +69,16 @@ $rs = $db->Execute($sql);
 <?php if ($rs) 
 while ($arr = $rs->FetchRow()) { ?>
       <tr valign="top">
-        <td ><?php echo $arr['debit_note_no'];?></td>      
-        <td ><?php echo $arr['supplier_code'];?></td>
-        <td ><?php echo $arr['supplier_name'];?></td>
-        <td ><?php echo $arr['document_date'];?></td>
-        <td ><?php echo $arr['due_date'];?></td>
-        <td ><?php echo number_format($arr['total_amount']);?></td>
-        <td ><?php echo $arr['tax_reg_no'];?></td>
-        <td ><?php echo $arr['faktur_pajak_no'];?></td>
-        <td ><?php echo $arr['tax_id'];?></td>
-        <td ><?php echo $arr['address'];?></td>  
+        <td ><?= $arr['debit_note_no'];?></td>      
+        <td ><?= $arr['supplier_code'];?></td>
+        <td ><?= $arr['supplier_name'];?></td>
+        <td ><?= $arr['document_date'];?></td>
+        <td ><?= $arr['due_date'];?></td>
+        <td ><?= number_format($arr['total_amount']);?></td>
+        <td ><?= $arr['tax_reg_no'];?></td>
+        <td ><?= $arr['faktur_pajak_no'];?></td>
+        <td ><?= $arr['tax_id'];?></td>
+        <td ><?= $arr['address'];?></td>  
       </tr>
 <?php } ?>
 </TBODY>
