@@ -2,7 +2,7 @@
 include_once('inc_condition2.php');
 
 if ($_POST['par'] == 'tabcontent3') {
-	$sql_400402_02 = "SELECT * FROM sap_paid where  payment_date is not null and company_code='EC01' " . $sql_400401_01;
+	$sql_400402_02 = "SELECT sap_paid.*, s.name as store_name FROM sap_paid LEFT JOIN store s ON s.code = sap_paid.store_code where invoice_no is not null AND invoice_no <> '' AND payment_date is not null and company_code='EC01' " . $sql_400401_01;
 	$rs = $db->Execute($sql_400402_02);
 }
 
@@ -17,6 +17,7 @@ if ($_POST['par'] == 'tabcontent3') {
 				<td align="center"><b>INV NO</b></td>
 				<td align="center"><b>PAYMENT NO</b></td>
 				<td align="center"><b>STORE</b></td>
+				<td align="center"><b>STORE NAME</b></td>
 				<td align="center"><b>SUPPLIER CODE</b></td>
 				<td align="center"><b>SUPPLIER NAME</b></td>
 				<td align="center"><b>INVOICE DATE</b></td>
@@ -35,6 +36,7 @@ if ($_POST['par'] == 'tabcontent3') {
 						<td><?= $arr['invoice_no']; ?></td>
 						<td align="center"><?= $arr['accounting_no']; ?></td>
 						<td><?= $arr['store_code']; ?></td>
+						<td><?= $arr['store_name']; ?></td>
 						<td><?= $arr['supplier_code']; ?></td>
 						<td><?= $arr['supplier_name']; ?></td>
 						<td align="center"><?= $arr['posting_date']; ?></td>
@@ -53,11 +55,12 @@ if ($_POST['par'] == 'tabcontent3') {
 		<div class="modal-content">
 			<div class="modal-body" align="center">
 				<img src="_images/ajax-loader.gif">
+				Loading...
 			</div>
 		</div>
 	</div>
 </div>
 
 <script type="text/javascript">
-	$('#tbl03').dataTable();
+	$('#tbl03').DataTable();
 </script>

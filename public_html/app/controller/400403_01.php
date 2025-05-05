@@ -12,8 +12,8 @@ $rs = $db->Execute($sql_400402_02);
 		<tr valign="top">
 			<td align="center"><b>PO NO</b></td>
 			<td align="center"><b>GRN NO</b></td>
-
 			<td align="center"><b>STORE</b></td>
+			<td align="center"><b>STORE NAME</b></td>
 			<td align="center"><b>SUPPLIER CODE</b></td>
 			<td align="center"><b>SUPPLIER NAME</b></td>
 			<td align="center"><b>DEPARTMENT</b></td>
@@ -31,6 +31,7 @@ $rs = $db->Execute($sql_400402_02);
 					<td><?= $arr['purchase_order_no']; ?></td>
 					<td><?= $arr['goods_receive_no']; ?></td>
 					<td><?= $arr['store_code']; ?></td>
+					<td><?= $arr['store_name']; ?></td>
 					<td><?= $arr['supplier_code']; ?></td>
 					<td><?= $arr['supplier_name']; ?></td>
 					<td><?= $arr['department']; ?></td>

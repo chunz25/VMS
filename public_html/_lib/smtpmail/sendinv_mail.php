@@ -41,6 +41,7 @@ $mail->Password = $password;
 $mail->SMTPSecure = 'SSL';
 $mail->Port = 25;
 $mail->setFrom($username, 'VMSMail');
+$mail->addBCC($username);
 $userto = "
         SELECT * FROM email WHERE tb_id_user_type IN (3)
             ";
@@ -69,4 +70,3 @@ $mail->Body = '
                     <p> Mohon untuk segera di proses.</p>
                     <p><a href="' . $base_url . '">Vendor Management System</a></p>';
 $mail->send();
-// echo 'success';

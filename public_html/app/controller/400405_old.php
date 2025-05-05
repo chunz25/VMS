@@ -12,7 +12,7 @@ $tab_content_file = array("400405_01", "400405_02", "400405_03");
 
 $bg_arr = array("bg-red", "bg-green", "bg-yellow", "bg-blue", "bg-aqua", "bg-purple");
 $yesterday_str = date('l,d F Y', mktime(0, 0, 0, date("m"), date("d") - 1, date("Y")));
-// var_dump($_GET['main_id']);
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	$input = file_get_contents('php://input');
 	$data = json_decode($input, true);
@@ -22,45 +22,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	}
 }
 ?>
-<style>
-	#custom-progress-container {
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 3px;
-		z-index: 9999;
-		background-color: #f3f3f3;
-		display: none;
-	}
-
-	#custom-progress-bar {
-		height: 100%;
-		width: 0%;
-		background-color: #337ab7;
-		animation: progress-animation 2s infinite ease-in-out;
-	}
-
-	@keyframes progress-animation {
-		0% {
-			width: 0%;
-		}
-
-		50% {
-			width: 70%;
-		}
-
-		100% {
-			width: 100%;
-		}
-	}
-</style>
-
-
-<div id="custom-progress-container">
-	<div id="custom-progress-bar"></div>
-</div>
-
 <!-- Content Header (Page header) -->
 <section class="content" style="padding:3px;">
 	<div class="box box-solid" id="isicontentovl" style="padding:0px;">
@@ -117,70 +78,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </div>
 
 <script>
-	// Progress bar functions
-	const progressBar = {
-		show: function () {
-			document.getElementById('custom-progress-container').style.display = 'block';
-		},
-		hide: function () {
-			document.getElementById('custom-progress-container').style.display = 'none';
-		}
-	};
-
-	// Modify the existing loadTabContent function in 400405.php
 	function loadTabContent(par) {
 		const element = document.getElementById(par);
 		element.classList.add('active');
 
 		const hasActiveClass = element.classList.contains('active');
 		if (hasActiveClass) {
-			// Show the progress bar
-			progressBar.show();
+			// $('#loading').modal('show');
 
 			$(".content-wrapper").load("index.php?param_menu1=Receipt+Supplier&main_id=400405", {
 				main: "040",
 				main_act: "010",
 				par: par
 			}, function () {
-				// Hide the progress bar when content is loaded
-				progressBar.hide();
+				// $('#loading').modal('hide');
 			});
 		}
 	}
 
-	// Override the DataTables initialization to show progress bar
-	$(document).ready(function () {
-		// Store the original DataTable function
-		const originalDataTable = $.fn.dataTable;
-
-		// Override the DataTable function
-		$.fn.dataTable = function (options) {
-			progressBar.show();
-
-			// Call original DataTable function with a new callback
-			const result = originalDataTable.apply(this, arguments);
-
-			// Hide progress bar when table is ready
-			$(this).on('init.dt', function () {
-				progressBar.hide();
-			});
-
-			return result;
-		};
-
-		// Add progress bar for filter button actions
-		$('#filterBtn').on('click', function () {
-			// Show progress bar before form validation
-			progressBar.show();
-		});
-
-		// Intercept all AJAX requests to show/hide progress bar
-		$(document).ajaxStart(function () {
-			progressBar.show();
-		});
-
-		$(document).ajaxStop(function () {
-			progressBar.hide();
-		});
-	});
 </script>

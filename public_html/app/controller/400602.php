@@ -5,7 +5,42 @@ $sql = "SELECT * FROM debit_note WHERE 1=1 " . $sql_400401_01;
 $rs = $db->Execute($sql);
 
 ?>
+<style>
+	#custom-progress-container {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 3px;
+		z-index: 9999;
+		background-color: #f3f3f3;
+		display: none;
+	}
 
+	#custom-progress-bar {
+		height: 100%;
+		width: 0%;
+		background-color: #337ab7;
+		animation: progress-animation 2s infinite ease-in-out;
+	}
+
+	@keyframes progress-animation {
+		0% {
+			width: 0%;
+		}
+
+		50% {
+			width: 70%;
+		}
+
+		100% {
+			width: 100%;
+		}
+	}
+</style>
+<div id="custom-progress-container">
+	<div id="custom-progress-bar"></div>
+</div>
 <!-- Main content -->
 <section class="content" style="padding:3px;">
   <!-- Default box -->

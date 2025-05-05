@@ -1,7 +1,7 @@
 <?php
 include_once($_MAIN__CONFIGS_000[4] . 'inc_condition.php');
 
-$sql_400401_02 = "SELECT * FROM purchase_order_all_status_v where ( status_po in ('14','99') ) " . $sql_400401_01;
+$sql_400401_02 = "SELECT * FROM purchase_order_all_status_v where ( status_po in ('14','99','15') ) " . $sql_400401_01;
 $rs = $db->Execute($sql_400401_02);
 ?>
 <TABLE id="tbl01" class="table table-striped table-bordered" style="padding:0px;">
@@ -9,6 +9,7 @@ $rs = $db->Execute($sql_400401_02);
 		<tr valign="top">
 			<td align="center"><b>PO NO</b></td>
 			<td align="center"><b>STORE</b></td>
+			<td align="center"><b>STORE NAME</b></td>
 			<td align="center"><b>DEPARTMENT</b></td>
 			<td align="center"><b>SUPPLIER <br> CODE</b></td>
 			<td align="center"><b>SUPPLIER <br> NAME</b></td>
@@ -42,6 +43,9 @@ $rs = $db->Execute($sql_400401_02);
 					case '14':
 						$status_po = "Delivered";
 						break;
+					case '15':
+						$status_po = "Expired";
+						break;
 					default:
 						$status_po = "Delivered";
 						break;
@@ -50,6 +54,7 @@ $rs = $db->Execute($sql_400401_02);
 				<tr valign="top">
 					<td align="center"><?= $arr['purchase_order_no']; ?></td>
 					<td><?= $arr['store_code']; ?></td>
+					<td><?= $arr['store_name']; ?></td>
 					<td><?= $arr['department']; ?></td>
 					<td align="center"><?= $arr['supplier_code']; ?></td>
 					<td align="center"><?= $arr['supplier_name']; ?></td>

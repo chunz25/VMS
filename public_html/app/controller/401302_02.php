@@ -8,6 +8,7 @@ $rs = $db->Execute($sql_400401_02);
 		<tr valign="top">
 			<td align="center"><b>PO NO</b></td>
 			<td align="center"><b>STORE</b></td>
+			<td align="center"><b>STORE NAME</b></td>
 			<td align="center"><b>SUPPLIER <br> CODE</b></td>
 			<td align="center"><b>DOC DATE</b></td>
 			<td align="center"><b>DELIVERY <br> DATE</b></td>
@@ -24,6 +25,7 @@ $rs = $db->Execute($sql_400401_02);
 				<tr valign="top">
 					<td align="center"><?= $arr['purchase_order_no']; ?></td>
 					<td><?= $arr['store_code']; ?></td>
+					<td><?= $arr['store_name']; ?></td>
 					<td align="center"><?= $arr['supplier_code']; ?></td>
 					<td align="center"><?= $arr['document_date']; ?></td>
 					<td align="center"><?= $arr['delivery_date']; ?></td>

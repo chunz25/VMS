@@ -1,4 +1,5 @@
 <?php
+$sql_400401_01 = " ";
 $dept = $_SESSION['lock1'] . $_SESSION['lock2'] . $_SESSION['lock3'];
 switch ($_SESSION['tb_id_user_type']) {
         case 1:

@@ -11,6 +11,42 @@ $style_tab = "background-color:#ccddee";
 $tab_content_file = array("400403_01", "400403_02", "400403_03"); //,"400403_03"S
 
 ?>
+<style>
+	#custom-progress-container {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 3px;
+		z-index: 9999;
+		background-color: #f3f3f3;
+		display: none;
+	}
+
+	#custom-progress-bar {
+		height: 100%;
+		width: 0%;
+		background-color: #337ab7;
+		animation: progress-animation 2s infinite ease-in-out;
+	}
+
+	@keyframes progress-animation {
+		0% {
+			width: 0%;
+		}
+
+		50% {
+			width: 70%;
+		}
+
+		100% {
+			width: 100%;
+		}
+	}
+</style>
+<div id="custom-progress-container">
+	<div id="custom-progress-bar"></div>
+</div>
 <!-- Content Header (Page header) -->
 <section class="content" style="padding:3px;">
 	<div class="box box-solid" id="isicontentovl" style="padding:0px;"> <!--style="overflow-y:auto;padding:0px;"-->

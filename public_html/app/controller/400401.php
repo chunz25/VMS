@@ -12,6 +12,42 @@ $tab_content_file = array("400401_01", "400401_02");
 $bg_arr = array("bg-red", "bg-green", "bg-yellow", "bg-blue", "bg-aqua", "bg-purple");
 $yesterday_str = date('l,d F Y', mktime(0, 0, 0, date("m"), date("d") - 1, date("Y")));
 ?>
+<style>
+	#custom-progress-container {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 3px;
+		z-index: 9999;
+		background-color: #f3f3f3;
+		display: none;
+	}
+
+	#custom-progress-bar {
+		height: 100%;
+		width: 0%;
+		background-color: #337ab7;
+		animation: progress-animation 2s infinite ease-in-out;
+	}
+
+	@keyframes progress-animation {
+		0% {
+			width: 0%;
+		}
+
+		50% {
+			width: 70%;
+		}
+
+		100% {
+			width: 100%;
+		}
+	}
+</style>
+<div id="custom-progress-container">
+	<div id="custom-progress-bar"></div>
+</div>
 <!-- Content Header (Page header) -->
 <section class="content" style="padding:3px;">
 	<div class="box box-solid" id="isicontentovl" style="padding:0px;"> <!--style="overflow-y:auto;padding:0px;"-->

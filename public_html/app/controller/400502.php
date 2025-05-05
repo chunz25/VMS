@@ -4,6 +4,42 @@ include_once('inc_condition.php');
 $sql_400502_02 = "SELECT * FROM goods_return_1_v where cek_null_z is null and  year(document_date)>2018 and isIntegrated=1 and ( version = '2' )" . $sql_400401_01;
 $rs = $db->Execute($sql_400502_02);
 ?>
+<style>
+	#custom-progress-container {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 3px;
+		z-index: 9999;
+		background-color: #f3f3f3;
+		display: none;
+	}
+
+	#custom-progress-bar {
+		height: 100%;
+		width: 0%;
+		background-color: #337ab7;
+		animation: progress-animation 2s infinite ease-in-out;
+	}
+
+	@keyframes progress-animation {
+		0% {
+			width: 0%;
+		}
+
+		50% {
+			width: 70%;
+		}
+
+		100% {
+			width: 100%;
+		}
+	}
+</style>
+<div id="custom-progress-container">
+	<div id="custom-progress-bar"></div>
+</div>
 
 <!-- Content Header (Page header) -->
 <!-- <section class="content-header"> -->

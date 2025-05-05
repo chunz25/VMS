@@ -12,6 +12,42 @@ $tab_content_file = array("401302_01", "401302_02");
 $bg_arr = array("bg-red", "bg-green", "bg-yellow", "bg-blue", "bg-aqua", "bg-purple");
 $yesterday_str = date('l,d F Y', mktime(0, 0, 0, date("m"), date("d") - 1, date("Y")));
 ?>
+<style>
+	#custom-progress-container {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 3px;
+		z-index: 9999;
+		background-color: #f3f3f3;
+		display: none;
+	}
+
+	#custom-progress-bar {
+		height: 100%;
+		width: 0%;
+		background-color: #337ab7;
+		animation: progress-animation 2s infinite ease-in-out;
+	}
+
+	@keyframes progress-animation {
+		0% {
+			width: 0%;
+		}
+
+		50% {
+			width: 70%;
+		}
+
+		100% {
+			width: 100%;
+		}
+	}
+</style>
+<div id="custom-progress-container">
+	<div id="custom-progress-bar"></div>
+</div>
 <!-- Content Header (Page header) -->
 <section class="content" style="padding:3px;">
 	<div class="box box-solid" id="isicontentovl" style="padding:0px;"> <!--style="overflow-y:auto;padding:0px;"-->
@@ -29,7 +65,7 @@ $yesterday_str = date('l,d F Y', mktime(0, 0, 0, date("m"), date("d") - 1, date(
 						<li class="<?= $tab_class ?>" style="<?= $style_tab; ?>"><a
 								href="#<?= $tab_ahref[$tab_title_index]; ?>"
 								data-toggle="tab"><?= $tab_title_content; ?></a></li>
-					<?php
+						<?php
 					}
 					?>
 				</ul>
@@ -43,7 +79,7 @@ $yesterday_str = date('l,d F Y', mktime(0, 0, 0, date("m"), date("d") - 1, date(
 					<div class="<?= $tab_class2 ?>" id="<?= $tab_ahref_content ?>">
 						<?php include $tab_content_file[$tab_ahref_index] . ".php"; ?>
 					</div>
-				<?php
+					<?php
 				}
 				?>
 			</div>

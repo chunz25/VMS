@@ -28,7 +28,7 @@ $tab_content_file = array("400404_01");
 						<li class="<?= $tab_class ?>" style="<?= $style_tab; ?>"><a
 								href="#<?= $tab_ahref[$tab_title_index]; ?>"
 								data-toggle="tab"><?= $tab_title_content; ?></a></li>
-					<?php
+						<?php
 					}
 					?>
 				</ul>
@@ -42,7 +42,7 @@ $tab_content_file = array("400404_01");
 					<div class="<?= $tab_class2 ?>" id="<?= $tab_ahref_content ?>">
 						<?php include $tab_content_file[$tab_ahref_index] . ".php"; ?>
 					</div>
-				<?php
+					<?php
 				}
 				?>
 			</div>

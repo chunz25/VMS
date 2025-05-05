@@ -1,7 +1,9 @@
 <?php
 include_once('inc_condition2.php');
 if ($_POST['par'] == 'tabcontent2') {
-	$sql_rtp = "SELECT * FROM sap_ready_to_pay where  company_code='EC01' " . $sql_400401_01;
+	$sql_rtp = "SELECT a.*, s.name as store_name FROM sap_ready_to_pay a
+				LEFT JOIN store s ON s.code = a.store_code 
+				where invoice_no is not null AND invoice_no <> '' AND company_code='EC01' " . $sql_400401_01;
 	$rs = $db->Execute($sql_rtp);
 }
 ?>
@@ -14,6 +16,7 @@ if ($_POST['par'] == 'tabcontent2') {
 				<td align="center"><b>GRN NO</b></td>
 				<td align="center"><b>INV NO</b></td>
 				<td align="center"><b>STORE</b></td>
+				<td align="center"><b>STORE NAME</b></td>
 				<td align="center"><b>SUPPLIER_CODE</b></td>
 				<td align="center"><b>SUPPLIER_NAME</b></td>
 				<td align="center"><b>INVOICE_DATE</b></td>
@@ -30,6 +33,7 @@ if ($_POST['par'] == 'tabcontent2') {
 						<td><?= $arr['goods_receive_no']; ?></td>
 						<td><?= $arr['invoice_no']; ?></td>
 						<td><?= $arr['store_code']; ?></td>
+						<td><?= $arr['store_name']; ?></td>
 						<td><?= $arr['supplier_code']; ?></td>
 						<td><?= $arr['supplier_name']; ?></td>
 						<td align="center"><?= $arr['posting_date']; ?></td>

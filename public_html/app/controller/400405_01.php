@@ -119,6 +119,7 @@ if (isset($_POST['date_from']) || isset($_SESSION['param_rs'])) {
 				<td align="center"><b>PO NO</b></td>
 				<td align="center"><b>INV SUPP NO</b></td>
 				<td align="center"><b>STORE</b></td>
+				<td align="center"><b>STORE NAME</b></td>
 				<td align="center"><b>SUPPLIER CODE</b></td>
 				<td align="center"><b>SUPPLIER NAME</b></td>
 				<td align="center"><b>AMOUNT</b></td>
@@ -145,6 +146,7 @@ if (isset($_POST['date_from']) || isset($_SESSION['param_rs'])) {
 						<td><?= $arr['purchase_order_no']; ?></td>
 						<td><?= $arr['no_invoice_supplier']; ?></td>
 						<td><?= $arr['store_code']; ?></td>
+						<td><?= $arr['store_name']; ?></td>
 						<td><?= $arr['supplier_code']; ?></td>
 						<td><?= $arr['supplier_name']; ?></td>
 						<td align="right"><?= number_format($arr['total_amount'], 2); ?></td>

@@ -1,11 +1,9 @@
 <?php
 include_once('inc_condition.php');
 
-$sql_400401_02 = "SELECT a.*,b.reason FROM purchase_order a
-LEFT JOIN
-purchase_order_req_cancel b
-ON
-a.purchase_order_no=b.purchase_order_no
+$sql_400401_02 = "SELECT a.*,b.reason, s.name as store_name FROM purchase_order a
+LEFT JOIN purchase_order_req_cancel b ON a.purchase_order_no = b.purchase_order_no
+LEFT JOIN store s ON s.code = a.store_code
 WHERE a.status_po='13' " . $sql_400401_01;
 $rs = $db->Execute($sql_400401_02);
 ?>
@@ -14,6 +12,7 @@ $rs = $db->Execute($sql_400401_02);
 		<tr valign="top">
 			<td align="center"><b>PO NO</b></td>
 			<td align="center"><b>STORE</b></td>
+			<td align="center"><b>STORE NAME</b></td>
 			<td align="center"><b>DEPARTMENT</b></td>
 			<td align="center"><b>SUPPLIER <br> CODE</b></td>
 			<td align="center"><b>SUPPLIER <br> NAME</b></td>
@@ -34,6 +33,7 @@ $rs = $db->Execute($sql_400401_02);
 				<tr valign="top">
 					<td align="center"><?= $arr['purchase_order_no']; ?></td>
 					<td><?= $arr['store_code']; ?></td>
+					<td><?= $arr['store_name']; ?></td>
 					<td><?= $arr['department']; ?></td>
 					<td align="center"><?= $arr['supplier_code']; ?></td>
 					<td align=""><?= $arr['supplier_name']; ?></td>

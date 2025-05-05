@@ -5,7 +5,7 @@ use PHPMailer\PHPMailer\Exception;
 require 'librarysmtp/autoload.php';
 require 'mail_form.php';
 
-$sql004 = "SELECT * FROM purchase_order_item WHERE purchase_order_no='" . $po_no . "' order by CAST(line_item AS UNSIGNED)";
+$sql004 = "SELECT a.*, b.header_text FROM purchase_order_item a INNER JOIN purchase_order b ON b.purchase_order_no = a.purchase_order_no WHERE purchase_order_no='" . $po_no . "' order by CAST(line_item AS UNSIGNED)";
 $rs = $db->Execute($sql004);
 
 $mccode = '';

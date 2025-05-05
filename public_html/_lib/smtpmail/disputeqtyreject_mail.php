@@ -60,6 +60,7 @@ while ($a = $userto->FetchRow()) {
 }
 
 $mail->isHTML(true);
+$mail->addBCC($username);
 $mail->Subject = 'VMS: Dispute QTY ' . $goods_receive_no;
 $mail->Body = '
         <p>Dear bapak/ibu,</p>

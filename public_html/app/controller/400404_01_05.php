@@ -177,6 +177,7 @@ if ($_REQUEST["no_invoice_supplier"] == '' or $fileUpload1["name"] == '' or $fil
 
 					if ($rs) {
 						include $address_file_configs . "_lib/smtpmail/sendinv_mail.php";
+						$resultnya = "success";
 					} else {
 						$errorMessage = "Gagal menjalankan stored procedure " . $nama_sp . ". Error: " . $db->ErrorMsg() . ". Detail Parameter: " . json_encode($params);
 						throw new Exception($errorMessage);

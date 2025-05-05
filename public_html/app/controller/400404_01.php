@@ -52,3 +52,6 @@ $rs = $db->Execute($sql_400402_02);
 		</div>
 	</div>
 </div>
+<script type="text/javascript">
+	$('#tbl01').dataTable();
+</script>
